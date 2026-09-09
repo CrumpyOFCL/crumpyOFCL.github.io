@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en" data-era="present">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your Name — game developer</title>
+<meta name="description" content="Game developer working in Unity. Systems, tools and puzzle design.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Public+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+<style>
+  /* Three eras of the same room. Only colour, weight and texture change -
+     the layout holds still, so the switch reads as time passing. */
+  html[data-era="past"] {
+    --bg:        #E4D8BC;
+    --bg-inset:  #DCCFAD;
+    --rule:      #C0AE86;
+    --ink:       #2B2318;
+    --ink-soft:  #6B5C42;
+    --accent:    #8A5A1E;
+    --grain:     0.05;
+    --era-label: "1743";
+  }
+  html[data-era="present"] {
+    --bg:        #E9EAEC;
+    --bg-inset:  #DFE1E5;
+    --rule:      #C2C6CC;
+    --ink:       #1A1D22;
+    --ink-soft:  #5A616B;
+    --accent:    #1F5C8C;
+    --grain:     0.02;
+    --era-label: "Today";
+  }
+  html[data-era="future"] {
+    --bg:        #14181A;
+    --bg-inset:  #1B2124;
+    --rule:      #2E3A3E;
+    --ink:       #DFE9E7;
+    --ink-soft:  #8FA3A1;
+    --accent:    #5FC2A8;
+    --grain:     0.06;
+    --era-label: "2311";
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 400 17px/1.7 "Public Sans", system-ui, sans-serif;
+    transition: background 600ms ease, color 600ms ease;
+  }
+
+  /* Grain sits over everything and thickens with age. */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: var(--grain);
+    transition: opacity 600ms ease;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 28px;
+    display: grid;
+    grid-template-columns: 232px 1fr;
+    gap: 64px;
+  }
+
+  /* ---------------------------------------------------------------- rail */
+
+  .rail {
+    position: sticky;
+    top: 0;
+    align-self: start;
+    height: 100vh;
+    padding: 56px 0 40px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .name {
+    font-family: "Bricolage Grotesque", system-ui, sans-serif;
+    font-weight: 800;
+    font-size: 27px;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    margin: 0 0 4px;
+  }
+
+  .role {
+    color: var(--ink-soft);
+    font-size: 15px;
+    margin: 0 0 34px;
+  }
+
+  nav a {
+    display: block;
+    color: var(--ink-soft);
+    text-decoration: none;
+    font-size: 15px;
+    padding: 5px 0;
+    border-bottom: 1px solid transparent;
+    width: fit-content;
+  }
+
+  nav a:hover,
+  nav a:focus-visible { color: var(--ink); border-bottom-color: var(--accent); }
+
+  .rail-foot { margin-top: auto; }
+
+  /* The era switch. The one interactive idea on the page, so it gets the
+     weight: a dial you turn, labelled with the year you land in. */
+  .switch-label {
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin-bottom: 10px;
+  }
+
+  .switch {
+    display: flex;
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    overflow: hidden;
+    width: fit-content;
+  }
+
+  .switch button {
+    appearance: none;
+    background: transparent;
+    border: 0;
+    border-right: 1px solid var(--rule);
+    color: var(--ink-soft);
+    font: inherit;
+    font-size: 14px;
+    padding: 7px 13px;
+    cursor: pointer;
+    transition: background 250ms ease, color 250ms ease;
+  }
+
+  .switch button:last-child { border-right: 0; }
+  .switch button:hover { color: var(--ink); }
+
+  .switch button[aria-pressed="true"] {
+    background: var(--accent);
+    color: var(--bg);
+  }
+
+  .switch button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: -2px;
+  }
+
+  .year {
+    margin-top: 12px;
+    font-family: "Bricolage Grotesque", system-ui, sans-serif;
+    font-size: 34px;
+    font-weight: 400;
+    color: var(--ink-soft);
+    letter-spacing: -0.02em;
+  }
+
+  .year::after { content: var(--era-label); }
+
+  /* ---------------------------------------------------------------- main */
+
+  main { padding: 56px 0 120px; max-width: 66ch; }
+
+  .lede {
+    font-family: "Bricolage Grotesque", system-ui, sans-serif;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 1.32;
+    letter-spacing: -0.02em;
+    margin: 0 0 22px;
+  }
+
+  .lede em { font-style: italic; color: var(--accent); }
+
+  .intro p { color: var(--ink-soft); margin: 0 0 14px; }
+
+  section { margin-top: 78px; }
+
+  h2 {
+    font-family: "Bricolage Grotesque", system-ui, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0 0 26px;
+    padding-bottom: 9px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .project { margin-bottom: 54px; }
+
+  .project h3 {
+    font-family: "Bricolage Grotesque", system-ui, sans-serif;
+    font-size: 25px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin: 0 0 3px;
+  }
+
+  .meta { color: var(--ink-soft); font-size: 14px; margin: 0 0 14px; }
+
+  .project p { margin: 0 0 14px; }
+
+  .shot {
+    aspect-ratio: 16 / 9;
+    background: var(--bg-inset);
+    border: 1px solid var(--rule);
+    display: grid;
+    place-items: center;
+    color: var(--ink-soft);
+    font-size: 13px;
+    margin-bottom: 18px;
+    transition: background 600ms ease, border-color 600ms ease;
+  }
+
+  .built { margin: 0 0 14px; padding-left: 20px; }
+  .built li { margin-bottom: 7px; }
+
+  .links a {
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 1px;
+    margin-right: 18px;
+    font-size: 15px;
+  }
+
+  .links a:hover { color: var(--accent); }
+
+  .skills {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 4px 24px;
+    font-size: 16px;
+  }
+
+  .skills dt { color: var(--ink-soft); }
+  .skills dd { margin: 0 0 10px; }
+
+  footer {
+    margin-top: 82px;
+    padding-top: 22px;
+    border-top: 1px solid var(--rule);
+    color: var(--ink-soft);
+    font-size: 15px;
+  }
+
+  footer a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--accent); }
+
+  @media (max-width: 820px) {
+    .wrap { grid-template-columns: 1fr; gap: 0; }
+    .rail { position: static; height: auto; padding: 44px 0 0; }
+    .rail nav { display: none; }
+    .rail-foot { margin-top: 30px; }
+    main { padding-top: 40px; }
+    .lede { font-size: 25px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+
+<body>
+<div class="wrap">
+
+  <aside class="rail">
+    <p class="name">Your Name</p>
+    <p class="role">Game developer — Unity, systems and tools</p>
+
+    <nav>
+      <a href="#work">Work</a>
+      <a href="#skills">What I do</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="rail-foot">
+      <p class="switch-label">Read this page in</p>
+      <div class="switch" role="group" aria-label="Choose an era">
+        <button type="button" data-set="past" aria-pressed="false">Past</button>
+        <button type="button" data-set="present" aria-pressed="true">Present</button>
+        <button type="button" data-set="future" aria-pressed="false">Future</button>
+      </div>
+      <p class="year" aria-hidden="true"></p>
+    </div>
+  </aside>
+
+  <main>
+    <div class="intro">
+      <p class="lede">
+        I build the parts of games that have to keep working when everything else
+        changes — <em>and I like it when everything changes</em>.
+      </p>
+      <p>
+        Most of my work sits under the surface: the systems that hold a level
+        together, and the editor tools that let a designer build twenty rooms
+        instead of two. I work in Unity and C#, with FMOD for audio.
+      </p>
+      <p>
+        This page has three states. So does the game below it.
+      </p>
+    </div>
+
+    <section id="work">
+      <h2>Work</h2>
+
+      <article class="project">
+        <h3>A Course In Time</h3>
+        <p class="meta">Unity 6 · C# · FMOD · in development</p>
+
+        <div class="shot">Screenshot — the same room in three eras</div>
+
+        <p>
+          A 2D puzzle-platformer set in one building across three centuries. A
+          staff moves the player between Past, Present and Future; the building
+          changes around them, and nothing they're carrying does. Crates pushed
+          in the Past are already in place three hundred years later, and a floor
+          that holds today is gone tomorrow.
+        </p>
+
+        <p>I designed and built:</p>
+        <ul class="built">
+          <li>The era system — collision layers, object state and physics swapping in step, with a crush check so time closing around the player is a death rather than a glitch.</li>
+          <li>Procedural puzzle generators with Scene-view grid painting: pipe networks with a connectivity solver, and elemental puzzles that pick their own elements by counting how many valid solutions each set allows.</li>
+          <li>A save system built around an objective ledger, so a reloaded world remembers which doors are open and which puzzles are done.</li>
+          <li>An in-build debug console for playtesters — noclip, ability grants, scene jumps and objective control without an editor.</li>
+        </ul>
+
+        <p class="links">
+          <a href="#">Play the demo</a>
+          <a href="#">Source</a>
+          <a href="#">Devlog</a>
+        </p>
+      </article>
+
+      <article class="project">
+        <h3>Second project</h3>
+        <p class="meta">Engine · role · year</p>
+        <div class="shot">Screenshot</div>
+        <p>
+          Two or three sentences on what it is and what problem you solved. Lead
+          with the thing that was hard, not the feature list.
+        </p>
+        <p class="links"><a href="#">Source</a></p>
+      </article>
+    </section>
+
+    <section id="skills">
+      <h2>What I do</h2>
+      <dl class="skills">
+        <dt>Engines</dt>
+        <dd>Unity 6, C#</dd>
+
+        <dt>Systems</dt>
+        <dd>Gameplay architecture, save and state, procedural generation, physics</dd>
+
+        <dt>Tools</dt>
+        <dd>Custom inspectors, editor windows, Scene-view authoring tools</dd>
+
+        <dt>Audio</dt>
+        <dd>FMOD Studio — event design, parameters, runtime implementation</dd>
+
+        <dt>Also</dt>
+        <dd>Git, Cinemachine, the New Input System, controller support</dd>
+      </dl>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>
+        Open to junior gameplay and tools roles, and happy to talk about
+        anything on this page.
+      </p>
+      <p class="links">
+        <a href="mailto:you@example.com">you@example.com</a>
+        <a href="https://github.com/yourusername">GitHub</a>
+        <a href="https://yourusername.itch.io">itch.io</a>
+      </p>
+    </section>
+
+    <footer>
+      <p>
+        Built by hand. Source on
+        <a href="https://github.com/yourusername/yourusername.github.io">GitHub</a>.
+      </p>
+    </footer>
+  </main>
+
+</div>
+
+<script>
+  // The era switch. Remembered between visits, because being dropped back into
+  // the Present every time would undercut the point.
+  const root = document.documentElement;
+  const buttons = document.querySelectorAll('.switch button');
+
+  function setEra(era) {
+    root.dataset.era = era;
+    buttons.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.set === era)));
+    try { localStorage.setItem('era', era); } catch (e) { /* private browsing */ }
+  }
+
+  buttons.forEach(b => b.addEventListener('click', () => setEra(b.dataset.set)));
+
+  try {
+    const saved = localStorage.getItem('era');
+    if (saved) setEra(saved);
+  } catch (e) { /* ignore */ }
+</script>
+</body>
+</html>
