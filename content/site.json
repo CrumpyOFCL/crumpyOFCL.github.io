@@ -211,15 +211,15 @@
         "level": "stated"
       },
       {
-        "skill": "Hand animation and moveset design",
+        "skill": "Fighting-game moveset",
         "where": "ikemen-go",
-        "note": "Solo. 2 custom characters, full movesets, every move hand-animated. The move count is not published. Sprite sheets, per-character animation GIFs, and a gameplay clip are not published.",
+        "note": "The Sword Saint and Unknown share one moveset of 7 moves, plus block and perfect block, a stamina system, and scripted AI. Who animated the moves is owner-to-confirm. No sprite sheet or clip is published.",
         "level": "stated"
       },
       {
         "skill": "Fighting-stage design",
         "where": "ikemen-go",
-        "note": "Solo. A custom fighting stage. No stage screenshot is published yet.",
+        "note": "Broken Bridge, a 6-layer stormy bridge stage with a storm soundtrack. No screenshot is published. Who made the stage is owner-to-confirm.",
         "level": "stated"
       },
       {
@@ -362,22 +362,6 @@
         "evidence": "project"
       },
       {
-        "skill": "Character and moveset design",
-        "group": "Design",
-        "projects": [
-          "ikemen-go"
-        ],
-        "evidence": "attested-pending"
-      },
-      {
-        "skill": "Stage design",
-        "group": "Design",
-        "projects": [
-          "ikemen-go"
-        ],
-        "evidence": "attested-pending"
-      },
-      {
         "skill": "Creative direction",
         "group": "Design",
         "projects": [
@@ -436,22 +420,6 @@
         "evidence": "project"
       },
       {
-        "skill": "Notepad++",
-        "group": "Tools",
-        "projects": [
-          "ikemen-go"
-        ],
-        "evidence": "attested"
-      },
-      {
-        "skill": "Fighter Factory Studio",
-        "group": "Tools",
-        "projects": [
-          "ikemen-go"
-        ],
-        "evidence": "attested"
-      },
-      {
         "skill": "Cinemachine, New Input System, controller support",
         "group": "Unity",
         "projects": [],
@@ -468,14 +436,6 @@
         "group": "Design",
         "projects": [],
         "evidence": "general"
-      },
-      {
-        "skill": "Hand animation (character moves)",
-        "group": "Art",
-        "projects": [
-          "ikemen-go"
-        ],
-        "evidence": "attested-pending"
       },
       {
         "skill": "Aseprite (pixel art)",

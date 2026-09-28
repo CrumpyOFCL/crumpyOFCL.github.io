@@ -53,15 +53,25 @@ assert.doesNotMatch(wn, /shipped|released/i);
 
 const ikemen = readFileSync(join(root, 'projects/ikemen-go/index.html'), 'utf8');
 assert.match(ikemen, /IkemanGoAss/);
-assert.match(ikemen, /Ikemen GO fighting game mod/);
-assert.match(ikemen, /hand-animated/);
-assert.match(ikemen, /did not build the engine/);
+assert.match(ikemen, /An Ikemen GO fighting game prototype: two playable characters \(The Sword Saint and Unknown\) sharing one moveset, and a stormy bridge stage \(Broken Bridge\)/);
 assert.match(ikemen, /open-source, MUGEN-compatible/);
-assert.match(ikemen, /Notepad\+\+/);
-assert.match(ikemen, /Fighter Factory Studio/);
-assert.match(ikemen, /Full movesets, count pending/);
+assert.match(ikemen, /4 normals/);
+assert.match(ikemen, /meter-gated super/);
+assert.match(ikemen, /Scripted AI/);
+assert.match(ikemen, /6 layers/);
+assert.match(ikemen, /Owner to confirm/);
+assert.match(ikemen, /Notepad\+\+ and Fighter Factory Studio are not confirmed/);
 assert.match(ikemen, /Supporting project/);
+assert.doesNotMatch(ikemen, /every move was hand-animated/i);
 assert.doesNotMatch(ikemen, /Aseprite/);
 assert.doesNotMatch(ikemen, /Ikemen GO project/);
+assert.doesNotMatch(ikemen, /github\.com\/CrumpyOFCL\/IkemanGoAss/i);
+
+const home = readFileSync(join(root, 'index.html'), 'utf8');
+assert.doesNotMatch(home, /Notepad\+\+/);
+assert.doesNotMatch(home, /Fighter Factory Studio/);
+assert.doesNotMatch(home, /Hand animation/);
+assert.doesNotMatch(home, /data-skill="Character and moveset design"/);
+assert.doesNotMatch(home, /data-skill="Stage design"/);
 
 console.log(`content ok — ${projects.length} projects, ${htmlFiles.length} pages scanned`);

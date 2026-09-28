@@ -149,7 +149,7 @@ export function caseStudy(p) {
     ['Engine', o.engine], ['Tools', o.tools], ['Platforms', o.platforms], ['Stage', o.stage],
   ]));
   if (p.mechanics || p.structure) add('what', 'present', 'What it is', `
-    ${p.mechanics ? `<h3>Mechanics in the playable build</h3>${p.slug === 'a-course-in-time' ? '<p class="source">As described on the itch.io page. The project is in development, so this is not a shipped storefront credit.</p>' : ''}<dl class="mechanics">${val(p.mechanics).map(m => `<div><dt>${esc(m.name)}</dt><dd>${esc(m.text)}</dd></div>`).join('')}</dl>` : ''}
+    ${p.mechanics ? `<h3>${p.slug === 'a-course-in-time' ? 'Mechanics in the playable build' : 'Mechanics'}</h3>${p.slug === 'a-course-in-time' ? '<p class="source">As described on the itch.io page. The project is in development, so this is not a shipped storefront credit.</p>' : ''}<dl class="mechanics">${val(p.mechanics).map(m => `<div><dt>${esc(m.name)}</dt><dd>${esc(m.text)}</dd></div>`).join('')}</dl>` : ''}
     ${p.structure ? `<h3>Structure</h3>${field(p.structure, v => `<p>${esc(v)}</p>`)}` : ''}
     ${p.eraNote ? `<h3>How many eras</h3>${field(p.eraNote, v => `<p>${esc(v)}</p>`)}` : ''}
     ${p.slug === 'a-course-in-time' ? `<h3>The rule, in one picture</h3>${eraDiagram()}` : ''}`);

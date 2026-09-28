@@ -6,46 +6,45 @@
   "title": "IkemanGoAss",
   "subtitle": {
     "status": "confirmed",
-    "value": "Ikemen GO fighting game mod",
-    "source": "Readable subtitle added for the title Tyler spelled IkemanGoAss (29 Sep 2026, 00:21 AEST). The subtitle is not a quote."
+    "value": "Ikemen GO fighting game prototype",
+    "source": "Readable subtitle for the title Tyler spelled IkemanGoAss. Not a quote. Wording cleared 29 Sep 2026, 00:27 AEST, while authorship is still with the owner to confirm."
   },
   "_internal": {
-    "note": "Owner facts, Tyler, 29 Sep 2026. 00:18 AEST: custom fighting stage, custom characters with their own moves, every move hand-animated, in Ikemen GO. He did not build the engine. 00:21 AEST: title spelling IkemanGoAss; solo, he did everything; 2 characters; full movesets but he does not remember the move count; tools Notepad++ and 'fighter studio', labeled Fighter Factory Studio. Do not invent a move count, a date, character names, or media. Do not attach Aseprite. Not a shipped credit. URL slug stays ikemen-go."
+    "note": "29 Sep 2026, 00:27 AEST: an earlier authorship and tooling account is on hold until Tyler confirms. Do not state hand-animation, solo, Notepad++, or Fighter Factory Studio as fact. Do not link or pull files from the private repository. Safe description is the neutral prototype sentence plus the verified moves, characters, and stage. Media stays placeholder. Not a shipped credit. URL slug stays ikemen-go."
   },
   "tagline": {
     "status": "confirmed",
-    "value": "Solo portfolio piece: a custom fighting stage, two custom characters, and full movesets, every move hand-animated. Made in Ikemen GO, the open-source, MUGEN-compatible fighting game engine. I did not build the engine.",
-    "source": "Tyler (owner confirmation, 29 Sep 2026, 00:18 and 00:21 AEST). The engine is the open-source, MUGEN-compatible fighting game engine; he did not build it."
+    "value": "An Ikemen GO fighting game prototype: two playable characters (The Sword Saint and Unknown) sharing one moveset, and a stormy bridge stage (Broken Bridge). Ikemen GO is the open-source, MUGEN-compatible fighting game engine.",
+    "source": "Neutral wording cleared 29 Sep 2026, 00:27 AEST. The engine description is not a claim that Tyler built Ikemen GO. Authorship of the prototype is owner-to-confirm."
   },
   "overview": {
     "genre": {
       "status": "confirmed",
       "value": "Fighting game",
-      "source": "Tyler (owner confirmation, 29 Sep 2026): a fighting stage and characters with moves."
+      "source": "Neutral wording cleared 29 Sep 2026, 00:27 AEST."
     },
     "characters": {
       "status": "confirmed",
-      "value": "2",
-      "source": "Tyler (owner confirmation, 29 Sep 2026, 00:21 AEST)"
+      "value": "2 — The Sword Saint and Unknown, sharing one moveset",
+      "source": "Verified project details, 29 Sep 2026, 00:27 AEST. Not a claim about who made them."
     },
     "moves": {
-      "status": "pending",
-      "request": "Full movesets, count pending."
+      "status": "confirmed",
+      "value": "7 shared moves: 4 normals, 1 two-projectile special, 1 meter-gated super, 1 back dash. Also block and perfect block.",
+      "source": "Verified project details, 29 Sep 2026, 00:27 AEST."
     },
     "type": {
       "status": "confirmed",
-      "value": "Portfolio piece",
-      "source": "Tyler (owner confirmation, 29 Sep 2026, 00:21 AEST): a solo portfolio piece."
+      "value": "Prototype",
+      "source": "Neutral wording cleared 29 Sep 2026, 00:27 AEST."
     },
     "role": {
-      "status": "confirmed",
-      "value": "Solo — the stage, both characters, their moves, and the hand animation",
-      "source": "Tyler (owner confirmation, 29 Sep 2026, 00:21 AEST): he did everything."
+      "status": "pending",
+      "request": "Owner to confirm Tyler's role."
     },
     "team": {
-      "status": "confirmed",
-      "value": "Solo",
-      "source": "Tyler (owner confirmation, 29 Sep 2026, 00:21 AEST)"
+      "status": "pending",
+      "request": "Owner to confirm whether this was solo."
     },
     "timeframe": {
       "status": "pending",
@@ -54,15 +53,11 @@
     "engine": {
       "status": "confirmed",
       "value": "Ikemen GO",
-      "source": "Tyler confirmed he used Ikemen GO (29 Sep 2026). Ikemen GO is the open-source, MUGEN-compatible fighting game engine. He did not build the engine."
+      "source": "Ikemen GO is the open-source, MUGEN-compatible fighting game engine. This page does not claim Tyler built it."
     },
     "tools": {
-      "status": "confirmed",
-      "value": [
-        "Notepad++",
-        "Fighter Factory Studio"
-      ],
-      "source": "Tyler (29 Sep 2026, 00:21 AEST) named Notepad++ and wrote 'fighter studio'. Labeled here as Fighter Factory Studio, the standard MUGEN/Ikemen character editor."
+      "status": "pending",
+      "request": "Owner to confirm which tools were used. Notepad++ and Fighter Factory Studio are not confirmed."
     },
     "platforms": {
       "status": "pending",
@@ -76,10 +71,9 @@
   "filters": {
     "engine": "Ikemen GO",
     "year": null,
-    "type": "Portfolio piece",
+    "type": "Prototype",
     "stage": null,
     "disciplines": [
-      "Animation",
       "Fighting game",
       "Level/stage design",
       "Ikemen GO",
@@ -91,52 +85,27 @@
       "label": "Source or playable build",
       "item": {
         "status": "pending",
-        "request": "A public page, repository, or build, if one exists. Do not invent a URL."
+        "request": "A public page or build, if one exists. Do not link the private repository."
       }
     }
   ],
   "contributions": {
-    "status": "confirmed",
-    "value": [
-      "Solo. I made the stage, both characters, and all their moves.",
-      "2 custom characters, each with a full moveset.",
-      "Every move was hand-animated.",
-      "Tools: Notepad++ and Fighter Factory Studio.",
-      "Made in Ikemen GO, the open-source, MUGEN-compatible fighting game engine. I did not build the engine."
-    ],
-    "source": "Tyler (owner confirmation, 29 Sep 2026, 00:18 and 00:21 AEST)"
+    "status": "pending",
+    "request": "Owner to confirm what Tyler personally made, including whether the moves were hand-animated and whether the work was solo."
   },
   "collaboration": [
     {
-      "discipline": "Fighting stage",
+      "discipline": "Authorship",
       "item": {
-        "status": "confirmed",
-        "value": "Me — a custom map",
-        "source": "Tyler (owner confirmation, 29 Sep 2026, 00:21 AEST)"
-      }
-    },
-    {
-      "discipline": "Characters",
-      "item": {
-        "status": "confirmed",
-        "value": "Me — 2 custom characters",
-        "source": "Tyler (owner confirmation, 29 Sep 2026, 00:21 AEST)"
-      }
-    },
-    {
-      "discipline": "Moves and hand animation",
-      "item": {
-        "status": "confirmed",
-        "value": "Me — full movesets, every move hand-animated",
-        "source": "Tyler (owner confirmation, 29 Sep 2026, 00:18 and 00:21 AEST)"
+        "status": "pending",
+        "request": "Owner to confirm who made the characters, the moveset, and the stage."
       }
     },
     {
       "discipline": "Tools",
       "item": {
-        "status": "confirmed",
-        "value": "Me — Notepad++ and Fighter Factory Studio",
-        "source": "Tyler (29 Sep 2026, 00:21 AEST) named Notepad++ and wrote 'fighter studio'."
+        "status": "pending",
+        "request": "Owner to confirm which tools were used. Notepad++ and Fighter Factory Studio are not confirmed."
       }
     }
   ],
@@ -146,31 +115,31 @@
       "label": "Sprite sheet",
       "item": {
         "status": "pending",
-        "request": "Sprite sheet for both characters."
+        "request": "Sprite sheet for The Sword Saint and Unknown."
       }
     },
     {
       "kind": "gif",
-      "label": "Character 1",
+      "label": "The Sword Saint",
       "item": {
         "status": "pending",
-        "request": "Animation GIF of this character's moves. Name still to come."
+        "request": "Animation GIF for The Sword Saint."
       }
     },
     {
       "kind": "gif",
-      "label": "Character 2",
+      "label": "Unknown",
       "item": {
         "status": "pending",
-        "request": "Animation GIF of this character's moves. Name still to come."
+        "request": "Animation GIF for Unknown."
       }
     },
     {
       "kind": "stage",
-      "label": "Stage screenshot",
+      "label": "Broken Bridge",
       "item": {
         "status": "pending",
-        "request": "A screenshot of the fighting stage."
+        "request": "A screenshot of the stormy bridge stage."
       }
     },
     {
@@ -182,6 +151,44 @@
       }
     }
   ],
+  "mechanics": {
+    "status": "confirmed",
+    "source": "Verified project details, 29 Sep 2026, 00:27 AEST. No public build is linked.",
+    "value": [
+      {
+        "name": "Shared moveset",
+        "text": "Both characters use one moveset of 7 moves."
+      },
+      {
+        "name": "Normals",
+        "text": "4 normals."
+      },
+      {
+        "name": "Special",
+        "text": "1 two-projectile special."
+      },
+      {
+        "name": "Super",
+        "text": "1 meter-gated super."
+      },
+      {
+        "name": "Back dash",
+        "text": "1 back dash."
+      },
+      {
+        "name": "Block",
+        "text": "Block and perfect block."
+      },
+      {
+        "name": "Stamina",
+        "text": "A stamina system."
+      },
+      {
+        "name": "AI",
+        "text": "Scripted AI."
+      }
+    ]
+  },
   "problem": {
     "status": "pending",
     "request": "What this fighting-game project set out to explore."
@@ -195,55 +202,55 @@
       "stage": "Characters",
       "item": {
         "status": "confirmed",
-        "value": "2 custom characters, each with a full moveset.",
-        "source": "Tyler (owner confirmation, 29 Sep 2026, 00:21 AEST)"
+        "value": "Two playable characters, The Sword Saint and Unknown, sharing one moveset.",
+        "source": "Verified project details, 29 Sep 2026, 00:27 AEST."
+      }
+    },
+    {
+      "stage": "Moves",
+      "item": {
+        "status": "confirmed",
+        "value": "7 moves: 4 normals, 1 two-projectile special, 1 meter-gated super, 1 back dash, plus block and perfect block.",
+        "source": "Verified project details, 29 Sep 2026, 00:27 AEST."
       }
     },
     {
       "stage": "Hand animation",
       "item": {
-        "status": "confirmed",
-        "value": "Every move was hand-animated.",
-        "source": "Tyler (owner confirmation, 29 Sep 2026, 00:18 AEST)"
-      }
-    },
-    {
-      "stage": "Move count",
-      "item": {
         "status": "pending",
-        "request": "Full movesets, count pending."
+        "request": "Owner to confirm whether the moves were hand-animated."
       }
     },
     {
       "stage": "Stage",
       "item": {
         "status": "confirmed",
-        "value": "A custom map: a fighting stage.",
-        "source": "Tyler (owner confirmation, 29 Sep 2026, 00:18 AEST)"
+        "value": "Broken Bridge, a stormy bridge stage. 6 layers, with a storm soundtrack.",
+        "source": "Verified project details, 29 Sep 2026, 00:27 AEST."
       }
     },
     {
       "stage": "Tools",
       "item": {
-        "status": "confirmed",
-        "value": "Notepad++ and Fighter Factory Studio.",
-        "source": "Tyler (29 Sep 2026, 00:21 AEST) named Notepad++ and wrote 'fighter studio'."
+        "status": "pending",
+        "request": "Owner to confirm which tools were used. Notepad++ and Fighter Factory Studio are not confirmed."
       }
     }
   ],
   "levelDesign": {
     "overview": {
       "status": "confirmed",
-      "value": "A custom fighting stage. Solo.",
-      "source": "Tyler (owner confirmation, 29 Sep 2026, 00:18 and 00:21 AEST)"
+      "value": "Broken Bridge, a stormy bridge stage, with a storm soundtrack.",
+      "source": "Verified project details, 29 Sep 2026, 00:27 AEST. Who made the stage is owner-to-confirm."
     },
     "goals": {
       "status": "pending",
       "request": "What the stage was designed to do for a match."
     },
     "structure": {
-      "status": "pending",
-      "request": "The layout of the stage."
+      "status": "confirmed",
+      "value": "6 layers.",
+      "source": "Verified project details, 29 Sep 2026, 00:27 AEST."
     },
     "flow": {
       "status": "pending",
@@ -263,7 +270,7 @@
     },
     "final": {
       "status": "pending",
-      "request": "A screenshot of the finished stage."
+      "request": "A screenshot of Broken Bridge."
     }
   },
   "decisions": []

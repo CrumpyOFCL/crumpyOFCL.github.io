@@ -123,12 +123,14 @@ Facts Tyler has not supplied. The site shows a dashed slot for each. Do not fill
 
 ### IkemanGoAss
 
-File: `content/projects/ikemen-go.json`. The visible title is his spelling, **IkemanGoAss**. The subtitle on the page, "Ikemen GO fighting game mod", is a readable label, not a quote. Supporting tier.
+File: `content/projects/ikemen-go.json`. The visible title is his spelling, **IkemanGoAss**. Supporting tier. Subtitle on the page: "Ikemen GO fighting game prototype".
 
-Confirmed, 29 Sep 2026, 00:18 and 00:21 AEST: solo portfolio piece. He made the custom stage, 2 custom characters, and all their moves, and every move was hand-animated. Tools he named: Notepad++ and "fighter studio", labeled on the site as Fighter Factory Studio. Ikemen GO is the open-source, MUGEN-compatible fighting game engine. He did not build the engine. Aseprite stays on the general tools list and is not named on this project.
+As of 29 Sep 2026, 00:27 AEST, do not state these as fact until Tyler confirms them: every move hand-animated, solo, Notepad++, Fighter Factory Studio. They are pending slots labeled owner-to-confirm. They are not on the skills matrix or the tools list. Do not point an animation skill at this project. Do not link or copy anything from the private repository.
+
+Safe wording already on the page: "An Ikemen GO fighting game prototype: two playable characters (The Sword Saint and Unknown) sharing one moveset, and a stormy bridge stage (Broken Bridge)." Also on the page, from verified detail: a moveset of 7 moves (4 normals, 1 two-projectile special, 1 meter-gated super, 1 back dash) plus block and perfect block, a stamina system, scripted AI, and a 6-layer stage with a storm soundtrack. Ikemen GO is the open-source, MUGEN-compatible fighting game engine. The page does not claim he built it.
 
 Still to supply:
 
+- Tyler's confirmation of authorship, hand animation, and tools. Final wording will replace the hold when he answers
 - Date or timeframe
-- Exact move count. He does not remember it. The page says "Full movesets, count pending." Do not invent a number. Count it from the character files when those files are available
-- Media, once he is happy with the site design: one sprite sheet, an animation GIF for each character, a stage screenshot, and a gameplay clip. Character names are not confirmed, so the GIF frames are Character 1 and Character 2
+- Media: one sprite sheet, an animation GIF for The Sword Saint, an animation GIF for Unknown, a screenshot of Broken Bridge, and a gameplay clip. Leave the frames empty until he supplies files
