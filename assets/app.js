@@ -1,32 +1,127 @@
-// Tyler Crump portfolio — all interaction in one small file (no framework).
-// Every behaviour here degrades to a readable page without JavaScript.
+// Tyler Crump portfolio — title screen, level select, and case-study controls.
+// No framework. The page stays readable without this file.
 (() => {
   'use strict';
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
-  const root = document.documentElement;
-  const isCase = document.body.classList.contains('page--case');
-  const store = { get: (k) => { try { return localStorage.getItem(k); } catch (_) { return null; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch (_) {} } };
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* Era switch. Home: re-themes the page (same layout, different era).
-     Case study: also a reading lens — Past = how it was made, Present = what it is, Future = what's next. */
-  const ERA_NAMES = { past: 'Past — how it was made', present: 'Present — what it is', future: "Future — what's next", all: 'every era' };
-  const THEME = { past: '#E4D8BC', present: '#E9EAEC', future: '#14181A' };
-  const themeMeta = document.querySelector('meta[name="theme-color"]');
-  function setEra(era, { announce = true, persist = true } = {}) {
-    const theme = era === 'all' ? (root.dataset.era || 'present') : era;
-    root.dataset.era = theme;
-    if (themeMeta && THEME[theme]) themeMeta.setAttribute('content', THEME[theme]);
-    $$('[data-set-era]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.setEra === era)));
-    if (persist && era !== 'all') store.set('era', era);
-    if (isCase) {
-      document.body.classList.add('is-lensed');
-      $$('.cs-section').forEach(s => { s.hidden = era !== 'all' && s.dataset.lens !== era; });
-      const st = $('[data-lens-status]');
-      if (st && announce) st.textContent = `Showing ${ERA_NAMES[era]} sections.`;
+  const title = $('#title-screen');
+  let titleDone = !title;
+
+  function showList() {
+    const panel = $('#work');
+    const toggle = $('[data-list-toggle]');
+    if (panel) panel.classList.add('is-open');
+    if (toggle) toggle.setAttribute('aria-pressed', 'true');
+  }
+
+  function dismissTitle({ recruiter = false, instant = false } = {}) {
+    if (titleDone) {
+      if (recruiter) { showList(); const save = $('#save'); if (save) save.scrollIntoView(); }
+      return;
+    }
+    titleDone = true;
+    document.body.classList.add('is-hub');
+    const finish = () => { if (title) title.hidden = true; };
+    if (!title || instant || reduce) finish();
+    else {
+      title.classList.add('is-wipe');
+      title.addEventListener('animationend', finish, { once: true });
+      setTimeout(finish, 450);
+    }
+    if (recruiter) {
+      showList();
+      const save = $('#save');
+      if (save) save.scrollIntoView();
     }
   }
-  $$('.era__buttons, .diagram__controls').forEach(group => {
+
+  if (title) {
+    const hash = location.hash;
+    if (reduce || hash) dismissTitle({ instant: true, recruiter: hash === '#save' || hash === '#resume' });
+    else setTimeout(() => dismissTitle(), 2500);
+    if (hash === '#work' || hash === '#skills' || hash === '#evidence') showList();
+
+    document.addEventListener('keydown', (e) => {
+      if (titleDone) return;
+      if (e.target.closest && e.target.closest('[data-recruiter]')) return;
+      dismissTitle();
+    });
+    title.addEventListener('pointerdown', () => dismissTitle());
+    document.addEventListener('click', (e) => {
+      const rec = e.target.closest && e.target.closest('[data-recruiter]');
+      if (!rec) return;
+      dismissTitle({ recruiter: true, instant: true });
+    });
+  }
+
+  const toggle = $('[data-list-toggle]');
+  if (toggle) {
+    toggle.addEventListener('click', () => {
+      const open = toggle.getAttribute('aria-pressed') !== 'true';
+      toggle.setAttribute('aria-pressed', String(open));
+      $('#work').classList.toggle('is-open', open);
+      if (open) { $('#work').scrollIntoView(); $('#work-title').setAttribute('tabindex', '-1'); $('#work-title').focus({ preventScroll: true }); }
+    });
+  }
+
+  const nodes = $$('[data-node]');
+  const avatar = $('[data-avatar]');
+  const world = $('.overworld');
+  function place(node) {
+    if (!avatar || !world || !node) return;
+    const map = world.getBoundingClientRect();
+    const r = node.getBoundingClientRect();
+    avatar.style.left = (r.left - map.left + r.width / 2) + 'px';
+    avatar.style.top = (r.top - map.top + r.height * 0.42) + 'px';
+  }
+  function openCard(slug, opener) {
+    const card = document.getElementById('card-' + slug);
+    if (!card || typeof card.showModal !== 'function') return;
+    $$('dialog.select-card[open]').forEach(d => d.close());
+    card.showModal();
+    card.dataset.opener = opener ? opener.id || '' : '';
+  }
+  nodes.forEach((node, i) => {
+    node.addEventListener('focus', () => place(node));
+    node.addEventListener('click', () => { place(node); openCard(node.dataset.node, node); });
+    node.addEventListener('keydown', (e) => {
+      const step = { arrowright: 1, arrowdown: 1, d: 1, s: 1, arrowleft: -1, arrowup: -1, a: -1, w: -1 }[e.key.toLowerCase()];
+      if (!step) return;
+      e.preventDefault();
+      const next = nodes[(i + step + nodes.length) % nodes.length];
+      next.focus();
+    });
+  });
+  if (nodes[0]) place(nodes[0]);
+  window.addEventListener('resize', () => {
+    const current = nodes.find(n => n === document.activeElement) || nodes[0];
+    place(current);
+  });
+  $$('[data-open-card]').forEach(b => b.addEventListener('click', () => {
+    const node = document.getElementById('node-' + b.dataset.openCard);
+    if (node) place(node);
+    openCard(b.dataset.openCard, b);
+  }));
+  $$('[data-close-card]').forEach(b => b.addEventListener('click', () => {
+    const card = b.closest('dialog');
+    if (card) card.close();
+  }));
+  $$('dialog.select-card').forEach(card => card.addEventListener('close', () => {
+    const opener = card.dataset.opener && document.getElementById(card.dataset.opener);
+    if (opener) opener.focus();
+  }));
+
+  const egg = $('[data-egg]');
+  if (egg) egg.addEventListener('click', () => {
+    const note = $('#egg-note');
+    const open = egg.getAttribute('aria-expanded') !== 'true';
+    egg.setAttribute('aria-expanded', String(open));
+    if (note) note.hidden = !open;
+  });
+
+  $$('.diagram__controls').forEach(group => {
     group.addEventListener('keydown', (e) => {
       const btns = $$('button', group);
       const i = btns.indexOf(document.activeElement);
@@ -42,33 +137,7 @@
       btns[next].click();
     });
   });
-  $$('[data-set-era]').forEach(b => b.addEventListener('click', () => setEra(b.dataset.setEra)));
-  if (isCase) {
-    const target = location.hash && document.getElementById(location.hash.slice(1));
-    const sec = target && target.closest('.cs-section');
-    setEra(sec ? sec.dataset.lens : 'present', { announce: false, persist: false });
-    if (sec) sec.scrollIntoView({ block: 'start' });
-    $$('[data-toc-lens]').forEach(a => a.addEventListener('click', (e) => {
-      const lens = a.dataset.tocLens;
-      const pressed = $('[data-set-era][aria-pressed="true"]');
-      if (!pressed || (pressed.dataset.setEra !== 'all' && pressed.dataset.setEra !== lens)) setEra(lens);
-      const s = document.getElementById(a.getAttribute('href').slice(1));
-      if (s) {
-        e.preventDefault();
-        $$('[data-toc-lens]').forEach(x => x.removeAttribute('aria-current'));
-        a.setAttribute('aria-current', 'true');
-        s.setAttribute('tabindex', '-1');
-        s.scrollIntoView({ block: 'start' });
-        s.focus({ preventScroll: true });
-        history.replaceState(null, '', a.getAttribute('href'));
-      }
-    }));
-  } else {
-    const saved = store.get('era');
-    setEra(saved && /^(past|present|future)$/.test(saved) ? saved : 'present', { announce: false, persist: false });
-  }
 
-  /* Work filters: disciplines = any-of; selects = exact; skill = project set from the matrix. */
   const form = $('[data-filters]');
   if (form) {
     const cards = $$('.card'), status = $('[data-filter-status]'), count = $('[data-filter-count]');
@@ -80,7 +149,7 @@
       const sel = Object.fromEntries($$('select[data-filter]', form).map(s => [s.dataset.filter, s.value]));
       let shown = 0;
       cards.forEach(c => {
-        const d = c.dataset.disciplines.split('|');
+        const d = (c.dataset.disciplines || '').split('|');
         const ok = (!disc.length || disc.some(x => d.includes(x)))
           && Object.entries(sel).every(([k, v]) => !v || c.dataset[k] === v)
           && (!skill || skill.projects.includes(c.dataset.project));
@@ -106,15 +175,14 @@
       b.setAttribute('aria-pressed', 'false');
       b.addEventListener('click', () => {
         skill = (skill && skill.name === b.dataset.skill) ? null : { name: b.dataset.skill, projects: b.dataset.skillProjects.split(' ') };
-        syncSkill(); apply();
-        if (skill) { $('details.filters').open = true; $('#work').scrollIntoView({ block: 'start' }); status.setAttribute('tabindex', '-1'); status.focus({ preventScroll: true }); }
+        syncSkill(); apply(); showList();
+        if (skill) { $('details.filters').open = true; status.setAttribute('tabindex', '-1'); status.focus({ preventScroll: true }); }
       });
     });
     if (matchMedia('(max-width: 700px)').matches) $('details.filters').open = false;
     apply();
   }
 
-  /* Iteration viewer: WAI-ARIA tabs + before/after range. */
   $$('[data-iter]').forEach(w => {
     const tabs = $$('[role="tab"]', w);
     const select = (i, focus) => {
@@ -135,7 +203,6 @@
     r.addEventListener('input', upd); upd();
   });
 
-  /* Era rule diagram (A Course In Time). */
   $$('[data-diagram]').forEach(d => {
     const grid = $('.dg', d), desc = $('[data-dg-desc]', d);
     const text = {
@@ -148,4 +215,9 @@
       desc.textContent = text[b.dataset.dg];
     }));
   });
+
+  $$('.toc a').forEach(a => a.addEventListener('click', () => {
+    $$('.toc a').forEach(x => x.removeAttribute('aria-current'));
+    a.setAttribute('aria-current', 'true');
+  }));
 })();

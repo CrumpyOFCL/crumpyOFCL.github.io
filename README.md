@@ -28,7 +28,7 @@ See [CONTENT.md](CONTENT.md). Do not invent projects, tools, dates, quotes or pl
 
 ## Design notes
 
-- [docs/concepts.md](docs/concepts.md) — concepts scored, Era Lens chosen
+- [docs/concepts.md](docs/concepts.md) — concepts scored, Level Select chosen (Era Lens rejected by the Owner)
 - [docs/reviews.md](docs/reviews.md) — reviews and test scores
 - [docs/requirements-checklist.md](docs/requirements-checklist.md) — against the three junior briefs
 - [prototypes/](prototypes/) — throwaway concept sketches, not linked from the site

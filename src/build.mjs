@@ -31,13 +31,16 @@ const copyDir = (from, to) => {
 };
 
 const homeNav = [
-  { href: '#work', label: 'Work' }, { href: '#evidence', label: 'Evidence' }, { href: '#method', label: 'Method' },
-  { href: '#skills', label: 'Skills' }, { href: '#about', label: 'About' }, { href: '#contact', label: 'Contact' },
+  { href: '#map', label: 'Map' },
+  { href: '#work', label: 'List' },
+  { href: '#skills', label: 'Quest log' },
+  { href: '#save', label: 'Save file' },
+  { href: '#contact', label: 'Continue?' },
 ];
 const caseNav = [
-  { href: '/index.html#work', label: 'All work' },
-  { href: '/index.html#about', label: 'About' },
-  { href: '/index.html#contact', label: 'Contact' },
+  { href: '/index.html#map', label: 'Back to map' },
+  { href: '/index.html#skills', label: 'Quest log' },
+  { href: '/index.html#contact', label: 'Continue?' },
 ];
 
 setRootFromCanonical('/');

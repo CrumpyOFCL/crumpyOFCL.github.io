@@ -6,6 +6,7 @@ Criteria, in order: originality, usability, visual impact, portfolio value, fit 
 
 | Concept | Orig. | Use | Visual | Value | Fit | Ease | A11y | Mobile | Credibility | Total |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Level Select | 5 | 4 | 5 | 5 | 5 | 3 | 4 | 4 | 5 | **40** |
 | Era Lens | 4 | 4 | 4 | 5 | 5 | 4 | 4 | 4 | 5 | **39** |
 | Evidence ledger | 4 | 4 | 3 | 4 | 5 | 4 | 5 | 5 | 4 | **38** |
 | Design constellation | 3 | 2 | 4 | 3 | 3 | 2 | 2 | 2 | 3 | **24** |
@@ -20,20 +21,23 @@ Throwaway sketches (not linked from the site):
 - [prototypes/hotel-map.html](../prototypes/hotel-map.html) — [screenshot](../prototypes/hotel-map.png)
 - [prototypes/workbench.html](../prototypes/workbench.html) — [screenshot](../prototypes/workbench.png)
 
-## Era Lens — chosen
+## Level Select — chosen
 
-The old site already had a Past 1743 / Present / Future 2311 switch that recoloured one page. That idea is the same rule as A Course In Time: the layout holds still, the state of the world changes. Making that control the way you read the portfolio is specific to Tyler's work, and a recruiter still lands on a normal page.
+Chosen by the Owner on 29 Sep 2026, 00:34 AEST. Tyler asked for something more creative and game-like than a theme switch, and for a first impression a headhunter can enjoy in the first few seconds.
 
-On the home page the switch only re-themes. On a case study it is a reading lens:
+The portfolio is a game's level select. A pixel title card ("TYLER CRUMP", the subtitle "Game / Level / Gameplay Designer", blinking PRESS START) leaves by itself after 2.5 seconds, or on any key, click or tap. It never blocks. "Skip to CV / Recruiter view" is on screen from the first frame and opens a plain list plus the save file. The hub is an original overworld: A Course In Time is the large castle, three supporting projects are worlds, and the experiments are small bonus stages. A small avatar walks that path. Choosing a node opens a character-select card whose bars are confirmed facts, not scores. Empty facts are locked slots. The skills list is a quest log (unlocked, in progress, locked). The CV is a save file. Contact is a Continue? screen. Case studies keep the process, level design, playtesting, decisions, iterations and collaboration notes in a normal reading layout, with a checkpoint nav and a way back to the map.
 
-- **Present** — what it is. Overview, mechanics, what Tyler did, who did what. This is the default.
-- **Past** — how it was made. Goal, process, decisions, level design, player experience, playtesting, iterations.
-- **Future** — what's next, including a count of evidence slots still empty.
-- **All** — every section, for someone who wants one scroll.
+`prefers-reduced-motion` skips the title, the wipe, the blink and the idle bob, and shows the map immediately. There is no autoplay audio. A plain list view reaches every node. The pixel art is CSS and a small original SVG, not assets from another game.
 
-Empty slots sit mostly in Past and Future, so the default view is not a wall of dashed boxes. The home page also keeps an evidence ledger and a skills matrix (the second concept), because a reviewer needs a map of what is proved. The ledger did not need to be the navigation.
+## Era Lens — rejected by the Owner
 
-Credibility scored 5 because the interaction does not require invented artefacts. A sparse graph, a hotel of empty rooms, or a desk of placeholder props would advertise the gaps.
+Previously built on this branch and scored 39. Rejected by the Owner on 29 Sep 2026, 00:34 AEST: the Past / Present / Future look was not creative or game-like enough, and it did not earn the first few seconds with a headhunter. The era switch is no longer the navigation. A small footer mark can still show "1743 / Today / 2311" and does not recolour the page.
+
+The old site already had a Past 1743 / Present / Future 2311 switch that recoloured one page. That idea is the same rule as A Course In Time: the layout holds still, the state of the world changes. Making that control the way you read the portfolio is specific to Tyler's work, and a recruiter still lands on a normal page. It lost on the first impression Tyler asked for.
+
+While it was the chosen concept, the home switch only re-themed, and a case study used it as a reading lens: Present (what it is), Past (how it was made), Future (what's next), and All. That reading order is gone. Case studies now show every section in one scroll. The evidence record is still on the home page, restyled as a quest log, because a reviewer needs a map of what is proved.
+
+Credibility stayed high because the new interaction does not invent artefacts either. A filled bar is a confirmed fact. A locked slot is an empty fact. A sparse graph, a hotel of empty rooms, or a desk of placeholder props would advertise the gaps in a less honest way.
 
 ## Why the others lost
 
@@ -47,10 +51,9 @@ Credibility scored 5 because the interaction does not require invented artefacts
 
 ## What was refined after the choice
 
-The lens was already the structure of the staging build. Refinements on this branch:
-
-- Home era buttons show 1743 / Today / 2311, including on a phone, so the theme is identifiable without a paragraph.
-- Case studies open in Present even if the home page was last left in another era, so a shared link does not dump a recruiter into the gap list. The home page still remembers its era.
-- A line under each case-study title states how many slots are empty.
+- The title card is skippable from the first frame, and it leaves on its own. Reduced motion never shows it.
+- Character-select bars are filled or locked. They are not percentages.
+- Solo is labelled as team size, not as a collaboration score.
+- Stated design-record rows stay "Described". They are not marked unlocked.
 - A Course In Time's era-count disagreement (itch.io says two eras, the previous site says three) is a pending note, not a picked number.
-- The era-rule diagram stays labelled as an illustration, not a level.
+- The era-rule diagram on that case study stays labelled as an illustration, not a level.

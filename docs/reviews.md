@@ -2,27 +2,27 @@
 
 Reviewed against the built site on `portfolio-v2`. Lighthouse scores below were re-recorded on 28 Sep 2026 after IkemanGoAss moved to supporting. They are from that build, not estimates.
 
-## 30-second recruiter test — pass
+## 30-second recruiter test — pass, with a skip
 
-At 1440px the first screen is the name, the role, the lede, and an "At a glance" card: what he is looking for, the flagship and its engine, the strongest skill, four tools, itch.io, GitHub, and the email. The flagship case study is a button, not a hunt.
+The first frame is a pixel title card: TYLER CRUMP, "Game / Level / Gameplay Designer", and PRESS START. It leaves after 2.5 seconds, or on any key, click or tap. "Skip to CV / Recruiter view" is fixed at the top right from that first frame. It opens the plain list and the save file: confirmed role, what he is looking for, the flagship, four tools, itch.io, GitHub, and the email.
 
-At 375px the same facts sit in that order: name, lede, glance card, then the call to action. A bottom bar jumps to Work, Evidence, Method and Contact. A Menu control holds the rest, because the desktop link row does not fit. Era buttons stay on screen and still say 1743 / Today / 2311.
+The hub under the title is a level-select map. A Course In Time is the large castle. The other projects are smaller nodes on the same path. List view is one button away if the map is not how someone wants to read.
 
-What would fail this test is a first screen of empty slots or a metaphor you have to learn. The default era is Present. Pending journal entries and documents are further down, and the document rows are collapsed.
+At 375px the path is a vertical stack. Targets are at least 44px. A bottom bar jumps to Map, List, Quests and Continue?
 
 ## 5-minute designer test — pass on orientation, not on depth
 
-A Course In Time opens on Present: genre, role, team, platforms, the mechanics named on the itch.io page, the era-rule diagram labelled as an illustration, and a "What I did" list sourced as claims from the previous site. The header says how many slots on the page are still empty.
+A Course In Time opens as one scroll: genre, role, team, platforms, the mechanics named on the itch.io page, the era-rule diagram labelled as an illustration, and a "What I did" list sourced as claims from the previous site. The header says how many slots on the page are still empty. Checkpoints sit beside the sections. Back to map returns to the hub.
 
-Past is one control away. The decision archive is there. The evidence chain on each decision only fills the links that have text. The process list ticks a single stage, the playable build, and says it is not a shipped credit. Playtesting shows the debug console he has described, then an empty Observation → Insight → Design change → Result template.
+The decision archive is on the same page. The evidence chain on each decision only fills the links that have text. The process list ticks a single stage, the playable build, and says it is not a shipped credit. Playtesting shows the debug console he has described, then an empty Observation → Insight → Design change → Result template.
 
 A designer can tell, inside five minutes, what is published and what is not. They cannot yet judge a level, a greybox, or a playtest finding, because those files do not exist here. Filling them with fiction would fail the test in a worse way. The iteration was to label the gaps and stop calling the itch.io build a release.
 
 ## UX
 
-The organising control is the same on every page, and it does one job per page: recolour the home page, or choose which sections a case study shows. All is there when someone wants one scroll. Filters are checkboxes plus four selects, with a visible count, an empty state, and a reset. Choosing a skill in the matrix filters Work and can be removed. Nothing depends on a drag.
+The organising picture is a level select. The title does not block. The map, the list, and Skip to CV are three ways to the same projects. Filters are checkboxes plus four selects, with a visible count, an empty state, and a reset. Choosing a quest filters the list and can be removed. Nothing depends on a drag.
 
-The weak UX is the length of a case study in All, and the number of dashed slots in Past. That is an honest reflection of the evidence, and it is why Present is the default.
+The weak UX is the length of a case study, and the number of empty slots. That is an honest reflection of the evidence. They are locked or dashed, and they are not hidden.
 
 ## Game design
 
@@ -34,9 +34,9 @@ IkemanGoAss is a supporting piece, framed by an owner decision on 29 Sep 2026, 0
 
 ## Visual and communication
 
-Three palettes, one layout. Type is Bricolage for headings (self-hosted) and the system sans for text, so a font host is not on the critical path. Dashed boxes are the only "illustration" of missing work. Status labels are words (Evidenced, Described, Pending), not colour alone.
+One parchment palette, the same ink, cream and amber as the pixel-art end of the previous site. The title card is the dark brown from that palette, not a second theme. Type is Bricolage for headings (self-hosted) and the system sans for text, so a font host is not on the critical path. Pixel art is a small original SVG wordmark and CSS shapes. It is not artwork from another game.
 
-The future palette is dark. Text and background pairs were checked against WCAG AA, and the era change does not animate through a low-contrast in-between. A colour transition was removed after axe sampled those in-between frames and failed them.
+Locked slots and dashed boxes are the only "illustration" of missing work. Status labels are words (Unlocked, In progress, Locked, Evidenced, Described, Pending), not colour alone. A filled skill bar is a confirmed fact, and the card says it is not a rating.
 
 ## Engineering
 
@@ -46,11 +46,11 @@ Astro was considered and not used. The site is a few pages, the edit model is JS
 
 ## QA
 
-Playwright covers the era switch and its persistence, the case-study lens including All, table-of-contents lens changes, hash deep links, filters (discipline, selects, skill, reset, empty), the Ikemen GO case study (confirmed work versus empty slots), iteration tabs (arrows, Home, End), the compare slider, the era diagram, disclosures, a keyboard path from the skip link to a case study and back to contact, and reduced motion. axe-core (WCAG 2.0/2.1/2.2 A and AA) runs on all 8 pages in Past, Present and Future, plus the All lens on the flagship. 35 tests, all passing.
+Playwright covers the title card (auto-advance, key, click, recruiter skip), walking the map with arrows and WASD, character cards including locked slots, list view, filters, the Ikemen GO case study, iteration tabs, the compare slider, the era-rule diagram, disclosures, a keyboard path from the skip link to a case study and back to contact, reduced motion, and the footer era mark not recolouring the page. axe-core (WCAG 2.0/2.1/2.2 A and AA) runs on all 8 pages, on the title card, on an open character card, and on the reduced-motion home page. 26 tests, all passing.
 
 ## Accessibility
 
-Landmarks, a skip link, visible focus, labels on the filters, 44px targets on the era switch, the mobile bar, the table of contents and the skill buttons. The matrix scrolls horizontally and is a keyboard region. Case-study sections that are not in the current lens are `hidden`, so they leave the tab order. Without JavaScript every section is in the page. `prefers-reduced-motion` sets transitions and smooth scrolling off. `forced-colors` keeps the pressed state and the dashed slots visible.
+Landmarks, a skip link, the recruiter skip, visible focus, labels on the filters, 44px targets on the map nodes, the mobile bar, the checkpoint list and the quest buttons. List view is a plain list of the same levels. Case-study sections are all in the page. Without JavaScript the title leaves on its own and the list is visible. `prefers-reduced-motion` hides the title and turns off the wipe, the blink, the bob, transitions and smooth scrolling. `forced-colors` keeps the pressed state and the dashed slots visible. There is no autoplay audio.
 
 ## Performance
 
@@ -61,16 +61,16 @@ Lighthouse 12, gzip on (the same compression GitHub Pages and Render apply). Pyt
 | Home | Mobile | 100 | 100 | 100 | 100 |
 | Home | Desktop | 97 | 100 | 100 | 100 |
 | A Course In Time | Mobile | 100 | 100 | 100 | 100 |
-| A Course In Time | Desktop | 95 | 100 | 100 | 100 |
+| A Course In Time | Desktop | 96 | 100 | 100 | 100 |
 | Japan Trip Planner | Mobile | 100 | 100 | 100 | 100 |
 | Japan Trip Planner | Desktop | 96 | 100 | 100 | 100 |
 
-Desktop performance sits in the mid-90s because the stylesheet is render-blocking and the home page is about 1,000 DOM nodes (the matrix, the ledger and the cards). Cumulative layout shift is 0. There is no third-party script. Raw numbers are in [lighthouse-scores.json](lighthouse-scores.json).
+Desktop performance sits in the mid-90s because the stylesheet is render-blocking. Cumulative layout shift is 0. There is no third-party script and no autoplay audio. The hub stylesheet, script and self-hosted font together stay under 150 KB. Raw numbers are in [lighthouse-scores.json](lighthouse-scores.json). Recorded again after the level-select rebuild.
 
 ## Red team — what would make a pro reviewer walk away
 
 - Treating Described rows as if the artefact were attached. The ledger intro defines the three states. A reviewer who only reads the flagship "What I did" list still sees the source line: claims from the previous site, design doc not published.
-- Opening Past first and deciding the portfolio is empty. Present is the default, and the empty-slot count is in the header. The risk is still real if someone shares a Past link. The hash does open that lens, which is what a shared heading should do.
+- Reading a locked slot as a rating, or a described quest as unlocked. The card says a filled bar is not a rating. Described rows stay described. The empty-slot count is in the case-study header.
 - A shipped-credit requirement. This site will not satisfy it. Saying otherwise would be the actual failure.
 - The SDCS booking app. The public source file's on-screen credit names other people. Tyler says the work was solo. Those names are not on this site. A reviewer who opens the repo will see the credit line and the portfolio will look careless until that is reconciled.
 - Unreal, Blender, Godot, Jira, under-10 design, playtest reports, level maps. The first two are marked evidence coming. The rest are gaps. A reviewer hiring for those will not find them, and should not.

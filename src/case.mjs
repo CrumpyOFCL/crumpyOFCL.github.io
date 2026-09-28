@@ -1,12 +1,11 @@
 import { esc, val, isPending, pending, field, countPending, href } from './lib.mjs';
-import { eraSwitch } from './layout.mjs';
 
 const LOOP = ['Assumption', 'Test', 'Evidence', 'Insight', 'Decision', 'Iteration'];
 const ext = (href, text) => `<a href="${esc(href)}" rel="noopener">${text}<span class="visually-hidden"> (opens external site)</span></a>`;
 
-function section(id, lens, title, inner) {
-  return `<section id="${id}" class="cs-section" data-lens="${lens}" aria-labelledby="${id}-title">
-  <h2 id="${id}-title" class="cs-section__title"><span class="cs-section__era">${{ past: 'Past · how it was made', present: 'Present · what it is', future: "Future · what's next" }[lens]}</span>${esc(title)}</h2>
+function section(id, title, inner, n) {
+  return `<section id="${id}" class="cs-section" aria-labelledby="${id}-title">
+  <h2 id="${id}-title" class="cs-section__title"><span class="cs-section__cp">Checkpoint ${n}</span>${esc(title)}</h2>
   ${inner}
 </section>`;
 }
@@ -138,7 +137,8 @@ export function caseStudy(p) {
   const o = p.overview || {};
   const S = [];
   const toc = [];
-  const add = (id, lens, title, inner) => { S.push(section(id, lens, title, inner)); toc.push({ id, lens, title }); };
+  let cp = 0;
+  const add = (id, _lens, title, inner) => { cp += 1; S.push(section(id, title, inner, cp)); toc.push({ id, title, n: cp }); };
 
   // ---------------- Present: what it is
   if (p.media && p.media.length) add('media', 'present', 'Media', `<p class="media-lead">Frames for the sprite sheet, each character, the stage, and a gameplay clip.</p>${mediaGallery(p.media)}`);
@@ -188,29 +188,25 @@ export function caseStudy(p) {
   const links = (p.links || []).filter(l => !isPending(l.item));
   const cover = p.cover && !isPending(p.cover) ? `<img class="cs-cover" src="${esc(href(val(p.cover).src))}" alt="${esc(val(p.cover).alt)}" width="559" height="257" decoding="async">` : (p.cover ? `<div class="cs-cover cs-cover--pending">${pending(p.cover, { label: 'Image pending' })}</div>` : '');
 
-  const groups = ['present', 'past', 'future'].map(l => `<li class="toc__group"><span class="toc__era">${{ past: 'Past', present: 'Present', future: 'Future' }[l]}</span><ul>${toc.filter(t => t.lens === l).map(t => `<li><a href="#${t.id}" data-toc-lens="${t.lens}">${esc(t.title)}</a></li>`).join('')}</ul></li>`).join('');
+  const checkpoints = toc.map(t => `<li><a href="#${t.id}">${esc(t.title)}</a></li>`).join('');
 
   return `<div class="wrap cs">
-  <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="${href('/index.html#work')}">Work</a></li><li><a href="${href(`/projects/${p.slug}/index.html`)}" aria-current="page">${esc(p.title)}</a></li></ol></nav>
-  <header class="cs-head${cover ? '' : ' cs-head--solo'}">
+  <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="${href('/index.html#map')}">Map</a></li><li><a href="${href(`/projects/${p.slug}/index.html`)}" aria-current="page">${esc(p.title)}</a></li></ol></nav>
+  <header class="cs-head level-head${cover ? '' : ' cs-head--solo'}">
     <div>
-      <p class="cs-head__tier">${{ flagship: 'Flagship project', supporting: 'Supporting project', experiment: 'Experiment / prototype' }[p.tier]}</p>
+      <p class="cs-head__tier">Level · ${{ flagship: 'Flagship project', supporting: 'Supporting project', experiment: 'Experiment / prototype' }[p.tier]}</p>
       <h1>${esc(p.title)}</h1>${p.subtitle ? `\n      <p class="cs-head__sub">${field(p.subtitle)}</p>` : ''}
       <p class="lede">${field(p.tagline)}</p>
-      <p class="evidence-line"><strong>${n}</strong> evidence slot${n === 1 ? '' : 's'} on this page ${n === 1 ? 'is' : 'are'} still empty. Present is the short version. Past and Future hold the process and the gaps.</p>
+      <p class="evidence-line"><strong>${n}</strong> evidence slot${n === 1 ? '' : 's'} on this page ${n === 1 ? 'is' : 'are'} still empty. Empty slots stay marked. Nothing here is filled with a guess.</p>
       ${p.access ? field(p.access, v => `<p>${esc(v)}</p>`) : ''}
       ${links.length ? `<p class="cs-head__links">${links.map((l) => ext(val(l.item), `${esc(l.label)}`)).join('')}</p>` : ''}
     </div>
     ${cover}
   </header>
-  <div class="lensbar" data-lensbar>
-    ${eraSwitch({ id: 'lens', lens: true })}
-    <p class="lensbar__status visually-hidden" role="status" aria-live="polite" data-lens-status></p>
-  </div>
   <div class="cs-body">
-    <nav class="toc" aria-label="On this page"><details class="toc__details" open><summary>On this page</summary><ul>${groups}</ul></details></nav>
+    <nav class="toc" aria-label="Checkpoints"><details class="toc__details" open><summary>Checkpoints</summary><ol class="toc__list">${checkpoints}</ol></details></nav>
     <div class="cs-sections">${S.join('\n')}</div>
   </div>
-  <p class="cs-back"><a href="${href('/index.html#work')}">← Back to all work</a></p>
+  <p class="cs-back"><a href="${href('/index.html#map')}">← Back to map</a></p>
 </div>`;
 }

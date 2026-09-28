@@ -26,43 +26,102 @@ test.beforeAll(() => {
   mkdirSync('prototypes', { recursive: true });
 });
 
-test('home era switch re-themes, persists, and is keyboard operable', async ({ page }) => {
+test('title screen shows, then yields to the map', async ({ page }) => {
+  await page.clock.install();
   await page.goto('/');
-  await expect(page.locator('h1')).toContainText('Tyler Crump');
-  await expect(page.locator('#glance-title')).toHaveText('At a glance');
-  const past = page.locator('[data-set-era="past"]').first();
-  const present = page.locator('[data-set-era="present"]').first();
-  await past.click();
-  await expect(page.locator('html')).toHaveAttribute('data-era', 'past');
-  await expect(past).toHaveAttribute('aria-pressed', 'true');
-  await expect(present).toHaveAttribute('aria-pressed', 'false');
-  await page.reload();
-  await expect(page.locator('html')).toHaveAttribute('data-era', 'past');
-  await past.focus();
-  await page.keyboard.press('ArrowRight');
-  await expect(page.locator('html')).toHaveAttribute('data-era', 'present');
-  await page.keyboard.press('End');
-  await expect(page.locator('html')).toHaveAttribute('data-era', 'future');
-  await page.evaluate(() => localStorage.removeItem('era'));
+  await expect(page.locator('#title-screen')).toBeVisible();
+  await expect(page.locator('.pixel-logo')).toHaveAttribute('aria-label', 'Tyler Crump');
+  await expect(page.locator('.title-screen__sub')).toHaveText('Game / Level / Gameplay Designer');
+  await expect(page.locator('.press-start')).toHaveText('PRESS START');
+  await expect(page.locator('.recruiter-skip')).toBeVisible();
+  await page.clock.fastForward(2500);
+  await expect(page.locator('#title-screen')).toBeHidden();
+  await expect(page.locator('#map')).toBeVisible();
+  await expect(page.locator('#node-a-course-in-time')).toBeVisible();
 });
 
-test('case study lens, all, and table of contents', async ({ page }) => {
+test('any key or click skips the title into the hub', async ({ page }) => {
+  await page.clock.install();
+  await page.goto('/');
+  await page.keyboard.press('KeyK');
+  await expect(page.locator('#title-screen')).toBeHidden();
+  await page.goto('/');
+  await page.locator('#title-screen').click();
+  await expect(page.locator('#title-screen')).toBeHidden();
+  await expect(page.locator('.overworld')).toBeVisible();
+});
+
+test('skip to CV opens the list and the save file without waiting', async ({ page }) => {
+  await page.clock.install();
+  await page.goto('/');
+  await page.locator('.recruiter-skip').click();
+  await expect(page.locator('#title-screen')).toBeHidden();
+  await expect(page.locator('#work')).toBeVisible();
+  await expect(page.locator('#save')).toBeInViewport();
+  await expect(page.locator('#glance-title')).toHaveText('At a glance');
+  await expect(page.locator('#save')).toContainText('Game designer · gameplay and tools');
+});
+
+test('keyboard walks the path and opens a character card', async ({ page }) => {
+  await page.goto('/#map');
+  const castle = page.locator('#node-a-course-in-time');
+  const waking = page.locator('#node-waking-nightmare');
+  await castle.focus();
+  await page.keyboard.press('ArrowDown');
+  await expect(waking).toBeFocused();
+  await page.keyboard.press('KeyW');
+  await expect(castle).toBeFocused();
+  await page.keyboard.press('KeyS');
+  await expect(waking).toBeFocused();
+  await page.keyboard.press('Enter');
+  const card = page.locator('#card-waking-nightmare');
+  await expect(card).toBeVisible();
+  await expect(card).toContainText('Team of 5');
+  await expect(card).toContainText('LOCKED');
+  await expect(card).toContainText('evidence coming');
+  await expect(card).toContainText('not a rating');
+  await card.getByRole('link', { name: /START LEVEL/ }).click();
+  await expect(page).toHaveURL(/waking-nightmare/);
+});
+
+test('list view reaches every level, including a locked experiment card', async ({ page }) => {
+  await page.goto('/#map');
+  await page.locator('[data-list-toggle]').click();
+  await expect(page.locator('#work')).toBeVisible();
+  for (const slug of ['a-course-in-time', 'waking-nightmare', 'japan-trip-planner', 'ikemen-go', 'sdcs-booking-app', 'lit-flux-mechanics-showcase', 'gdt2']) {
+    await expect(page.locator(`#work a[href*="${slug}"]`).first()).toBeVisible();
+  }
+  await page.locator('#node-gdt2').click();
+  const card = page.locator('#card-gdt2');
+  await expect(card).toBeVisible();
+  await expect(card.getByText('Role', { exact: true })).toBeVisible();
+  await expect(card).toContainText('LOCKED');
+  await expect(card).toContainText('evidence coming');
+  await expect(card.locator('.stat__fill')).toHaveCount(0);
+});
+
+test('flagship card uses confirmed facts and not a score', async ({ page }) => {
+  await page.goto('/#map');
+  await page.locator('#node-a-course-in-time').click();
+  const card = page.locator('#card-a-course-in-time');
+  await expect(card).toContainText('Team lead — mainly audio, coding and level design');
+  await expect(card).toContainText('Team of 5');
+  await expect(card).toContainText('Unity 6');
+  await expect(card).toContainText('Time Switch');
+  await expect(card).toContainText('not a rating');
+  await expect(card).not.toContainText('%');
+});
+
+test('case study keeps every section, with checkpoints and a way back to the map', async ({ page }) => {
   await page.goto('/projects/a-course-in-time/index.html');
   await expect(page.locator('#overview')).toBeVisible();
-  await expect(page.locator('#decisions')).toBeHidden();
-  await page.locator('[data-set-era="past"]').click();
   await expect(page.locator('#decisions')).toBeVisible();
-  await expect(page.locator('#overview')).toBeHidden();
-  await expect(page.locator('[data-lens-status]')).toContainText('how it was made');
-  await page.locator('[data-set-era="all"]').click();
-  await expect(page.locator('#overview')).toBeVisible();
-  await expect(page.locator('#decisions')).toBeVisible();
-  await expect(page.locator('#gaps')).toBeVisible();
-  await page.locator('[data-set-era="present"]').click();
-  await page.locator('a[href="#level"]').click();
   await expect(page.locator('#level')).toBeVisible();
-  await expect(page.locator('#overview')).toBeHidden();
+  await expect(page.locator('#gaps')).toBeVisible();
+  await expect(page.locator('.cs-section__cp').first()).toContainText('Checkpoint');
+  await page.locator('a[href="#level"]').click();
   await expect(page.locator('a[href="#level"]')).toHaveAttribute('aria-current', 'true');
+  await expect(page.getByRole('link', { name: '← Back to map' })).toHaveAttribute('href', /#map$/);
 });
 
 test('ikemen go page states the confirmed work and leaves the rest pending', async ({ page }) => {
@@ -84,8 +143,7 @@ test('ikemen go page states the confirmed work and leaves the rest pending', asy
   await expect(page.locator('#media .media-frame--stage')).toHaveCount(1);
   await expect(page.locator('#media .media-frame--clip')).toHaveCount(1);
   await expect(page.locator('#media')).toContainText('Evidence pending');
-  await expect(page.locator('#level')).toBeHidden();
-  await page.locator('[data-set-era="past"]').click();
+  await expect(page.locator('#level')).toBeVisible();
   await expect(page.locator('#level')).toContainText('Broken Bridge');
   await expect(page.locator('#level')).toContainText('animated lightning and rain');
   await expect(page.locator('main')).not.toContainText('Aseprite');
@@ -93,10 +151,10 @@ test('ikemen go page states the confirmed work and leaves the rest pending', asy
   await expect(page.locator('main')).not.toContainText(/\bAI\b/);
 });
 
-test('direct hash opens the matching lens', async ({ page }) => {
+test('direct hash keeps the rest of the level on the page', async ({ page }) => {
   await page.goto('/projects/a-course-in-time/index.html#reflection');
   await expect(page.locator('#reflection')).toBeVisible();
-  await expect(page.locator('#overview')).toBeHidden();
+  await expect(page.locator('#overview')).toBeVisible();
 });
 
 test('filters, skill filter, reset and empty state', async ({ page }) => {
@@ -127,7 +185,6 @@ test('filters, skill filter, reset and empty state', async ({ page }) => {
 
 test('iteration tabs, compare slider and era diagram', async ({ page }) => {
   await page.goto('/projects/a-course-in-time/index.html');
-  await page.locator('[data-set-era="past"]').click();
   const tabs = page.locator('#iterations [role="tab"]');
   await expect(tabs).toHaveCount(4);
   await tabs.nth(0).focus();
@@ -145,7 +202,6 @@ test('iteration tabs, compare slider and era diagram', async ({ page }) => {
   await range.press('ArrowRight');
   const value = await range.inputValue();
   expect(Number(value)).toBeGreaterThan(50);
-  await page.locator('[data-set-era="present"]').click();
   await expect(page.locator('[data-dg-desc]')).toContainText('Past:');
   await page.locator('[data-dg="present"]').click();
   await expect(page.locator('[data-dg-desc]')).toContainText('Present:');
@@ -164,7 +220,7 @@ test('disclosures open from the keyboard', async ({ page }) => {
   await expect(doc).toContainText('Evidence pending');
 });
 
-test('keyboard path reaches work, a case study and contact without a mouse', async ({ page }) => {
+test('keyboard path reaches a case study and contact without a mouse', async ({ page }) => {
   await page.goto('/');
   await page.keyboard.press('Tab');
   await expect(page.locator('.skip')).toBeFocused();
@@ -179,58 +235,81 @@ test('keyboard path reaches work, a case study and contact without a mouse', asy
   await expect(page.locator('#contact')).toBeInViewport();
 });
 
-test('reduced motion removes transitions', async ({ page }) => {
+test('reduced motion shows the map immediately, with no blink, wipe or bob', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
-  await page.goto('/projects/a-course-in-time/index.html');
-  const duration = await page.locator('.dg__cell--wall').first().evaluate(el => getComputedStyle(el).transitionDuration);
+  await page.goto('/');
+  await expect(page.locator('#title-screen')).toBeHidden();
+  await expect(page.locator('#map')).toBeVisible();
+  const avatar = await page.locator('.avatar').evaluate(el => getComputedStyle(el).animationName);
+  expect(avatar === 'none').toBeTruthy();
+  const duration = await page.goto('/projects/a-course-in-time/index.html').then(() => page.locator('.dg__cell--wall').first().evaluate(el => getComputedStyle(el).transitionDuration));
   expect(duration === '0s' || duration === '0ms').toBeTruthy();
   const behavior = await page.evaluate(() => getComputedStyle(document.documentElement).scrollBehavior);
   expect(behavior).toBe('auto');
 });
 
+test('older era mark does not recolour the page', async ({ page }) => {
+  await page.goto('/#map');
+  await page.locator('[data-egg]').click();
+  await expect(page.locator('#egg-note')).toContainText('1743 / Today / 2311');
+  await expect(page.locator('html')).not.toHaveAttribute('data-era', /.+/);
+});
+
 for (const [name, path] of pages) {
-  for (const era of ['past', 'present', 'future']) {
-    test(`axe ${name} ${era}`, async ({ page }) => {
-      await page.goto(path);
-      if (name !== 'home') {
-        await page.locator(`[data-set-era="${era}"]`).click();
-      } else {
-        await page.locator(`[data-set-era="${era}"]`).first().click();
-      }
-      await axe(page);
-    });
-  }
+  test(`axe ${name}`, async ({ page }) => {
+    await page.goto(path === '/' ? '/#map' : path);
+    if (path === '/') await page.locator('.press-start').evaluate(el => { el.style.animation = 'none'; }).catch(() => {});
+    await axe(page);
+  });
 }
 
-test('axe case study All lens', async ({ page }) => {
-  await page.goto('/projects/a-course-in-time/index.html');
-  await page.locator('[data-set-era="all"]').click();
+test('axe title screen', async ({ page }) => {
+  await page.clock.install();
+  await page.goto('/');
+  await page.locator('.press-start').evaluate(el => { el.style.animation = 'none'; });
+  await axe(page);
+});
+
+test('axe character card and reduced-motion home', async ({ page }) => {
+  await page.goto('/#map');
+  await page.locator('#node-a-course-in-time').click();
+  await axe(page);
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.goto('/');
   await axe(page);
 });
 
 test('screenshots at review widths', async ({ page }) => {
   test.setTimeout(180000);
+  await page.clock.install();
   const widths = [375, 768, 1280, 1440];
   for (const width of widths) {
     await page.setViewportSize({ width, height: 900 });
     await page.goto('/');
-    await page.evaluate(() => localStorage.removeItem('era'));
-    await page.reload();
+    await page.locator('.press-start').evaluate(el => { el.style.animation = 'none'; });
+    await page.screenshot({ path: `docs/screenshots/title-${width}.png` });
+    await page.keyboard.press('KeyK');
+    await expect(page.locator('#title-screen')).toBeHidden();
+    await page.screenshot({ path: `docs/screenshots/hub-${width}.png`, fullPage: width === 375 || width === 1440 });
     await page.screenshot({ path: `docs/screenshots/home-${width}.png`, fullPage: width === 375 || width === 1440 });
   }
 
   await page.setViewportSize({ width: 1440, height: 900 });
-  await page.goto('/');
-  await page.locator('.hero').screenshot({ path: 'docs/screenshots/desktop-hero-1440.png' });
+  await page.goto('/#save');
+  await page.locator('#save').screenshot({ path: 'docs/screenshots/desktop-hero-1440.png' });
 
   await page.setViewportSize({ width: 1280, height: 900 });
+  await page.goto('/#map');
+  await page.locator('#node-a-course-in-time').click();
+  await page.screenshot({ path: 'docs/screenshots/character-card-1280.png' });
+  await page.keyboard.press('Escape');
+
   await page.goto('/projects/a-course-in-time/index.html');
   await page.screenshot({ path: 'docs/screenshots/acit-present-1280.png', fullPage: true });
-  await page.locator('[data-set-era="past"]').click();
   await page.screenshot({ path: 'docs/screenshots/acit-past-1280.png', fullPage: true });
 
   await page.setViewportSize({ width: 375, height: 812 });
-  await page.goto('/');
+  await page.goto('/#map');
   await page.screenshot({ path: 'docs/screenshots/mobile-home-375.png', fullPage: true });
   await page.goto('/projects/a-course-in-time/index.html');
   await page.screenshot({ path: 'docs/screenshots/mobile-case-375.png', fullPage: true });
