@@ -125,7 +125,7 @@ Facts Tyler has not supplied. The site shows a dashed slot for each. Do not fill
 
 File: `content/projects/ikemen-go.json`. The visible title is his spelling, **IkemanGoAss**. Supporting tier. Subtitle: "Designed by Tyler Crump".
 
-Owner decision, 29 Sep 2026, 00:29 AEST. It is a solo design project in Ikemen GO, the open-source fighting game engine it is built on. Credit Tyler with character and moveset design (The Sword Saint and Unknown, a mirror fighter on the same moveset), combat systems design (4 normals, a two-projectile lightning special, a meter-gated super, a back dash, block, a timed perfect block, a stamina system, and AI opponents), and stage design (Broken Bridge, a 6-layer storm bridge stage with animated lightning and rain).
+Owner decision, 29 Sep 2026, 00:29 AEST, with tools added 00:30 AEST. It is a solo design project in Ikemen GO, the open-source fighting game engine it is built on. Credit Tyler with character and moveset design (The Sword Saint and Unknown, a mirror fighter on the same moveset), combat systems design (4 normals, a two-projectile lightning special, a meter-gated super, a back dash, block, a timed perfect block, and a stamina system), and stage design (Broken Bridge, a 6-layer storm bridge stage with animated lightning and rain). Tools: Ikemen GO, Fighter Factory Studio (sprites and animation), Notepad++ (editing character and stage files). Do not write hand-animated, hand-drawn, every frame, or AI.
 
 Tags: fighting game, character design, combat design, stage design, Ikemen GO. Do not tag this project with animation, and do not point an animation skill at it. Do not describe how the art was produced. Do not link the private repository.
 

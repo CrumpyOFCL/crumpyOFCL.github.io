@@ -219,7 +219,7 @@
       {
         "skill": "Combat design",
         "where": "ikemen-go",
-        "note": "7 moves: 4 normals, a two-projectile lightning special, a meter-gated super, a back dash, plus block, a timed perfect block, a stamina system, and AI opponents. No clip is published.",
+        "note": "7 moves: 4 normals, a two-projectile lightning special, a meter-gated super, a back dash, plus block, a timed perfect block, and a stamina system. No clip is published.",
         "level": "stated"
       },
       {
@@ -448,6 +448,22 @@
           "sdcs-booking-app"
         ],
         "evidence": "project"
+      },
+      {
+        "skill": "Fighter Factory Studio",
+        "group": "Tools",
+        "projects": [
+          "ikemen-go"
+        ],
+        "evidence": "attested"
+      },
+      {
+        "skill": "Notepad++",
+        "group": "Tools",
+        "projects": [
+          "ikemen-go"
+        ],
+        "evidence": "attested"
       },
       {
         "skill": "Cinemachine, New Input System, controller support",

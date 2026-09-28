@@ -75,8 +75,10 @@ test('ikemen go page states the confirmed work and leaves the rest pending', asy
   await expect(page.locator('#role')).toContainText('mirror fighter');
   await expect(page.locator('#what')).toContainText('lightning special');
   await expect(page.locator('#what')).toContainText('timed perfect block');
-  await expect(page.locator('#what')).toContainText('AI opponents');
+  await expect(page.locator('#what')).toContainText('stamina');
   await expect(page.locator('#overview')).toContainText('Solo');
+  await expect(page.locator('#overview')).toContainText('Fighter Factory Studio (sprites and animation)');
+  await expect(page.locator('#overview')).toContainText('Notepad++ (editing character and stage files)');
   await expect(page.locator('#media .media-frame--sheet')).toHaveCount(1);
   await expect(page.locator('#media .media-frame--gif')).toHaveCount(2);
   await expect(page.locator('#media .media-frame--stage')).toHaveCount(1);
@@ -88,7 +90,7 @@ test('ikemen go page states the confirmed work and leaves the rest pending', asy
   await expect(page.locator('#level')).toContainText('animated lightning and rain');
   await expect(page.locator('main')).not.toContainText('Aseprite');
   await expect(page.locator('main')).not.toContainText('hand-animated');
-  await expect(page.locator('main')).not.toContainText('Notepad');
+  await expect(page.locator('main')).not.toContainText(/\bAI\b/);
 });
 
 test('direct hash opens the matching lens', async ({ page }) => {
