@@ -51,4 +51,12 @@ const wn = readFileSync(join(root, 'projects/waking-nightmare/index.html'), 'utf
 assert.match(wn, /Client handover/);
 assert.doesNotMatch(wn, /shipped|released/i);
 
+const ikemen = readFileSync(join(root, 'projects/ikemen-go/index.html'), 'utf8');
+assert.match(ikemen, /hand-animated/);
+assert.match(ikemen, /did not build the engine/);
+assert.match(ikemen, /open-source, MUGEN-compatible/);
+assert.match(ikemen, /Ikemen GO project/);
+assert.doesNotMatch(ikemen, /Aseprite/);
+assert.doesNotMatch(ikemen, /\bsolo\b/i);
+
 console.log(`content ok — ${projects.length} projects, ${htmlFiles.length} pages scanned`);

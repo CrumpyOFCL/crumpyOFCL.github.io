@@ -153,11 +153,13 @@ main:focus { outline: none; }
 .status--stated { border: 1.5px solid var(--ink); }
 .status--pending { border: 1.5px dashed var(--pending); color: var(--pending); }
 .flag { font-size: .75rem; padding: 0 .4rem; border: 1px dashed var(--ink-soft); border-radius: 2px; color: var(--ink-soft); white-space: nowrap; }
+.flag--attested, .flag--attested-pending { border-style: dashed; border-color: var(--pending); color: var(--pending); }
 .matrix-wrap { overflow-x: auto; }
 .matrix thead th { vertical-align: bottom; }
 .matrix__col { display: block; max-width: 7.5rem; font-size: .8125rem; }
 .matrix td { text-align: center; }
 .matrix td.yes { color: var(--accent); font-size: 1rem; }
+.matrix td.yes--attested { color: var(--pending); }
 .matrix__group { display: block; font-size: .6875rem; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-soft); font-weight: 600; }
 .matrix tbody th { min-width: 14rem; font-weight: 400; }
 .matrix__skill { display: inline-flex; align-items: center; min-height: 44px; }

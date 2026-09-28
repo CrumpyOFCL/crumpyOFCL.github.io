@@ -101,7 +101,7 @@ Japan Trip Planner: the only link is `https://japantrip-oeja.onrender.com`. Do n
 
 `content/site.json`:
 
-- `skills.rows` — `evidence` is `project` (used on the listed slugs), `general` (you use it, no project shown) or `coming` (you use it, evidence still to come, rendered as **evidence coming**). Unreal Engine and Blender stay `coming` until there is a project. Do not invent an Unreal project.
+- `skills.rows` — `evidence` is `project` (used on the listed slugs, filled square), `attested` (Tyler-attested on the listed project, hollow square, flag **Tyler-attested**), `attested-pending` (he said he did it and the file is not published, hollow square, flag **Tyler-attested, evidence pending**), `general` (you use it, no project shown) or `coming` (you use it, evidence still to come, rendered as **evidence coming**). Unreal Engine and Blender stay `coming` until there is a project. Do not invent an Unreal project. Do not point Aseprite at the Ikemen GO project until Tyler confirms he used it there.
 - `benchmark.rows` — `level` is `evidenced` (a reviewer can open the artefact), `stated` (your description, artefact not public) or `pending`.
 
 `hide: true` on a skill row keeps it in the file and off the page.
@@ -116,3 +116,20 @@ Japan Trip Planner: the only link is `https://japantrip-oeja.onrender.com`. Do n
 ## Home page blocks
 
 `approach`, `documents`, `journal`, `about`, `resume` and `contact` are in `content/site.json`. A résumé is a pending slot until `public/cv.pdf` exists and `resume` is confirmed. Remove phone number and street address from the PDF first.
+
+## Pending inputs
+
+Facts Tyler has not supplied. The site shows a dashed slot for each. Do not fill these with a guess.
+
+### Ikemen GO project
+
+Added from an owner fact, 29 Sep 2026, 00:18 AEST. Confirmed, in his words: a custom map (a fighting stage), custom characters with their own moves, and every move hand-animated. Ikemen GO is the open-source, MUGEN-compatible fighting game engine. He did not build the engine. The page is an experiment (`content/projects/ikemen-go.json`). The working title on the page is "Ikemen GO project" until he names it.
+
+Still to supply:
+
+- Project title
+- Date or timeframe
+- Solo or a team, and his exact role
+- Which tools were used. Aseprite is on the general tools list. Name it on this project only if he confirms he used it here
+- Number of characters, and number of moves
+- Media: sprite sheets, animation GIFs, a stage screenshot, a gameplay clip

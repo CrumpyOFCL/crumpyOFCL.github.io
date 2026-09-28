@@ -1,0 +1,249 @@
+{
+  "slug": "ikemen-go",
+  "visible": true,
+  "tier": "experiment",
+  "order": 8,
+  "title": "Ikemen GO project",
+  "_internal": {
+    "note": "Owner fact, Tyler, 29 Sep 2026, 00:18 AEST. He made a custom fighting stage and custom characters with their own moves; every move was hand-animated. Ikemen GO is the open-source, MUGEN-compatible fighting game engine; he did not build it. Do not invent a title, date, solo-or-team, role title, tool list, character count, or move count. Do not attach Aseprite, or any other general-list tool, until he confirms it was used here. Tier is experiment because role, date, and media are still open. Not a shipped credit."
+  },
+  "tagline": {
+    "status": "confirmed",
+    "value": "Custom characters with their own moves — every move hand-animated — and a custom fighting stage. Made in Ikemen GO, the open-source, MUGEN-compatible fighting game engine. I did not build the engine.",
+    "source": "Tyler (owner confirmation, 29 Sep 2026, 00:18 AEST). The engine is described as the open-source, MUGEN-compatible fighting game engine; that description is not a claim that he built it."
+  },
+  "cover": {
+    "status": "pending",
+    "request": "A screenshot of the fighting stage."
+  },
+  "overview": {
+    "projectTitle": {
+      "status": "pending",
+      "request": "The project's title, if it has one besides this description."
+    },
+    "genre": {
+      "status": "confirmed",
+      "value": "Fighting game",
+      "source": "Tyler (owner confirmation, 29 Sep 2026, 00:18 AEST): a fighting stage and characters with moves."
+    },
+    "type": {
+      "status": "pending",
+      "request": "What kind of project this was (coursework, personal, jam, or something else)."
+    },
+    "role": {
+      "status": "pending",
+      "request": "Tyler's exact role title."
+    },
+    "team": {
+      "status": "pending",
+      "request": "Whether anyone else worked on this, and what they did."
+    },
+    "timeframe": {
+      "status": "pending",
+      "request": "When this was made."
+    },
+    "engine": {
+      "status": "confirmed",
+      "value": "Ikemen GO",
+      "source": "Tyler confirmed he used Ikemen GO (29 Sep 2026, 00:18 AEST). Ikemen GO is the open-source, MUGEN-compatible fighting game engine. He did not build the engine."
+    },
+    "tools": {
+      "status": "pending",
+      "request": "Which tools were used for the characters, the moves, and the stage. Do not attach a tool from the general list until it is confirmed for this project."
+    },
+    "platforms": {
+      "status": "pending",
+      "request": "Where it can be played, if anywhere."
+    },
+    "stage": {
+      "status": "pending",
+      "request": "How far the project got. Do not mark it shipped."
+    }
+  },
+  "filters": {
+    "engine": "Ikemen GO",
+    "year": null,
+    "type": null,
+    "stage": null,
+    "disciplines": [
+      "Animation",
+      "Fighting game",
+      "Level/stage design",
+      "Ikemen GO",
+      "Level Design"
+    ]
+  },
+  "links": [
+    {
+      "label": "Source or playable build",
+      "item": {
+        "status": "pending",
+        "request": "A public page, repository, or build, if one exists. Do not invent a URL."
+      }
+    }
+  ],
+  "contributions": {
+    "status": "confirmed",
+    "value": [
+      "A custom map: a fighting stage.",
+      "Custom characters, each with their own moves.",
+      "Every move was hand-animated.",
+      "Made in Ikemen GO, the open-source, MUGEN-compatible fighting game engine. I did not build the engine."
+    ],
+    "source": "Tyler (owner confirmation, 29 Sep 2026, 00:18 AEST)"
+  },
+  "collaboration": [
+    {
+      "discipline": "Characters and moves",
+      "item": {
+        "status": "confirmed",
+        "value": "Me — custom characters with their own moves",
+        "source": "Tyler (owner confirmation, 29 Sep 2026, 00:18 AEST)"
+      }
+    },
+    {
+      "discipline": "Hand animation",
+      "item": {
+        "status": "confirmed",
+        "value": "Me — every move was hand-animated",
+        "source": "Tyler (owner confirmation, 29 Sep 2026, 00:18 AEST)"
+      }
+    },
+    {
+      "discipline": "Fighting stage",
+      "item": {
+        "status": "confirmed",
+        "value": "Me — a custom map",
+        "source": "Tyler (owner confirmation, 29 Sep 2026, 00:18 AEST)"
+      }
+    },
+    {
+      "discipline": "Anyone else",
+      "item": {
+        "status": "pending",
+        "request": "Whether anyone else worked on this, and what they did."
+      }
+    },
+    {
+      "discipline": "Role title",
+      "item": {
+        "status": "pending",
+        "request": "Tyler's exact role title."
+      }
+    }
+  ],
+  "media": [
+    {
+      "label": "Sprite sheets",
+      "item": {
+        "status": "pending",
+        "request": "Sprite sheets for the characters."
+      }
+    },
+    {
+      "label": "Animation GIFs",
+      "item": {
+        "status": "pending",
+        "request": "GIFs of the hand-animated moves."
+      }
+    },
+    {
+      "label": "Stage screenshot",
+      "item": {
+        "status": "pending",
+        "request": "A screenshot of the fighting stage."
+      }
+    },
+    {
+      "label": "Gameplay clip",
+      "item": {
+        "status": "pending",
+        "request": "A clip of the game being played."
+      }
+    }
+  ],
+  "problem": {
+    "status": "pending",
+    "request": "What this fighting-game project set out to explore."
+  },
+  "designGoal": {
+    "status": "pending",
+    "request": "The design goal for the characters, the moves, or the stage."
+  },
+  "process": [
+    {
+      "stage": "Characters and moves",
+      "item": {
+        "status": "confirmed",
+        "value": "Custom characters, each with their own moves.",
+        "source": "Tyler (owner confirmation, 29 Sep 2026, 00:18 AEST)"
+      }
+    },
+    {
+      "stage": "Hand animation",
+      "item": {
+        "status": "confirmed",
+        "value": "Every move was hand-animated.",
+        "source": "Tyler (owner confirmation, 29 Sep 2026, 00:18 AEST)"
+      }
+    },
+    {
+      "stage": "Stage",
+      "item": {
+        "status": "confirmed",
+        "value": "A custom map: a fighting stage.",
+        "source": "Tyler (owner confirmation, 29 Sep 2026, 00:18 AEST)"
+      }
+    },
+    {
+      "stage": "Tools",
+      "item": {
+        "status": "pending",
+        "request": "Which tools were used. Do not attach a tool from the general list until it is confirmed for this project."
+      }
+    },
+    {
+      "stage": "How many",
+      "item": {
+        "status": "pending",
+        "request": "How many characters, and how many moves."
+      }
+    }
+  ],
+  "levelDesign": {
+    "overview": {
+      "status": "confirmed",
+      "value": "A custom fighting stage.",
+      "source": "Tyler (owner confirmation, 29 Sep 2026, 00:18 AEST): a custom map, a fighting stage."
+    },
+    "goals": {
+      "status": "pending",
+      "request": "What the stage was designed to do for a match."
+    },
+    "structure": {
+      "status": "pending",
+      "request": "The layout of the stage."
+    },
+    "flow": {
+      "status": "pending",
+      "request": "How a fight moves through the stage."
+    },
+    "mechanicIntroduction": {
+      "status": "pending",
+      "request": "Stage-specific mechanics, if any."
+    },
+    "challengeCurve": {
+      "status": "pending",
+      "request": "How the stage shapes the fight."
+    },
+    "greybox": {
+      "status": "pending",
+      "request": "An early layout of the stage, if one exists."
+    },
+    "final": {
+      "status": "pending",
+      "request": "A screenshot of the finished stage."
+    }
+  },
+  "decisions": []
+}

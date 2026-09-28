@@ -10,6 +10,7 @@ const pages = [
   ['sdcs', '/projects/sdcs-booking-app/index.html'],
   ['lit-flux', '/projects/lit-flux-mechanics-showcase/index.html'],
   ['gdt2', '/projects/gdt2/index.html'],
+  ['ikemen', '/projects/ikemen-go/index.html'],
 ];
 
 async function axe(page) {
@@ -64,6 +65,22 @@ test('case study lens, all, and table of contents', async ({ page }) => {
   await expect(page.locator('a[href="#level"]')).toHaveAttribute('aria-current', 'true');
 });
 
+test('ikemen go page states the confirmed work and leaves the rest pending', async ({ page }) => {
+  await page.goto('/projects/ikemen-go/index.html');
+  await expect(page.locator('h1')).toHaveText('Ikemen GO project');
+  await expect(page.locator('#role')).toContainText('hand-animated');
+  await expect(page.locator('#role')).toContainText('did not build the engine');
+  await expect(page.locator('main')).toContainText('open-source, MUGEN-compatible');
+  await expect(page.locator('#overview')).toContainText('Ikemen GO');
+  await expect(page.locator('#overview')).toContainText('Pending');
+  await expect(page.locator('#media')).toContainText('Sprite sheets');
+  await expect(page.locator('#media')).toContainText('Evidence pending');
+  await expect(page.locator('#level')).toBeHidden();
+  await page.locator('[data-set-era="past"]').click();
+  await expect(page.locator('#level')).toContainText('fighting stage');
+  await expect(page.locator('main')).not.toContainText('Aseprite');
+});
+
 test('direct hash opens the matching lens', async ({ page }) => {
   await page.goto('/projects/a-course-in-time/index.html#reflection');
   await expect(page.locator('#reflection')).toBeVisible();
@@ -73,22 +90,22 @@ test('direct hash opens the matching lens', async ({ page }) => {
 test('filters, skill filter, reset and empty state', async ({ page }) => {
   await page.goto('/#work');
   const status = page.locator('[data-filter-status]');
-  await expect(status).toContainText('Showing all 6 projects');
+  await expect(status).toContainText('Showing all 7 projects');
   await page.locator('input[name="discipline"][value="UX"]').check();
-  await expect(status).toContainText('Showing 2 of 6');
+  await expect(status).toContainText('Showing 2 of 7');
   await expect(page.locator('[data-project="a-course-in-time"]')).toBeHidden();
   await expect(page.locator('[data-project="japan-trip-planner"]')).toBeVisible();
   await page.locator('select[data-filter="engine"]').selectOption('React Native');
-  await expect(status).toContainText('Showing 1 of 6');
+  await expect(status).toContainText('Showing 1 of 7');
   await expect(page.locator('[data-project="sdcs-booking-app"]')).toBeVisible();
   await page.locator('[data-filters]').getByRole('button', { name: 'Clear filters' }).click();
-  await expect(status).toContainText('Showing all 6 projects');
+  await expect(status).toContainText('Showing all 7 projects');
   await page.locator('[data-skill="Unity 2019"]').click();
   await expect(page.locator('[data-skill-chip]')).toContainText('Unity 2019');
   await expect(page.locator('[data-project="waking-nightmare"]')).toBeVisible();
   await expect(page.locator('[data-project="a-course-in-time"]')).toBeHidden();
   await page.locator('[data-skill-chip] button').click();
-  await expect(status).toContainText('Showing all 6 projects');
+  await expect(status).toContainText('Showing all 7 projects');
   await page.locator('select[data-filter="type"]').selectOption('Client project');
   await page.locator('select[data-filter="year"]').selectOption('2025');
   await expect(page.locator('[data-empty]')).toBeVisible();

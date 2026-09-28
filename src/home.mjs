@@ -1,7 +1,7 @@
 import { esc, val, isPending, pending, field, href } from './lib.mjs';
 
 const TIER_TITLES = { flagship: 'Flagship', supporting: 'Supporting work', experiment: 'Experiments and prototypes' };
-const DISCIPLINES = ['Game Design', 'Level Design', 'Gameplay', 'UX', 'Prototyping', 'Playtesting', 'Documentation', 'Programming', 'Tools', 'Team', 'Personal'];
+const DISCIPLINES = ['Game Design', 'Level Design', 'Gameplay', 'UX', 'Prototyping', 'Playtesting', 'Documentation', 'Programming', 'Tools', 'Team', 'Personal', 'Animation', 'Fighting game', 'Level/stage design', 'Ikemen GO'];
 const STATUS_TEXT = { evidenced: 'Evidenced', stated: 'Described', pending: 'Pending' };
 
 function link(url, text, cls = '') {
@@ -136,12 +136,27 @@ export function home(site, projects) {
   const cols = vis.slice().sort((a, b) => a.order - b.order);
   const skills = `<section id="skills" class="section wrap" aria-labelledby="skills-title">
   <h2 id="skills-title" class="section__title">Skills and tools</h2>
-  <p class="section__intro">Where each skill was used. Choose a skill to filter Work to those projects. Skills marked <em>evidence coming</em> are ones I use but haven't published work for yet.</p>
+  <p class="section__intro">Where each skill was used. Choose a skill to filter Work to those projects. A filled square is published work. A hollow square is something I have said I did, without a file on this site yet. <em>Tyler-attested, evidence pending</em> means that file is still to come. <em>Evidence coming</em> means I use the tool and have not published a project for it.</p>
   <div class="matrix-wrap" tabindex="0" role="region" aria-labelledby="skills-title">
   <table class="matrix">
-    <caption class="visually-hidden">Skills by project. A filled square means the skill was used on that project.</caption>
+    <caption class="visually-hidden">Skills by project. A filled square means published work on that project. A hollow square means Tyler-attested, and the file is not published yet.</caption>
     <thead><tr><th scope="col">Skill</th>${cols.map(p => `<th scope="col"><span class="matrix__col">${esc(p.title)}</span></th>`).join('')}</tr></thead>
-    <tbody>${skillRows.map(r => `<tr><th scope="row"><span class="matrix__group">${esc(r.group)}</span>${r.projects.length ? `<button type="button" class="linklike matrix__skill" data-skill="${esc(r.skill)}" data-skill-projects="${r.projects.join(' ')}">${esc(r.skill)}</button>` : `<span class="matrix__skill">${esc(r.skill)}</span> <span class="flag flag--${r.evidence}">${r.evidence === 'coming' ? 'evidence coming' : 'general'}</span>`}</th>${cols.map(p => r.projects.includes(p.slug) ? `<td class="yes"><span aria-hidden="true">■</span><span class="visually-hidden">Used</span></td>` : `<td class="no"><span class="visually-hidden">Not used</span></td>`).join('')}</tr>`).join('')}</tbody>
+    <tbody>${skillRows.map(r => {
+      const FLAG_TEXT = { coming: 'evidence coming', general: 'general', attested: 'Tyler-attested', 'attested-pending': 'Tyler-attested, evidence pending' };
+      const skill = r.projects.length
+        ? `<button type="button" class="linklike matrix__skill" data-skill="${esc(r.skill)}" data-skill-projects="${r.projects.join(' ')}">${esc(r.skill)}</button>`
+        : `<span class="matrix__skill">${esc(r.skill)}</span>`;
+      const flag = FLAG_TEXT[r.evidence] ? ` <span class="flag flag--${esc(r.evidence)}">${FLAG_TEXT[r.evidence]}</span>` : '';
+      const cells = cols.map(p => {
+        if (!r.projects.includes(p.slug)) return `<td class="no"><span class="visually-hidden">Not used</span></td>`;
+        if (r.evidence === 'attested' || r.evidence === 'attested-pending') {
+          const hidden = r.evidence === 'attested-pending' ? 'Tyler-attested, evidence pending' : 'Tyler-attested';
+          return `<td class="yes yes--attested"><span aria-hidden="true">□</span><span class="visually-hidden">${hidden}</span></td>`;
+        }
+        return `<td class="yes"><span aria-hidden="true">■</span><span class="visually-hidden">Used</span></td>`;
+      }).join('');
+      return `<tr><th scope="row"><span class="matrix__group">${esc(r.group)}</span>${skill}${flag}</th>${cells}</tr>`;
+    }).join('')}</tbody>
   </table>
   </div>
 </section>`;

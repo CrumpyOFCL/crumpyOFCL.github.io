@@ -1,6 +1,6 @@
 # Reviews
 
-Reviewed against the built site on `portfolio-v2`, 28 Sep 2026. Scores below are from that build, not estimates.
+Reviewed against the built site on `portfolio-v2`. Lighthouse scores below were re-recorded on 28 Sep 2026 after the Ikemen GO experiment was added. They are from that build, not estimates.
 
 ## 30-second recruiter test — pass
 
@@ -30,6 +30,8 @@ The flagship is framed as systems and level design, which matches what Tyler has
 
 Waking Nightmare is a client handover of an in-progress build. The travel app is a UX case study, not a game, and it is labelled that way. Two itch.io prototypes sit in Experiments with the role still pending.
 
+An Ikemen GO experiment was added from a later owner fact (29 Sep 2026, 00:18 AEST). The page states a custom fighting stage, custom characters with their own moves, and that every move was hand-animated. It names Ikemen GO as the open-source, MUGEN-compatible fighting game engine and says he did not build it. It does not invent a title, a date, solo or team, a role, a tool list, character or move counts, or media. Those stay empty slots. Aseprite stays on the general tools list and is not attached to this project.
+
 ## Visual and communication
 
 Three palettes, one layout. Type is Bricolage for headings (self-hosted) and the system sans for text, so a font host is not on the critical path. Dashed boxes are the only "illustration" of missing work. Status labels are words (Evidenced, Described, Pending), not colour alone.
@@ -44,7 +46,7 @@ Astro was considered and not used. The site is a few pages, the edit model is JS
 
 ## QA
 
-Playwright covers the era switch and its persistence, the case-study lens including All, table-of-contents lens changes, hash deep links, filters (discipline, selects, skill, reset, empty), iteration tabs (arrows, Home, End), the compare slider, the era diagram, disclosures, a keyboard path from the skip link to a case study and back to contact, and reduced motion. axe-core (WCAG 2.0/2.1/2.2 A and AA) runs on all 7 pages in Past, Present and Future, plus the All lens on the flagship. 31 tests, all passing.
+Playwright covers the era switch and its persistence, the case-study lens including All, table-of-contents lens changes, hash deep links, filters (discipline, selects, skill, reset, empty), the Ikemen GO case study (confirmed work versus empty slots), iteration tabs (arrows, Home, End), the compare slider, the era diagram, disclosures, a keyboard path from the skip link to a case study and back to contact, and reduced motion. axe-core (WCAG 2.0/2.1/2.2 A and AA) runs on all 8 pages in Past, Present and Future, plus the All lens on the flagship. 35 tests, all passing.
 
 ## Accessibility
 
@@ -57,11 +59,11 @@ Lighthouse 12, gzip on (the same compression GitHub Pages and Render apply). Pyt
 | Page | Form | Performance | Accessibility | Best practices | SEO |
 | --- | --- | ---: | ---: | ---: | ---: |
 | Home | Mobile | 100 | 100 | 100 | 100 |
-| Home | Desktop | 96 | 100 | 100 | 100 |
+| Home | Desktop | 97 | 100 | 100 | 100 |
 | A Course In Time | Mobile | 100 | 100 | 100 | 100 |
 | A Course In Time | Desktop | 95 | 100 | 100 | 100 |
 | Japan Trip Planner | Mobile | 100 | 100 | 100 | 100 |
-| Japan Trip Planner | Desktop | 96 | 100 | 100 | 100 |
+| Japan Trip Planner | Desktop | 97 | 100 | 100 | 100 |
 
 Desktop performance sits in the mid-90s because the stylesheet is render-blocking and the home page is about 1,000 DOM nodes (the matrix, the ledger and the cards). Cumulative layout shift is 0. There is no third-party script. Raw numbers are in [lighthouse-scores.json](lighthouse-scores.json).
 

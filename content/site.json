@@ -211,6 +211,18 @@
         "level": "stated"
       },
       {
+        "skill": "Hand animation and moveset design",
+        "where": "ikemen-go",
+        "note": "Custom characters with their own moves; every move was hand-animated. Sprite sheets, animation GIFs, and a gameplay clip are not published.",
+        "level": "stated"
+      },
+      {
+        "skill": "Fighting-stage design",
+        "where": "ikemen-go",
+        "note": "A custom fighting stage. No stage screenshot is published yet.",
+        "level": "stated"
+      },
+      {
         "skill": "Player experience / UX",
         "note": "UX decisions for a live invite-only app are written up on its case study. The public sign-in page can be opened; screens behind it are not public. Game playtest evidence is still pending.",
         "where": "japan-trip-planner",
@@ -259,7 +271,7 @@
     ]
   },
   "skills": {
-    "_note": "evidence: 'project' = used on the listed projects; 'general' = Tyler-attested general skill, no project shown; 'coming' = Tyler-attested, evidence to follow (rendered with an 'evidence coming' label). Set hide:true to keep a row in the data but off the page.",
+    "_note": "evidence: 'project' = used on the listed projects and treated as published work; 'attested' = Tyler-attested on the listed project; 'attested-pending' = Tyler-attested, evidence pending (he said he did it, the file is not published); 'general' = Tyler-attested general skill, no project shown; 'coming' = Tyler-attested, evidence to follow (rendered with an 'evidence coming' label). Set hide:true to keep a row in the data but off the page.",
     "rows": [
       {
         "skill": "Unity 6",
@@ -285,6 +297,14 @@
           "waking-nightmare"
         ],
         "evidence": "project"
+      },
+      {
+        "skill": "Ikemen GO",
+        "group": "Engines",
+        "projects": [
+          "ikemen-go"
+        ],
+        "evidence": "attested"
       },
       {
         "skill": "Unreal Engine",
@@ -340,6 +360,22 @@
           "a-course-in-time"
         ],
         "evidence": "project"
+      },
+      {
+        "skill": "Character and moveset design",
+        "group": "Design",
+        "projects": [
+          "ikemen-go"
+        ],
+        "evidence": "attested-pending"
+      },
+      {
+        "skill": "Stage design",
+        "group": "Design",
+        "projects": [
+          "ikemen-go"
+        ],
+        "evidence": "attested-pending"
       },
       {
         "skill": "Creative direction",
@@ -416,6 +452,14 @@
         "group": "Design",
         "projects": [],
         "evidence": "general"
+      },
+      {
+        "skill": "Hand animation (character moves)",
+        "group": "Art",
+        "projects": [
+          "ikemen-go"
+        ],
+        "evidence": "attested-pending"
       },
       {
         "skill": "Aseprite (pixel art)",

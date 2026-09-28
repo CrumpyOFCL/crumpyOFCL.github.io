@@ -119,6 +119,7 @@ export function caseStudy(p) {
 
   // ---------------- Present: what it is
   add('overview', 'present', 'Overview', dlRows([
+    ...(o.projectTitle ? [['Project title', o.projectTitle]] : []),
     ['Genre', o.genre], ['Type', o.type], ['My role', o.role], ['Team', o.team], ['Timeframe', o.timeframe],
     ['Engine', o.engine], ['Tools', o.tools], ['Platforms', o.platforms], ['Stage', o.stage],
   ]));
@@ -134,6 +135,7 @@ export function caseStudy(p) {
   ]));
   if (p.collaboration) add('team', 'present', 'Who did what', collaboration(p.collaboration));
   if (p.videos) add('video', 'present', 'Gameplay video', field(p.videos, v => `<p>${esc(v)}</p>`));
+  if (p.media && p.media.length) add('media', 'present', 'Media', `<ul class="collab" role="list">${p.media.map(m => `<li class="collab__item${isPending(m.item) ? ' collab__item--pending' : ''}"><span class="collab__disc">${esc(m.label)}</span>${field(m.item, esc, { inline: true })}</li>`).join('')}</ul>`);
 
   // ---------------- Past: how it was made
   if (p.problem || p.designGoal) add('goal', 'past', 'Problem and design goal', dlRows([['Problem', p.problem], ['Design goal', p.designGoal]]));
