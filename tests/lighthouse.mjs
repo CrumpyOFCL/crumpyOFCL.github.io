@@ -49,12 +49,19 @@ const server = createServer((req, res) => {
   }
 });
 await new Promise(resolve => server.listen(port, '127.0.0.1', resolve));
+const robotsResponse = await fetch(`${origin}/robots.txt`);
+const robotsText = await robotsResponse.text();
+if (!robotsResponse.ok || !robotsText.includes('User-agent: *') || !robotsText.includes('Allow: /')) {
+  throw new Error('Local robots.txt is missing or invalid');
+}
 
 const pages = [['home', '/']];
 
 const flags = {
   logLevel: 'error',
   onlyCategories: ['performance', 'accessibility', 'best-practices', 'seo'],
+  // Chrome's protocol resource fetch can fail for localhost; the file is checked above.
+  skipAudits: ['robots-txt'],
   formFactor: 'mobile',
   screenEmulation: { mobile: true, width: 412, height: 823, deviceScaleFactor: 1.75, disabled: false },
 };
