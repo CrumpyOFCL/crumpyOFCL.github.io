@@ -121,11 +121,11 @@ Tabi: the case-study title, map node and character card say **Tabi**. Do not wri
 
 Facts Tyler has not supplied. The site shows a dashed slot for each. Do not fill these with a guess.
 
-### IkemanGoAss
+### Sword Saint: Broken Bridge
 
-File: `content/projects/ikemen-go.json`. The visible title is his spelling, **IkemanGoAss**. Supporting tier. Subtitle: "Designed by Tyler Crump".
+File: `content/projects/sword-saint-broken-bridge.json`. The visible title is **Sword Saint: Broken Bridge**. The map plaque uses the short label **Sword Saint**. Supporting tier. Subtitle: "Designed by Tyler Crump".
 
-Owner decision, 29 Sep 2026, 00:29 AEST, with tools added 00:30 AEST. It is a solo design project in Ikemen GO, the open-source fighting game engine it is built on. Credit Tyler with character and moveset design (The Sword Saint and Unknown, a mirror fighter on the same moveset), combat systems design (4 normals, a two-projectile lightning special, a meter-gated super, a back dash, block, a timed perfect block, and a stamina system), and stage design (Broken Bridge, a 6-layer storm bridge stage with animated lightning and rain). Tools: Ikemen GO, Fighter Factory Studio (sprites and animation), Notepad++ (editing character and stage files). Do not write hand-animated, hand-drawn, every frame, or AI.
+Owner decision, 29 Sep 2026, 00:29 AEST, with tools added 00:30 AEST. Tyler renamed it on the portfolio after that. It is a solo design project built in Ikemen GO, the open-source fighting game engine. Credit Tyler with character and moveset design (The Sword Saint and Unknown, a mirror fighter on the same moveset), combat systems design (4 normals, a two-projectile lightning special, a meter-gated super, a back dash, block, a timed perfect block, and a stamina system), and stage design (Broken Bridge, a 6-layer storm bridge stage with animated lightning and rain). Tools: Ikemen GO, Fighter Factory Studio (sprites and animation), Notepad++ (editing character and stage files). Do not write hand-animated, hand-drawn, every frame, or AI.
 
 Tags: fighting game, character design, combat design, stage design, Ikemen GO. Do not tag this project with animation, and do not point an animation skill at it. Do not describe how the art was produced. Do not link the private repository.
 

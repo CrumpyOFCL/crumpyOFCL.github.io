@@ -10,7 +10,7 @@ const pages = [
   ['sdcs', '/projects/sdcs-booking-app/index.html'],
   ['lit-flux', '/projects/lit-flux-mechanics-showcase/index.html'],
   ['gdt2', '/projects/gdt2/index.html'],
-  ['ikemen', '/projects/ikemen-go/index.html'],
+  ['ikemen', '/projects/sword-saint-broken-bridge/index.html'],
 ];
 
 async function axe(page) {
@@ -92,7 +92,7 @@ test('masthead List link opens the list', async ({ page }) => {
   await page.locator('a[href="#work"]').first().click();
   await expect(page.locator('#work')).toBeVisible();
   await expect(page.locator('#work-title')).toBeFocused();
-  for (const slug of ['a-course-in-time', 'waking-nightmare', 'tabi', 'ikemen-go', 'sdcs-booking-app', 'lit-flux-mechanics-showcase', 'gdt2']) {
+  for (const slug of ['a-course-in-time', 'waking-nightmare', 'tabi', 'sword-saint-broken-bridge', 'sdcs-booking-app', 'lit-flux-mechanics-showcase', 'gdt2']) {
     await expect(page.locator(`#work a[href*="${slug}"]`).first()).toBeVisible();
   }
 });
@@ -101,7 +101,7 @@ test('list view reaches every level, including a locked experiment card', async 
   await page.goto('/#map');
   await page.locator('[data-list-toggle]').click();
   await expect(page.locator('#work')).toBeVisible();
-  for (const slug of ['a-course-in-time', 'waking-nightmare', 'tabi', 'ikemen-go', 'sdcs-booking-app', 'lit-flux-mechanics-showcase', 'gdt2']) {
+  for (const slug of ['a-course-in-time', 'waking-nightmare', 'tabi', 'sword-saint-broken-bridge', 'sdcs-booking-app', 'lit-flux-mechanics-showcase', 'gdt2']) {
     await expect(page.locator(`#work a[href*="${slug}"]`).first()).toBeVisible();
   }
   await page.locator('#node-gdt2').click();
@@ -140,8 +140,9 @@ test('case study keeps every section, with checkpoints and a way back to the map
 });
 
 test('ikemen go page states the confirmed work and leaves the rest pending', async ({ page }) => {
-  await page.goto('/projects/ikemen-go/index.html');
-  await expect(page.locator('h1')).toHaveText('IkemanGoAss');
+  await page.goto('/projects/sword-saint-broken-bridge/index.html');
+  await expect(page.locator('h1')).toHaveText('Sword Saint: Broken Bridge');
+  await expect(page.locator('.lede')).toContainText('built in Ikemen GO');
   await expect(page.locator('.cs-head__sub')).toHaveText('Designed by Tyler Crump');
   await expect(page.locator('.cs-head__tier')).toContainText('Supporting');
   await expect(page.locator('.lede')).toContainText('solo design project');
@@ -349,7 +350,7 @@ test('screenshots at review widths', async ({ page }) => {
   await page.screenshot({ path: 'docs/screenshots/travel-app-375.png', fullPage: true });
   await page.setViewportSize({ width: 1280, height: 900 });
   await page.screenshot({ path: 'docs/screenshots/travel-app-1280.png', fullPage: true });
-  await page.goto('/projects/ikemen-go/index.html');
+  await page.goto('/projects/sword-saint-broken-bridge/index.html');
   await page.screenshot({ path: 'docs/screenshots/ikemen-present-1280.png', fullPage: true });
   await page.setViewportSize({ width: 375, height: 812 });
   await page.screenshot({ path: 'docs/screenshots/ikemen-375.png', fullPage: true });

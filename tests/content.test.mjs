@@ -35,6 +35,8 @@ for (const file of htmlFiles) {
   }
   assert.match(html, /<html lang="en"/);
   assert.match(html, /Evidence pending|evidence pending|evidence coming|Coming soon|LOCKED/i);
+  assert.equal(html.includes('IkemanGoAss'), false, `${file} should not name the project IkemanGoAss`);
+  assert.equal(html.includes('Ikeman Go Ass'), false, `${file} should not name the project Ikeman Go Ass`);
 }
 
 const tabi = readFileSync(join(root, 'projects/tabi/index.html'), 'utf8');
@@ -62,8 +64,9 @@ const wn = readFileSync(join(root, 'projects/waking-nightmare/index.html'), 'utf
 assert.match(wn, /Client handover/);
 assert.doesNotMatch(wn, /shipped|released/i);
 
-const ikemen = readFileSync(join(root, 'projects/ikemen-go/index.html'), 'utf8');
-assert.match(ikemen, /IkemanGoAss/);
+const ikemen = readFileSync(join(root, 'projects/sword-saint-broken-bridge/index.html'), 'utf8');
+assert.match(ikemen, /<h1>Sword Saint: Broken Bridge<\/h1>/);
+assert.match(ikemen, /built in Ikemen GO/);
 assert.match(ikemen, /Designed by Tyler Crump/);
 assert.match(ikemen, /open-source fighting game engine/);
 assert.match(ikemen, /mirror fighter/);
@@ -78,12 +81,15 @@ assert.doesNotMatch(ikemen, /\bAI\b/);
 assert.doesNotMatch(ikemen, /\bgeneration\b|\bpipeline\b/i);
 assert.doesNotMatch(ikemen, /Aseprite/);
 assert.doesNotMatch(ikemen, /github\.com\/CrumpyOFCL\/IkemanGoAss/i);
+assert.doesNotMatch(ikemen, /IkemanGoAss|Ikeman Go Ass/);
 assert.match(ikemen, /Solo designer/);
 assert.equal((ikemen.match(/Designed by Tyler Crump/g) || []).length, 1);
 assert.doesNotMatch(tabi, /\bmechanics\b|\bshipped\b/i);
 assert.doesNotMatch(wn, /shipped|released/i);
 
 const home = readFileSync(join(root, 'index.html'), 'utf8');
+assert.match(home, /node__label">Sword Saint</);
+assert.match(home, />Sword Saint: Broken Bridge</);
 assert.match(home, /node__label">Tabi</);
 assert.match(home, /travel \/ multipurpose/);
 assert.match(home, /class="suitcase"/);

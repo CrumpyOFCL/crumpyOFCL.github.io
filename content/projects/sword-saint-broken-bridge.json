@@ -1,20 +1,21 @@
 {
-  "slug": "ikemen-go",
+  "slug": "sword-saint-broken-bridge",
   "visible": true,
   "tier": "supporting",
   "order": 4,
-  "title": "IkemanGoAss",
+  "shortTitle": "Sword Saint",
+  "title": "Sword Saint: Broken Bridge",
   "subtitle": {
     "status": "confirmed",
     "value": "Designed by Tyler Crump",
     "source": "Owner decision, 29 Sep 2026, 00:29 AEST."
   },
   "_internal": {
-    "note": "Owner decision, 29 Sep 2026, 00:29 AEST. Solo design project. Credit the character, combat, and stage design below. Do not describe how the art was produced. Do not link the private repository. Media stays placeholder. Not a shipped credit. URL slug stays ikemen-go."
+    "note": "Owner decision, 29 Sep 2026, 00:29 AEST, renamed 28 Sep 2026 to Sword Saint: Broken Bridge. Solo design project built in Ikemen GO. Credit the character, combat, and stage design below. Do not describe how the art was produced. Do not link the private repository. Media stays placeholder. Not a shipped credit."
   },
   "tagline": {
     "status": "confirmed",
-    "value": "A solo design project in Ikemen GO, the open-source fighting game engine it's built on. Character and moveset design for The Sword Saint and Unknown, combat systems for their shared moveset, and the Broken Bridge stage.",
+    "value": "A solo design project built in Ikemen GO, the open-source fighting game engine. Character and moveset design for The Sword Saint and Unknown, combat systems for their shared moveset, and the Broken Bridge stage.",
     "source": "Owner decision, 29 Sep 2026, 00:29 AEST."
   },
   "overview": {

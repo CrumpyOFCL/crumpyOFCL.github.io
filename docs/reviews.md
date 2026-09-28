@@ -30,7 +30,7 @@ The flagship is framed as systems and level design, which matches what Tyler has
 
 Waking Nightmare is a client handover of an in-progress build. Tabi is a multipurpose group trip planner, not a game, and it is labelled that way. A Japan trip is named only as the first real use. Two itch.io prototypes sit in Experiments with the role still pending.
 
-IkemanGoAss is a supporting piece, framed by an owner decision on 29 Sep 2026, 00:29 AEST: designed by Tyler Crump, a solo design project in Ikemen GO, the open-source fighting game engine it is built on. The page credits character and moveset design for The Sword Saint and Unknown (a mirror fighter on the same moveset), combat systems design (4 normals, a two-projectile lightning special, a meter-gated super, a back dash, block, a timed perfect block, and a stamina system), and stage design for Broken Bridge, a 6-layer storm bridge stage with animated lightning and rain. Tools on the project are Ikemen GO, Fighter Factory Studio (sprites and animation), and Notepad++ (editing character and stage files). Tags are fighting game, character design, combat design, stage design, and Ikemen GO. Media frames are still empty. The private repository is not linked. Aseprite stays on the general tools list and is not attached to this project.
+Sword Saint: Broken Bridge is a supporting piece, framed by an owner decision on 29 Sep 2026, 00:29 AEST, and renamed by Tyler after that: designed by Tyler Crump, a solo design project built in Ikemen GO, the open-source fighting game engine. The page credits character and moveset design for The Sword Saint and Unknown (a mirror fighter on the same moveset), combat systems design (4 normals, a two-projectile lightning special, a meter-gated super, a back dash, block, a timed perfect block, and a stamina system), and stage design for Broken Bridge, a 6-layer storm bridge stage with animated lightning and rain. Tools on the project are Ikemen GO, Fighter Factory Studio (sprites and animation), and Notepad++ (editing character and stage files). Tags are fighting game, character design, combat design, stage design, and Ikemen GO. Media frames are still empty. The private repository is not linked. Aseprite stays on the general tools list and is not attached to this project.
 
 ## Visual and communication
 
@@ -59,13 +59,13 @@ Lighthouse 12, gzip on (the same compression GitHub Pages and Render apply). Pyt
 | Page | Form | Performance | Accessibility | Best practices | SEO |
 | --- | --- | ---: | ---: | ---: | ---: |
 | Home | Mobile | 100 | 100 | 100 | 100 |
-| Home | Desktop | 96 | 100 | 100 | 100 |
+| Home | Desktop | 97 | 100 | 100 | 100 |
 | A Course In Time | Mobile | 100 | 100 | 100 | 100 |
-| A Course In Time | Desktop | 96 | 100 | 100 | 100 |
+| A Course In Time | Desktop | 97 | 100 | 100 | 100 |
 | Tabi | Mobile | 100 | 100 | 100 | 100 |
-| Tabi | Desktop | 98 | 100 | 100 | 100 |
+| Tabi | Desktop | 99 | 100 | 100 | 100 |
 
-Desktop performance sits in the mid-90s because the stylesheet is render-blocking. Cumulative layout shift is 0. There is no third-party script and no autoplay audio. Raw bytes of every file the hub requests (HTML, CSS, JS, map, landmarks, avatar, lake shimmer) are 147,468, under the 150,000 budget. The font file is not requested. Raw numbers are in [lighthouse-scores.json](lighthouse-scores.json). Recorded again after the stage-1 rebuild.
+Desktop performance sits in the mid-90s because the stylesheet is render-blocking. Cumulative layout shift is 0. There is no third-party script and no autoplay audio. Raw bytes of every file the hub requests (HTML, CSS, JS, map, landmarks, avatar, lake shimmer) are 148,117, under the 150,000 budget. The font file is not requested. Raw numbers are in [lighthouse-scores.json](lighthouse-scores.json). Recorded again after the stage-1 rebuild.
 
 ## Red team — what would make a pro reviewer walk away
 

@@ -119,7 +119,7 @@ const ART = {
   'a-course-in-time': 'castle',
   'waking-nightmare': 'wn',
   tabi: 'tabi',
-  'ikemen-go': 'ikemen',
+  'sword-saint-broken-bridge': 'ikemen',
   'sdcs-booking-app': 'sdcs',
   'lit-flux-mechanics-showcase': 'lit',
   gdt2: 'gdt',
@@ -175,7 +175,7 @@ function characterCard(p) {
   const equipHtml = equip.length
     ? `<ul class="equip" aria-label="Tools">${equip.map(t => `<li><span class="equip__mark" aria-hidden="true"></span>${esc(t)}</li>`).join('')}</ul>`
     : factRow('Tools', null);
-  const credit = p.slug === 'ikemen-go' ? '<p class="select-card__by">Designed by Tyler Crump</p>' : '';
+  const credit = p.slug === 'sword-saint-broken-bridge' ? '<p class="select-card__by">Designed by Tyler Crump</p>' : '';
   return `<dialog class="select-card" id="card-${p.slug}" aria-labelledby="card-title-${p.slug}">
   <div class="select-card__layout">
     <div class="select-card__portrait" aria-hidden="true">${nodeArt(p)}</div>
@@ -285,14 +285,14 @@ export function home(site, projects) {
 </div>`;
 
   const nodes = path.map(p => {
-    const locked = p.slug === 'ikemen-go';
+    const locked = p.slug === 'sword-saint-broken-bridge';
     const play = PLAYABLE.has(p.slug);
     return `<button type="button" class="node node--${p.tier} node--${ART[p.slug] || 'x'}${locked ? ' node--locked' : ''}" data-node="${p.slug}" id="node-${p.slug}">
     <span class="node__cursor" aria-hidden="true"></span>
     ${nodeArt(p)}
     ${play ? '<span class="node__flag">PLAYABLE</span>' : ''}
     ${locked ? '<span class="node__lock">LOCKED</span>' : ''}
-    <span class="node__label">${esc(p.title)}</span>
+    <span class="node__label">${esc(p.shortTitle || p.title)}</span>
     <span class="node__tier">${esc(nodeKind(p))}</span>
   </button>`;
   }).join('');

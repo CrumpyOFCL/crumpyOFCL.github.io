@@ -285,7 +285,7 @@ export function caseStudy(p) {
   const HEADS = {
     'a-course-in-time': 'Playable build on itch.io. Level maps, playtest notes and a gameplay clip are still to come.',
     tabi: 'Live, invite-only. A cover image and the remaining write-up slots are still to come.',
-    'ikemen-go': 'Coming soon: public build or page. Sprite sheet, character GIFs and a gameplay clip are still to come.',
+    'sword-saint-broken-bridge': 'Coming soon: public build or page. Sprite sheet, character GIFs and a gameplay clip are still to come.',
     'waking-nightmare': 'Client handover of an in-progress build. Several write-up slots are still to come.',
   };
   const line = HEADS[p.slug] || 'Confirmed work is in the sections above. Empty slots are listed at the end and are not filled with guesses.';

@@ -212,19 +212,19 @@
       },
       {
         "skill": "Character and moveset design",
-        "where": "ikemen-go",
+        "where": "sword-saint-broken-bridge",
         "note": "The Sword Saint, and Unknown, a mirror fighter on the same moveset. Sprite sheet and GIFs are not published.",
         "level": "stated"
       },
       {
         "skill": "Combat design",
-        "where": "ikemen-go",
+        "where": "sword-saint-broken-bridge",
         "note": "7 moves: 4 normals, a two-projectile lightning special, a meter-gated super, a back dash, plus block, a timed perfect block, and a stamina system. No clip is published.",
         "level": "stated"
       },
       {
         "skill": "Stage design",
-        "where": "ikemen-go",
+        "where": "sword-saint-broken-bridge",
         "note": "Broken Bridge, a 6-layer storm bridge stage with animated lightning and rain. No screenshot is published.",
         "level": "stated"
       },
@@ -308,7 +308,7 @@
         "skill": "Ikemen GO",
         "group": "Engines",
         "projects": [
-          "ikemen-go"
+          "sword-saint-broken-bridge"
         ],
         "evidence": "attested"
       },
@@ -371,7 +371,7 @@
         "skill": "Character and moveset design",
         "group": "Design",
         "projects": [
-          "ikemen-go"
+          "sword-saint-broken-bridge"
         ],
         "evidence": "attested"
       },
@@ -379,7 +379,7 @@
         "skill": "Combat design",
         "group": "Design",
         "projects": [
-          "ikemen-go"
+          "sword-saint-broken-bridge"
         ],
         "evidence": "attested"
       },
@@ -387,7 +387,7 @@
         "skill": "Stage design",
         "group": "Design",
         "projects": [
-          "ikemen-go"
+          "sword-saint-broken-bridge"
         ],
         "evidence": "attested"
       },
@@ -452,7 +452,7 @@
         "skill": "Fighter Factory Studio",
         "group": "Tools",
         "projects": [
-          "ikemen-go"
+          "sword-saint-broken-bridge"
         ],
         "evidence": "attested"
       },
@@ -460,7 +460,7 @@
         "skill": "Notepad++",
         "group": "Tools",
         "projects": [
-          "ikemen-go"
+          "sword-saint-broken-bridge"
         ],
         "evidence": "attested"
       },
