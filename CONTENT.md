@@ -18,7 +18,7 @@ Pending (this is what visitors see as a dashed box):
 { "status": "pending", "request": "What Tyler still needs to supply" }
 ```
 
-`source` is for you. It is shown on the page only where a template prints it (for example the "What I did" section). Write requests as instructions to yourself, not as fake results. Never use lorem, sample statistics, or a playtest quote you do not have permission to publish.
+`source` is for you. The page does not print it. Write requests as instructions to yourself, not as fake results. Never use lorem, sample statistics, or a playtest quote you do not have permission to publish.
 
 Plain strings are treated as already confirmed. Prefer the object form for anything a reviewer might question.
 
@@ -29,7 +29,7 @@ The build fails if `status` is missing a `value` (confirmed) or a `request` (pen
 1. Create `content/projects/your-slug.json`.
 2. Set `visible`, `tier` (`flagship`, `supporting` or `experiment`), `order`, `title`, `tagline`, `overview`, `filters`, and at least an empty `decisions` array.
 3. `overview` must include `role`, `team` and `timeframe`. If you do not know them yet, use a pending object. Do not guess a date.
-4. `filters` drives the Work page:
+4. `filters` stays in the JSON for the record. The shell does not render a separate filter page:
 
 ```json
 "filters": {

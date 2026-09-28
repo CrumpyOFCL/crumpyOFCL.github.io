@@ -13,7 +13,7 @@ Node 18+ is enough (`package.json` engines). Node 22 is what this branch was bui
 ## Commands
 
 ```bash
-node src/build.mjs          # write index.html, projects/*/index.html, assets/, sitemap.xml
+node src/build.mjs          # write index.html, assets/, sitemap.xml
 npm test                    # content checks, Playwright + axe, Lighthouse
 npm run serve               # http://127.0.0.1:4321
 ```
@@ -28,7 +28,7 @@ See [CONTENT.md](CONTENT.md). Do not invent projects, tools, dates, quotes or pl
 
 ## Design notes
 
-- [docs/concepts.md](docs/concepts.md) — concepts scored, Level Select chosen (Era Lens rejected by the Owner)
+- The current pages are one app shell: About, A Course In Time, Sword Saint, Tabi and More, with a contact sheet. [docs/concepts.md](docs/concepts.md) records the earlier concepts.
 - [docs/reviews.md](docs/reviews.md) — reviews and test scores
 - [docs/requirements-checklist.md](docs/requirements-checklist.md) — against the three junior briefs
 - [prototypes/](prototypes/) — throwaway concept sketches, not linked from the site

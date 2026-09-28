@@ -1,12 +1,11 @@
-// Static site generator: content/*.json -> HTML at the repo root.
+// Static site generator: content/*.json -> one HTML app at the repo root.
 // Zero dependencies; needs Node 18+. Run: node src/build.mjs
 import { readFileSync, writeFileSync, mkdirSync, readdirSync, copyFileSync, existsSync, rmSync, statSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { layout } from './layout.mjs';
-import { home } from './home.mjs';
-import { caseStudy } from './case.mjs';
+import { layout, contactFrom } from './layout.mjs';
+import { shell } from './shell.mjs';
 import { validate } from './validate.mjs';
 import { setRootFromCanonical } from './lib.mjs';
 
@@ -33,45 +32,29 @@ const copyDir = (from, to) => {
 
 const assetHash = createHash('sha256');
 for (const rel of ['src/assets/styles.css', 'src/assets/app.js']) assetHash.update(readFileSync(join(root, rel)));
-const artDir = join(root, 'src/assets/art');
-if (existsSync(artDir)) for (const f of readdirSync(artDir).sort()) assetHash.update(readFileSync(join(artDir, f)));
 const asset = assetHash.digest('hex').slice(0, 10);
 
-const homeNav = [
-  { href: '#map', label: 'Map' },
-  { href: '#work', label: 'List' },
-  { href: '#skills', label: 'Quest log' },
-  { href: '#save', label: 'Save file · About' },
-  { href: '#contact', label: 'Continue? · Contact' },
-];
-const caseNav = [
-  { href: '/index.html#map', label: 'Back to map' },
-  { href: '/index.html#skills', label: 'Quest log' },
-  { href: '/index.html#contact', label: 'Continue? · Contact' },
-];
-
 setRootFromCanonical('/');
+const contact = contactFrom(site);
 write('index.html', layout({
   title: 'Tyler Crump — game designer (gameplay and tools)',
-  description: 'Tyler Crump designs and builds puzzle and gameplay systems in Unity and C#. Flagship: A Course In Time, a time-switching puzzle-platformer in development.',
-  body: home(site, projects), page: 'home', canonical: '/', nav: homeNav, asset,
+  description: 'Tyler Crump is a game design student targeting Game Designer, Level Designer, Gameplay Designer and UX/Player Experience roles. Flagship: A Course In Time.',
+  body: shell(site, projects),
+  page: 'home',
+  canonical: '/',
+  asset,
+  ...contact,
 }));
 
-// Clear stale case studies before writing (only inside /projects).
 if (existsSync(join(out, 'projects'))) rmSync(join(out, 'projects'), { recursive: true });
-for (const p of projects.filter(p => p.visible)) {
-  const canonical = `/projects/${p.slug}/`;
-  setRootFromCanonical(canonical);
-  write(`projects/${p.slug}/index.html`, layout({
-    title: `${p.title} — case study · Tyler Crump`,
-    description: (p.tagline && p.tagline.value) || `${p.title} by Tyler Crump`,
-    body: caseStudy(p), page: 'case', canonical, nav: caseNav, asset,
-  }));
+for (const stale of ['assets/art', 'assets/fonts']) {
+  const dir = join(out, stale);
+  if (existsSync(dir)) rmSync(dir, { recursive: true });
 }
 
 copyDir(join(root, 'src/assets'), join(out, 'assets'));
 copyDir(join(root, 'public'), out);
 write('robots.txt', 'User-agent: *\nAllow: /\nSitemap: https://crumpyofcl.github.io/sitemap.xml\n');
-write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n<url><loc>https://crumpyofcl.github.io/</loc></url>\n${projects.filter(p => p.visible).map(p => `<url><loc>https://crumpyofcl.github.io/projects/${p.slug}/</loc></url>`).join('\n')}\n</urlset>\n`);
+write('sitemap.xml', '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n<url><loc>https://crumpyofcl.github.io/</loc></url>\n</urlset>\n');
 write('.nojekyll', '');
-console.log(`Built home + ${projects.filter(p => p.visible).length} case studies into ${out}`);
+console.log(`Built the app shell into ${out} (asset ${asset})`);

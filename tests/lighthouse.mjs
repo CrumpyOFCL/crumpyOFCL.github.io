@@ -51,8 +51,8 @@ await new Promise(resolve => server.listen(port, '127.0.0.1', resolve));
 
 const pages = [
   ['home', '/'],
-  ['acit', '/projects/a-course-in-time/index.html'],
-  ['tabi', '/projects/tabi/index.html'],
+  ['acit', '/#acit'],
+  ['tabi', '/#tabi'],
 ];
 
 const flags = {

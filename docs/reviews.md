@@ -1,5 +1,7 @@
 # Reviews
 
+The current site is one app shell in the form of Tabi: an app bar (Tyler Crump / Game designer · gameplay and tools), five equal bottom tabs (About me, A Course In Time, Sword Saint, Tabi, More), and a TC button that opens a contact sheet. About is `/` and `#about`. The level-select map, title screen and recruiter skip are gone. The notes below that describe that map are the stage-1 review of the previous form.
+
 Reviewed against the built site on `portfolio-v2` after the stage-1 design pass. Lighthouse scores below were re-recorded on 28 Sep 2026 against that build, with gzip on. They are from that run, not estimates.
 
 ## 30-second recruiter test — pass, with a skip
