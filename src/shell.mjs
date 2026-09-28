@@ -1,373 +1,97 @@
 import { esc, href, val, isPending } from './lib.mjs';
 
-const confirmed = (f) => (isPending(f) ? null : val(f));
+const item = (field) => isPending(field) ? null : val(field);
+const linkOf = (project) => (project.links || []).find((link) => link.item && !isPending(link.item) && link.item.value);
+const external = (url, label, cls = 'text-action') => `<a class="${cls}" href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(label)} <span aria-hidden="true">↗</span><span class="sr-only"> (opens in new tab)</span></a>`;
 
-const ACIT = 'https://crumpyofcl.itch.io/a-course-in-time';
-const TABI = 'https://japantrip-oeja.onrender.com';
-const SDCS = 'https://github.com/CrumpyOFCL/Comp2750-Assignment';
-
-const STILL = {
-  about: ['Education', 'LinkedIn', 'Game design document', 'Playtest report', 'Level maps'],
-  'a-course-in-time': ['Gameplay video', 'Level map', 'Playtest write-up', 'code sample', 'Devlog'],
-  'sword-saint-broken-bridge': ['Sprite sheet', 'The Sword Saint GIF', 'Unknown GIF', 'Broken Bridge screenshot', 'Gameplay clip'],
-  tabi: ['Screenshots of a trip', 'Tester feedback', 'Results'],
-  'waking-nightmare': ['Timeframe', 'Cover image', 'Client feedback', 'Handover notes', 'Reflection'],
-  'sdcs-booking-app': ['Cover image', 'Reflection', 'Problem', 'Design goal'],
-  'lit-flux-mechanics-showcase': ['My role', 'Team', 'Timeframe', 'Cover image'],
-  gdt2: ['My role', 'Team', 'Timeframe', 'Cover image'],
-};
-
-function still(slug) {
-  const items = (STILL[slug] || []).slice(0, 5);
-  if (!items.length) return '';
-  return `<details class="still"><summary>Still to add</summary><ul>${items.map((item) => `<li>Coming soon: ${esc(item)}</li>`).join('')}</ul></details>`;
-}
-
-function uniqueFacts(items) {
-  const list = items.filter(Boolean).map((item) => String(item));
-  const namedSolo = list.some((item) => /\bsolo\b/i.test(item) && !/^solo$/i.test(item.trim()));
-  return namedSolo ? list.filter((item) => !/^solo$/i.test(item.trim())) : list;
-}
-
-function chips(items) {
-  return `<ul class="fact-chips">${uniqueFacts(items).map((item) => `<li>${esc(item)}</li>`).join('')}</ul>`;
-}
-
-function bullets(title, items) {
-  const rows = (items || []).filter(Boolean).slice(0, 3);
-  if (!rows.length) return '';
-  return `<section class="block"><h2>${esc(title)}</h2><ul class="points">${rows.map((row) => `<li>${esc(row)}</li>`).join('')}</ul></section>`;
-}
-
-function systems(cards) {
-  if (!cards.length) return '';
-  return `<section class="block"><h2>System breakdown</h2><div class="sys-list">${cards.map((card) => `<article class="card sys">
-    <h3>${esc(card.name)}</h3>
-    <ol class="io">
-      <li><span>Input</span> ${esc(card.input)}</li>
-      <li><span>Rule</span> ${esc(card.rule)}</li>
-      <li><span>Outcome</span> ${esc(card.outcome)}</li>
-    </ol>
-  </article>`).join('')}</div></section>`;
-}
-
-function action(url, label) {
-  if (!url) return '';
-  return `<a class="primary" href="${esc(url)}">${esc(label)}</a>`;
-}
-
-function head({ id, project, eyebrow, title, credit, hook, chipItems, url, cta, media, mark, labelledby }) {
-  return `<section id="${id}" class="panel" data-project="${project}" aria-labelledby="${labelledby || `${id}-title`}">
-    <div class="proj-top" data-first>
-      <div class="proj-copy">
-        <p class="eyebrow">${mark ? `<img class="mark" src="${href(mark)}" alt="" width="174" height="80">` : ''}${esc(eyebrow)}</p>
-        <h1 class="page-title" id="${id}-title" tabindex="-1">${esc(title)}</h1>
-        ${credit ? `<p class="page-credit">${esc(credit)}</p>` : ''}
-        <p class="hook">${esc(hook)}</p>
-        ${chips(chipItems)}
-        ${action(url, cta)}
-      </div>
-      ${media ? `<div class="proj-hero">${media}</div>` : ''}
-    </div>`;
-}
-
-function moveList() {
-  const rows = [
-    ['4 normals', 'Shared'],
-    ['Lightning special', 'Two projectiles'],
-    ['Super', 'Meter-gated'],
-    ['Back dash', 'Movement'],
-    ['Block', 'Defence'],
-    ['Perfect block', 'Timed'],
-    ['Stamina', 'System'],
-  ];
-  return `<figure class="move-list">
-    <figcaption>Diagram of the moveset. Not a gameplay screenshot.</figcaption>
-    <ul>${rows.map(([name, kind]) => `<li><span>${esc(name)}</span><em>${esc(kind)}</em></li>`).join('')}</ul>
-  </figure>`;
-}
-
-function moneyDiagram() {
-  return `<figure class="money">
-    <figcaption>Diagram of the money states. Not a screenshot.</figcaption>
-    <ul>
-      <li><i class="swatch paid"></i> Paid</li>
-      <li><i class="swatch committed"></i> Committed</li>
-      <li><i class="swatch estimated"></i> Estimated</li>
-    </ul>
-    <p>The three always add up to the projected cost.</p>
-  </figure>`;
-}
-
-function skillPanel(site) {
-  const rows = (site.skills?.rows || []).filter((row) => !row.hide);
-  const names = rows.map((row) => `<li>${esc(row.skill)}</li>`).join('');
-  const groups = [];
-  for (const row of rows) {
-    let group = groups.find((item) => item.name === row.group);
-    if (!group) {
-      group = { name: row.group, rows: [] };
-      groups.push(group);
-    }
-    group.rows.push(row);
-  }
-    const detail = groups.map((group) => `<section><h3>${esc(group.name)}</h3><ul class="chip-row">${group.rows.map((row) => `<li>${esc(row.skill)}</li>`).join('')}</ul></section>`).join('');
-  return `<section class="block"><h2>Tools</h2><ul class="chip-row">${names}</ul></section>
-    <details class="still"><summary>Full skills list</summary>${detail}</details>`;
-}
+function fact(label, value) { return `<div><dt>${esc(label)}</dt><dd>${esc(value)}</dd></div>`; }
+function number(n, label, text) { return `<div class="number"><span>${n}</span><strong>${label}</strong><p>${text}</p></div>`; }
 
 export function shell(site, projects) {
-  const by = Object.fromEntries(projects.map((project) => [project.slug, project]));
+  const by = Object.fromEntries(projects.map((p) => [p.slug, p]));
   const acit = by['a-course-in-time'];
   const sword = by['sword-saint-broken-bridge'];
   const tabi = by.tabi;
-  const email = val(site.contact.email);
-  const github = val(site.contact.github);
-  const itch = val(site.contact.itch);
-  const positioning = 'Game development student, looking for Game Designer, Level Designer, Gameplay Designer and UX/Player Experience roles.';
+  const acitLink = linkOf(acit)?.item.value;
+  const tabiLink = linkOf(tabi)?.item.value;
+  const email = item(site.contact.email);
+  const github = item(site.contact.github);
+  const itch = item(site.contact.itch);
+  const more = ['waking-nightmare', 'lit-flux-mechanics-showcase', 'gdt2', 'sdcs-booking-app'].map((slug) => by[slug]).filter(Boolean);
 
-  const about = `<section id="about" class="panel" aria-labelledby="about-title">
-    <div data-first>
-      <p class="eyebrow">Portfolio</p>
-      <h1 class="page-title" id="about-title" tabindex="-1">About me</h1>
-      <p class="hook">I design and build gameplay systems and the tools behind them, in Unity and C#.</p>
-      <p class="lede">${esc(positioning)}</p>
-      ${chips([
-        'Team lead · 5-person Unity 6 game',
-        'Creative Director · 5-person VR client project',
-        'Unity · C# · FMOD',
-        'Open to junior design, gameplay and tools roles',
-      ])}
-      <div class="tiles">
-        <a class="work-tile" data-project="acit" href="#acit">
-          <img src="${href('/img/acit-mark.webp')}" alt="" width="174" height="80">
-          <span><em>Flagship</em><strong>A Course In Time</strong><span>Time-switch puzzle-platformer · playable</span></span>
-        </a>
-        <a class="work-tile" data-project="sword" href="#sword-saint">
-          <span class="glyph" aria-hidden="true">SS</span>
-          <span><em>Fighting game</em><strong>Sword Saint</strong><span>2 fighters · 7-move shared set · 1 stage</span></span>
-        </a>
-        <a class="work-tile" data-project="tabi" href="#tabi">
-          <img src="${href('/img/tabi-mark.webp')}" alt="Tabi sign-in screen" width="248" height="120">
-          <span><em>Tool</em><strong>Tabi</strong><span>Group trip planner · invite-only</span></span>
-        </a>
+  return `<header class="site-header">
+    <div class="header-inner wrap">
+      <a class="brand" href="#top" aria-label="Tyler Crump, back to top"><span class="brand-mark">TC<span class="brand-dot">.</span></span><span class="brand-name">TYLER CRUMP<small>GAME DESIGN · SYSTEMS · UX</small></span></a>
+      <button class="menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false">Menu <span aria-hidden="true">☰</span></button>
+      <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+        <a href="#work">Selected work</a><a href="#approach">Approach</a><a href="#other-work">More projects</a><a href="#about">About</a><a class="nav-contact" href="mailto:${esc(email)}">Get in touch <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-grid wrap">
+        <div class="hero-copy">
+          <p class="kicker"><span class="signal"></span> PORTFOLIO / TYLER CRUMP</p>
+          <h1 id="hero-title">I design the rules <em>players discover.</em></h1>
+          <p class="hero-lede">Game designer and developer focused on gameplay systems, levels and the tools that make iteration possible. I work in Unity and C# and bring the same player-centred thinking to product design.</p>
+          <div class="hero-actions"><a class="button button-bright" href="#work">Explore selected work <span aria-hidden="true">↘</span></a>${external(acitLink, 'Play A Course In Time', 'button button-outline')}</div>
+          <div class="hero-proof"><span>UNITY 6 / C# / FMOD</span><span>TEAM LEAD · 5-PERSON GAME</span><span>OPEN TO JUNIOR ROLES</span></div>
+        </div>
+        <div class="hero-art" aria-label="Graphic showing the Past and Present hotel states in A Course In Time" role="img">
+          <div class="art-glow"></div><div class="art-ring ring-one"></div><div class="art-ring ring-two"></div>
+          <div class="art-slice slice-past"><span>01 / PAST</span><div class="art-building"><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+          <div class="art-slice slice-present"><span>02 / PRESENT</span><div class="art-building"><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+          <div class="art-center"><span>TIME<br>SWITCH</span><b>↔</b></div>
+          <div class="art-caption">A COURSE IN TIME <span>↗</span></div>
+        </div>
       </div>
-      ${action(ACIT, 'Play A Course In Time')}
-    </div>
-    ${skillPanel(site)}
-    <section class="card cv-card"><h2>CV</h2><p>Coming soon: CV. Email <a href="mailto:${esc(email)}">${esc(email)}</a> for a copy.</p></section>
-    <section class="card contact-card"><h2>Contact</h2><ul class="contact-lines">
-      <li><a href="mailto:${esc(email)}">${esc(email)}</a></li>
-      <li><a href="${esc(github)}">GitHub</a></li>
-      <li><a href="${esc(itch)}">itch.io</a></li>
-    </ul></section>
-    <section class="block"><h2>In short</h2><p>${esc(val(site.lede))}</p><p>${esc(val(site.intro))}</p></section>
-    ${still('about')}
-  </section>`;
-
-  const acitBody = head({
-    id: 'acit',
-    project: 'acit',
-    eyebrow: 'Flagship project',
-    mark: '/img/acit-mark.webp',
-    title: acit.title,
-    hook: 'Switch a hotel between Past and Present to open paths.',
-    chipItems: [
-      val(acit.overview.role),
-      val(acit.overview.team),
-      'Unity 6 · C# · FMOD',
-      val(acit.overview.timeframe),
-    ],
-    url: ACIT,
-    cta: 'Play in browser',
-    credit: 'Logo: A Course In Time team.',
-    media: '',
-  }) + `
-    ${bullets('What I designed', val(acit.contributions))}
-    ${systems([
-      {
-        name: 'Time switch',
-        input: 'Shift between Present and Past.',
-        rule: 'Collision layers, object state and physics swap in step.',
-        outcome: 'A crush check treats time closing around the player as a death rather than a glitch.',
-      },
-      {
-        name: 'Puzzle generators',
-        input: 'Scene-view grid painting.',
-        rule: 'Pipe networks use a connectivity solver. Elemental puzzles count valid solutions.',
-        outcome: 'Puzzles that pick their own elements.',
-      },
-      {
-        name: 'Save',
-        input: 'A reloaded world.',
-        rule: 'An objective ledger records doors and puzzles.',
-        outcome: 'The world remembers which doors are open and which puzzles are done.',
-      },
-    ])}
-    <section class="block"><h2>Mechanics in the playable build</h2><p class="credit-note">A Course In Time is a team build in development, not a shipped storefront credit.</p>
-      <ul class="spec-list">${(val(acit.mechanics) || []).map((item) => `<li><strong>${esc(item.name)}</strong> ${esc(item.text)}</li>`).join('')}</ul>
+      <div class="hero-foot wrap"><span>SCROLL TO EXPLORE</span><span>01 / SELECTED WORK</span></div>
     </section>
-    ${still('a-course-in-time')}
-  </section>`;
 
-  const swordBody = head({
-    id: 'sword-saint',
-    project: 'sword',
-    eyebrow: 'Fighting game',
-    title: sword.title,
-    credit: 'Designed by Tyler Crump',
-    hook: 'Two fighters, one 7-move set, and a storm-bridge stage in Ikemen GO.',
-    chipItems: [
-      val(sword.overview.role),
-      val(sword.overview.team),
-      (val(sword.overview.tools) || []).join(' · '),
-    ],
-    media: moveList(),
-  }) + `
-    ${bullets('What I designed', val(sword.contributions))}
-    ${systems([
-      {
-        name: 'Shared moveset',
-        input: 'The Sword Saint and Unknown, a mirror fighter on the same moveset.',
-        rule: '4 normals, a two-projectile lightning special, a meter-gated super, a back dash, block and a timed perfect block.',
-        outcome: 'A stamina system sits on that set.',
-      },
-      {
-        name: 'Broken Bridge',
-        input: 'One stage.',
-        rule: 'Six layers, with animated lightning and rain.',
-        outcome: 'A storm-bridge stage for the two fighters.',
-      },
-    ])}
-    ${still('sword-saint-broken-bridge')}
-  </section>`;
+    <section class="section work-section wrap" id="work" aria-labelledby="work-title">
+      <div class="section-heading"><div><p class="eyebrow">01 / THE WORK</p><h2 id="work-title">Built to be <em>played.</em></h2></div><p>Three different design problems, one consistent goal: make complex systems feel clear to the person using them.</p></div>
+      <article class="feature feature-acit" id="acit" aria-labelledby="acit-title">
+        <div class="feature-image acit-image"><div class="image-grid"></div><div class="image-label">FEATURED GAME / UNITY 6</div><img src="${href('/img/acit-logo.png')}" alt="A Course In Time game logo" width="600" height="240"><div class="image-bottom"><span>PAST ← → PRESENT</span><span>01 / 03</span></div></div>
+        <div class="feature-copy"><p class="eyebrow">CASE STUDY 01 · PUZZLE PLATFORMER</p><h3 id="acit-title">A Course<br>In Time<span class="accent">.</span></h3><p class="feature-lede">${esc(item(acit.tagline))}</p>
+          <dl class="facts">${fact('MY ROLE', 'Producer / team lead · level design, audio & programming')}${fact('TEAM', '5 people · university project')}${fact('TOOLS', 'Unity 6 · C# · FMOD')}${fact('STATUS', 'Playable build · in development')}</dl>
+          <div class="feature-actions"><a class="button button-accent" href="#acit-case">Read case study <span aria-hidden="true">↓</span></a>${external(acitLink, 'Play the build')}</div>
+        </div>
+      </article>
+      <div class="case-study" id="acit-case">
+        <div class="case-intro"><p class="eyebrow">THE DESIGN CHALLENGE</p><h4>One hotel. Two eras.<br><em>A world that remembers.</em></h4><p>Switching time changes platforms, hazards and routes. The design depends on those changes remaining predictable while the player carries progress across eras.</p></div>
+        <div class="decision-grid">
+          <div class="decision"><span>01 / WORLD RULES</span><h5>Time switch</h5><p>I built the era system to swap collision layers, object state and physics together. A crush check turns a closing space into a clear failure state.</p></div>
+          <div class="decision"><span>02 / AUTHORING</span><h5>Puzzle generators</h5><p>Scene-view grid painting speeds up level authoring. Pipe networks use a connectivity solver; elemental puzzles count valid solutions before selecting elements.</p></div>
+          <div class="decision"><span>03 / CONTINUITY</span><h5>Save and test</h5><p>An objective ledger restores completed puzzles and opened doors. A debug console gives playtesters scene jumps, abilities and objective control without the editor.</p></div>
+        </div><p class="case-note">Team project. The contributions above describe my documented systems and tools; the playable build is still in development.</p>
+      </div>
 
-  const tabiTools = val(tabi.overview.tools) || [];
-  const tabiCore = tabiTools.filter((tool) => !['Visual Studio Code', 'GoodNotes', 'Aseprite'].includes(tool));
-  const tabiAlso = tabiTools.filter((tool) => ['Visual Studio Code', 'GoodNotes', 'Aseprite'].includes(tool));
-  const tabiBody = head({
-    id: 'tabi',
-    project: 'tabi',
-    eyebrow: 'Tool',
-    title: tabi.title,
-    hook: 'A group trip planner for any trip and any group, phone-first.',
-    chipItems: [
-      val(tabi.overview.role),
-      val(tabi.overview.team),
-      tabiCore.join(' · '),
-      val(tabi.overview.timeframe),
-    ],
-    url: TABI,
-    cta: 'Open Tabi',
-    media: `<figure class="proj-media">
-      <img src="${href('/img/tabi-signin.webp')}" alt="Tabi sign-in screen" width="455" height="220">
-      <figcaption>The public sign-in screen.</figcaption>
-    </figure>`,
-  }) + `
-    ${bullets('What I built', val(tabi.contributions))}
-    ${systems([{
-      name: 'Money states',
-      input: 'Each cost on the budget.',
-      rule: 'A cost is marked paid, committed or estimated.',
-      outcome: 'The three always add up to the projected cost.',
-    }])}
-    ${moneyDiagram()}
-    <section class="block"><h2>Features</h2><p>${esc(val(tabi.tagline))}</p>
-      <p>Also used: ${esc(tabiAlso.join(', '))}.</p>
-      <ul class="spec-list">${(val(tabi.mechanics) || []).map((item) => `<li><strong>${esc(item.name)}</strong> ${esc(item.text)}</li>`).join('')}</ul>
+      <div class="secondary-grid">
+        <article class="project-card sword-card" id="sword-saint" aria-labelledby="sword-title"><div class="card-art sword-art"><div class="fighter fighter-left"><span></span></div><div class="versus">VS</div><div class="fighter fighter-right"><span></span></div><div class="storm-line"></div><p>COMBAT / CHARACTER / STAGE</p></div><div class="card-copy"><p class="eyebrow">02 / FIGHTING GAME · SOLO DESIGN</p><h3 id="sword-title">Sword Saint:<br>Broken Bridge</h3><p>${esc(item(sword.tagline))}</p><div class="stat-row"><span><strong>02</strong> fighters</span><span><strong>07</strong> shared moves</span><span><strong>06</strong> stage layers</span></div><details><summary>Design breakdown <span aria-hidden="true">+</span></summary><div class="details-body"><p>Four normals, a two-projectile lightning special, a meter-gated super and a back dash. Blocking includes a timed perfect block, with stamina as another combat system.</p><p>Broken Bridge is a six-layer storm stage with animated rain and lightning. No public playable build or gameplay media is listed yet.</p></div></details></div></article>
+        <article class="project-card tabi-card" id="tabi" aria-labelledby="tabi-title"><div class="card-art tabi-art"><div class="tabi-panel"><img src="${href('/img/tabi-mark.webp')}" alt="" width="248" height="120"><div class="tabi-line"></div><span>THE PLAN, THE PEOPLE,<br>THE MONEY.</span></div><p>PRODUCT DESIGN / DEVELOPMENT</p></div><div class="card-copy"><p class="eyebrow">03 / PRODUCT & UX · SOLO PROJECT</p><h3 id="tabi-title">Tabi<span class="accent">.</span></h3><p>A group trip planner for any trip and any group. It gives the plan, budget and people one clear place to live, designed first for a phone.</p><div class="stat-row"><span><strong>03</strong> money states</span><span><strong>01</strong> shared plan</span></div><details><summary>Design breakdown <span aria-hidden="true">+</span></summary><div class="details-body"><p><strong>Decision:</strong> keep paid, committed and estimated costs distinct, so a guess never reads like money already spent. The three states add up to the projected total.</p><p>The home view changes from a countdown before the trip to Today's plan during it. Each trip has its own invite-only group with viewer and editor roles. A Japan trip was the first real use, not the product's limit.</p><p>The live app is invite-only; the public link opens its sign-in screen.</p></div></details><div class="card-actions">${external(tabiLink, 'View Tabi')}</div></div></article>
+      </div>
     </section>
-    <section class="block"><h2>A decision</h2><p><strong>Never show a guess as if it were certain.</strong> ${esc(val((val(tabi.decisions) || []).find((item) => item.decision === 'Never show a guess as if it were certain')?.result) || '')}</p></section>
-    ${still('tabi')}
-  </section>`;
 
-  const moreProjects = ['waking-nightmare', 'sdcs-booking-app', 'lit-flux-mechanics-showcase', 'gdt2']
-    .map((slug) => by[slug])
-    .filter(Boolean);
+    <section class="approach-section" id="approach" aria-labelledby="approach-title"><div class="wrap approach-grid"><div><p class="eyebrow">02 / HOW I WORK</p><h2 id="approach-title">Good ideas need <em>good tools.</em></h2><p>I enjoy designing what players see and building what makes the design practical to test, change and expand.</p></div><div class="approach-list">${number('01', 'Prototype the rule', 'Put a mechanic into a playable state early, then test whether its behaviour is legible.')}${number('02', 'Make iteration cheap', 'Create editor tools and repeatable systems so a designer can explore more than one solution.')}${number('03', 'Keep the player in view', 'Use clear feedback, honest states and useful playtest controls to expose what needs work.')}</div></div></section>
 
-  const playable = {
-    'lit-flux-mechanics-showcase': true,
-    gdt2: true,
-  };
+    <section class="section archive-section wrap" id="other-work" aria-labelledby="archive-title"><div class="section-heading"><div><p class="eyebrow">03 / MORE PROJECTS</p><h2 id="archive-title">The wider <em>practice.</em></h2></div><p>Game prototypes, client work and product development all shape how I solve design problems.</p></div><div class="archive-list">${more.map((p, i) => archiveRow(p, i)).join('')}</div></section>
 
-  const more = `<section id="more" class="panel" data-project="more" aria-labelledby="more-title">
-    <div data-first>
-      <p class="eyebrow">Also</p>
-      <h1 class="page-title" id="more-title" tabindex="-1">More</h1>
-      <p class="page-sub">Smaller work, with Waking Nightmare Experience first.</p>
-    </div>
-    <div class="work-list">${moreProjects.map((project) => card(project, playable[project.slug])).join('')}</div>
-  </section>`;
-
-  return about + acitBody + swordBody + tabiBody + more;
+    <section class="about-section" id="about" aria-labelledby="about-title"><div class="wrap about-grid"><div><p class="eyebrow">04 / ABOUT</p><h2 id="about-title">Design is better<br>when it <em>works.</em></h2></div><div><p class="about-lede">I’m Tyler, a game development student who designs gameplay systems, levels and player experiences, then builds the tools to make them real.</p><p>My work ranges from a five-person Unity puzzle platformer to a VR client project, fighting game design and a live travel planning product. I’m interested in junior game design, level design, gameplay and tools roles.</p><div class="skill-groups"><div><span>GAME</span><p>Systems · Levels · Combat · Playtesting</p></div><div><span>BUILD</span><p>Unity · C# · FMOD · Ikemen GO</p></div><div><span>BEYOND</span><p>UX · JavaScript · Express · SQLite</p></div></div></div></div></section>
+    <section class="contact-section wrap" id="contact"><p class="eyebrow">LET'S TALK</p><h2>Have a role or project<br>in mind? <em>Get in touch.</em></h2><a class="contact-email" href="mailto:${esc(email)}">${esc(email)} <span aria-hidden="true">↗</span></a><div class="socials">${external(github, 'GitHub')}${external(itch, 'itch.io')}</div></section>
+  </main><footer class="footer"><div class="wrap"><span>© ${new Date().getUTCFullYear()} TYLER CRUMP</span><span>GAME DESIGN · SYSTEMS · UX</span><a href="#top">BACK TO TOP ↑</a></div></footer>`;
 }
 
-function publicLink(project) {
-  const links = Array.isArray(project.links) ? project.links : [];
-  const hit = links.find((link) => link?.item && !isPending(link.item) && link.item.value);
-  return hit ? { label: hit.label, url: hit.item.value } : null;
-}
-
-function card(project, play) {
+function archiveRow(project, index) {
   const slug = project.slug;
-  const link = publicLink(project);
-  const playLink = play && link ? `<a class="play-pill" href="${esc(link.url)}">Play</a>` : '';
-  const itchLink = !play && link && slug !== 'sdcs-booking-app' ? `<a class="text-link" href="${esc(link.url)}">${esc(/itch/i.test(link.label) ? 'itch.io page' : link.label)}</a>` : '';
-  const source = slug === 'sdcs-booking-app' ? `<a class="text-link" href="${SDCS}">Source (GitHub)</a>` : '';
-  const tools = confirmed(project.overview.tools);
-  const tool = Array.isArray(tools) ? tools.slice(0, 3).join(' · ') : confirmed(project.overview.engine);
-  const meta = uniqueFacts([confirmed(project.overview.role), confirmed(project.overview.team), tool, confirmed(project.overview.timeframe)]);
-  const letter = project.title.replace(/[^A-Za-z]/g, '').slice(0, 2).toUpperCase();
-  const body = slug === 'sdcs-booking-app' ? sdcsBody(project) : plainBody(project);
-  return `<article class="more-row">
-    ${playLink}
-    <details class="card work" id="${esc(slug)}">
-      <summary>
-        <span class="glyph" aria-hidden="true">${esc(letter)}</span>
-        <span class="work-text">
-          <span class="work-name">${esc(project.title)}</span>
-          <span class="work-hook">${esc(hookFor(project))}</span>
-          <span class="work-meta">${esc(meta.filter(Boolean).join(' · '))}</span>
-        </span>
-        <span class="details-hint">Details</span>
-      </summary>
-      <div class="card-detail">${itchLink}${source}${body}${still(slug)}</div>
-    </details>
-  </article>`;
-}
-
-function hookFor(project) {
-  if (project.slug === 'waking-nightmare') return 'VR experience for Meta Quest, made for LiminalVR.';
-  if (project.slug === 'sdcs-booking-app') return 'A React Native booking screen for a dog-care service.';
-  if (project.slug === 'lit-flux-mechanics-showcase') return 'Unity browser prototype: time swap, time cannon, double jump, dash.';
-  if (project.slug === 'gdt2') return 'Unity browser prototype.';
-  return val(project.tagline) || '';
-}
-
-function plainBody(project) {
-  const lines = (val(project.contributions) || []).slice(0, 3);
-  const handover = (project.decisions || []).find((item) => /handover/i.test(item.decision || ''));
-  return `${bullets('What I designed', lines)}
-    ${handover ? `<section class="block"><h2>What happened</h2><p>${esc(handover.detail || '')}</p><p class="credit-note">Handover: an in-progress build.</p></section>` : ''}
-    ${(val(project.mechanics) || []).length ? `<ul class="spec-list">${(val(project.mechanics) || []).map((item) => `<li><strong>${esc(item.name)}</strong> ${esc(item.text)}</li>`).join('')}</ul>` : ''}`;
-}
-
-function sdcsBody(project) {
-  const code = `  const handleCalculate = () => {
-    let cost = dogRate * dogHours + serviceRate * serviceQty;
-    if (dogRate === 0 || dogHours === 0) {
-      cost = 0;
-    }
-    setTotalCost(cost);
-  };`;
-  return `${bullets('What I built', val(project.contributions))}
-    ${systems([{
-      name: 'Cost',
-      input: 'Dog hours and a service quantity.',
-      rule: 'cost = dogRate * dogHours + serviceRate * serviceQty, and a missing dog or hours sets the cost to 0.',
-      outcome: 'The screen shows the total cost.',
-    }])}
-    <figure class="code-slot">
-      <figcaption>App.js, lines 38-44. <a href="${SDCS}">Source (GitHub)</a></figcaption>
-      <pre tabindex="0"><code>${esc(code)}</code></pre>
-    </figure>`;
+  const labels = {
+    'waking-nightmare': 'VR CLIENT PROJECT',
+    'lit-flux-mechanics-showcase': 'PLAYABLE PROTOTYPE',
+    gdt2: 'PLAYABLE PROTOTYPE',
+    'sdcs-booking-app': 'MOBILE PRODUCT',
+  };
+  const link = linkOf(project);
+  const desc = item(project.tagline) || '';
+  const url = link?.item.value;
+  return `<article class="archive-row"><span class="archive-index">${String(index + 4).padStart(2, '0')}</span><div><p class="eyebrow">${labels[slug] || 'PROJECT'}</p><h3>${esc(project.title)}</h3><p>${esc(desc)}</p>${slug === 'waking-nightmare' ? '<p class="archive-note">Creative direction, programming and client liaison for a five-person team. Delivered as an in-progress build.</p>' : ''}</div><span class="archive-tool">${esc(item(project.overview.engine) || '')}</span>${url ? external(url, link.label, 'archive-link') : ''}</article>`;
 }

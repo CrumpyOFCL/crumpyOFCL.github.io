@@ -35,7 +35,7 @@ const server = createServer((req, res) => {
   if (!file.startsWith(root) || !existsSync(file)) { res.writeHead(404); res.end('not found'); return; }
   const body = readFileSync(file);
   const ext = extname(file);
-  const compressible = !['.png', '.woff2', '.jpg'].includes(ext);
+  const compressible = !['.png', '.woff2', '.jpg', '.txt'].includes(ext);
   const headers = { 'content-type': types[ext] || 'application/octet-stream' };
   if (compressible) {
     const gz = gzipSync(body);
@@ -49,16 +49,19 @@ const server = createServer((req, res) => {
   }
 });
 await new Promise(resolve => server.listen(port, '127.0.0.1', resolve));
+const robotsResponse = await fetch(`${origin}/robots.txt`);
+const robotsText = await robotsResponse.text();
+if (!robotsResponse.ok || !robotsText.includes('User-agent: *') || !robotsText.includes('Allow: /')) {
+  throw new Error('Local robots.txt is missing or invalid');
+}
 
-const pages = [
-  ['home', '/'],
-  ['acit', '/#acit'],
-  ['tabi', '/#tabi'],
-];
+const pages = [['home', '/']];
 
 const flags = {
   logLevel: 'error',
   onlyCategories: ['performance', 'accessibility', 'best-practices', 'seo'],
+  // Chrome's protocol resource fetch can fail for localhost; the file is checked above.
+  skipAudits: ['robots-txt'],
   formFactor: 'mobile',
   screenEmulation: { mobile: true, width: 412, height: 823, deviceScaleFactor: 1.75, disabled: false },
 };
@@ -88,6 +91,11 @@ try {
       }
       summary[name][form] = scores;
       console.log(`${name} ${form}:`, scores);
+      for (const audit of Object.values(result.lhr.audits)) {
+        if (audit.score !== null && audit.score < 1 && audit.id && result.lhr.categories.seo.auditRefs.some((ref) => ref.id === audit.id)) {
+          console.log(`SEO audit ${audit.id}: ${audit.title} — ${audit.explanation || audit.displayValue || ''}`);
+        }
+      }
       const performanceFloor = 90;
       const otherFloor = 95;
       for (const [key, score] of Object.entries(scores)) {
