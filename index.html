@@ -2,281 +2,84 @@
 <html lang="en-AU">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="color-scheme" content="light dark">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<script src="assets/boot.js?v=8771214120"></script>
 <title>Tyler Crump: game designer (gameplay and tools)</title>
 <meta name="description" content="Tyler Crump is a game development student, looking for Game Designer, Level Designer, Gameplay Designer and UX/Player Experience roles. Flagship: A Course In Time.">
-<meta name="theme-color" content="#f2efe8" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0d0d0c" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#111519">
 <meta property="og:title" content="Tyler Crump: game designer (gameplay and tools)">
 <meta property="og:description" content="Tyler Crump is a game development student, looking for Game Designer, Level Designer, Gameplay Designer and UX/Player Experience roles. Flagship: A Course In Time.">
 <meta property="og:type" content="website">
-<link rel="canonical" href="https://crumpyofcl.github.io/">
 <meta property="og:url" content="https://crumpyofcl.github.io/">
+<link rel="canonical" href="https://crumpyofcl.github.io/">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/styles.css?v=8771214120">
+<link rel="stylesheet" href="assets/styles.css?v=13ffaa2cb7">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="appbar">
-  <div class="appbar-inner">
-    <div class="appbar-titles">
-      <p class="appbar-title">Tyler Crump</p>
-      <p class="appbar-sub">Game designer · gameplay and tools</p>
+<header class="site-header">
+    <div class="header-inner wrap">
+      <a class="brand" href="#top" aria-label="Tyler Crump, back to top"><span class="brand-mark">TC<span class="brand-dot">.</span></span><span class="brand-name">TYLER CRUMP<small>GAME DESIGN · SYSTEMS · UX</small></span></a>
+      <button class="menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false">Menu <span aria-hidden="true">☰</span></button>
+      <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+        <a href="#work">Selected work</a><a href="#approach">Approach</a><a href="#other-work">More projects</a><a href="#about">About</a><a class="nav-contact" href="mailto:tylercrump@outlook.com.au">Get in touch <span aria-hidden="true">↗</span></a>
+      </nav>
     </div>
-    <button id="account-btn" class="appbar-account" type="button" aria-haspopup="dialog" aria-controls="contact-dialog" aria-expanded="false">TC<span class="visually-hidden">, open contact</span></button>
-  </div>
-</header>
-<nav class="tabbar" aria-label="Sections">
-  <div class="tabbar-inner">
-    <a class="tab" id="tab-about" href="#about" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8.5" r="3.2"/><path d="M5 19.5c.7-3.4 3.2-5.2 7-5.2s6.3 1.8 7 5.2"/></svg><span>About me</span></a><a class="tab" id="tab-acit" href="#acit"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 8v4.5l3 2"/></svg><span>ACIT</span><span class="visually-hidden"> (A Course In Time)</span></a><a class="tab" id="tab-sword-saint" href="#sword-saint"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.2 3.8l6 6-9.2 9.2H6.2v-4.8z"/><path d="M4 20.2l3.2-3.2M11 13.2l2.2 2.2"/></svg><span>Sword Saint</span></a><a class="tab" id="tab-tabi" href="#tabi"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6-5.4-6-10a6 6 0 0 1 12 0c0 4.6-6 10-6 10z"/><circle cx="12" cy="11" r="2.2"/></svg><span>Tabi</span></a><a class="tab" id="tab-more" href="#more"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.5"/></svg><span>More</span></a>
-  </div>
-</nav>
-<main id="main" tabindex="-1">
-<section id="about" class="panel" aria-labelledby="about-title">
-    <div data-first>
-      <p class="eyebrow">Portfolio</p>
-      <h1 class="page-title" id="about-title" tabindex="-1">About me</h1>
-      <p class="hook">I design and build gameplay systems and the tools behind them, in Unity and C#.</p>
-      <p class="lede">Game development student, looking for Game Designer, Level Designer, Gameplay Designer and UX/Player Experience roles.</p>
-      <ul class="fact-chips"><li>Team lead · 5-person Unity 6 game</li><li>Creative Director · 5-person VR client project</li><li>Unity · C# · FMOD</li><li>Open to junior design, gameplay and tools roles</li></ul>
-      <div class="tiles">
-        <a class="work-tile" data-project="acit" href="#acit">
-          <img src="img/acit-mark.webp" alt="" width="174" height="80">
-          <span><em>Flagship</em><strong>A Course In Time</strong><span>Time-switch puzzle-platformer · playable</span></span>
-        </a>
-        <a class="work-tile" data-project="sword" href="#sword-saint">
-          <span class="glyph" aria-hidden="true">SS</span>
-          <span><em>Fighting game</em><strong>Sword Saint</strong><span>2 fighters · 7-move shared set · 1 stage</span></span>
-        </a>
-        <a class="work-tile" data-project="tabi" href="#tabi">
-          <img src="img/tabi-mark.webp" alt="Tabi sign-in screen" width="248" height="120">
-          <span><em>Tool</em><strong>Tabi</strong><span>Group trip planner · invite-only</span></span>
-        </a>
+  </header>
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-grid wrap">
+        <div class="hero-copy">
+          <p class="kicker"><span class="signal"></span> PORTFOLIO / TYLER CRUMP</p>
+          <h1 id="hero-title">I design the rules <em>players discover.</em></h1>
+          <p class="hero-lede">Game designer and developer focused on gameplay systems, levels and the tools that make iteration possible. I work in Unity and C# and bring the same player-centred thinking to product design.</p>
+          <div class="hero-actions"><a class="button button-bright" href="#work">Explore selected work <span aria-hidden="true">↘</span></a><a class="button button-outline" href="https://crumpyofcl.itch.io/a-course-in-time" target="_blank" rel="noopener noreferrer">Play A Course In Time <span aria-hidden="true">↗</span><span class="sr-only"> (opens in new tab)</span></a></div>
+          <div class="hero-proof"><span>UNITY 6 / C# / FMOD</span><span>TEAM LEAD · 5-PERSON GAME</span><span>OPEN TO JUNIOR ROLES</span></div>
+        </div>
+        <div class="hero-art" aria-label="Graphic showing the Past and Present hotel states in A Course In Time" role="img">
+          <div class="art-glow"></div><div class="art-ring ring-one"></div><div class="art-ring ring-two"></div>
+          <div class="art-slice slice-past"><span>01 / PAST</span><div class="art-building"><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+          <div class="art-slice slice-present"><span>02 / PRESENT</span><div class="art-building"><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+          <div class="art-center"><span>TIME<br>SWITCH</span><b>↔</b></div>
+          <div class="art-caption">A COURSE IN TIME <span>↗</span></div>
+        </div>
       </div>
-      <a class="primary" href="https://crumpyofcl.itch.io/a-course-in-time">Play A Course In Time</a>
-    </div>
-    <section class="block"><h2>Tools</h2><ul class="chip-row"><li>Unity 6</li><li>Unity (prototypes)</li><li>Unity 2019</li><li>Ikemen GO</li><li>Unreal Engine</li><li>C#</li><li>Gameplay architecture, save/state, procedural generation, physics</li><li>Custom inspectors, editor windows, Scene-view authoring tools</li><li>Playtest tooling (in-build debug console)</li><li>FMOD Studio (event design, parameters, runtime)</li><li>Level design</li><li>Character and moveset design</li><li>Combat design</li><li>Stage design</li><li>Creative direction</li><li>Client communication</li><li>Team leadership</li><li>Mobile-first UX</li><li>JavaScript, Express, SQLite</li><li>React Native (Expo)</li><li>Git</li><li>Fighter Factory Studio</li><li>Notepad++</li><li>Cinemachine, New Input System, controller support</li><li>Visual Studio Code</li><li>GoodNotes (design notes and sketching)</li><li>Aseprite (pixel art)</li><li>Blender</li></ul></section>
-    <details class="still"><summary>Full skills list</summary><section><h3>Engines</h3><ul class="chip-row"><li>Unity 6</li><li>Unity (prototypes)</li><li>Unity 2019</li><li>Ikemen GO</li><li>Unreal Engine</li></ul></section><section><h3>Programming</h3><ul class="chip-row"><li>C#</li></ul></section><section><h3>Systems</h3><ul class="chip-row"><li>Gameplay architecture, save/state, procedural generation, physics</li></ul></section><section><h3>Tools</h3><ul class="chip-row"><li>Custom inspectors, editor windows, Scene-view authoring tools</li><li>Playtest tooling (in-build debug console)</li><li>Fighter Factory Studio</li><li>Notepad++</li></ul></section><section><h3>Audio</h3><ul class="chip-row"><li>FMOD Studio (event design, parameters, runtime)</li></ul></section><section><h3>Design</h3><ul class="chip-row"><li>Level design</li><li>Character and moveset design</li><li>Combat design</li><li>Stage design</li><li>Creative direction</li><li>Mobile-first UX</li><li>GoodNotes (design notes and sketching)</li></ul></section><section><h3>Team</h3><ul class="chip-row"><li>Client communication</li><li>Team leadership</li></ul></section><section><h3>Web</h3><ul class="chip-row"><li>JavaScript, Express, SQLite</li><li>React Native (Expo)</li></ul></section><section><h3>Workflow</h3><ul class="chip-row"><li>Git</li><li>Visual Studio Code</li></ul></section><section><h3>Unity</h3><ul class="chip-row"><li>Cinemachine, New Input System, controller support</li></ul></section><section><h3>Art</h3><ul class="chip-row"><li>Aseprite (pixel art)</li><li>Blender</li></ul></section></details>
-    <section class="card cv-card"><h2>CV</h2><p>Coming soon: CV. Email <a href="mailto:tylercrump@outlook.com.au">tylercrump@outlook.com.au</a> for a copy.</p></section>
-    <section class="card contact-card"><h2>Contact</h2><ul class="contact-lines">
-      <li><a href="mailto:tylercrump@outlook.com.au">tylercrump@outlook.com.au</a></li>
-      <li><a href="https://github.com/CrumpyOFCL">GitHub</a></li>
-      <li><a href="https://crumpyofcl.itch.io">itch.io</a></li>
-    </ul></section>
-    <section class="block"><h2>In short</h2><p>I build the parts of games that have to keep working when everything else changes - and I like it when everything changes.</p><p>Most of my work sits under the surface: the systems that hold a level together, and the editor tools that let a designer build twenty rooms instead of two. I work in Unity and C#, with FMOD for audio.</p></section>
-    <details class="still"><summary>Still to add</summary><ul><li>Coming soon: Education</li><li>Coming soon: LinkedIn</li><li>Coming soon: Game design document</li><li>Coming soon: Playtest report</li><li>Coming soon: Level maps</li></ul></details>
-  </section><section id="acit" class="panel" data-project="acit" aria-labelledby="acit-title">
-    <div class="proj-top" data-first>
-      <div class="proj-copy">
-        <p class="eyebrow"><img class="mark" src="img/acit-mark.webp" alt="" width="174" height="80">Flagship project</p>
-        <h1 class="page-title" id="acit-title" tabindex="-1">A Course In Time</h1>
-        <p class="page-credit">Logo: A Course In Time team.</p>
-        <p class="hook">Switch a hotel between Past and Present to open paths.</p>
-        <ul class="fact-chips"><li>Producer / team lead, also audio, level design and programming</li><li>Team of 5</li><li>Unity 6 · C# · FMOD</li><li>Session 1 2026</li></ul>
-        <a class="primary" href="https://crumpyofcl.itch.io/a-course-in-time">Play in browser</a>
-      </div>
-      
-    </div>
-    <section class="block"><h2>What I designed</h2><ul class="points"><li>The era system - collision layers, object state and physics swapping in step, with a crush check so time closing around the player is a death rather than a glitch.</li><li>Procedural puzzle generators with Scene-view grid painting: pipe networks with a connectivity solver, and elemental puzzles that pick their own elements by counting how many valid solutions each set allows.</li><li>A save system built around an objective ledger, so a reloaded world remembers which doors are open and which puzzles are done.</li></ul></section>
-    <section class="block"><h2>System breakdown</h2><div class="sys-list"><article class="card sys">
-    <h3>Time switch</h3>
-    <ol class="io">
-      <li><span>Input</span> Shift between Present and Past.</li>
-      <li><span>Rule</span> Collision layers, object state and physics swap in step.</li>
-      <li><span>Outcome</span> A crush check treats time closing around the player as a death rather than a glitch.</li>
-    </ol>
-  </article><article class="card sys">
-    <h3>Puzzle generators</h3>
-    <ol class="io">
-      <li><span>Input</span> Scene-view grid painting.</li>
-      <li><span>Rule</span> Pipe networks use a connectivity solver. Elemental puzzles count valid solutions.</li>
-      <li><span>Outcome</span> Puzzles that pick their own elements.</li>
-    </ol>
-  </article><article class="card sys">
-    <h3>Save</h3>
-    <ol class="io">
-      <li><span>Input</span> A reloaded world.</li>
-      <li><span>Rule</span> An objective ledger records doors and puzzles.</li>
-      <li><span>Outcome</span> The world remembers which doors are open and which puzzles are done.</li>
-    </ol>
-  </article></div></section>
-    <section class="block"><h2>Mechanics in the playable build</h2><p class="credit-note">A Course In Time is a team build in development, not a shipped storefront credit.</p>
-      <ul class="spec-list"><li><strong>Time Switch</strong> Shift between Present and Past. Platforms appear, walls vanish and hazards change.</li><li><strong>Time Beam</strong> Freeze objects across both timelines; bounce beams off mirrors to hit targets around corners.</li><li><strong>Box Pull</strong> Grab and move boxes into position to solve environmental puzzles.</li><li><strong>Dash and Double Jump</strong> Movement abilities that open paths that were visible but previously unreachable.</li></ul>
+      <div class="hero-foot wrap"><span>SCROLL TO EXPLORE</span><span>01 / SELECTED WORK</span></div>
     </section>
-    <details class="still"><summary>Still to add</summary><ul><li>Coming soon: Gameplay video</li><li>Coming soon: Level map</li><li>Coming soon: Playtest write-up</li><li>Coming soon: code sample</li><li>Coming soon: Devlog</li></ul></details>
-  </section><section id="sword-saint" class="panel" data-project="sword" aria-labelledby="sword-saint-title">
-    <div class="proj-top" data-first>
-      <div class="proj-copy">
-        <p class="eyebrow">Fighting game</p>
-        <h1 class="page-title" id="sword-saint-title" tabindex="-1">Sword Saint: Broken Bridge</h1>
-        <p class="page-credit">Designed by Tyler Crump</p>
-        <p class="hook">Two fighters, one 7-move set, and a storm-bridge stage in Ikemen GO.</p>
-        <ul class="fact-chips"><li>Solo designer</li><li>Ikemen GO</li></ul>
-        
+
+    <section class="section work-section wrap" id="work" aria-labelledby="work-title">
+      <div class="section-heading"><div><p class="eyebrow">01 / THE WORK</p><h2 id="work-title">Built to be <em>played.</em></h2></div><p>Three different design problems, one consistent goal: make complex systems feel clear to the person using them.</p></div>
+      <article class="feature feature-acit" id="acit" aria-labelledby="acit-title">
+        <div class="feature-image acit-image"><div class="image-grid"></div><div class="image-label">FEATURED GAME / UNITY 6</div><img src="img/acit-logo.png" alt="A Course In Time game logo" width="600" height="240"><div class="image-bottom"><span>PAST ← → PRESENT</span><span>01 / 03</span></div></div>
+        <div class="feature-copy"><p class="eyebrow">CASE STUDY 01 · PUZZLE PLATFORMER</p><h3 id="acit-title">A Course<br>In Time<span class="accent">.</span></h3><p class="feature-lede">A 2D puzzle-platformer set in one hotel that exists in more than one era. Switch time and the building changes around you; what you carry doesn&#39;t.</p>
+          <dl class="facts"><div><dt>MY ROLE</dt><dd>Producer / team lead · level design, audio &amp; programming</dd></div><div><dt>TEAM</dt><dd>5 people · university project</dd></div><div><dt>TOOLS</dt><dd>Unity 6 · C# · FMOD</dd></div><div><dt>STATUS</dt><dd>Playable build · in development</dd></div></dl>
+          <div class="feature-actions"><a class="button button-accent" href="#acit-case">Read case study <span aria-hidden="true">↓</span></a><a class="text-action" href="https://crumpyofcl.itch.io/a-course-in-time" target="_blank" rel="noopener noreferrer">Play the build <span aria-hidden="true">↗</span><span class="sr-only"> (opens in new tab)</span></a></div>
+        </div>
+      </article>
+      <div class="case-study" id="acit-case">
+        <div class="case-intro"><p class="eyebrow">THE DESIGN CHALLENGE</p><h4>One hotel. Two eras.<br><em>A world that remembers.</em></h4><p>Switching time changes platforms, hazards and routes. The design depends on those changes remaining predictable while the player carries progress across eras.</p></div>
+        <div class="decision-grid">
+          <div class="decision"><span>01 / WORLD RULES</span><h5>Time switch</h5><p>I built the era system to swap collision layers, object state and physics together. A crush check turns a closing space into a clear failure state.</p></div>
+          <div class="decision"><span>02 / AUTHORING</span><h5>Puzzle generators</h5><p>Scene-view grid painting speeds up level authoring. Pipe networks use a connectivity solver; elemental puzzles count valid solutions before selecting elements.</p></div>
+          <div class="decision"><span>03 / CONTINUITY</span><h5>Save and test</h5><p>An objective ledger restores completed puzzles and opened doors. A debug console gives playtesters scene jumps, abilities and objective control without the editor.</p></div>
+        </div><p class="case-note">Team project. The contributions above describe my documented systems and tools; the playable build is still in development.</p>
       </div>
-      <div class="proj-hero"><figure class="move-list">
-    <figcaption>Diagram of the moveset. Not a gameplay screenshot.</figcaption>
-    <ul><li><span>4 normals</span><em>Shared</em></li><li><span>Lightning special</span><em>Two projectiles</em></li><li><span>Super</span><em>Meter-gated</em></li><li><span>Back dash</span><em>Movement</em></li><li><span>Block</span><em>Defence</em></li><li><span>Perfect block</span><em>Timed</em></li><li><span>Stamina</span><em>System</em></li></ul>
-  </figure></div>
-    </div>
-    <section class="block"><h2>What I designed</h2><ul class="points"><li>Character and moveset design for two fighters, The Sword Saint and Unknown. Unknown is a mirror fighter who shares the same moveset.</li><li>Combat systems design: 4 normals, a two-projectile lightning special, a meter-gated super, and a back dash, plus block and a timed perfect block, and a stamina system.</li><li>Stage design: Broken Bridge, a 6-layer storm bridge stage with animated lightning and rain.</li></ul></section>
-    <section class="block"><h2>System breakdown</h2><div class="sys-list"><article class="card sys">
-    <h3>Shared moveset</h3>
-    <ol class="io">
-      <li><span>Input</span> The Sword Saint and Unknown, a mirror fighter on the same moveset.</li>
-      <li><span>Rule</span> 4 normals, a two-projectile lightning special, a meter-gated super, a back dash, block and a timed perfect block.</li>
-      <li><span>Outcome</span> A stamina system sits on that set.</li>
-    </ol>
-  </article><article class="card sys">
-    <h3>Broken Bridge</h3>
-    <ol class="io">
-      <li><span>Input</span> One stage.</li>
-      <li><span>Rule</span> Six layers, with animated lightning and rain.</li>
-      <li><span>Outcome</span> A storm-bridge stage for the two fighters.</li>
-    </ol>
-  </article></div></section>
-    <details class="still"><summary>Still to add</summary><ul><li>Coming soon: Sprite sheet</li><li>Coming soon: The Sword Saint GIF</li><li>Coming soon: Unknown GIF</li><li>Coming soon: Broken Bridge screenshot</li><li>Coming soon: Gameplay clip</li></ul></details>
-  </section><section id="tabi" class="panel" data-project="tabi" aria-labelledby="tabi-title">
-    <div class="proj-top" data-first>
-      <div class="proj-copy">
-        <p class="eyebrow">Tool</p>
-        <h1 class="page-title" id="tabi-title" tabindex="-1">Tabi</h1>
-        
-        <p class="hook">A group trip planner for any trip and any group, phone-first.</p>
-        <ul class="fact-chips"><li>Designer and developer (solo)</li><li>JavaScript · Express · SQLite · Leaflet</li><li>September 2026</li></ul>
-        <a class="primary" href="https://japantrip-oeja.onrender.com">Open Tabi</a>
+
+      <div class="secondary-grid">
+        <article class="project-card sword-card" id="sword-saint" aria-labelledby="sword-title"><div class="card-art sword-art"><div class="fighter fighter-left"><span></span></div><div class="versus">VS</div><div class="fighter fighter-right"><span></span></div><div class="storm-line"></div><p>COMBAT / CHARACTER / STAGE</p></div><div class="card-copy"><p class="eyebrow">02 / FIGHTING GAME · SOLO DESIGN</p><h3 id="sword-title">Sword Saint:<br>Broken Bridge</h3><p>A solo design project built in Ikemen GO, the open-source fighting game engine. Character and moveset design for The Sword Saint and Unknown, combat systems for their shared moveset, and the Broken Bridge stage.</p><div class="stat-row"><span><strong>02</strong> fighters</span><span><strong>07</strong> shared moves</span><span><strong>06</strong> stage layers</span></div><details><summary>Design breakdown <span aria-hidden="true">+</span></summary><div class="details-body"><p>Four normals, a two-projectile lightning special, a meter-gated super and a back dash. Blocking includes a timed perfect block, with stamina as another combat system.</p><p>Broken Bridge is a six-layer storm stage with animated rain and lightning. No public playable build or gameplay media is listed yet.</p></div></details></div></article>
+        <article class="project-card tabi-card" id="tabi" aria-labelledby="tabi-title"><div class="card-art tabi-art"><div class="tabi-panel"><img src="img/tabi-mark.webp" alt="" width="248" height="120"><div class="tabi-line"></div><span>THE PLAN, THE PEOPLE,<br>THE MONEY.</span></div><p>PRODUCT DESIGN / DEVELOPMENT</p></div><div class="card-copy"><p class="eyebrow">03 / PRODUCT & UX · SOLO PROJECT</p><h3 id="tabi-title">Tabi<span class="accent">.</span></h3><p>A group trip planner for any trip and any group. It gives the plan, budget and people one clear place to live, designed first for a phone.</p><div class="stat-row"><span><strong>03</strong> money states</span><span><strong>01</strong> shared plan</span></div><details><summary>Design breakdown <span aria-hidden="true">+</span></summary><div class="details-body"><p><strong>Decision:</strong> keep paid, committed and estimated costs distinct, so a guess never reads like money already spent. The three states add up to the projected total.</p><p>The home view changes from a countdown before the trip to Today's plan during it. Each trip has its own invite-only group with viewer and editor roles. A Japan trip was the first real use, not the product's limit.</p><p>The live app is invite-only; the public link opens its sign-in screen.</p></div></details><div class="card-actions"><a class="text-action" href="https://japantrip-oeja.onrender.com" target="_blank" rel="noopener noreferrer">View Tabi <span aria-hidden="true">↗</span><span class="sr-only"> (opens in new tab)</span></a></div></div></article>
       </div>
-      <div class="proj-hero"><figure class="proj-media">
-      <img src="img/tabi-signin.webp" alt="Tabi sign-in screen" width="455" height="220">
-      <figcaption>The public sign-in screen.</figcaption>
-    </figure></div>
-    </div>
-    <section class="block"><h2>What I built</h2><ul class="points"><li>Designed and built Tabi: more than one trip on an account, each with its own invite-only group (viewer and editor roles); a day-by-day itinerary with map pins; a budget with a whole-group / per-person toggle and a budget-ceiling warning; live currency conversion; weather; a home screen that shows Today&#39;s plan during a trip and a countdown before it; Google sign-in.</li><li>Designed and built the earlier screens too: sign-in gate, trip overview, budget, plan, stays, flights, food, trains and people.</li><li>Redesigned most of the code and the visual design in later passes, for a mobile-first, phone-app feel.</li></ul></section>
-    <section class="block"><h2>System breakdown</h2><div class="sys-list"><article class="card sys">
-    <h3>Money states</h3>
-    <ol class="io">
-      <li><span>Input</span> Each cost on the budget.</li>
-      <li><span>Rule</span> A cost is marked paid, committed or estimated.</li>
-      <li><span>Outcome</span> The three always add up to the projected cost.</li>
-    </ol>
-  </article></div></section>
-    <figure class="money">
-    <figcaption>Diagram of the money states. Not a screenshot.</figcaption>
-    <ul>
-      <li><i class="swatch paid"></i> Paid</li>
-      <li><i class="swatch committed"></i> Committed</li>
-      <li><i class="swatch estimated"></i> Estimated</li>
-    </ul>
-    <p>The three always add up to the projected cost.</p>
-  </figure>
-    <section class="block"><h2>Features</h2><p>A group trip planner for any trip and any group. Invite-only, phone-first, and built so a different trip, group size or budget does not turn into clutter. A Japan trip was the first real use.</p>
-      <p>Also used: Visual Studio Code, GoodNotes, Aseprite.</p>
-      <ul class="spec-list"><li><strong>Trips</strong> More than one trip on an account. Each trip has its own invite-only group, with viewer and editor roles.</li><li><strong>Itinerary</strong> A day-by-day plan with map pins.</li><li><strong>Budget</strong> A whole-group / per-person toggle, and a warning when spending crosses a budget ceiling. Costs stay marked paid, committed or estimated. With no budget set, the app says &quot;No budget set&quot;.</li><li><strong>Currency</strong> Live currency conversion.</li><li><strong>Weather</strong> Weather for the trip.</li><li><strong>Home</strong> Today&#39;s plan while a trip is on. A countdown before it starts.</li><li><strong>Sign-in</strong> Google sign-in. The app is mobile-first and meant to feel like a phone app.</li></ul>
     </section>
-    <section class="block"><h2>A decision</h2><p><strong>Never show a guess as if it were certain.</strong> Added in the &#39;precise money states&#39; iteration and carried onto the plan.</p></section>
-    <details class="still"><summary>Still to add</summary><ul><li>Coming soon: Screenshots of a trip</li><li>Coming soon: Tester feedback</li><li>Coming soon: Results</li></ul></details>
-  </section><section id="more" class="panel" data-project="more" aria-labelledby="more-title">
-    <div data-first>
-      <p class="eyebrow">Also</p>
-      <h1 class="page-title" id="more-title" tabindex="-1">More</h1>
-      <p class="page-sub">Smaller work, with Waking Nightmare Experience first.</p>
-    </div>
-    <div class="work-list"><article class="more-row">
-    
-    <details class="card work" id="waking-nightmare">
-      <summary>
-        <span class="glyph" aria-hidden="true">WA</span>
-        <span class="work-text">
-          <span class="work-name">Waking Nightmare Experience</span>
-          <span class="work-hook">VR experience for Meta Quest, made for LiminalVR.</span>
-          <span class="work-meta">Creative Director and programmer; client liaison · Team of 5 · Unity 2019</span>
-        </span>
-        <span class="details-hint">Details</span>
-      </summary>
-      <div class="card-detail"><a class="text-link" href="https://crumpyofcl.itch.io/waking-nightmare">itch.io page</a><section class="block"><h2>What I designed</h2><ul class="points"><li>Creative Director: set the creative direction for the project.</li><li>Programmer on the build (Unity 2019).</li><li>Client liaison: met and emailed the client regularly on behalf of the team.</li></ul></section>
-    <section class="block"><h2>What happened</h2><p>The project was delivered to the client unfinished, for them to clean up.</p><p class="credit-note">Handover: an in-progress build.</p></section>
-    <details class="still"><summary>Still to add</summary><ul><li>Coming soon: Timeframe</li><li>Coming soon: Cover image</li><li>Coming soon: Client feedback</li><li>Coming soon: Handover notes</li><li>Coming soon: Reflection</li></ul></details></div>
-    </details>
-  </article><article class="more-row">
-    
-    <details class="card work" id="sdcs-booking-app">
-      <summary>
-        <span class="glyph" aria-hidden="true">SD</span>
-        <span class="work-text">
-          <span class="work-name">SDCS Booking App</span>
-          <span class="work-hook">A React Native booking screen for a dog-care service.</span>
-          <span class="work-meta">Solo developer · React Native · Expo · JavaScript · May 2025</span>
-        </span>
-        <span class="details-hint">Details</span>
-      </summary>
-      <div class="card-detail"><a class="text-link" href="https://github.com/CrumpyOFCL/Comp2750-Assignment">Source (GitHub)</a><section class="block"><h2>What I built</h2><ul class="points"><li>Built the booking screen in React Native: dog and hours pickers, service and quantity pickers, cost calculation.</li><li>Adjusted the layout so it works on both Android and iOS in Expo Snack.</li></ul></section>
-    <section class="block"><h2>System breakdown</h2><div class="sys-list"><article class="card sys">
-    <h3>Cost</h3>
-    <ol class="io">
-      <li><span>Input</span> Dog hours and a service quantity.</li>
-      <li><span>Rule</span> cost = dogRate * dogHours + serviceRate * serviceQty, and a missing dog or hours sets the cost to 0.</li>
-      <li><span>Outcome</span> The screen shows the total cost.</li>
-    </ol>
-  </article></div></section>
-    <figure class="code-slot">
-      <figcaption>App.js, lines 38-44. <a href="https://github.com/CrumpyOFCL/Comp2750-Assignment">Source (GitHub)</a></figcaption>
-      <pre tabindex="0"><code>  const handleCalculate = () =&gt; {
-    let cost = dogRate * dogHours + serviceRate * serviceQty;
-    if (dogRate === 0 || dogHours === 0) {
-      cost = 0;
-    }
-    setTotalCost(cost);
-  };</code></pre>
-    </figure><details class="still"><summary>Still to add</summary><ul><li>Coming soon: Cover image</li><li>Coming soon: Reflection</li><li>Coming soon: Problem</li><li>Coming soon: Design goal</li></ul></details></div>
-    </details>
-  </article><article class="more-row">
-    <a class="play-pill" href="https://crumpyofcl.itch.io/lit-flux-mechanics-showcasae">Play</a>
-    <details class="card work" id="lit-flux-mechanics-showcase">
-      <summary>
-        <span class="glyph" aria-hidden="true">LI</span>
-        <span class="work-text">
-          <span class="work-name">LIT_Flux Mechanics Showcase</span>
-          <span class="work-hook">Unity browser prototype: time swap, time cannon, double jump, dash.</span>
-          <span class="work-meta">Unity</span>
-        </span>
-        <span class="details-hint">Details</span>
-      </summary>
-      <div class="card-detail">
-    
-    <details class="still"><summary>Still to add</summary><ul><li>Coming soon: My role</li><li>Coming soon: Team</li><li>Coming soon: Timeframe</li><li>Coming soon: Cover image</li></ul></details></div>
-    </details>
-  </article><article class="more-row">
-    <a class="play-pill" href="https://crumpyofcl.itch.io/gdt2">Play</a>
-    <details class="card work" id="gdt2">
-      <summary>
-        <span class="glyph" aria-hidden="true">GD</span>
-        <span class="work-text">
-          <span class="work-name">GDT2</span>
-          <span class="work-hook">Unity browser prototype.</span>
-          <span class="work-meta">Unity</span>
-        </span>
-        <span class="details-hint">Details</span>
-      </summary>
-      <div class="card-detail">
-    
-    <details class="still"><summary>Still to add</summary><ul><li>Coming soon: My role</li><li>Coming soon: Team</li><li>Coming soon: Timeframe</li><li>Coming soon: Cover image</li></ul></details></div>
-    </details>
-  </article></div>
-  </section>
-</main>
-<div id="contact-sheet" class="modal-backdrop" hidden>
-  <div id="contact-dialog" class="modal" role="dialog" aria-modal="true" aria-labelledby="contact-title">
-    <h2 id="contact-title">Contact</h2>
-    <p class="page-sub">Email is the way to reach me. GitHub and itch.io are the public pages I can point to.</p>
-    <p><a class="primary" href="mailto:tylercrump@outlook.com.au">tylercrump@outlook.com.au</a></p>
-    <p class="contact-links"><a href="https://github.com/CrumpyOFCL" rel="noopener">GitHub<span class="visually-hidden"> (opens external site)</span></a> <a href="https://crumpyofcl.itch.io" rel="noopener">itch.io<span class="visually-hidden"> (opens external site)</span></a></p>
-    <div class="modal-actions"><button type="button" class="primary" data-close>Close</button></div>
-  </div>
-</div>
-<script src="assets/app.js?v=8771214120"></script>
+
+    <section class="approach-section" id="approach" aria-labelledby="approach-title"><div class="wrap approach-grid"><div><p class="eyebrow">02 / HOW I WORK</p><h2 id="approach-title">Good ideas need <em>good tools.</em></h2><p>I enjoy designing what players see and building what makes the design practical to test, change and expand.</p></div><div class="approach-list"><div class="number"><span>01</span><strong>Prototype the rule</strong><p>Put a mechanic into a playable state early, then test whether its behaviour is legible.</p></div><div class="number"><span>02</span><strong>Make iteration cheap</strong><p>Create editor tools and repeatable systems so a designer can explore more than one solution.</p></div><div class="number"><span>03</span><strong>Keep the player in view</strong><p>Use clear feedback, honest states and useful playtest controls to expose what needs work.</p></div></div></div></section>
+
+    <section class="section archive-section wrap" id="other-work" aria-labelledby="archive-title"><div class="section-heading"><div><p class="eyebrow">03 / MORE PROJECTS</p><h2 id="archive-title">The wider <em>practice.</em></h2></div><p>Game prototypes, client work and product development all shape how I solve design problems.</p></div><div class="archive-list"><article class="archive-row"><span class="archive-index">04</span><div><p class="eyebrow">VR CLIENT PROJECT</p><h3>Waking Nightmare Experience</h3><p>A VR experience for Meta Quest, made for the client LiminalVR: awaken in a dark room and fight off the monsters that await. I was Creative Director, a programmer and the team&#39;s contact with the client.</p><p class="archive-note">Creative direction, programming and client liaison for a five-person team. Delivered as an in-progress build.</p></div><span class="archive-tool">Unity 2019</span><a class="archive-link" href="https://crumpyofcl.itch.io/waking-nightmare" target="_blank" rel="noopener noreferrer">itch.io page <span aria-hidden="true">↗</span><span class="sr-only"> (opens in new tab)</span></a></article><article class="archive-row"><span class="archive-index">05</span><div><p class="eyebrow">PLAYABLE PROTOTYPE</p><h3>LIT_Flux Mechanics Showcase</h3><p>A browser-playable Unity prototype: swap time period, aim and fire a time cannon, double jump and dash.</p></div><span class="archive-tool">Unity</span><a class="archive-link" href="https://crumpyofcl.itch.io/lit-flux-mechanics-showcasae" target="_blank" rel="noopener noreferrer">Play in browser (itch.io) <span aria-hidden="true">↗</span><span class="sr-only"> (opens in new tab)</span></a></article><article class="archive-row"><span class="archive-index">06</span><div><p class="eyebrow">PLAYABLE PROTOTYPE</p><h3>GDT2</h3><p>A browser-playable Unity prototype on itch.io.</p></div><span class="archive-tool">Unity</span><a class="archive-link" href="https://crumpyofcl.itch.io/gdt2" target="_blank" rel="noopener noreferrer">Play in browser (itch.io) <span aria-hidden="true">↗</span><span class="sr-only"> (opens in new tab)</span></a></article><article class="archive-row"><span class="archive-index">07</span><div><p class="eyebrow">MOBILE PRODUCT</p><h3>SDCS Booking App</h3><p>A React Native booking screen for a dog-care service: pick a dog and hours, a service and quantity, and get the total cost.</p></div><span class="archive-tool">React Native (Expo Snack)</span><a class="archive-link" href="https://github.com/CrumpyOFCL/Comp2750-Assignment" target="_blank" rel="noopener noreferrer">Source (GitHub) <span aria-hidden="true">↗</span><span class="sr-only"> (opens in new tab)</span></a></article></div></section>
+
+    <section class="about-section" id="about" aria-labelledby="about-title"><div class="wrap about-grid"><div><p class="eyebrow">04 / ABOUT</p><h2 id="about-title">Design is better<br>when it <em>works.</em></h2></div><div><p class="about-lede">I’m Tyler, a game development student who designs gameplay systems, levels and player experiences, then builds the tools to make them real.</p><p>My work ranges from a five-person Unity puzzle platformer to a VR client project, fighting game design and a live travel planning product. I’m interested in junior game design, level design, gameplay and tools roles.</p><div class="skill-groups"><div><span>GAME</span><p>Systems · Levels · Combat · Playtesting</p></div><div><span>BUILD</span><p>Unity · C# · FMOD · Ikemen GO</p></div><div><span>BEYOND</span><p>UX · JavaScript · Express · SQLite</p></div></div></div></div></section>
+    <section class="contact-section wrap" id="contact"><p class="eyebrow">LET'S TALK</p><h2>Have a role or project<br>in mind? <em>Get in touch.</em></h2><a class="contact-email" href="mailto:tylercrump@outlook.com.au">tylercrump@outlook.com.au <span aria-hidden="true">↗</span></a><div class="socials"><a class="text-action" href="https://github.com/CrumpyOFCL" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span><span class="sr-only"> (opens in new tab)</span></a><a class="text-action" href="https://crumpyofcl.itch.io" target="_blank" rel="noopener noreferrer">itch.io <span aria-hidden="true">↗</span><span class="sr-only"> (opens in new tab)</span></a></div></section>
+  </main><footer class="footer"><div class="wrap"><span>© 2026 TYLER CRUMP</span><span>GAME DESIGN · SYSTEMS · UX</span><a href="#top">BACK TO TOP ↑</a></div></footer>
+<script src="assets/app.js?v=13ffaa2cb7" defer></script>
 </body>
 </html>
