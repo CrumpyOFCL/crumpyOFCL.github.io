@@ -177,6 +177,8 @@ main {
 }
 .panel { display: none; }
 #about { display: block; }
+.panel.is-on { display: block !important; }
+body:has(.panel.is-on) .panel:not(.is-on) { display: none !important; }
 body:has(#acit:target) #acit,
 body:has(#sword-saint:target) #sword-saint,
 body:has(#tabi:target) #tabi,
@@ -272,21 +274,29 @@ body:has(#gdt2:target) #about { display: none; }
   font-size: .72rem; font-weight: 700; letter-spacing: .02em;
   background: var(--bg-sunken); color: var(--text-dim); border: 1px solid var(--line);
 }
-.badge--good { color: var(--good); border-color: color-mix(in srgb, var(--good) 45%, var(--line)); }
-.badge--warn { color: var(--warn); border-color: color-mix(in srgb, var(--warn) 45%, var(--line)); }
+.badge { background: var(--bg-raised); }
+.badge--good { color: #0e6a3d; border-color: color-mix(in srgb, #0e6a3d 45%, var(--line)); }
+.badge--warn { color: #7a4c00; border-color: color-mix(in srgb, #7a4c00 45%, var(--line)); }
+@media (prefers-color-scheme: dark) {
+  .badge--good { color: #8ee0b4; }
+  .badge--warn { color: #f0c56a; }
+}
 .badge--locked { color: var(--text-faint); }
 
 .work { padding: 0; }
 .work summary {
-  display: grid; gap: 2px; padding: 14px 16px; cursor: pointer; list-style: none;
+  display: grid; grid-template-columns: 1fr auto; column-gap: 12px; row-gap: 2px;
+  padding: 14px 16px; cursor: pointer; list-style: none; align-items: center;
 }
 .work summary::-webkit-details-marker { display: none; }
+.work .eyebrow, .work-title, .work-stage, .work-line { grid-column: 1; }
 .work summary::after {
-  content: ""; justify-self: end; width: 8px; height: 8px; margin-top: -28px;
+  content: ""; grid-column: 2; grid-row: 1 / span 4; align-self: center;
+  width: 8px; height: 8px;
   border-right: 2px solid var(--text-dim); border-bottom: 2px solid var(--text-dim);
   transform: rotate(45deg);
 }
-.work[open] summary::after { transform: rotate(225deg); margin-top: -20px; }
+.work[open] summary::after { transform: rotate(225deg); }
 .work-title { font-size: 1.15rem; font-weight: 650; letter-spacing: -.01em; }
 .work-stage { font-size: .82rem; font-weight: 650; color: var(--text); }
 .work-line {

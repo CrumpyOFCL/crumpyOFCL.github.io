@@ -25,6 +25,9 @@ function parseHash() {
 
 function apply() {
   const { route, more } = parseHash();
+  for (const panel of document.querySelectorAll('.panel')) {
+    panel.classList.toggle('is-on', panel.id === route);
+  }
   for (const tab of tabs) {
     const on = tab.getAttribute('href') === `#${route}`;
     tab.setAttribute('aria-selected', on ? 'true' : 'false');
@@ -44,6 +47,7 @@ function apply() {
 }
 
 window.addEventListener('hashchange', apply);
+window.addEventListener('popstate', apply);
 apply();
 
 for (const [i, tab] of tabs.entries()) {
@@ -55,8 +59,11 @@ for (const [i, tab] of tabs.entries()) {
     else if (e.key === 'End') n = tabs.length - 1;
     else return;
     e.preventDefault();
-    tabs[n].focus();
-    if (tabs[n].getAttribute('href') !== location.hash) location.hash = tabs[n].getAttribute('href');
+    const next = tabs[n];
+    const hash = next.getAttribute('href');
+    if (location.hash !== hash) history.pushState(null, '', hash);
+    apply();
+    next.focus();
   });
 }
 

@@ -2,6 +2,19 @@
 
 The current site is one app shell in the form of Tabi: an app bar (Tyler Crump / Game designer · gameplay and tools), five equal bottom tabs (About me, A Course In Time, Sword Saint, Tabi, More), and a TC button that opens a contact sheet. About is `/` and `#about`. The level-select map, title screen and recruiter skip are gone. The notes below that describe that map are the stage-1 review of the previous form.
 
+Lighthouse 12 on the shell, gzip on, 28 Sep 2026. Home, `#acit` and `#tabi` are the same document.
+
+| Page | Form | Performance | Accessibility | Best practices | SEO |
+| --- | --- | --- | --- | --- | --- |
+| Home | Mobile | 100 | 100 | 100 | 100 |
+| Home | Desktop | 98 | 100 | 100 | 100 |
+| A Course In Time | Mobile | 100 | 100 | 100 | 100 |
+| A Course In Time | Desktop | 98 | 100 | 100 | 100 |
+| Tabi | Mobile | 100 | 100 | 100 | 100 |
+| Tabi | Desktop | 98 | 100 | 100 | 100 |
+
+Raw bytes of the home route (index.html, styles.css, app.js) are 68,246. No font file is requested. The 150,000 budget holds.
+
 Reviewed against the built site on `portfolio-v2` after the stage-1 design pass. Lighthouse scores below were re-recorded on 28 Sep 2026 against that build, with gzip on. They are from that run, not estimates.
 
 ## 30-second recruiter test — pass, with a skip
@@ -56,7 +69,7 @@ Landmarks, a skip link, the recruiter skip, visible focus (cream ring on the dar
 
 ## Performance
 
-Lighthouse 12, gzip on (the same compression GitHub Pages and Render apply). Python's static server does not gzip; those earlier desktop scores were lower and were discarded.
+The table below is the level-select run, kept as a record. Lighthouse 12, gzip on (the same compression GitHub Pages and Render apply). Python's static server does not gzip; those earlier desktop scores were lower and were discarded.
 
 | Page | Form | Performance | Accessibility | Best practices | SEO |
 | --- | --- | ---: | ---: | ---: | ---: |

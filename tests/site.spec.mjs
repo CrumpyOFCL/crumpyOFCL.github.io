@@ -95,9 +95,9 @@ test('More cards expand in place', async ({ page }) => {
     'LIT_Flux Mechanics Showcase',
     'GDT2',
   ]);
-  await page.locator('#sdcs-booking-app summary').click();
+  await page.locator('#sdcs-booking-app > summary').click();
   await expect(page.locator('#sdcs-booking-app')).toHaveAttribute('open', '');
-  await expect(page.locator('#sdcs-booking-app')).toContainText('github.com/CrumpyOFCL/Comp2750-Assignment');
+  await expect(page.locator('#sdcs-booking-app a[href="https://github.com/CrumpyOFCL/Comp2750-Assignment"]')).toBeVisible();
 });
 
 test('the TC button opens and closes the contact sheet', async ({ page }) => {

@@ -9,6 +9,15 @@ const TIER = {
 const NON_GAME = new Set(['tabi', 'sdcs-booking-app']);
 const MORE = ['waking-nightmare', 'sdcs-booking-app', 'lit-flux-mechanics-showcase', 'gdt2'];
 
+const NAME = {
+  'a-course-in-time': 'A Course In Time',
+  'sword-saint-broken-bridge': 'Sword Saint',
+  tabi: 'Tabi',
+  'waking-nightmare': 'Waking Nightmare Experience',
+  'sdcs-booking-app': 'SDCS Booking App',
+  'lit-flux-mechanics-showcase': 'LIT_Flux Mechanics Showcase',
+  gdt2: 'GDT2',
+};
 const OPEN = {
   'a-course-in-time': ['A Course In Time', 'https://crumpyofcl.itch.io/a-course-in-time'],
   'lit-flux-mechanics-showcase': ['LIT_Flux Mechanics Showcase', 'https://crumpyofcl.itch.io/lit-flux-mechanics-showcasae'],
@@ -315,8 +324,7 @@ function skillLinks(row) {
   return slugs.map(slug => {
     const href = ROUTE[slug];
     if (!href) return '';
-    const name = OPEN[slug] ? OPEN[slug][0] : slug;
-    return `<a href="${esc(href)}">${esc(name)}</a>`;
+    return `<a href="${esc(href)}">${esc(NAME[slug] || slug)}</a>`;
   }).join('');
 }
 
