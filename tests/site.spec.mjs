@@ -68,15 +68,15 @@ test('case study lens, all, and table of contents', async ({ page }) => {
 test('ikemen go page states the confirmed work and leaves the rest pending', async ({ page }) => {
   await page.goto('/projects/ikemen-go/index.html');
   await expect(page.locator('h1')).toHaveText('IkemanGoAss');
-  await expect(page.locator('.cs-head__sub')).toHaveText('Ikemen GO fighting game prototype');
+  await expect(page.locator('.cs-head__sub')).toHaveText('Designed by Tyler Crump');
   await expect(page.locator('.cs-head__tier')).toContainText('Supporting');
-  await expect(page.locator('.lede')).toContainText('The Sword Saint and Unknown');
-  await expect(page.locator('.lede')).toContainText('Broken Bridge');
-  await expect(page.locator('#role')).toContainText('Owner to confirm');
-  await expect(page.locator('#what')).toContainText('4 normals');
-  await expect(page.locator('#what')).toContainText('stamina');
-  await expect(page.locator('#what')).toContainText('Scripted AI');
-  await expect(page.locator('#overview')).toContainText('not confirmed');
+  await expect(page.locator('.lede')).toContainText('solo design project');
+  await expect(page.locator('.lede')).toContainText('open-source fighting game engine');
+  await expect(page.locator('#role')).toContainText('mirror fighter');
+  await expect(page.locator('#what')).toContainText('lightning special');
+  await expect(page.locator('#what')).toContainText('timed perfect block');
+  await expect(page.locator('#what')).toContainText('AI opponents');
+  await expect(page.locator('#overview')).toContainText('Solo');
   await expect(page.locator('#media .media-frame--sheet')).toHaveCount(1);
   await expect(page.locator('#media .media-frame--gif')).toHaveCount(2);
   await expect(page.locator('#media .media-frame--stage')).toHaveCount(1);
@@ -85,10 +85,10 @@ test('ikemen go page states the confirmed work and leaves the rest pending', asy
   await expect(page.locator('#level')).toBeHidden();
   await page.locator('[data-set-era="past"]').click();
   await expect(page.locator('#level')).toContainText('Broken Bridge');
-  await expect(page.locator('#level')).toContainText('6 layers');
+  await expect(page.locator('#level')).toContainText('animated lightning and rain');
   await expect(page.locator('main')).not.toContainText('Aseprite');
-  await expect(page.locator('.lede')).not.toContainText('hand-animated');
-  await expect(page.locator('.lede')).not.toContainText('Solo');
+  await expect(page.locator('main')).not.toContainText('hand-animated');
+  await expect(page.locator('main')).not.toContainText('Notepad');
 });
 
 test('direct hash opens the matching lens', async ({ page }) => {

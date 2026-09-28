@@ -141,7 +141,7 @@ export function caseStudy(p) {
   const add = (id, lens, title, inner) => { S.push(section(id, lens, title, inner)); toc.push({ id, lens, title }); };
 
   // ---------------- Present: what it is
-  if (p.media && p.media.length) add('media', 'present', 'Media', `<p class="media-lead">Frames for the sprite sheet, each character's animation, the stage, and a gameplay clip.</p>${mediaGallery(p.media)}`);
+  if (p.media && p.media.length) add('media', 'present', 'Media', `<p class="media-lead">Frames for the sprite sheet, each character, the stage, and a gameplay clip.</p>${mediaGallery(p.media)}`);
   add('overview', 'present', 'Overview', dlRows([
     ...(o.projectTitle ? [['Project title', o.projectTitle]] : []),
     ['Genre', o.genre], ...(o.characters ? [['Characters', o.characters]] : []), ...(o.moves ? [['Moves', o.moves]] : []),

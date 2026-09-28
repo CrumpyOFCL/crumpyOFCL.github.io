@@ -123,14 +123,13 @@ Facts Tyler has not supplied. The site shows a dashed slot for each. Do not fill
 
 ### IkemanGoAss
 
-File: `content/projects/ikemen-go.json`. The visible title is his spelling, **IkemanGoAss**. Supporting tier. Subtitle on the page: "Ikemen GO fighting game prototype".
+File: `content/projects/ikemen-go.json`. The visible title is his spelling, **IkemanGoAss**. Supporting tier. Subtitle: "Designed by Tyler Crump".
 
-As of 29 Sep 2026, 00:27 AEST, do not state these as fact until Tyler confirms them: every move hand-animated, solo, Notepad++, Fighter Factory Studio. They are pending slots labeled owner-to-confirm. They are not on the skills matrix or the tools list. Do not point an animation skill at this project. Do not link or copy anything from the private repository.
+Owner decision, 29 Sep 2026, 00:29 AEST. It is a solo design project in Ikemen GO, the open-source fighting game engine it is built on. Credit Tyler with character and moveset design (The Sword Saint and Unknown, a mirror fighter on the same moveset), combat systems design (4 normals, a two-projectile lightning special, a meter-gated super, a back dash, block, a timed perfect block, a stamina system, and AI opponents), and stage design (Broken Bridge, a 6-layer storm bridge stage with animated lightning and rain).
 
-Safe wording already on the page: "An Ikemen GO fighting game prototype: two playable characters (The Sword Saint and Unknown) sharing one moveset, and a stormy bridge stage (Broken Bridge)." Also on the page, from verified detail: a moveset of 7 moves (4 normals, 1 two-projectile special, 1 meter-gated super, 1 back dash) plus block and perfect block, a stamina system, scripted AI, and a 6-layer stage with a storm soundtrack. Ikemen GO is the open-source, MUGEN-compatible fighting game engine. The page does not claim he built it.
+Tags: fighting game, character design, combat design, stage design, Ikemen GO. Do not tag this project with animation, and do not point an animation skill at it. Do not describe how the art was produced. Do not link the private repository.
 
 Still to supply:
 
-- Tyler's confirmation of authorship, hand animation, and tools. Final wording will replace the hold when he answers
 - Date or timeframe
-- Media: one sprite sheet, an animation GIF for The Sword Saint, an animation GIF for Unknown, a screenshot of Broken Bridge, and a gameplay clip. Leave the frames empty until he supplies files
+- Media, when Tyler supplies it: a sprite sheet, a GIF for The Sword Saint, a GIF for Unknown, a screenshot of Broken Bridge, and a gameplay clip. Leave the frames empty until then

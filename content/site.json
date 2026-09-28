@@ -211,15 +211,21 @@
         "level": "stated"
       },
       {
-        "skill": "Fighting-game moveset",
+        "skill": "Character and moveset design",
         "where": "ikemen-go",
-        "note": "The Sword Saint and Unknown share one moveset of 7 moves, plus block and perfect block, a stamina system, and scripted AI. Who animated the moves is owner-to-confirm. No sprite sheet or clip is published.",
+        "note": "The Sword Saint, and Unknown, a mirror fighter on the same moveset. Designed by Tyler Crump. Sprite sheet and GIFs are not published.",
         "level": "stated"
       },
       {
-        "skill": "Fighting-stage design",
+        "skill": "Combat design",
         "where": "ikemen-go",
-        "note": "Broken Bridge, a 6-layer stormy bridge stage with a storm soundtrack. No screenshot is published. Who made the stage is owner-to-confirm.",
+        "note": "7 moves: 4 normals, a two-projectile lightning special, a meter-gated super, a back dash, plus block, a timed perfect block, a stamina system, and AI opponents. No clip is published.",
+        "level": "stated"
+      },
+      {
+        "skill": "Stage design",
+        "where": "ikemen-go",
+        "note": "Broken Bridge, a 6-layer storm bridge stage with animated lightning and rain. No screenshot is published.",
         "level": "stated"
       },
       {
@@ -360,6 +366,30 @@
           "a-course-in-time"
         ],
         "evidence": "project"
+      },
+      {
+        "skill": "Character and moveset design",
+        "group": "Design",
+        "projects": [
+          "ikemen-go"
+        ],
+        "evidence": "attested"
+      },
+      {
+        "skill": "Combat design",
+        "group": "Design",
+        "projects": [
+          "ikemen-go"
+        ],
+        "evidence": "attested"
+      },
+      {
+        "skill": "Stage design",
+        "group": "Design",
+        "projects": [
+          "ikemen-go"
+        ],
+        "evidence": "attested"
       },
       {
         "skill": "Creative direction",

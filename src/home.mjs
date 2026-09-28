@@ -1,7 +1,7 @@
 import { esc, val, isPending, pending, field, href } from './lib.mjs';
 
 const TIER_TITLES = { flagship: 'Flagship', supporting: 'Supporting work', experiment: 'Experiments and prototypes' };
-const DISCIPLINES = ['Game Design', 'Level Design', 'Gameplay', 'UX', 'Prototyping', 'Playtesting', 'Documentation', 'Programming', 'Tools', 'Team', 'Personal', 'Animation', 'Fighting game', 'Level/stage design', 'Ikemen GO'];
+const DISCIPLINES = ['Game Design', 'Level Design', 'Gameplay', 'UX', 'Prototyping', 'Playtesting', 'Documentation', 'Programming', 'Tools', 'Team', 'Personal', 'Fighting game', 'Character design', 'Combat design', 'Stage design', 'Ikemen GO'];
 const STATUS_TEXT = { evidenced: 'Evidenced', stated: 'Described', pending: 'Pending' };
 
 function link(url, text, cls = '') {

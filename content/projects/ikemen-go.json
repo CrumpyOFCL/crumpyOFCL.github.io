@@ -6,45 +6,47 @@
   "title": "IkemanGoAss",
   "subtitle": {
     "status": "confirmed",
-    "value": "Ikemen GO fighting game prototype",
-    "source": "Readable subtitle for the title Tyler spelled IkemanGoAss. Not a quote. Wording cleared 29 Sep 2026, 00:27 AEST, while authorship is still with the owner to confirm."
+    "value": "Designed by Tyler Crump",
+    "source": "Owner decision, 29 Sep 2026, 00:29 AEST."
   },
   "_internal": {
-    "note": "29 Sep 2026, 00:27 AEST: an earlier authorship and tooling account is on hold until Tyler confirms. Do not state hand-animation, solo, Notepad++, or Fighter Factory Studio as fact. Do not link or pull files from the private repository. Safe description is the neutral prototype sentence plus the verified moves, characters, and stage. Media stays placeholder. Not a shipped credit. URL slug stays ikemen-go."
+    "note": "Owner decision, 29 Sep 2026, 00:29 AEST. Solo design project. Credit the character, combat, and stage design below. Do not describe how the art was produced. Do not link the private repository. Media stays placeholder. Not a shipped credit. URL slug stays ikemen-go."
   },
   "tagline": {
     "status": "confirmed",
-    "value": "An Ikemen GO fighting game prototype: two playable characters (The Sword Saint and Unknown) sharing one moveset, and a stormy bridge stage (Broken Bridge). Ikemen GO is the open-source, MUGEN-compatible fighting game engine.",
-    "source": "Neutral wording cleared 29 Sep 2026, 00:27 AEST. The engine description is not a claim that Tyler built Ikemen GO. Authorship of the prototype is owner-to-confirm."
+    "value": "Designed by Tyler Crump. A solo design project in Ikemen GO, the open-source fighting game engine it's built on. Character and moveset design for The Sword Saint and Unknown, combat systems for their shared moveset, and the Broken Bridge stage.",
+    "source": "Owner decision, 29 Sep 2026, 00:29 AEST."
   },
   "overview": {
     "genre": {
       "status": "confirmed",
       "value": "Fighting game",
-      "source": "Neutral wording cleared 29 Sep 2026, 00:27 AEST."
+      "source": "Owner decision, 29 Sep 2026, 00:29 AEST."
     },
     "characters": {
       "status": "confirmed",
-      "value": "2 — The Sword Saint and Unknown, sharing one moveset",
-      "source": "Verified project details, 29 Sep 2026, 00:27 AEST. Not a claim about who made them."
+      "value": "2 — The Sword Saint and Unknown, a mirror fighter on the same moveset",
+      "source": "Owner decision, 29 Sep 2026, 00:29 AEST."
     },
     "moves": {
       "status": "confirmed",
-      "value": "7 shared moves: 4 normals, 1 two-projectile special, 1 meter-gated super, 1 back dash. Also block and perfect block.",
-      "source": "Verified project details, 29 Sep 2026, 00:27 AEST."
+      "value": "7 shared moves: 4 normals, a two-projectile lightning special, a meter-gated super, and a back dash. Also block and a timed perfect block.",
+      "source": "Owner decision, 29 Sep 2026, 00:29 AEST."
     },
     "type": {
       "status": "confirmed",
-      "value": "Prototype",
-      "source": "Neutral wording cleared 29 Sep 2026, 00:27 AEST."
+      "value": "Design project",
+      "source": "Owner decision, 29 Sep 2026, 00:29 AEST: a solo design project."
     },
     "role": {
-      "status": "pending",
-      "request": "Owner to confirm Tyler's role."
+      "status": "confirmed",
+      "value": "Designed by Tyler Crump",
+      "source": "Owner decision, 29 Sep 2026, 00:29 AEST."
     },
     "team": {
-      "status": "pending",
-      "request": "Owner to confirm whether this was solo."
+      "status": "confirmed",
+      "value": "Solo",
+      "source": "Owner decision, 29 Sep 2026, 00:29 AEST."
     },
     "timeframe": {
       "status": "pending",
@@ -53,11 +55,14 @@
     "engine": {
       "status": "confirmed",
       "value": "Ikemen GO",
-      "source": "Ikemen GO is the open-source, MUGEN-compatible fighting game engine. This page does not claim Tyler built it."
+      "source": "The open-source fighting game engine the project is built on. Tyler designed the project in it."
     },
     "tools": {
-      "status": "pending",
-      "request": "Owner to confirm which tools were used. Notepad++ and Fighter Factory Studio are not confirmed."
+      "status": "confirmed",
+      "value": [
+        "Ikemen GO"
+      ],
+      "source": "Owner decision, 29 Sep 2026, 00:29 AEST. The engine the project is built on."
     },
     "platforms": {
       "status": "pending",
@@ -71,13 +76,14 @@
   "filters": {
     "engine": "Ikemen GO",
     "year": null,
-    "type": "Prototype",
+    "type": "Design project",
     "stage": null,
     "disciplines": [
       "Fighting game",
-      "Level/stage design",
-      "Ikemen GO",
-      "Level Design"
+      "Character design",
+      "Combat design",
+      "Stage design",
+      "Ikemen GO"
     ]
   },
   "links": [
@@ -90,22 +96,37 @@
     }
   ],
   "contributions": {
-    "status": "pending",
-    "request": "Owner to confirm what Tyler personally made, including whether the moves were hand-animated and whether the work was solo."
+    "status": "confirmed",
+    "value": [
+      "Character and moveset design for two fighters, The Sword Saint and Unknown. Unknown is a mirror fighter who shares the same moveset.",
+      "Combat systems design: 4 normals, a two-projectile lightning special, a meter-gated super, and a back dash, plus block and a timed perfect block, a stamina system, and AI opponents.",
+      "Stage design: Broken Bridge, a 6-layer storm bridge stage with animated lightning and rain."
+    ],
+    "source": "Owner decision, 29 Sep 2026, 00:29 AEST."
   },
   "collaboration": [
     {
-      "discipline": "Authorship",
+      "discipline": "Character and moveset design",
       "item": {
-        "status": "pending",
-        "request": "Owner to confirm who made the characters, the moveset, and the stage."
+        "status": "confirmed",
+        "value": "Me — The Sword Saint and Unknown",
+        "source": "Owner decision, 29 Sep 2026, 00:29 AEST."
       }
     },
     {
-      "discipline": "Tools",
+      "discipline": "Combat systems design",
       "item": {
-        "status": "pending",
-        "request": "Owner to confirm which tools were used. Notepad++ and Fighter Factory Studio are not confirmed."
+        "status": "confirmed",
+        "value": "Me",
+        "source": "Owner decision, 29 Sep 2026, 00:29 AEST."
+      }
+    },
+    {
+      "discipline": "Stage design",
+      "item": {
+        "status": "confirmed",
+        "value": "Me — Broken Bridge",
+        "source": "Owner decision, 29 Sep 2026, 00:29 AEST."
       }
     }
   ],
@@ -123,7 +144,7 @@
       "label": "The Sword Saint",
       "item": {
         "status": "pending",
-        "request": "Animation GIF for The Sword Saint."
+        "request": "GIF for The Sword Saint."
       }
     },
     {
@@ -131,7 +152,7 @@
       "label": "Unknown",
       "item": {
         "status": "pending",
-        "request": "Animation GIF for Unknown."
+        "request": "GIF for Unknown."
       }
     },
     {
@@ -139,7 +160,7 @@
       "label": "Broken Bridge",
       "item": {
         "status": "pending",
-        "request": "A screenshot of the stormy bridge stage."
+        "request": "A screenshot of Broken Bridge."
       }
     },
     {
@@ -153,11 +174,11 @@
   ],
   "mechanics": {
     "status": "confirmed",
-    "source": "Verified project details, 29 Sep 2026, 00:27 AEST. No public build is linked.",
+    "source": "Owner decision, 29 Sep 2026, 00:29 AEST. No public build is linked.",
     "value": [
       {
         "name": "Shared moveset",
-        "text": "Both characters use one moveset of 7 moves."
+        "text": "The Sword Saint and Unknown use one moveset of 7 moves. Unknown is a mirror fighter."
       },
       {
         "name": "Normals",
@@ -165,27 +186,27 @@
       },
       {
         "name": "Special",
-        "text": "1 two-projectile special."
+        "text": "A two-projectile lightning special."
       },
       {
         "name": "Super",
-        "text": "1 meter-gated super."
+        "text": "A meter-gated super."
       },
       {
         "name": "Back dash",
-        "text": "1 back dash."
+        "text": "A back dash."
       },
       {
         "name": "Block",
-        "text": "Block and perfect block."
+        "text": "Block and a timed perfect block."
       },
       {
         "name": "Stamina",
         "text": "A stamina system."
       },
       {
-        "name": "AI",
-        "text": "Scripted AI."
+        "name": "Opponents",
+        "text": "AI opponents."
       }
     ]
   },
@@ -195,53 +216,39 @@
   },
   "designGoal": {
     "status": "pending",
-    "request": "The design goal for the characters, the moves, or the stage."
+    "request": "The design goal for the characters, the combat, or the stage."
   },
   "process": [
     {
       "stage": "Characters",
       "item": {
         "status": "confirmed",
-        "value": "Two playable characters, The Sword Saint and Unknown, sharing one moveset.",
-        "source": "Verified project details, 29 Sep 2026, 00:27 AEST."
+        "value": "The Sword Saint and Unknown, a mirror fighter who shares the same moveset.",
+        "source": "Owner decision, 29 Sep 2026, 00:29 AEST."
       }
     },
     {
-      "stage": "Moves",
+      "stage": "Combat systems",
       "item": {
         "status": "confirmed",
-        "value": "7 moves: 4 normals, 1 two-projectile special, 1 meter-gated super, 1 back dash, plus block and perfect block.",
-        "source": "Verified project details, 29 Sep 2026, 00:27 AEST."
-      }
-    },
-    {
-      "stage": "Hand animation",
-      "item": {
-        "status": "pending",
-        "request": "Owner to confirm whether the moves were hand-animated."
+        "value": "7 moves: 4 normals, a two-projectile lightning special, a meter-gated super, and a back dash, plus block, a timed perfect block, a stamina system, and AI opponents.",
+        "source": "Owner decision, 29 Sep 2026, 00:29 AEST."
       }
     },
     {
       "stage": "Stage",
       "item": {
         "status": "confirmed",
-        "value": "Broken Bridge, a stormy bridge stage. 6 layers, with a storm soundtrack.",
-        "source": "Verified project details, 29 Sep 2026, 00:27 AEST."
-      }
-    },
-    {
-      "stage": "Tools",
-      "item": {
-        "status": "pending",
-        "request": "Owner to confirm which tools were used. Notepad++ and Fighter Factory Studio are not confirmed."
+        "value": "Broken Bridge, a 6-layer storm bridge stage with animated lightning and rain.",
+        "source": "Owner decision, 29 Sep 2026, 00:29 AEST."
       }
     }
   ],
   "levelDesign": {
     "overview": {
       "status": "confirmed",
-      "value": "Broken Bridge, a stormy bridge stage, with a storm soundtrack.",
-      "source": "Verified project details, 29 Sep 2026, 00:27 AEST. Who made the stage is owner-to-confirm."
+      "value": "Broken Bridge, a 6-layer storm bridge stage with animated lightning and rain.",
+      "source": "Owner decision, 29 Sep 2026, 00:29 AEST."
     },
     "goals": {
       "status": "pending",
@@ -250,7 +257,7 @@
     "structure": {
       "status": "confirmed",
       "value": "6 layers.",
-      "source": "Verified project details, 29 Sep 2026, 00:27 AEST."
+      "source": "Owner decision, 29 Sep 2026, 00:29 AEST."
     },
     "flow": {
       "status": "pending",
