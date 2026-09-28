@@ -12,7 +12,7 @@
 <link rel="canonical" href="https://crumpyofcl.github.io/projects/a-course-in-time/">
 <meta property="og:url" content="https://crumpyofcl.github.io/projects/a-course-in-time/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%237A4A10'/%3E%3Cpath d='M4 4h8v2H9v6H7V6H4z' fill='%23FFF8EA'/%3E%3C/svg%3E">
-<link rel="stylesheet" href="../../assets/styles.css?v=63f4841a03">
+<link rel="stylesheet" href="../../assets/styles.css?v=7a611350b0">
 <script>document.documentElement.classList.add('js');</script>
 </head>
 <body class="page--case">
@@ -39,17 +39,22 @@
       <p class="evidence-line">Playable build on itch.io. Level maps, playtest notes and a gameplay clip are still to come.</p>
       
       <p class="cs-head__links"><a href="https://crumpyofcl.itch.io/a-course-in-time" rel="noopener">Play in browser (itch.io)<span class="visually-hidden"> (opens external site)</span></a></p>
+      <dl class="glance"><div><dt>Role</dt><dd>Team lead — mainly audio, coding and level design</dd></div><div><dt>Team</dt><dd>Team of 5</dd></div><div><dt>Tools</dt><dd>Unity 6,C#,FMOD</dd></div><div><dt>Stage</dt><dd>In development (playable build on itch.io)</dd></div></dl>
     </div>
     <img class="cs-cover" src="../../img/acit-logo.png" alt="A Course In Time title logo in orange pixel lettering." width="559" height="257" decoding="async">
   </header>
   <div class="cs-body">
-    <nav class="toc" aria-label="Checkpoints"><details class="toc__details" open><summary>Checkpoints</summary><ol class="toc__list"><li><a href="#overview">Overview</a></li><li><a href="#what">What it is</a></li><li><a href="#role">What I did</a></li><li><a href="#team">Who did what</a></li><li><a href="#decisions">Design decisions</a></li><li><a href="#process">Process</a></li><li><a href="#level">Level design</a></li><li><a href="#experience">Player experience</a></li><li><a href="#playtesting">Playtesting</a></li><li><a href="#still">Still to add</a></li></ol></details></nav>
+    <nav class="toc" aria-label="Checkpoints"><details class="toc__details" open><summary>Checkpoints</summary><ol class="toc__list"><li><a href="#overview">Overview</a></li><li><a href="#role">What I did</a></li><li><a href="#what">What it is</a></li><li><a href="#team">Who did what</a></li><li><a href="#decisions">Design decisions</a></li><li><a href="#process">Process</a></li><li><a href="#level">Level design</a></li><li><a href="#experience">Player experience</a></li><li><a href="#playtesting">Playtesting</a></li><li><a href="#still">Still to add</a></li></ol></details></nav>
     <div class="cs-sections"><section id="overview" class="cs-section" aria-labelledby="overview-title">
   <h2 id="overview-title" class="cs-section__title"><span class="cs-section__cp">Checkpoint 1</span>Overview</h2>
   <dl class="facts"><div><dt>Genre</dt><dd>2D puzzle-platformer / metroidvania</dd></div><div><dt>Type</dt><dd>University team project (COMP3150, Macquarie University)</dd></div><div><dt>My role</dt><dd>Team lead — mainly audio, coding and level design</dd></div><div><dt>Team</dt><dd>Team of 5</dd></div><div><dt>Engine</dt><dd>Unity 6</dd></div><div><dt>Tools</dt><dd>Unity 6, C#, FMOD</dd></div><div><dt>Platforms</dt><dd>Browser (WebGL) and Windows</dd></div><div><dt>Stage</dt><dd>In development (playable build on itch.io)</dd></div></dl>
 </section>
+<section id="role" class="cs-section" aria-labelledby="role-title">
+  <h2 id="role-title" class="cs-section__title"><span class="cs-section__cp">Checkpoint 2</span>What I did</h2>
+  <ul class="bullets"><li>The era system — collision layers, object state and physics swapping in step, with a crush check so time closing around the player is a death rather than a glitch.</li><li>Procedural puzzle generators with Scene-view grid painting: pipe networks with a connectivity solver, and elemental puzzles that pick their own elements by counting how many valid solutions each set allows.</li><li>A save system built around an objective ledger, so a reloaded world remembers which doors are open and which puzzles are done.</li><li>An in-build debug console for playtesters — noclip, ability grants, scene jumps and objective control without an editor.</li></ul>
+</section>
 <section id="what" class="cs-section" aria-labelledby="what-title">
-  <h2 id="what-title" class="cs-section__title"><span class="cs-section__cp">Checkpoint 2</span>What it is</h2>
+  <h2 id="what-title" class="cs-section__title"><span class="cs-section__cp">Checkpoint 3</span>What it is</h2>
   <h3>Mechanics in the playable build</h3><p class="source">As described on the itch.io page. The project is in development, so this is not a shipped storefront credit.</p><dl class="mechanics"><div><dt>Time Switch</dt><dd>Shift between Present and Past. Platforms appear, walls vanish and hazards change.</dd></div><div><dt>Time Beam</dt><dd>Freeze objects across both timelines; bounce beams off mirrors to hit targets around corners.</dd></div><div><dt>Box Pull</dt><dd>Grab and move boxes into position to solve environmental puzzles.</dd></div><div><dt>Dash and Double Jump</dt><dd>Movement abilities that open paths that were visible but previously unreachable.</dd></div></dl><h3>Structure</h3><p>Progression is gated by abilities, not combat: each new tool opens paths that were visible but previously unreachable. The hotel is interconnected, with hidden rooms and shortcuts.</p><h3>How many eras</h3><p>The current itch.io build has two eras, Past and Present. An earlier plan had three.</p><h3>The rule, in one picture</h3><figure class="diagram" data-diagram>
   <div class="diagram__controls" role="group" aria-label="Show the room in">
     <button type="button" class="era__btn" data-dg="past" aria-pressed="true">Past</button>
@@ -62,10 +67,6 @@
     <ul class="dg__key" aria-hidden="true"><li><span class="dg__cell dg__cell--player"></span>Player</li><li><span class="dg__cell dg__cell--crate"></span>Crate</li><li><span class="dg__cell dg__cell--wall"></span>Wall</li><li><span class="dg__cell dg__cell--platform"></span>Platform</li></ul>
   </figcaption>
 </figure>
-</section>
-<section id="role" class="cs-section" aria-labelledby="role-title">
-  <h2 id="role-title" class="cs-section__title"><span class="cs-section__cp">Checkpoint 3</span>What I did</h2>
-  <ul class="bullets"><li>The era system — collision layers, object state and physics swapping in step, with a crush check so time closing around the player is a death rather than a glitch.</li><li>Procedural puzzle generators with Scene-view grid painting: pipe networks with a connectivity solver, and elemental puzzles that pick their own elements by counting how many valid solutions each set allows.</li><li>A save system built around an objective ledger, so a reloaded world remembers which doors are open and which puzzles are done.</li><li>An in-build debug console for playtesters — noclip, ability grants, scene jumps and objective control without an editor.</li></ul>
 </section>
 <section id="team" class="cs-section" aria-labelledby="team-title">
   <h2 id="team-title" class="cs-section__title"><span class="cs-section__cp">Checkpoint 4</span>Who did what</h2>
@@ -171,6 +172,6 @@
   </div>
 </footer>
 
-<script src="../../assets/app.js?v=63f4841a03" defer></script>
+<script src="../../assets/app.js?v=7a611350b0" defer></script>
 </body>
 </html>

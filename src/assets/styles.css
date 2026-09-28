@@ -662,6 +662,14 @@ html:not(.js) .title-screen { display: none; }
 .select-card__pitch { margin-top: .2rem; }
 .select-card__by { margin: 0 0 .4rem; font-weight: 700; }
 .still summary { cursor: pointer; font-weight: 800; min-height: 44px; display: flex; align-items: center; gap: .4rem; }
+.glance { display: grid; grid-template-columns: 1fr 1fr; gap: .15rem 1rem; margin: .45rem 0 0; }
+.glance dt { font-size: .75rem; font-weight: 700; color: var(--ink-soft); }
+.glance dd { margin: 0; font-weight: 650; }
+@media (max-width: 960px) {
+  .toc { margin-bottom: .6rem; }
+  .toc__list { display: flex; flex-wrap: nowrap; gap: .25rem .9rem; overflow-x: auto; margin: 0; padding: 0 0 .15rem; list-style: none; }
+  .toc__list li { flex: 0 0 auto; margin: 0; }
+}
 @media (max-width: 800px) {
   .cs-head { display: flex; flex-direction: column; }
   .cs-cover { max-height: 88px; width: auto; object-fit: contain; align-self: flex-start; }

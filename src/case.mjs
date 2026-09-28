@@ -175,6 +175,11 @@ export function caseStudy(p) {
     ['Engine', o.engine], ['Tools', o.tools], ['Platforms', o.platforms], ['Stage', o.stage],
   ]));
 
+  if (p.contributions) {
+    if (isPending(p.contributions)) note('What I did');
+    else add('role', 'What I did', list(val(p.contributions)));
+  }
+
   let what = '';
   if (p.mechanics && !isPending(p.mechanics)) {
     const heading = NON_GAME.has(p.slug) ? 'Features' : (p.slug === 'a-course-in-time' ? 'Mechanics in the playable build' : 'Mechanics');
@@ -193,10 +198,6 @@ export function caseStudy(p) {
   if (p.slug === 'a-course-in-time') what += `<h3>The rule, in one picture</h3>${eraDiagram()}`;
   add('what', 'What it is', what);
 
-  if (p.contributions) {
-    if (isPending(p.contributions)) note('What I did');
-    else add('role', 'What I did', list(val(p.contributions)));
-  }
   if (p.clientWork) {
     const client = rowsHtml([
       ['Communication', p.clientWork.cadence], ['Handover', p.clientWork.handover], ['Client', p.clientWork.clientName],
@@ -288,6 +289,12 @@ export function caseStudy(p) {
     'waking-nightmare': 'Client handover of an in-progress build. Several write-up slots are still to come.',
   };
   const line = HEADS[p.slug] || 'Confirmed work is in the sections above. Empty slots are listed at the end and are not filled with guesses.';
+  const glanceBits = [
+    ['Role', o.role], ['Team', o.team], ['Tools', o.tools], ['Stage', o.stage],
+  ].filter(([, f]) => f && !isPending(f));
+  const glance = glanceBits.length
+    ? `<dl class="glance">${glanceBits.map(([k, f]) => `<div><dt>${esc(k)}</dt><dd>${esc(val(f))}</dd></div>`).join('')}</dl>`
+    : '';
   const links = (p.links || []).filter(l => !isPending(l.item));
   const cover = p.cover && !isPending(p.cover) ? `<img class="cs-cover" src="${esc(href(val(p.cover).src))}" alt="${esc(val(p.cover).alt)}" width="559" height="257" decoding="async">` : '';
   const checkpoints = toc.map(t => `<li><a href="#${t.id}">${esc(t.title)}</a></li>`).join('');
@@ -302,6 +309,7 @@ export function caseStudy(p) {
       <p class="evidence-line">${esc(line)}</p>
       ${p.access && !isPending(p.access) ? `<p>${esc(val(p.access))}</p>` : ''}
       ${links.length ? `<p class="cs-head__links">${links.map((l) => ext(val(l.item), `${esc(l.label)}`)).join('')}</p>` : ''}
+      ${glance}
     </div>
     ${cover}
   </header>

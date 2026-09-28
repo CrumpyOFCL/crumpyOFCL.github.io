@@ -12,7 +12,7 @@
 <link rel="canonical" href="https://crumpyofcl.github.io/projects/tabi/">
 <meta property="og:url" content="https://crumpyofcl.github.io/projects/tabi/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%237A4A10'/%3E%3Cpath d='M4 4h8v2H9v6H7V6H4z' fill='%23FFF8EA'/%3E%3C/svg%3E">
-<link rel="stylesheet" href="../../assets/styles.css?v=63f4841a03">
+<link rel="stylesheet" href="../../assets/styles.css?v=7a611350b0">
 <script>document.documentElement.classList.add('js');</script>
 </head>
 <body class="page--case">
@@ -39,22 +39,23 @@
       <p class="evidence-line">Live, invite-only. A cover image and the remaining write-up slots are still to come.</p>
       <p>The live app is invite-only. This page links to the public sign-in screen and does not show trip data, names or invite codes.</p>
       <p class="cs-head__links"><a href="https://japantrip-oeja.onrender.com" rel="noopener">Open Tabi<span class="visually-hidden"> (opens external site)</span></a></p>
+      <dl class="glance"><div><dt>Role</dt><dd>Designer and developer (solo)</dd></div><div><dt>Team</dt><dd>Solo</dd></div><div><dt>Tools</dt><dd>JavaScript,Express,SQLite,Leaflet</dd></div><div><dt>Stage</dt><dd>Live (invite-only)</dd></div></dl>
     </div>
     
   </header>
   <div class="cs-body">
-    <nav class="toc" aria-label="Checkpoints"><details class="toc__details" open><summary>Checkpoints</summary><ol class="toc__list"><li><a href="#overview">Overview</a></li><li><a href="#what">What it is</a></li><li><a href="#role">What I did</a></li><li><a href="#team">Who did what</a></li><li><a href="#decisions">Design decisions</a></li><li><a href="#experience">Player experience</a></li><li><a href="#reflection">Reflection</a></li><li><a href="#goal">Problem and design goal</a></li><li><a href="#still">Still to add</a></li></ol></details></nav>
+    <nav class="toc" aria-label="Checkpoints"><details class="toc__details" open><summary>Checkpoints</summary><ol class="toc__list"><li><a href="#overview">Overview</a></li><li><a href="#role">What I did</a></li><li><a href="#what">What it is</a></li><li><a href="#team">Who did what</a></li><li><a href="#decisions">Design decisions</a></li><li><a href="#experience">Player experience</a></li><li><a href="#reflection">Reflection</a></li><li><a href="#goal">Problem and design goal</a></li><li><a href="#still">Still to add</a></li></ol></details></nav>
     <div class="cs-sections"><section id="overview" class="cs-section" aria-labelledby="overview-title">
   <h2 id="overview-title" class="cs-section__title"><span class="cs-section__cp">Checkpoint 1</span>Overview</h2>
   <dl class="facts"><div><dt>Genre</dt><dd>Group trip planner (not a game) — multipurpose product and UX case study</dd></div><div><dt>Type</dt><dd>Personal project</dd></div><div><dt>My role</dt><dd>Designer and developer (solo)</dd></div><div><dt>Team</dt><dd>Solo</dd></div><div><dt>Timeframe</dt><dd>September 2026</dd></div><div><dt>Engine</dt><dd>Node.js / Express</dd></div><div><dt>Tools</dt><dd>JavaScript, Express, SQLite, Leaflet</dd></div><div><dt>Platforms</dt><dd>Mobile-first web app with a phone-app feel (installable to the Home Screen)</dd></div><div><dt>Stage</dt><dd>Live (invite-only)</dd></div></dl>
 </section>
-<section id="what" class="cs-section" aria-labelledby="what-title">
-  <h2 id="what-title" class="cs-section__title"><span class="cs-section__cp">Checkpoint 2</span>What it is</h2>
-  <h3>Features</h3><dl class="spec-list"><div><dt>Trips</dt><dd>More than one trip on an account. Each trip has its own invite-only group, with viewer and editor roles.</dd></div><div><dt>Itinerary</dt><dd>A day-by-day plan with map pins.</dd></div><div><dt>Budget</dt><dd>A whole-group / per-person toggle, and a warning when spending crosses a budget ceiling. Costs stay marked paid, committed or estimated. With no budget set, the app says &quot;No budget set&quot;.</dd></div><div><dt>Currency</dt><dd>Live currency conversion.</dd></div><div><dt>Weather</dt><dd>Weather for the trip.</dd></div><div><dt>Home</dt><dd>Today&#39;s plan while a trip is on. A countdown before it starts.</dd></div><div><dt>Sign-in</dt><dd>Google sign-in. The app is mobile-first and meant to feel like a phone app.</dd></div></dl>
-</section>
 <section id="role" class="cs-section" aria-labelledby="role-title">
-  <h2 id="role-title" class="cs-section__title"><span class="cs-section__cp">Checkpoint 3</span>What I did</h2>
+  <h2 id="role-title" class="cs-section__title"><span class="cs-section__cp">Checkpoint 2</span>What I did</h2>
   <ul class="bullets"><li>Designed and built Tabi: more than one trip on an account, each with its own invite-only group (viewer and editor roles); a day-by-day itinerary with map pins; a budget with a whole-group / per-person toggle and a budget-ceiling warning; live currency conversion; weather; a home screen that shows Today&#39;s plan during a trip and a countdown before it; Google sign-in.</li><li>Designed and built the earlier screens too: sign-in gate, trip overview, budget, plan, stays, flights, food, trains and people.</li><li>Reworked most of the code and the visual design to get a mobile-first, phone-app feel.</li><li>Iterated in small pull requests: 60 over eight days, 57 merged.</li></ul>
+</section>
+<section id="what" class="cs-section" aria-labelledby="what-title">
+  <h2 id="what-title" class="cs-section__title"><span class="cs-section__cp">Checkpoint 3</span>What it is</h2>
+  <h3>Features</h3><dl class="spec-list"><div><dt>Trips</dt><dd>More than one trip on an account. Each trip has its own invite-only group, with viewer and editor roles.</dd></div><div><dt>Itinerary</dt><dd>A day-by-day plan with map pins.</dd></div><div><dt>Budget</dt><dd>A whole-group / per-person toggle, and a warning when spending crosses a budget ceiling. Costs stay marked paid, committed or estimated. With no budget set, the app says &quot;No budget set&quot;.</dd></div><div><dt>Currency</dt><dd>Live currency conversion.</dd></div><div><dt>Weather</dt><dd>Weather for the trip.</dd></div><div><dt>Home</dt><dd>Today&#39;s plan while a trip is on. A countdown before it starts.</dd></div><div><dt>Sign-in</dt><dd>Google sign-in. The app is mobile-first and meant to feel like a phone app.</dd></div></dl>
 </section>
 <section id="team" class="cs-section" aria-labelledby="team-title">
   <h2 id="team-title" class="cs-section__title"><span class="cs-section__cp">Checkpoint 4</span>Who did what</h2>
@@ -160,6 +161,6 @@
   </div>
 </footer>
 
-<script src="../../assets/app.js?v=63f4841a03" defer></script>
+<script src="../../assets/app.js?v=7a611350b0" defer></script>
 </body>
 </html>

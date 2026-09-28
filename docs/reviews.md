@@ -59,13 +59,13 @@ Lighthouse 12, gzip on (the same compression GitHub Pages and Render apply). Pyt
 | Page | Form | Performance | Accessibility | Best practices | SEO |
 | --- | --- | ---: | ---: | ---: | ---: |
 | Home | Mobile | 100 | 100 | 100 | 100 |
-| Home | Desktop | 97 | 100 | 100 | 100 |
+| Home | Desktop | 96 | 100 | 100 | 100 |
 | A Course In Time | Mobile | 100 | 100 | 100 | 100 |
 | A Course In Time | Desktop | 96 | 100 | 100 | 100 |
 | Tabi | Mobile | 100 | 100 | 100 | 100 |
 | Tabi | Desktop | 98 | 100 | 100 | 100 |
 
-Desktop performance sits in the mid-90s because the stylesheet is render-blocking. Cumulative layout shift is 0. There is no third-party script and no autoplay audio. Raw bytes of every file the hub requests (HTML, CSS, JS, map, landmarks, avatar, lake shimmer) are 147,003, under the 150,000 budget. The font file is not requested. Raw numbers are in [lighthouse-scores.json](lighthouse-scores.json). Recorded again after the stage-1 rebuild.
+Desktop performance sits in the mid-90s because the stylesheet is render-blocking. Cumulative layout shift is 0. There is no third-party script and no autoplay audio. Raw bytes of every file the hub requests (HTML, CSS, JS, map, landmarks, avatar, lake shimmer) are 147,468, under the 150,000 budget. The font file is not requested. Raw numbers are in [lighthouse-scores.json](lighthouse-scores.json). Recorded again after the stage-1 rebuild.
 
 ## Red team — what would make a pro reviewer walk away
 
