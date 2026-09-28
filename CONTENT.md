@@ -1,0 +1,118 @@
+# How content works
+
+All public copy is JSON under `content/`. The site does not contain a second copy of the words. After editing, run `node src/build.mjs` and commit the JSON and the generated HTML.
+
+`_internal` objects and any key starting with `_` are never rendered. Do not put anything there that you would not want in a public repository: the JSON is committed.
+
+## A fact is either confirmed or pending
+
+Confirmed:
+
+```json
+{ "status": "confirmed", "value": "Team of 5", "source": "Where this came from" }
+```
+
+Pending (this is what visitors see as a dashed box):
+
+```json
+{ "status": "pending", "request": "What Tyler still needs to supply" }
+```
+
+`source` is for you. It is shown on the page only where a template prints it (for example the "What I did" section). Write requests as instructions to yourself, not as fake results. Never use lorem, sample statistics, or a playtest quote you do not have permission to publish.
+
+Plain strings are treated as already confirmed. Prefer the object form for anything a reviewer might question.
+
+The build fails if `status` is missing a `value` (confirmed) or a `request` (pending), if a slug is not lowercase-with-dashes, or if there is not exactly one visible flagship.
+
+## Add a project
+
+1. Create `content/projects/your-slug.json`.
+2. Set `visible`, `tier` (`flagship`, `supporting` or `experiment`), `order`, `title`, `tagline`, `overview`, `filters`, and at least an empty `decisions` array.
+3. `overview` must include `role`, `team` and `timeframe`. If you do not know them yet, use a pending object. Do not guess a date.
+4. `filters` drives the Work page:
+
+```json
+"filters": {
+  "engine": "Unity",
+  "year": "2026",
+  "type": "University",
+  "stage": "In development",
+  "disciplines": ["Game Design", "Level Design"]
+}
+```
+
+Use `null` for `year` when it is unknown. Disciplines the site understands: Game Design, Level Design, Gameplay, UX, Prototyping, Playtesting, Documentation, Programming, Tools, Team, Personal. A discipline with no project is listed as having no published evidence.
+
+5. Only one visible project may be `flagship`.
+6. Rebuild.
+
+`order` sorts projects inside a tier and across the skills matrix.
+
+## Case-study fields
+
+Use the existing projects as the pattern. Common blocks:
+
+| Field | Lens | What it is |
+| --- | --- | --- |
+| `overview`, `mechanics`, `structure`, `eraNote`, `contributions`, `collaboration`, `clientWork`, `videos`, `access` | Present | What it is, who did what |
+| `problem`, `designGoal`, `process`, `decisions`, `levelDesign`, `experience`, `playtesting`, `iterations` | Past | How it was made |
+| `results`, `reflection`, `next` | Future | What's next, plus an automatic count of empty slots |
+
+`process` is a list of `{ "stage", "item" }`. A confirmed item gets a tick. A pending item stays an empty step. Do not mark a stage done without something you can point at.
+
+`decisions` is a list. Each entry needs `decision` and `detail` (plain strings you are willing to say) plus `why`, `options`, `evidence`, `tradeoff`, `result` as confirmed or pending fields. The evidence chain on the page lights up only the links that are actually filled.
+
+`iterations` is V1, V2, V3, Final (or your own labels). Each has `label`, `image`, `what`, `why`, `evidence`. Images are pending until you have a file.
+
+`playtesting.sessions` is an array. Leave it empty to show the Observation → Insight → Design change → Result template. To publish a session, push an object whose fields are confirmed or pending:
+
+```json
+{
+  "question": { "status": "confirmed", "value": "…", "source": "…" },
+  "method": { "status": "pending", "request": "…" },
+  "observation": { "status": "pending", "request": "…" },
+  "insight": { "status": "pending", "request": "…" },
+  "change": { "status": "pending", "request": "…" },
+  "result": { "status": "pending", "request": "…" }
+}
+```
+
+Do not write a finding you did not record.
+
+`reflection` and journal entries on the home page (`content/site.json` → `journal`) can be a pending object, or a confirmed value shaped as `{ "tried", "failed", "learned", "changed" }` with each of those confirmed or pending.
+
+## Images
+
+Put files in `public/img/`. The build copies `public/` to the site root.
+
+```json
+"cover": {
+  "status": "confirmed",
+  "value": { "src": "/img/example.png", "alt": "What a recruiter needs to hear, not 'screenshot'." },
+  "source": "Where the image came from, and that you have the right to show it"
+}
+```
+
+Say what is in the picture. If you do not have the file, leave `status: "pending"`.
+
+Japan Trip Planner: the only link is `https://japantrip-oeja.onrender.com`. Do not link a source repository or any other host. Do not add screenshots that show trip data, other people's names, or invite codes. A picture of the public sign-in screen is the only app image that is allowed, and only after you are happy for the on-screen product name to appear here. Until then the cover stays pending. The case study title stays **Japan Trip Planner**. Credit on the page is designer and developer, solo.
+
+## Skills matrix and evidence ledger
+
+`content/site.json`:
+
+- `skills.rows` — `evidence` is `project` (used on the listed slugs), `general` (you use it, no project shown) or `coming` (you use it, evidence still to come, rendered as **evidence coming**). Unreal Engine and Blender stay `coming` until there is a project. Do not invent an Unreal project.
+- `benchmark.rows` — `level` is `evidenced` (a reviewer can open the artefact), `stated` (your description, artefact not public) or `pending`.
+
+`hide: true` on a skill row keeps it in the file and off the page.
+
+## What not to claim
+
+- A shipped title. Itch.io builds and a client handover are not storefront credits. A Course In Time is in development. Waking Nightmare Experience is a client handover of an in-progress build.
+- Godot, Jira, or design work for under-10 players. Those are gaps until you have something real.
+- Team-mate names, unless they have agreed. The SDCS booking app's source file shows a credit line that names other people; you have said the work was solo. Those names are not on this site. Edit that line in the coursework repo, or decide how you want it explained, before it is copied here.
+- Steam, unless you have a real Steam URL. The old site's Steam link pointed at itch.io, so Steam is omitted.
+
+## Home page blocks
+
+`approach`, `documents`, `journal`, `about`, `resume` and `contact` are in `content/site.json`. A résumé is a pending slot until `public/cv.pdf` exists and `resume` is confirmed. Remove phone number and street address from the PDF first.

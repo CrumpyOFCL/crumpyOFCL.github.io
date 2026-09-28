@@ -1,0 +1,122 @@
+{
+  "slug": "sdcs-booking-app",
+  "visible": true,
+  "tier": "experiment",
+  "order": 5,
+  "title": "SDCS Booking App",
+  "tagline": {
+    "status": "confirmed",
+    "value": "A React Native booking screen for a dog-care service: pick a dog and hours, a service and quantity, and get the total cost.",
+    "source": "github.com/CrumpyOFCL/Comp2750-Assignment (App.js)"
+  },
+  "cover": {
+    "status": "pending",
+    "request": "A phone screenshot of the booking screen."
+  },
+  "overview": {
+    "genre": {
+      "status": "confirmed",
+      "value": "Mobile app (not a game)",
+      "source": "repo"
+    },
+    "type": {
+      "status": "confirmed",
+      "value": "University app project (COMP2750)",
+      "source": "repo description"
+    },
+    "role": {
+      "status": "confirmed",
+      "value": "Solo developer",
+      "source": "Tyler (owner confirmation, 28 Sep 2026)"
+    },
+    "team": {
+      "status": "confirmed",
+      "value": "Solo",
+      "source": "Tyler (owner confirmation, 28 Sep 2026)"
+    },
+    "timeframe": {
+      "status": "confirmed",
+      "value": "May 2025",
+      "source": "Tyler (owner confirmation, 28 Sep 2026)"
+    },
+    "engine": {
+      "status": "confirmed",
+      "value": "React Native (Expo Snack)",
+      "source": "repo"
+    },
+    "tools": {
+      "status": "confirmed",
+      "value": [
+        "React Native",
+        "Expo",
+        "JavaScript"
+      ],
+      "source": "repo"
+    },
+    "platforms": {
+      "status": "confirmed",
+      "value": "Android and iOS (via Expo)",
+      "source": "App.js comment"
+    },
+    "stage": {
+      "status": "confirmed",
+      "value": "Coursework submission",
+      "source": "repo"
+    }
+  },
+  "filters": {
+    "engine": "React Native",
+    "year": "2025",
+    "type": "University",
+    "stage": "Complete",
+    "disciplines": [
+      "UX",
+      "Programming",
+      "Personal"
+    ]
+  },
+  "links": [
+    {
+      "label": "Source (GitHub)",
+      "item": {
+        "status": "confirmed",
+        "value": "https://github.com/CrumpyOFCL/Comp2750-Assignment",
+        "source": "GitHub"
+      }
+    }
+  ],
+  "contributions": {
+    "status": "confirmed",
+    "value": [
+      "Built the booking screen in React Native: dog and hours pickers, service and quantity pickers, cost calculation.",
+      "Adjusted the layout so it works on both Android and iOS in Expo Snack."
+    ],
+    "source": "Tyler (solo developer, owner confirmation) + App.js"
+  },
+  "problem": {
+    "status": "pending",
+    "request": "What the assignment asked for and the UX problem you focused on."
+  },
+  "designGoal": {
+    "status": "pending",
+    "request": "What made the booking flow easy (or what you'd change)."
+  },
+  "decisions": [],
+  "collaboration": [
+    {
+      "discipline": "Team",
+      "item": {
+        "status": "confirmed",
+        "value": "Solo project",
+        "source": "Tyler (owner confirmation, 28 Sep 2026)"
+      }
+    }
+  ],
+  "reflection": {
+    "status": "pending",
+    "request": "What this non-game project taught you about UX."
+  },
+  "_internal": {
+    "credits": "App.js shows an on-screen credit line naming other people as well as Tyler. Owner says this was solo work. Do not publish those names. Tyler should edit that line or explain it before it appears anywhere public."
+  }
+}

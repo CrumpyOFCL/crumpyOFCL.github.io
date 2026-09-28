@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prototype — Era Lens</title>
+<style>
+  body { margin: 0; font: 16px/1.45 system-ui, sans-serif; background: #E9EAEC; color: #1A1D22; }
+  body[data-era="past"] { background: #E4D8BC; color: #2B2318; }
+  body[data-era="future"] { background: #14181A; color: #DFE9E7; }
+  header, main { max-width: 880px; margin: 0 auto; padding: 1.25rem; }
+  .banner { font-size: .8rem; letter-spacing: .04em; text-transform: uppercase; opacity: .7; }
+  h1 { font-size: 1.8rem; margin: .2rem 0 1rem; }
+  .switch { display: flex; gap: .4rem; margin-bottom: 1rem; }
+  button { font: inherit; padding: .6rem 1rem; border: 1px solid currentColor; background: transparent; color: inherit; cursor: pointer; }
+  button[aria-pressed="true"] { background: #1F5C8C; color: #fff; border-color: #1F5C8C; }
+  body[data-era="past"] button[aria-pressed="true"] { background: #7A4A10; border-color: #7A4A10; }
+  body[data-era="future"] button[aria-pressed="true"] { background: #5FC2A8; color: #0B1413; border-color: #5FC2A8; }
+  .layout { display: grid; grid-template-columns: 1.4fr .8fr; gap: 1rem; }
+  article, aside { border: 1px solid currentColor; padding: 1rem; }
+  .note { margin-top: 1rem; font-size: .9rem; }
+  @media (max-width: 700px) { .layout { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body data-era="present">
+<header>
+  <p class="banner">Throwaway prototype — not the portfolio</p>
+  <h1>Era Lens</h1>
+  <p>The same layout. Only the era changes. On a case study the same control would show Past, Present or Future sections.</p>
+  <div class="switch" role="group" aria-label="Era">
+    <button type="button" data-era="past" aria-pressed="false">Past · 1743</button>
+    <button type="button" data-era="present" aria-pressed="true">Present · Today</button>
+    <button type="button" data-era="future" aria-pressed="false">Future · 2311</button>
+  </div>
+</header>
+<main class="layout">
+  <article>
+    <h2>A Course In Time</h2>
+    <p class="slot">Flagship case study stays in this column. Switching era does not move it.</p>
+  </article>
+  <aside>
+    <h2>At a glance</h2>
+    <p>Role, flagship, contact. Recruiter facts, same place in every era.</p>
+  </aside>
+</main>
+<p class="note" style="max-width:880px;margin:0 auto;padding:0 1.25rem">Chosen concept. The portfolio builds this into a reading lens: Present = what it is, Past = how it was made, Future = what's next.</p>
+<script>
+  document.querySelectorAll('button[data-era]').forEach(b => b.addEventListener('click', () => {
+    document.body.dataset.era = b.dataset.era;
+    document.querySelectorAll('button[data-era]').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+  }));
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prototype — Design constellation</title>
+<style>
+  body { margin: 0; font: 15px/1.4 system-ui, sans-serif; background: #121418; color: #e7e4dc; }
+  main { max-width: 880px; margin: 0 auto; padding: 1.25rem; }
+  .banner { font-size: .8rem; letter-spacing: .04em; text-transform: uppercase; opacity: .65; }
+  svg { width: 100%; height: auto; background: #1b1f24; border: 1px solid #3c4450; }
+  text { fill: #e7e4dc; font: 13px system-ui, sans-serif; }
+  .empty { stroke: #c7b8ff; stroke-dasharray: 4 3; fill: none; }
+</style>
+</head>
+<body>
+<main>
+  <p class="banner">Throwaway prototype — not the portfolio</p>
+  <h1>Design constellation</h1>
+  <p>Disciplines, projects and evidence as a graph. With this much evidence still pending, most nodes are empty rings. Rejected: it fails a 30-second read.</p>
+  <svg viewBox="0 0 640 280" role="img" aria-label="Sketch of a sparse graph. Solid nodes are projects. Dashed nodes have no evidence yet.">
+    <line x1="320" y1="140" x2="120" y2="70" stroke="#5FC2A8"/>
+    <line x1="320" y1="140" x2="520" y2="80" stroke="#5FC2A8"/>
+    <line x1="320" y1="140" x2="160" y2="210" stroke="#5FC2A8"/>
+    <line x1="320" y1="140" x2="500" y2="210" stroke="#8a8098" stroke-dasharray="4 3"/>
+    <circle cx="320" cy="140" r="36" fill="#1F5C8C"/>
+    <text x="320" y="144" text-anchor="middle">ACIT</text>
+    <circle cx="120" cy="70" r="28" fill="#245c45"/>
+    <text x="120" y="74" text-anchor="middle">Unity</text>
+    <circle cx="520" cy="80" r="28" fill="#245c45"/>
+    <text x="520" y="84" text-anchor="middle">Level</text>
+    <circle cx="160" cy="210" r="26" fill="#245c45"/>
+    <text x="160" y="214" text-anchor="middle">Tools</text>
+    <circle class="empty" cx="500" cy="210" r="30"/>
+    <text x="500" y="214" text-anchor="middle">Playtest</text>
+  </svg>
+</main>
+</body>
+</html>

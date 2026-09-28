@@ -1,0 +1,89 @@
+{
+  "slug": "gdt2",
+  "visible": true,
+  "tier": "experiment",
+  "order": 7,
+  "title": "GDT2",
+  "tagline": {
+    "status": "confirmed",
+    "value": "A browser-playable Unity prototype on itch.io.",
+    "source": "itch.io"
+  },
+  "cover": {
+    "status": "pending",
+    "request": "A screenshot."
+  },
+  "overview": {
+    "genre": {
+      "status": "pending",
+      "request": "Genre"
+    },
+    "type": {
+      "status": "confirmed",
+      "value": "Prototype",
+      "source": "itch.io status"
+    },
+    "role": {
+      "status": "pending",
+      "request": "pending: role confirmation"
+    },
+    "team": {
+      "status": "pending",
+      "request": "pending: role confirmation"
+    },
+    "timeframe": {
+      "status": "pending",
+      "request": "pending: role confirmation"
+    },
+    "engine": {
+      "status": "confirmed",
+      "value": "Unity",
+      "source": "itch.io"
+    },
+    "tools": {
+      "status": "confirmed",
+      "value": [
+        "Unity"
+      ],
+      "source": "itch.io"
+    },
+    "platforms": {
+      "status": "confirmed",
+      "value": "Browser (HTML5)",
+      "source": "itch.io"
+    },
+    "stage": {
+      "status": "confirmed",
+      "value": "Prototype",
+      "source": "itch.io"
+    }
+  },
+  "filters": {
+    "engine": "Unity",
+    "year": null,
+    "type": "Prototype",
+    "stage": "Prototype",
+    "disciplines": [
+      "Prototyping"
+    ]
+  },
+  "links": [
+    {
+      "label": "Play in browser (itch.io)",
+      "item": {
+        "status": "confirmed",
+        "value": "https://crumpyofcl.itch.io/gdt2",
+        "source": "itch.io"
+      }
+    }
+  ],
+  "contributions": {
+    "status": "pending",
+    "request": "pending: role confirmation"
+  },
+  "problem": {
+    "status": "pending",
+    "request": "What GDT2 is and what it explores (one or two sentences)."
+  },
+  "decisions": []
+}

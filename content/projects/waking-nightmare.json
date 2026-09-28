@@ -1,0 +1,215 @@
+{
+  "slug": "waking-nightmare",
+  "visible": true,
+  "tier": "supporting",
+  "order": 2,
+  "title": "Waking Nightmare Experience",
+  "tagline": {
+    "status": "confirmed",
+    "value": "A VR experience for Meta Quest, made for the client LiminalVR: awaken in a dark room and fight off the monsters that await. I was Creative Director, a programmer and the team's contact with the client.",
+    "source": "Tyler (owner confirmation, 28 Sep 2026) + itch.io description"
+  },
+  "cover": {
+    "status": "pending",
+    "request": "A screenshot or capture from the build."
+  },
+  "overview": {
+    "genre": {
+      "status": "confirmed",
+      "value": "VR experience",
+      "source": "Tyler (owner confirmation, 28 Sep 2026)"
+    },
+    "type": {
+      "status": "confirmed",
+      "value": "Client project for LiminalVR (university team)",
+      "source": "Tyler (owner confirmation, 28 Sep 2026)"
+    },
+    "role": {
+      "status": "confirmed",
+      "value": "Creative Director and programmer; client liaison",
+      "source": "Tyler (owner confirmation, 28 Sep 2026)"
+    },
+    "team": {
+      "status": "confirmed",
+      "value": "Team of 5",
+      "source": "Tyler (owner confirmation, 28 Sep 2026)"
+    },
+    "timeframe": {
+      "status": "pending",
+      "request": "Dates"
+    },
+    "engine": {
+      "status": "confirmed",
+      "value": "Unity 2019",
+      "source": "Tyler (owner confirmation, 28 Sep 2026)"
+    },
+    "tools": {
+      "status": "confirmed",
+      "value": [
+        "Unity 2019"
+      ],
+      "source": "Tyler (owner confirmation, 28 Sep 2026)"
+    },
+    "platforms": {
+      "status": "confirmed",
+      "value": "Meta Quest 2 and 3",
+      "source": "Tyler (owner confirmation, 28 Sep 2026)"
+    },
+    "stage": {
+      "status": "confirmed",
+      "value": "Client handover (in-progress build)",
+      "source": "Tyler (owner confirmation, 28 Sep 2026)"
+    }
+  },
+  "filters": {
+    "engine": "Unity",
+    "year": null,
+    "type": "Client project",
+    "stage": "Client handover",
+    "disciplines": [
+      "Game Design",
+      "Team",
+      "Programming"
+    ]
+  },
+  "links": [
+    {
+      "label": "itch.io page",
+      "item": {
+        "status": "confirmed",
+        "value": "https://crumpyofcl.itch.io/waking-nightmare",
+        "source": "itch.io"
+      }
+    },
+    {
+      "label": "APK repository",
+      "item": {
+        "status": "pending",
+        "request": "github.com/CrumpyOFCL/WakingNightmareExperience is currently empty — add the build or remove this link."
+      }
+    }
+  ],
+  "contributions": {
+    "status": "confirmed",
+    "source": "Tyler (owner confirmation, 28 Sep 2026)",
+    "value": [
+      "Creative Director: set the creative direction for the project.",
+      "Programmer on the build (Unity 2019).",
+      "Client liaison: met and emailed the client regularly on behalf of the team.",
+      "Handed the project over to the client as an unfinished build for them to clean up."
+    ]
+  },
+  "problem": {
+    "status": "pending",
+    "request": "The client's brief, in your words (only what you're allowed to share)."
+  },
+  "designGoal": {
+    "status": "pending",
+    "request": "The intended player experience you set as Creative Director."
+  },
+  "decisions": [
+    {
+      "decision": "Hand over an in-progress build rather than hold it back",
+      "detail": "The project was delivered to the client unfinished, for them to clean up.",
+      "why": {
+        "status": "pending",
+        "request": "Why handover happened at that point (scope, timeline, client agreement)."
+      },
+      "options": {
+        "status": "pending",
+        "request": "—"
+      },
+      "evidence": {
+        "status": "pending",
+        "request": "—"
+      },
+      "tradeoff": {
+        "status": "pending",
+        "request": "—"
+      },
+      "result": {
+        "status": "pending",
+        "request": "—"
+      }
+    }
+  ],
+  "collaboration": [
+    {
+      "discipline": "Creative direction",
+      "item": {
+        "status": "confirmed",
+        "value": "Me",
+        "source": "Tyler (owner confirmation, 28 Sep 2026)"
+      }
+    },
+    {
+      "discipline": "Programming",
+      "item": {
+        "status": "confirmed",
+        "value": "Me, with others on the team",
+        "source": "Tyler (owner confirmation, 28 Sep 2026)"
+      }
+    },
+    {
+      "discipline": "Client communication",
+      "item": {
+        "status": "confirmed",
+        "value": "Me — regular meetings and email",
+        "source": "Tyler (owner confirmation, 28 Sep 2026)"
+      }
+    },
+    {
+      "discipline": "Art",
+      "item": {
+        "status": "pending",
+        "request": "Who did art (names optional)"
+      }
+    },
+    {
+      "discipline": "Audio",
+      "item": {
+        "status": "pending",
+        "request": "Who did audio"
+      }
+    },
+    {
+      "discipline": "Production / QA",
+      "item": {
+        "status": "pending",
+        "request": "Who ran production and testing"
+      }
+    }
+  ],
+  "reflection": {
+    "status": "pending",
+    "request": "What leading the creative side and talking to a client taught you."
+  },
+  "clientWork": {
+    "cadence": {
+      "status": "confirmed",
+      "value": "Regular meetings and email with the client.",
+      "source": "Tyler (owner confirmation, 28 Sep 2026)"
+    },
+    "handover": {
+      "status": "confirmed",
+      "value": "Delivered to the client as an unfinished build.",
+      "source": "Tyler (owner confirmation, 28 Sep 2026)"
+    },
+    "clientName": {
+      "status": "confirmed",
+      "value": "LiminalVR",
+      "source": "Tyler (owner confirmation, 28 Sep 2026)"
+    },
+    "feedback": {
+      "status": "pending",
+      "request": "One piece of client feedback and what you changed because of it."
+    },
+    "handoverNotes": {
+      "status": "pending",
+      "request": "What you documented for the handover (build notes, known issues)."
+    }
+  },
+  "_internal": {
+    "_note": "Owner confirmed client LiminalVR, Meta Quest 2/3, Unity 2019, team of 5. Never call it shipped/released; use 'client handover (in-progress build)'."
+  }
+}
