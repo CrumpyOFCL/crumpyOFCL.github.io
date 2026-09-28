@@ -36,6 +36,9 @@ for (const width of [390, 1280]) {
     await page.setViewportSize({ width, height: 900 });
     await page.goto('/');
     const results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa']).analyze();
-    expect(results.violations.map((v) => `${v.id}: ${v.help}`).join('\n')).toBe('');
+    const violations = results.violations.map((v) =>
+      `${v.id}: ${v.nodes.map((node) => `${node.target.join(', ')} — ${node.failureSummary}`).join(' | ')}`
+    ).join('\n');
+    expect(violations).toBe('');
   });
 }
