@@ -414,11 +414,14 @@ html:not(.js) .title-screen { animation: wipe .35s steps(6) 2.5s forwards; }
 .node__label { font-size: 1rem; line-height: 1.2; }
 .node--flagship .node__label { font-size: 1.35rem; }
 .node__tier { font-size: .75rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #3e3122; }
+.node--tabi .node__tier { text-transform: none; letter-spacing: .01em; }
 .castle { display: grid; grid-template-columns: 1fr 1.3fr 1fr; gap: 3px; width: 4.6rem; height: 2.6rem; align-items: end; position: relative; }
 .castle i, .castle b { display: block; background: #8c3b22; border: 2px solid var(--night); }
 .castle i { height: 1.7rem; }
 .castle__keep { height: 2.3rem; }
 .castle b { position: absolute; left: 50%; bottom: 0; width: .7rem; height: .85rem; transform: translateX(-50%); background: var(--night); }
+.suitcase { display: block; width: 1.55rem; height: 1.15rem; margin-top: .35rem; background: var(--path); border: 2px solid var(--night); box-shadow: inset 0 .45rem 0 #8c3b22; position: relative; }
+.suitcase::before { content: ""; position: absolute; left: 50%; top: -.45rem; width: .62rem; height: .38rem; transform: translateX(-50%); border: 2px solid var(--night); border-bottom: 0; border-radius: 3px 3px 0 0; }
 .world, .bonus { display: block; width: 1.4rem; height: 1.4rem; background: #8c3b22; border: 2px solid var(--night); }
 .world { border-radius: 2px 2px 0 0; box-shadow: 0 -8px 0 -2px #c4552a; }
 .bonus { width: 1rem; height: 1rem; transform: rotate(45deg); background: #7a4a10; }
@@ -433,6 +436,7 @@ html.js .list-panel:not(.is-open) { display: none; }
 .select-card { border: 4px solid var(--night); background: var(--bg); color: var(--ink); padding: 1.1rem 1.15rem 1.2rem; max-width: min(40rem, calc(100vw - 1.5rem)); width: 100%; box-shadow: 8px 8px 0 var(--night); }
 .select-card::backdrop { background: rgba(28, 20, 12, .72); }
 .select-card__kicker { margin: 0 0 .3rem; font-size: .75rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+.select-card__kicker--plain { text-transform: none; letter-spacing: .02em; }
 .select-card h2 { font-size: clamp(1.7rem, 4vw, 2.4rem); }
 .select-card h3 { font-size: 1rem; margin: 1rem 0 .4rem; }
 .select-card__facts { display: grid; gap: .45rem; }
@@ -470,13 +474,13 @@ html.js .list-panel:not(.is-open) { display: none; }
 .egg__px { display: block; width: 10px; height: 10px; margin: 0 auto; background: var(--night); box-shadow: 4px 0 0 var(--accent), 0 4px 0 var(--accent); }
 .egg__note { color: var(--ink-soft); }
 @media (min-width: 800px) {
-  .overworld { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-areas: "castle castle castle" "wn japan ikemen" "sdcs lit gdt"; gap: 2.2rem 1rem; align-items: center; justify-items: center; max-width: 72rem; margin: 0 auto 1.5rem; padding: 2rem 1.25rem 2.4rem; }
+  .overworld { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-areas: "castle castle castle" "wn tabi ikemen" "sdcs lit gdt"; gap: 2.2rem 1rem; align-items: center; justify-items: center; max-width: 72rem; margin: 0 auto 1.5rem; padding: 2rem 1.25rem 2.4rem; }
   .overworld::before { display: none; }
   .map-path { display: block; position: absolute; inset: 8% 6%; width: 88%; height: 84%; }
   .map-path polyline { fill: none; stroke: var(--path); stroke-width: 1.5; }
   .node--castle { grid-area: castle; }
   .node--wn { grid-area: wn; }
-  .node--japan { grid-area: japan; }
+  .node--tabi { grid-area: tabi; }
   .node--ikemen { grid-area: ikemen; }
   .node--sdcs { grid-area: sdcs; }
   .node--lit { grid-area: lit; }

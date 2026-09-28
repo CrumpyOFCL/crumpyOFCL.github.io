@@ -28,7 +28,7 @@ The weak UX is the length of a case study, and the number of empty slots. That i
 
 The flagship is framed as systems and level design, which matches what Tyler has actually said he did: team lead, audio, coding, level design, on a team of five, Unity 6. The diagram shows the rule he describes (the building changes, what you move stays) and refuses to pretend it is a shipped level. Iteration tabs and the before/after slider are the right artefact shape, currently holding pending images rather than fake ones.
 
-Waking Nightmare is a client handover of an in-progress build. The travel app is a UX case study, not a game, and it is labelled that way. Two itch.io prototypes sit in Experiments with the role still pending.
+Waking Nightmare is a client handover of an in-progress build. Tabi is a multipurpose group trip planner, not a game, and it is labelled that way. A Japan trip is named only as the first real use. Two itch.io prototypes sit in Experiments with the role still pending.
 
 IkemanGoAss is a supporting piece, framed by an owner decision on 29 Sep 2026, 00:29 AEST: designed by Tyler Crump, a solo design project in Ikemen GO, the open-source fighting game engine it is built on. The page credits character and moveset design for The Sword Saint and Unknown (a mirror fighter on the same moveset), combat systems design (4 normals, a two-projectile lightning special, a meter-gated super, a back dash, block, a timed perfect block, and a stamina system), and stage design for Broken Bridge, a 6-layer storm bridge stage with animated lightning and rain. Tools on the project are Ikemen GO, Fighter Factory Studio (sprites and animation), and Notepad++ (editing character and stage files). Tags are fighting game, character design, combat design, stage design, and Ikemen GO. Media frames are still empty. The private repository is not linked. Aseprite stays on the general tools list and is not attached to this project.
 
@@ -62,8 +62,8 @@ Lighthouse 12, gzip on (the same compression GitHub Pages and Render apply). Pyt
 | Home | Desktop | 97 | 100 | 100 | 100 |
 | A Course In Time | Mobile | 100 | 100 | 100 | 100 |
 | A Course In Time | Desktop | 96 | 100 | 100 | 100 |
-| Japan Trip Planner | Mobile | 100 | 100 | 100 | 100 |
-| Japan Trip Planner | Desktop | 96 | 100 | 100 | 100 |
+| Tabi | Mobile | 100 | 100 | 100 | 100 |
+| Tabi | Desktop | 96 | 100 | 100 | 100 |
 
 Desktop performance sits in the mid-90s because the stylesheet is render-blocking. Cumulative layout shift is 0. There is no third-party script and no autoplay audio. The hub stylesheet, script and self-hosted font together stay under 150 KB. Raw numbers are in [lighthouse-scores.json](lighthouse-scores.json). Recorded again after the level-select rebuild.
 

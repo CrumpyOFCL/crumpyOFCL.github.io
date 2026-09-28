@@ -95,7 +95,7 @@ Put files in `public/img/`. The build copies `public/` to the site root.
 
 Say what is in the picture. If you do not have the file, leave `status: "pending"`.
 
-Japan Trip Planner: the only link is `https://japantrip-oeja.onrender.com`. Do not link a source repository or any other host. Do not add screenshots that show trip data, other people's names, or invite codes. A picture of the public sign-in screen is the only app image that is allowed, and only after you are happy for the on-screen product name to appear here. Until then the cover stays pending. The case study title stays **Japan Trip Planner**. Credit on the page is designer and developer, solo.
+Tabi: the case-study title, map node and character card say **Tabi**. Do not write "Japan Trip Planner" or the repository name in visible copy. The only link is `https://japantrip-oeja.onrender.com`. Do not link a source repository, the Vercel host, or any other host. A Japan trip may be mentioned only as the first real use. Do not add screenshots that show trip data, other people's names, or invite codes. The cover stays pending until there is a sanitised image. Credit on the page is designer and developer, solo. The map node reads "travel / multipurpose" and uses the suitcase mark, not a Japan-specific icon.
 
 ## Skills matrix and evidence ledger
 

@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Japan Trip Planner — case study · Tyler Crump</title>
-<meta name="description" content="A private, invite-only web app for planning and paying for a group trip — built phone-first, and honest about which costs and times are certain and which are guesses.">
+<title>Tabi — case study · Tyler Crump</title>
+<meta name="description" content="A group trip planner for any trip and any group. Invite-only, phone-first, and built so a different trip, group size or budget does not turn into clutter. A Japan trip was the first real use.">
 <meta name="theme-color" content="#E4D8BC">
-<meta property="og:title" content="Japan Trip Planner — case study · Tyler Crump">
-<meta property="og:description" content="A private, invite-only web app for planning and paying for a group trip — built phone-first, and honest about which costs and times are certain and which are guesses.">
+<meta property="og:title" content="Tabi — case study · Tyler Crump">
+<meta property="og:description" content="A group trip planner for any trip and any group. Invite-only, phone-first, and built so a different trip, group size or budget does not turn into clutter. A Japan trip was the first real use.">
 <meta property="og:type" content="website">
-<link rel="canonical" href="https://crumpyofcl.github.io/projects/japan-trip-planner/">
-<meta property="og:url" content="https://crumpyofcl.github.io/projects/japan-trip-planner/">
+<link rel="canonical" href="https://crumpyofcl.github.io/projects/tabi/">
+<meta property="og:url" content="https://crumpyofcl.github.io/projects/tabi/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%237A4A10'/%3E%3Cpath d='M4 4h8v2H9v6H7V6H4z' fill='%23FFF8EA'/%3E%3C/svg%3E">
 <link rel="preload" href="../../assets/fonts/bricolage-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../../assets/styles.css">
@@ -31,38 +31,46 @@
 </header>
 <main id="main" tabindex="-1">
 <div class="wrap cs">
-  <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="../../index.html#map">Map</a></li><li><a href="../../projects/japan-trip-planner/index.html" aria-current="page">Japan Trip Planner</a></li></ol></nav>
+  <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="../../index.html#map">Map</a></li><li><a href="../../projects/tabi/index.html" aria-current="page">Tabi</a></li></ol></nav>
   <header class="cs-head level-head">
     <div>
       <p class="cs-head__tier">Level · Supporting project</p>
-      <h1>Japan Trip Planner</h1>
-      <p class="lede">A private, invite-only web app for planning and paying for a group trip — built phone-first, and honest about which costs and times are certain and which are guesses.</p>
-      <p class="evidence-line"><strong>37</strong> evidence slots on this page are still empty. Empty slots stay marked. Nothing here is filled with a guess.</p>
+      <h1>Tabi</h1>
+      <p class="lede">A group trip planner for any trip and any group. Invite-only, phone-first, and built so a different trip, group size or budget does not turn into clutter. A Japan trip was the first real use.</p>
+      <p class="evidence-line"><strong>36</strong> evidence slots on this page are still empty. Empty slots stay marked. Nothing here is filled with a guess.</p>
       <p>The live app is invite-only. This page links to the public sign-in screen and does not show trip data, names or invite codes.</p>
-      <p class="cs-head__links"><a href="https://japantrip-oeja.onrender.com" rel="noopener">Live app (invite-only sign-in)<span class="visually-hidden"> (opens external site)</span></a></p>
+      <p class="cs-head__links"><a href="https://japantrip-oeja.onrender.com" rel="noopener">Open Tabi<span class="visually-hidden"> (opens external site)</span></a></p>
     </div>
     <div class="cs-cover cs-cover--pending"><div class="pending"><span class="pending__label">Image pending</span> <span class="pending__req">A screenshot of the sign-in screen, or sanitised app screens with no trip data, names or invite codes.</span></div></div>
   </header>
   <div class="cs-body">
-    <nav class="toc" aria-label="Checkpoints"><details class="toc__details" open><summary>Checkpoints</summary><ol class="toc__list"><li><a href="#overview">Overview</a></li><li><a href="#role">What I did</a></li><li><a href="#team">Who did what</a></li><li><a href="#goal">Problem and design goal</a></li><li><a href="#decisions">Design decisions</a></li><li><a href="#experience">Player experience</a></li><li><a href="#iterations">Iterations</a></li><li><a href="#results">Results</a></li><li><a href="#reflection">Reflection</a></li><li><a href="#gaps">Evidence still to add</a></li></ol></details></nav>
+    <nav class="toc" aria-label="Checkpoints"><details class="toc__details" open><summary>Checkpoints</summary><ol class="toc__list"><li><a href="#overview">Overview</a></li><li><a href="#what">What it is</a></li><li><a href="#role">What I did</a></li><li><a href="#team">Who did what</a></li><li><a href="#goal">Problem and design goal</a></li><li><a href="#decisions">Design decisions</a></li><li><a href="#experience">Player experience</a></li><li><a href="#iterations">Iterations</a></li><li><a href="#results">Results</a></li><li><a href="#reflection">Reflection</a></li><li><a href="#gaps">Evidence still to add</a></li></ol></details></nav>
     <div class="cs-sections"><section id="overview" class="cs-section" aria-labelledby="overview-title">
   <h2 id="overview-title" class="cs-section__title"><span class="cs-section__cp">Checkpoint 1</span>Overview</h2>
-  <dl class="facts"><div><dt>Genre</dt><dd>Web app (not a game) — product and UX case study</dd></div><div><dt>Type</dt><dd>Personal project</dd></div><div><dt>My role</dt><dd>Designer and developer (solo)</dd></div><div><dt>Team</dt><dd>Solo</dd></div><div><dt>Timeframe</dt><dd>September 2026</dd></div><div><dt>Engine</dt><dd>Node.js / Express</dd></div><div><dt>Tools</dt><dd>JavaScript, Express, SQLite, Leaflet</dd></div><div><dt>Platforms</dt><dd>Mobile-first web app (installable to the Home Screen)</dd></div><div><dt>Stage</dt><dd>Live (invite-only)</dd></div></dl>
+  <dl class="facts"><div><dt>Genre</dt><dd>Group trip planner (not a game) — multipurpose product and UX case study</dd></div><div><dt>Type</dt><dd>Personal project</dd></div><div><dt>My role</dt><dd>Designer and developer (solo)</dd></div><div><dt>Team</dt><dd>Solo</dd></div><div><dt>Timeframe</dt><dd>September 2026</dd></div><div><dt>Engine</dt><dd>Node.js / Express</dd></div><div><dt>Tools</dt><dd>JavaScript, Express, SQLite, Leaflet</dd></div><div><dt>Platforms</dt><dd>Mobile-first web app with a phone-app feel (installable to the Home Screen)</dd></div><div><dt>Stage</dt><dd>Live (invite-only)</dd></div></dl>
+</section>
+<section id="what" class="cs-section" aria-labelledby="what-title">
+  <h2 id="what-title" class="cs-section__title"><span class="cs-section__cp">Checkpoint 2</span>What it is</h2>
+  
+    <h3>Mechanics</h3><dl class="mechanics"><div><dt>Trips</dt><dd>More than one trip on an account. Each trip has its own invite-only group, with viewer and editor roles.</dd></div><div><dt>Itinerary</dt><dd>A day-by-day plan with map pins.</dd></div><div><dt>Budget</dt><dd>A whole-group / per-person toggle, and a warning when spending crosses a budget ceiling. Costs stay marked paid, committed or estimated. With no budget set, the app says &quot;No budget set&quot;.</dd></div><div><dt>Currency</dt><dd>Live currency conversion.</dd></div><div><dt>Weather</dt><dd>Weather for the trip.</dd></div><div><dt>Home</dt><dd>Today&#39;s plan while a trip is on. A countdown before it starts.</dd></div><div><dt>Sign-in</dt><dd>Google sign-in. The app is mobile-first and meant to feel like a phone app.</dd></div></dl>
+    
+    
+    
 </section>
 <section id="role" class="cs-section" aria-labelledby="role-title">
-  <h2 id="role-title" class="cs-section__title"><span class="cs-section__cp">Checkpoint 2</span>What I did</h2>
-  <ul class="bullets"><li>Designed and built the app: sign-in gate, trip overview, budget, plan, stays, flights, food, trains and people screens.</li><li>Reworked most of the code and the visual design myself to get the experience I wanted.</li><li>Iterated in small pull requests: 60 over eight days, 57 merged.</li></ul><p class="source">Source: Tyler (owner confirmation, 28 Sep 2026) + japantrip pull request history (read-only)</p>
+  <h2 id="role-title" class="cs-section__title"><span class="cs-section__cp">Checkpoint 3</span>What I did</h2>
+  <ul class="bullets"><li>Designed and built Tabi: more than one trip on an account, each with its own invite-only group (viewer and editor roles); a day-by-day itinerary with map pins; a budget with a whole-group / per-person toggle and a budget-ceiling warning; live currency conversion; weather; a home screen that shows Today&#39;s plan during a trip and a countdown before it; Google sign-in.</li><li>Designed and built the earlier screens too: sign-in gate, trip overview, budget, plan, stays, flights, food, trains and people.</li><li>Reworked most of the code and the visual design to get a mobile-first, phone-app feel.</li><li>Iterated in small pull requests: 60 over eight days, 57 merged.</li></ul><p class="source">Source: Owner, 29 Sep 2026, 00:36 AEST, from the build history. Designer and developer, solo.</p>
 </section>
 <section id="team" class="cs-section" aria-labelledby="team-title">
-  <h2 id="team-title" class="cs-section__title"><span class="cs-section__cp">Checkpoint 3</span>Who did what</h2>
+  <h2 id="team-title" class="cs-section__title"><span class="cs-section__cp">Checkpoint 4</span>Who did what</h2>
   <ul class="collab" role="list"><li class="collab__item"><span class="collab__disc">Design and development</span>Me (solo)</li><li class="collab__item collab__item--pending"><span class="collab__disc">Testers</span><span class="pending pending--inline"><span class="pending__label">Pending</span> <span class="pending__req">Who used or tested it (e.g. the travel group), no names needed</span></span></li></ul>
 </section>
 <section id="goal" class="cs-section" aria-labelledby="goal-title">
-  <h2 id="goal-title" class="cs-section__title"><span class="cs-section__cp">Checkpoint 4</span>Problem and design goal</h2>
-  <dl class="facts"><div><dt>Problem</dt><dd>A group trip keeps its plan in one place and its money in another. People need to know what&#39;s next, what they owe and when — on a phone, often one-handed in a station or terminal.</dd></div><div><dt>Design goal</dt><dd>Put the plan and the money in one place, and never blur money that is certain with money that is a guess.</dd></div></dl>
+  <h2 id="goal-title" class="cs-section__title"><span class="cs-section__cp">Checkpoint 5</span>Problem and design goal</h2>
+  <dl class="facts"><div><dt>Problem</dt><dd>One app has to serve any trip and any group. The plan and the money need to live together, and the app has to stay clear when the trip, the group size and the budget all change. A Japan trip was the first real use, often checked on a phone.</dd></div><div><dt>Design goal</dt><dd>Make one planner flexible across different trips, group sizes and budgets without clutter, and never blur money that is certain with money that is a guess.</dd></div></dl>
 </section>
 <section id="decisions" class="cs-section" aria-labelledby="decisions-title">
-  <h2 id="decisions-title" class="cs-section__title"><span class="cs-section__cp">Checkpoint 5</span>Design decisions</h2>
+  <h2 id="decisions-title" class="cs-section__title"><span class="cs-section__cp">Checkpoint 6</span>Design decisions</h2>
   <div class="decisions"><details class="decision" open>
   <summary><span class="decision__title">Never show a guess as if it were certain</span></summary>
   <div class="decision__body">
@@ -131,60 +139,60 @@
 </details></div>
 </section>
 <section id="experience" class="cs-section" aria-labelledby="experience-title">
-  <h2 id="experience-title" class="cs-section__title"><span class="cs-section__cp">Checkpoint 6</span>Player experience</h2>
-  <dl class="facts"><div><dt>Intended experience</dt><dd>Open the app and see the one thing you most likely need: before the trip, the next flight; during it, today&#39;s next stop and tonight&#39;s hotel.</dd></div><div><dt>Design tools used to shape it</dt><dd><ul class="bullets"><li>Mobile-first layout with a bottom bar per section and a single + that adds anything from anywhere.</li><li>Three money states on every cost — paid, committed, estimated — that always add up to the projected total.</li><li>&#39;Still to sort&#39; health check listing only what needs a look (nights with nowhere to stay, payments due, missing prices).</li><li>&#39;What changed?&#39; line after an edit, e.g. projected cost before → after.</li></ul></dd></div><div><dt>Evidence</dt><dd><span class="pending pending--inline"><span class="pending__label">Pending</span> <span class="pending__req">How the group actually used it: what they checked most, what confused them, what you changed (no personal data).</span></span></dd></div></dl>
+  <h2 id="experience-title" class="cs-section__title"><span class="cs-section__cp">Checkpoint 7</span>Player experience</h2>
+  <dl class="facts"><div><dt>Intended experience</dt><dd>Before a trip, the home screen is a countdown. During a trip, it is Today&#39;s plan. A Japan trip was the first real use of that.</dd></div><div><dt>Design tools used to shape it</dt><dd><ul class="bullets"><li>Mobile-first layout with a bottom bar per section and a single + that adds anything from anywhere.</li><li>Three money states on every cost — paid, committed, estimated — that always add up to the projected total.</li><li>&#39;Still to sort&#39; health check listing only what needs a look (nights with nowhere to stay, payments due, missing prices).</li><li>&#39;What changed?&#39; line after an edit, e.g. projected cost before → after.</li></ul></dd></div><div><dt>Evidence</dt><dd><span class="pending pending--inline"><span class="pending__label">Pending</span> <span class="pending__req">How the group actually used it: what they checked most, what confused them, what you changed (no personal data).</span></span></dd></div></dl>
 </section>
 <section id="iterations" class="cs-section" aria-labelledby="iterations-title">
-  <h2 id="iterations-title" class="cs-section__title"><span class="cs-section__cp">Checkpoint 7</span>Iterations</h2>
+  <h2 id="iterations-title" class="cs-section__title"><span class="cs-section__cp">Checkpoint 8</span>Iterations</h2>
   <div class="iter" data-iter>
-  <div class="iter__tabs" role="tablist" aria-label="Versions"><button type="button" role="tab" id="japan-trip-planner-tab-0" aria-controls="japan-trip-planner-panel-0" aria-selected="true" tabindex="0">V1</button><button type="button" role="tab" id="japan-trip-planner-tab-1" aria-controls="japan-trip-planner-panel-1" aria-selected="false" tabindex="-1">V2</button><button type="button" role="tab" id="japan-trip-planner-tab-2" aria-controls="japan-trip-planner-panel-2" aria-selected="false" tabindex="-1">V3</button><button type="button" role="tab" id="japan-trip-planner-tab-3" aria-controls="japan-trip-planner-panel-3" aria-selected="false" tabindex="-1">Final</button></div>
-  <div class="iter__panel" role="tabpanel" id="japan-trip-planner-panel-0" aria-labelledby="japan-trip-planner-tab-0" tabindex="0">
+  <div class="iter__tabs" role="tablist" aria-label="Versions"><button type="button" role="tab" id="tabi-tab-0" aria-controls="tabi-panel-0" aria-selected="true" tabindex="0">V1</button><button type="button" role="tab" id="tabi-tab-1" aria-controls="tabi-panel-1" aria-selected="false" tabindex="-1">V2</button><button type="button" role="tab" id="tabi-tab-2" aria-controls="tabi-panel-2" aria-selected="false" tabindex="-1">V3</button><button type="button" role="tab" id="tabi-tab-3" aria-controls="tabi-panel-3" aria-selected="false" tabindex="-1">Final</button></div>
+  <div class="iter__panel" role="tabpanel" id="tabi-panel-0" aria-labelledby="tabi-tab-0" tabindex="0">
       <div class="compare compare--single"><div class="slot "><div class="pending"><span class="pending__label">Image pending</span> <span class="pending__req">Screenshot of an early build (no trip data)</span></div></div></div>
-      <dl class="facts facts--three"><div><dt>What changed</dt><dd>Feature build-out: budget against a group target, live AUD↔JPY rates, Today view, maps (PRs #1–26).</dd></div><div><dt>Why</dt><dd><span class="pending pending--inline"><span class="pending__label">Evidence pending</span> <span class="pending__req">What you learned from the first version</span></span></dd></div><div><dt>Evidence</dt><dd><span class="pending pending--inline"><span class="pending__label">Evidence pending</span> <span class="pending__req">—</span></span></dd></div></dl>
-    </div><div class="iter__panel" role="tabpanel" id="japan-trip-planner-panel-1" aria-labelledby="japan-trip-planner-tab-1" tabindex="0" hidden>
+      <dl class="facts facts--three"><div><dt>What changed</dt><dd>Feature build-out: a budget against a group target, live currency conversion (the first trip, a Japan trip, used AUD and JPY), a Today view, and maps (PRs #1–26).</dd></div><div><dt>Why</dt><dd><span class="pending pending--inline"><span class="pending__label">Evidence pending</span> <span class="pending__req">What you learned from the first version</span></span></dd></div><div><dt>Evidence</dt><dd><span class="pending pending--inline"><span class="pending__label">Evidence pending</span> <span class="pending__req">—</span></span></dd></div></dl>
+    </div><div class="iter__panel" role="tabpanel" id="tabi-panel-1" aria-labelledby="tabi-tab-1" tabindex="0" hidden>
       <div class="compare" data-compare style="--pos:50%">
       <div class="compare__stage">
         <div class="compare__a"><div class="slot "><div class="pending"><span class="pending__label">Image pending</span> <span class="pending__req">Screenshot of an early build (no trip data)</span></div></div><span class="compare__tag">V1</span></div>
         <div class="compare__b"><div class="slot "><div class="pending"><span class="pending__label">Image pending</span> <span class="pending__req">Screenshot after the mobile-first redesign</span></div></div><span class="compare__tag">V2</span></div>
       </div>
-      <label class="compare__label" for="japan-trip-planner-cmp-1">Compare V1 (left) with V2 (right)</label>
-      <input class="compare__range" id="japan-trip-planner-cmp-1" type="range" min="0" max="100" value="50" aria-valuetext="50% V1, 50% V2" data-a="V1" data-b="V2">
+      <label class="compare__label" for="tabi-cmp-1">Compare V1 (left) with V2 (right)</label>
+      <input class="compare__range" id="tabi-cmp-1" type="range" min="0" max="100" value="50" aria-valuetext="50% V1, 50% V2" data-a="V1" data-b="V2">
     </div>
       <dl class="facts facts--three"><div><dt>What changed</dt><dd>&#39;Budget-first, mobile-first redesign&#39; (PR #27), then &#39;a full visual redesign&#39; (PR #28).</dd></div><div><dt>Why</dt><dd><span class="pending pending--inline"><span class="pending__label">Evidence pending</span> <span class="pending__req">Why the redesign</span></span></dd></div><div><dt>Evidence</dt><dd><span class="pending pending--inline"><span class="pending__label">Evidence pending</span> <span class="pending__req">What prompted it</span></span></dd></div></dl>
-    </div><div class="iter__panel" role="tabpanel" id="japan-trip-planner-panel-2" aria-labelledby="japan-trip-planner-tab-2" tabindex="0" hidden>
+    </div><div class="iter__panel" role="tabpanel" id="tabi-panel-2" aria-labelledby="tabi-tab-2" tabindex="0" hidden>
       <div class="compare" data-compare style="--pos:50%">
       <div class="compare__stage">
         <div class="compare__a"><div class="slot "><div class="pending"><span class="pending__label">Image pending</span> <span class="pending__req">Screenshot after the mobile-first redesign</span></div></div><span class="compare__tag">V2</span></div>
         <div class="compare__b"><div class="slot "><div class="pending"><span class="pending__label">Image pending</span> <span class="pending__req">Screenshot after the design pass</span></div></div><span class="compare__tag">V3</span></div>
       </div>
-      <label class="compare__label" for="japan-trip-planner-cmp-2">Compare V2 (left) with V3 (right)</label>
-      <input class="compare__range" id="japan-trip-planner-cmp-2" type="range" min="0" max="100" value="50" aria-valuetext="50% V2, 50% V3" data-a="V2" data-b="V3">
+      <label class="compare__label" for="tabi-cmp-2">Compare V2 (left) with V3 (right)</label>
+      <input class="compare__range" id="tabi-cmp-2" type="range" min="0" max="100" value="50" aria-valuetext="50% V2, 50% V3" data-a="V2" data-b="V3">
     </div>
       <dl class="facts facts--three"><div><dt>What changed</dt><dd>Design pass: trip pass, departure board, route strip, payments to approve (PR #54).</dd></div><div><dt>Why</dt><dd><span class="pending pending--inline"><span class="pending__label">Evidence pending</span> <span class="pending__req">—</span></span></dd></div><div><dt>Evidence</dt><dd><span class="pending pending--inline"><span class="pending__label">Evidence pending</span> <span class="pending__req">—</span></span></dd></div></dl>
-    </div><div class="iter__panel" role="tabpanel" id="japan-trip-planner-panel-3" aria-labelledby="japan-trip-planner-tab-3" tabindex="0" hidden>
+    </div><div class="iter__panel" role="tabpanel" id="tabi-panel-3" aria-labelledby="tabi-tab-3" tabindex="0" hidden>
       <div class="compare" data-compare style="--pos:50%">
       <div class="compare__stage">
         <div class="compare__a"><div class="slot "><div class="pending"><span class="pending__label">Image pending</span> <span class="pending__req">Screenshot after the design pass</span></div></div><span class="compare__tag">V3</span></div>
         <div class="compare__b"><div class="slot "><div class="pending"><span class="pending__label">Image pending</span> <span class="pending__req">Current screenshot (sanitised)</span></div></div><span class="compare__tag">Final</span></div>
       </div>
-      <label class="compare__label" for="japan-trip-planner-cmp-3">Compare V3 (left) with Final (right)</label>
-      <input class="compare__range" id="japan-trip-planner-cmp-3" type="range" min="0" max="100" value="50" aria-valuetext="50% V3, 50% Final" data-a="V3" data-b="Final">
+      <label class="compare__label" for="tabi-cmp-3">Compare V3 (left) with Final (right)</label>
+      <input class="compare__range" id="tabi-cmp-3" type="range" min="0" max="100" value="50" aria-valuetext="50% V3, 50% Final" data-a="V3" data-b="Final">
     </div>
       <dl class="facts facts--three"><div><dt>What changed</dt><dd>Precise money states, honest empty states, trips on their own clock, daily backups (PRs #55–60).</dd></div><div><dt>Why</dt><dd><span class="pending pending--inline"><span class="pending__label">Evidence pending</span> <span class="pending__req">—</span></span></dd></div><div><dt>Evidence</dt><dd><span class="pending pending--inline"><span class="pending__label">Evidence pending</span> <span class="pending__req">—</span></span></dd></div></dl>
     </div>
 </div>
 </section>
 <section id="results" class="cs-section" aria-labelledby="results-title">
-  <h2 id="results-title" class="cs-section__title"><span class="cs-section__cp">Checkpoint 8</span>Results</h2>
+  <h2 id="results-title" class="cs-section__title"><span class="cs-section__cp">Checkpoint 9</span>Results</h2>
   <div class="pending"><span class="pending__label">Evidence pending</span> <span class="pending__req">How it&#39;s being used (only real, non-personal facts).</span></div>
 </section>
 <section id="reflection" class="cs-section" aria-labelledby="reflection-title">
-  <h2 id="reflection-title" class="cs-section__title"><span class="cs-section__cp">Checkpoint 9</span>Reflection</h2>
-  <ol class="journal__qs"><li>What I tried</li><li>Why it failed</li><li>What I learned</li><li>What I changed</li></ol><div class="pending"><span class="pending__label">Evidence pending</span> <span class="pending__req">What designing a real tool for friends taught you about player/user experience.</span></div>
+  <h2 id="reflection-title" class="cs-section__title"><span class="cs-section__cp">Checkpoint 10</span>Reflection</h2>
+  <ol class="journal__qs"><li>What I tried</li><li>Why it failed</li><li>What I learned</li><li>What I changed</li></ol><p>The design challenge is one app that stays flexible across different trips, group sizes and budgets without clutter. Tabi keeps each trip in its own invite-only group, breaks the plan into days with map pins, and lets the same budget be read for the whole group or per person, with a warning at the ceiling. The home screen changes job: a countdown before the trip, Today&#39;s plan during it. A Japan trip was the first real use. It was the test case, not a limit on who the app is for.</p>
 </section>
 <section id="gaps" class="cs-section" aria-labelledby="gaps-title">
-  <h2 id="gaps-title" class="cs-section__title"><span class="cs-section__cp">Checkpoint 10</span>Evidence still to add</h2>
-  <p>This page has <strong>37</strong> evidence slots I haven't filled yet. They are marked with dashed boxes rather than filled with guesses.</p>
+  <h2 id="gaps-title" class="cs-section__title"><span class="cs-section__cp">Checkpoint 11</span>Evidence still to add</h2>
+  <p>This page has <strong>36</strong> evidence slots I haven't filled yet. They are marked with dashed boxes rather than filled with guesses.</p>
 </section></div>
   </div>
   <p class="cs-back"><a href="../../index.html#map">← Back to map</a></p>

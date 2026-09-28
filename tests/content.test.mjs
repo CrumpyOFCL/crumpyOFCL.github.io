@@ -37,10 +37,21 @@ for (const file of htmlFiles) {
   assert.match(html, /Evidence pending|evidence pending|evidence coming/i);
 }
 
-const japan = readFileSync(join(root, 'projects/japan-trip-planner/index.html'), 'utf8');
-assert.match(japan, /https:\/\/japantrip-oeja\.onrender\.com/);
-assert.match(japan, /Designer and developer/);
-assert.doesNotMatch(japan, /github\.com\/CrumpyOFCL\/japantrip/i);
+const tabi = readFileSync(join(root, 'projects/tabi/index.html'), 'utf8');
+assert.match(tabi, /<h1>Tabi<\/h1>/);
+assert.match(tabi, /https:\/\/japantrip-oeja\.onrender\.com/);
+assert.match(tabi, /Designer and developer/);
+assert.match(tabi, /any trip and any group/);
+assert.match(tabi, /viewer and editor/);
+assert.match(tabi, /Today(?:'|&#39;)s plan/);
+assert.match(tabi, /countdown/);
+assert.match(tabi, /Live currency conversion/);
+assert.match(tabi, /budget-ceiling warning/);
+assert.match(tabi, /first real use/);
+assert.doesNotMatch(tabi, /Japan Trip Planner/);
+assert.doesNotMatch(tabi.replace(/https:\/\/japantrip-oeja\.onrender\.com/g, ''), /japantrip/i);
+assert.doesNotMatch(tabi, /github\.com\/CrumpyOFCL\/japantrip/i);
+assert.doesNotMatch(tabi, /vercel/i);
 
 const acit = readFileSync(join(root, 'projects/a-course-in-time/index.html'), 'utf8');
 assert.match(acit, /not a shipped storefront credit/);
@@ -69,6 +80,10 @@ assert.doesNotMatch(ikemen, /Aseprite/);
 assert.doesNotMatch(ikemen, /github\.com\/CrumpyOFCL\/IkemanGoAss/i);
 
 const home = readFileSync(join(root, 'index.html'), 'utf8');
+assert.match(home, /node__label">Tabi</);
+assert.match(home, /travel \/ multipurpose/);
+assert.match(home, /class="suitcase"/);
+assert.doesNotMatch(home, /Japan Trip Planner/);
 assert.match(home, /data-skill="Notepad\+\+"/);
 assert.match(home, /data-skill="Fighter Factory Studio"/);
 assert.doesNotMatch(home, /Hand animation/);

@@ -67,11 +67,17 @@ function pixelLogo() {
   return `<svg class="pixel-logo" viewBox="0 0 ${width} ${height}" role="img" aria-label="Tyler Crump">${rects}</svg>`;
 }
 
-function nodeArt(tier) {
-  if (tier === 'flagship') {
+function nodeKind(p) {
+  if (p.slug === 'tabi') return 'travel / multipurpose';
+  return TIER_NODE[p.tier];
+}
+
+function nodeArt(p) {
+  if (p.tier === 'flagship') {
     return `<span class="castle" aria-hidden="true"><i></i><i class="castle__keep"></i><i></i><b></b></span>`;
   }
-  if (tier === 'experiment') return `<span class="bonus" aria-hidden="true"></span>`;
+  if (p.slug === 'tabi') return `<span class="suitcase" aria-hidden="true"></span>`;
+  if (p.tier === 'experiment') return `<span class="bonus" aria-hidden="true"></span>`;
   return `<span class="world" aria-hidden="true"></span>`;
 }
 
@@ -106,7 +112,7 @@ function statsFor(p) {
   } else if (p.slug === 'ikemen-go' && Array.isArray(p.process)) {
     const combat = p.process.find(s => s.stage === 'Combat systems');
     if (combat && !isPending(combat.item)) systems = String(val(combat.item));
-  } else if (p.slug === 'japan-trip-planner') {
+  } else if (p.slug === 'tabi') {
     const tools = toolsOf(o.tools);
     const engine = confirmed(o.engine);
     if (engine && tools) systems = `${engine}: ${tools.join(', ')}.`;
@@ -132,7 +138,7 @@ function characterCard(p) {
     ? `<ul class="equip" aria-label="Equipment">${equip.map(t => `<li><span class="equip__mark" aria-hidden="true"></span>${esc(t)}</li>`).join('')}</ul>`
     : slotFact('Equipment', null);
   return `<dialog class="select-card" id="card-${p.slug}" aria-labelledby="card-title-${p.slug}">
-  <p class="select-card__kicker">Character select · ${esc(TIER_NODE[p.tier])}</p>
+  <p class="select-card__kicker${p.slug === 'tabi' ? ' select-card__kicker--plain' : ''}">Character select · ${esc(nodeKind(p))}</p>
   <h2 id="card-title-${p.slug}">${esc(p.title)}</h2>
   <dl class="select-card__facts">
     ${s.role ? `<div class="slot-fact"><dt>Role</dt><dd>${esc(s.role)}</dd></div>` : ''}
@@ -210,11 +216,11 @@ export function home(site, projects) {
   </div>
 </div>`;
 
-  const areaOf = { 'a-course-in-time': 'castle', 'waking-nightmare': 'wn', 'japan-trip-planner': 'japan', 'ikemen-go': 'ikemen', 'sdcs-booking-app': 'sdcs', 'lit-flux-mechanics-showcase': 'lit', 'gdt2': 'gdt' };
+  const areaOf = { 'a-course-in-time': 'castle', 'waking-nightmare': 'wn', 'tabi': 'tabi', 'ikemen-go': 'ikemen', 'sdcs-booking-app': 'sdcs', 'lit-flux-mechanics-showcase': 'lit', 'gdt2': 'gdt' };
   const nodes = path.map(p => `<button type="button" class="node node--${p.tier} node--${areaOf[p.slug] || 'x'}" data-node="${p.slug}" id="node-${p.slug}">
-    ${nodeArt(p.tier)}
+    ${nodeArt(p)}
     <span class="node__label">${esc(p.title)}</span>
-    <span class="node__tier">${TIER_NODE[p.tier]}</span>
+    <span class="node__tier">${esc(nodeKind(p))}</span>
   </button>`).join('');
 
   const map = `<section id="map" class="map-section" aria-labelledby="map-title">
@@ -230,7 +236,7 @@ export function home(site, projects) {
   ${path.map(characterCard).join('\n')}
 </section>`;
 
-  const plain = `<ol class="plain-list">${path.map(p => `<li><a href="${projectHref(p.slug)}">${esc(p.title)}</a> <span class="muted">${esc(TIER_NODE[p.tier])}</span></li>`).join('')}</ol>`;
+  const plain = `<ol class="plain-list">${path.map(p => `<li><a href="${projectHref(p.slug)}">${esc(p.title)}</a> <span class="muted">${esc(nodeKind(p))}</span></li>`).join('')}</ol>`;
 
   const tiers = ['flagship', 'supporting', 'experiment'].map(t => {
     const list = vis.filter(p => p.tier === t);

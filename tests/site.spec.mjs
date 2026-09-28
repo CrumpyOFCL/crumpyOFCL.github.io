@@ -6,7 +6,7 @@ const pages = [
   ['home', '/'],
   ['acit', '/projects/a-course-in-time/index.html'],
   ['waking-nightmare', '/projects/waking-nightmare/index.html'],
-  ['japan', '/projects/japan-trip-planner/index.html'],
+  ['tabi', '/projects/tabi/index.html'],
   ['sdcs', '/projects/sdcs-booking-app/index.html'],
   ['lit-flux', '/projects/lit-flux-mechanics-showcase/index.html'],
   ['gdt2', '/projects/gdt2/index.html'],
@@ -88,7 +88,7 @@ test('list view reaches every level, including a locked experiment card', async 
   await page.goto('/#map');
   await page.locator('[data-list-toggle]').click();
   await expect(page.locator('#work')).toBeVisible();
-  for (const slug of ['a-course-in-time', 'waking-nightmare', 'japan-trip-planner', 'ikemen-go', 'sdcs-booking-app', 'lit-flux-mechanics-showcase', 'gdt2']) {
+  for (const slug of ['a-course-in-time', 'waking-nightmare', 'tabi', 'ikemen-go', 'sdcs-booking-app', 'lit-flux-mechanics-showcase', 'gdt2']) {
     await expect(page.locator(`#work a[href*="${slug}"]`).first()).toBeVisible();
   }
   await page.locator('#node-gdt2').click();
@@ -164,7 +164,7 @@ test('filters, skill filter, reset and empty state', async ({ page }) => {
   await page.locator('input[name="discipline"][value="UX"]').check();
   await expect(status).toContainText('Showing 2 of 7');
   await expect(page.locator('[data-project="a-course-in-time"]')).toBeHidden();
-  await expect(page.locator('[data-project="japan-trip-planner"]')).toBeVisible();
+  await expect(page.locator('[data-project="tabi"]')).toBeVisible();
   await page.locator('select[data-filter="engine"]').selectOption('React Native');
   await expect(status).toContainText('Showing 1 of 7');
   await expect(page.locator('[data-project="sdcs-booking-app"]')).toBeVisible();
@@ -313,7 +313,7 @@ test('screenshots at review widths', async ({ page }) => {
   await page.screenshot({ path: 'docs/screenshots/mobile-home-375.png', fullPage: true });
   await page.goto('/projects/a-course-in-time/index.html');
   await page.screenshot({ path: 'docs/screenshots/mobile-case-375.png', fullPage: true });
-  await page.goto('/projects/japan-trip-planner/index.html');
+  await page.goto('/projects/tabi/index.html');
   await page.screenshot({ path: 'docs/screenshots/travel-app-375.png', fullPage: true });
   await page.setViewportSize({ width: 1280, height: 900 });
   await page.screenshot({ path: 'docs/screenshots/travel-app-1280.png', fullPage: true });

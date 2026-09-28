@@ -195,7 +195,7 @@
       },
       {
         "skill": "Iterating in small steps",
-        "where": "japan-trip-planner",
+        "where": "tabi",
         "note": "60 pull requests over eight days (57 merged), named on the case study. The repository is private, so those pull requests are not publicly openable.",
         "level": "stated"
       },
@@ -231,7 +231,7 @@
       {
         "skill": "Player experience / UX",
         "note": "UX decisions for a live invite-only app are written up on its case study. The public sign-in page can be opened; screens behind it are not public. Game playtest evidence is still pending.",
-        "where": "japan-trip-planner",
+        "where": "tabi",
         "level": "stated"
       },
       {
@@ -419,7 +419,7 @@
         "skill": "Mobile-first UX",
         "group": "Design",
         "projects": [
-          "japan-trip-planner",
+          "tabi",
           "sdcs-booking-app"
         ],
         "evidence": "project"
@@ -428,7 +428,7 @@
         "skill": "JavaScript, Express, SQLite",
         "group": "Web",
         "projects": [
-          "japan-trip-planner"
+          "tabi"
         ],
         "evidence": "project"
       },
@@ -444,7 +444,7 @@
         "skill": "Git",
         "group": "Workflow",
         "projects": [
-          "japan-trip-planner",
+          "tabi",
           "sdcs-booking-app"
         ],
         "evidence": "project"

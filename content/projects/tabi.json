@@ -1,13 +1,13 @@
 {
-  "slug": "japan-trip-planner",
+  "slug": "tabi",
   "visible": true,
   "tier": "supporting",
   "order": 3,
-  "title": "Japan Trip Planner",
+  "title": "Tabi",
   "tagline": {
     "status": "confirmed",
-    "value": "A private, invite-only web app for planning and paying for a group trip — built phone-first, and honest about which costs and times are certain and which are guesses.",
-    "source": "Tyler (owner confirmation, 28 Sep 2026) + japantrip repository README (read-only)"
+    "value": "A group trip planner for any trip and any group. Invite-only, phone-first, and built so a different trip, group size or budget does not turn into clutter. A Japan trip was the first real use.",
+    "source": "Owner, 29 Sep 2026, 00:36 AEST."
   },
   "cover": {
     "status": "pending",
@@ -16,8 +16,8 @@
   "overview": {
     "genre": {
       "status": "confirmed",
-      "value": "Web app (not a game) — product and UX case study",
-      "source": "Tyler (owner confirmation, 28 Sep 2026)"
+      "value": "Group trip planner (not a game) \u2014 multipurpose product and UX case study",
+      "source": "Owner, 29 Sep 2026, 00:36 AEST."
     },
     "type": {
       "status": "confirmed",
@@ -37,7 +37,7 @@
     "timeframe": {
       "status": "confirmed",
       "value": "September 2026",
-      "source": "japantrip pull requests dated 20–27 Sep 2026 (AEST)"
+      "source": "Pull requests dated 20\u201327 Sep 2026 (AEST). Build history, read-only."
     },
     "engine": {
       "status": "confirmed",
@@ -52,12 +52,12 @@
         "SQLite",
         "Leaflet"
       ],
-      "source": "Tyler (owner confirmation, 28 Sep 2026) + japantrip repository README (read-only)"
+      "source": "Owner confirmation, 28 Sep 2026, and the build history (read-only)."
     },
     "platforms": {
       "status": "confirmed",
-      "value": "Mobile-first web app (installable to the Home Screen)",
-      "source": "japantrip repository README (read-only)"
+      "value": "Mobile-first web app with a phone-app feel (installable to the Home Screen)",
+      "source": "Owner, 29 Sep 2026, 00:36 AEST, plus the earlier mobile-first confirmation."
     },
     "stage": {
       "status": "confirmed",
@@ -83,7 +83,7 @@
   },
   "links": [
     {
-      "label": "Live app (invite-only sign-in)",
+      "label": "Open Tabi",
       "item": {
         "status": "confirmed",
         "value": "https://japantrip-oeja.onrender.com",
@@ -94,44 +94,45 @@
       "label": "Source",
       "item": {
         "status": "pending",
-        "request": "Repository is private — add a public link or code sample if you want one shown."
+        "request": "Repository is private \u2014 add a public link or code sample if you want one shown."
       }
     }
   ],
   "contributions": {
     "status": "confirmed",
     "value": [
-      "Designed and built the app: sign-in gate, trip overview, budget, plan, stays, flights, food, trains and people screens.",
-      "Reworked most of the code and the visual design myself to get the experience I wanted.",
+      "Designed and built Tabi: more than one trip on an account, each with its own invite-only group (viewer and editor roles); a day-by-day itinerary with map pins; a budget with a whole-group / per-person toggle and a budget-ceiling warning; live currency conversion; weather; a home screen that shows Today's plan during a trip and a countdown before it; Google sign-in.",
+      "Designed and built the earlier screens too: sign-in gate, trip overview, budget, plan, stays, flights, food, trains and people.",
+      "Reworked most of the code and the visual design to get a mobile-first, phone-app feel.",
       "Iterated in small pull requests: 60 over eight days, 57 merged."
     ],
-    "source": "Tyler (owner confirmation, 28 Sep 2026) + japantrip pull request history (read-only)"
+    "source": "Owner, 29 Sep 2026, 00:36 AEST, from the build history. Designer and developer, solo."
   },
   "problem": {
     "status": "confirmed",
-    "value": "A group trip keeps its plan in one place and its money in another. People need to know what's next, what they owe and when — on a phone, often one-handed in a station or terminal.",
-    "source": "japantrip repository README (read-only) ('keeps the plan and the money in one place'; 'used one-handed in a terminal')"
+    "value": "One app has to serve any trip and any group. The plan and the money need to live together, and the app has to stay clear when the trip, the group size and the budget all change. A Japan trip was the first real use, often checked on a phone.",
+    "source": "Owner, 29 Sep 2026, 00:36 AEST. The first-use setting is from the earlier build history."
   },
   "designGoal": {
     "status": "confirmed",
-    "value": "Put the plan and the money in one place, and never blur money that is certain with money that is a guess.",
-    "source": "japantrip repository README (read-only)"
+    "value": "Make one planner flexible across different trips, group sizes and budgets without clutter, and never blur money that is certain with money that is a guess.",
+    "source": "Owner, 29 Sep 2026, 00:36 AEST, plus the earlier money-state goal from the build history."
   },
   "experience": {
     "intended": {
       "status": "confirmed",
-      "value": "Open the app and see the one thing you most likely need: before the trip, the next flight; during it, today's next stop and tonight's hotel.",
-      "source": "japantrip repository README (read-only)"
+      "value": "Before a trip, the home screen is a countdown. During a trip, it is Today's plan. A Japan trip was the first real use of that.",
+      "source": "Owner, 29 Sep 2026, 00:36 AEST."
     },
     "tools": {
       "status": "confirmed",
       "value": [
         "Mobile-first layout with a bottom bar per section and a single + that adds anything from anywhere.",
-        "Three money states on every cost — paid, committed, estimated — that always add up to the projected total.",
+        "Three money states on every cost \u2014 paid, committed, estimated \u2014 that always add up to the projected total.",
         "'Still to sort' health check listing only what needs a look (nights with nowhere to stay, payments due, missing prices).",
-        "'What changed?' line after an edit, e.g. projected cost before → after."
+        "'What changed?' line after an edit, e.g. projected cost before \u2192 after."
       ],
-      "source": "japantrip repository README (read-only)"
+      "source": "Build history, read-only"
     },
     "evidence": {
       "status": "pending",
@@ -145,11 +146,11 @@
       "why": {
         "status": "confirmed",
         "value": "Money a group has actually spent and money it might spend lead to different decisions; mixing them hides risk.",
-        "source": "japantrip repository README (read-only) ('never blurs money that is certain with money that is a guess')"
+        "source": "Build history, read-only ('never blurs money that is certain with money that is a guess')"
       },
       "options": {
         "status": "pending",
-        "request": "—"
+        "request": "\u2014"
       },
       "evidence": {
         "status": "pending",
@@ -157,12 +158,12 @@
       },
       "tradeoff": {
         "status": "pending",
-        "request": "—"
+        "request": "\u2014"
       },
       "result": {
         "status": "confirmed",
         "value": "Shipped in the 'precise money states' iteration (PR #56) and carried onto the plan (PR #59).",
-        "source": "japantrip pull request history (read-only)"
+        "source": "Build history, read-only"
       }
     },
     {
@@ -170,24 +171,24 @@
       "detail": "A gate is a field filled in on the day through a deliberately small form, and the app records when it was set. A live-status link sits beside it; flights without a number say so instead of showing a dead button.",
       "why": {
         "status": "confirmed",
-        "value": "Airports assign gates a few hours before departure, so the app doesn't pretend to know — and a gate from yesterday is worse than no gate at all.",
-        "source": "japantrip repository README (read-only)"
+        "value": "Airports assign gates a few hours before departure, so the app doesn't pretend to know \u2014 and a gate from yesterday is worse than no gate at all.",
+        "source": "Build history, read-only"
       },
       "options": {
         "status": "pending",
-        "request": "—"
+        "request": "\u2014"
       },
       "evidence": {
         "status": "pending",
-        "request": "—"
+        "request": "\u2014"
       },
       "tradeoff": {
         "status": "pending",
-        "request": "—"
+        "request": "\u2014"
       },
       "result": {
         "status": "pending",
-        "request": "—"
+        "request": "\u2014"
       }
     },
     {
@@ -196,16 +197,16 @@
       "why": {
         "status": "confirmed",
         "value": "The app holds a private group's plans and payments; nobody should be able to wander in.",
-        "source": "Tyler (owner confirmation, 28 Sep 2026) + japantrip repository README (read-only)"
+        "source": "Tyler (owner confirmation, 28 Sep 2026) + Build history, read-only"
       },
       "options": {
         "status": "confirmed",
         "value": "Password sign-in and Apple Sign In were tried; Apple was removed (PR #21), then sign-in was made Google-only (PR #24).",
-        "source": "japantrip pull request history (read-only)"
+        "source": "Build history, read-only"
       },
       "evidence": {
         "status": "pending",
-        "request": "—"
+        "request": "\u2014"
       },
       "tradeoff": {
         "status": "pending",
@@ -213,7 +214,7 @@
       },
       "result": {
         "status": "pending",
-        "request": "—"
+        "request": "\u2014"
       }
     },
     {
@@ -222,23 +223,23 @@
       "why": {
         "status": "confirmed",
         "value": "A booking reference plus a surname is often enough to change or cancel a booking.",
-        "source": "japantrip repository README (read-only)"
+        "source": "Build history, read-only"
       },
       "options": {
         "status": "pending",
-        "request": "—"
+        "request": "\u2014"
       },
       "evidence": {
         "status": "pending",
-        "request": "—"
+        "request": "\u2014"
       },
       "tradeoff": {
         "status": "pending",
-        "request": "—"
+        "request": "\u2014"
       },
       "result": {
         "status": "pending",
-        "request": "—"
+        "request": "\u2014"
       }
     },
     {
@@ -250,19 +251,19 @@
       },
       "options": {
         "status": "pending",
-        "request": "—"
+        "request": "\u2014"
       },
       "evidence": {
         "status": "pending",
-        "request": "—"
+        "request": "\u2014"
       },
       "tradeoff": {
         "status": "pending",
-        "request": "—"
+        "request": "\u2014"
       },
       "result": {
         "status": "pending",
-        "request": "—"
+        "request": "\u2014"
       }
     }
   ],
@@ -275,8 +276,8 @@
       },
       "what": {
         "status": "confirmed",
-        "value": "Feature build-out: budget against a group target, live AUD↔JPY rates, Today view, maps (PRs #1–26).",
-        "source": "japantrip pull request history (read-only)"
+        "value": "Feature build-out: a budget against a group target, live currency conversion (the first trip, a Japan trip, used AUD and JPY), a Today view, and maps (PRs #1\u201326).",
+        "source": "Build history, read-only"
       },
       "why": {
         "status": "pending",
@@ -284,7 +285,7 @@
       },
       "evidence": {
         "status": "pending",
-        "request": "—"
+        "request": "\u2014"
       }
     },
     {
@@ -296,7 +297,7 @@
       "what": {
         "status": "confirmed",
         "value": "'Budget-first, mobile-first redesign' (PR #27), then 'a full visual redesign' (PR #28).",
-        "source": "japantrip pull request history (read-only)"
+        "source": "Build history, read-only"
       },
       "why": {
         "status": "pending",
@@ -316,15 +317,15 @@
       "what": {
         "status": "confirmed",
         "value": "Design pass: trip pass, departure board, route strip, payments to approve (PR #54).",
-        "source": "japantrip pull request history (read-only)"
+        "source": "Build history, read-only"
       },
       "why": {
         "status": "pending",
-        "request": "—"
+        "request": "\u2014"
       },
       "evidence": {
         "status": "pending",
-        "request": "—"
+        "request": "\u2014"
       }
     },
     {
@@ -335,16 +336,16 @@
       },
       "what": {
         "status": "confirmed",
-        "value": "Precise money states, honest empty states, trips on their own clock, daily backups (PRs #55–60).",
-        "source": "japantrip pull request history (read-only)"
+        "value": "Precise money states, honest empty states, trips on their own clock, daily backups (PRs #55\u201360).",
+        "source": "Build history, read-only"
       },
       "why": {
         "status": "pending",
-        "request": "—"
+        "request": "\u2014"
       },
       "evidence": {
         "status": "pending",
-        "request": "—"
+        "request": "\u2014"
       }
     }
   ],
@@ -370,10 +371,45 @@
     "request": "How it's being used (only real, non-personal facts)."
   },
   "reflection": {
-    "status": "pending",
-    "request": "What designing a real tool for friends taught you about player/user experience."
+    "status": "confirmed",
+    "value": "The design challenge is one app that stays flexible across different trips, group sizes and budgets without clutter. Tabi keeps each trip in its own invite-only group, breaks the plan into days with map pins, and lets the same budget be read for the whole group or per person, with a warning at the ceiling. The home screen changes job: a countdown before the trip, Today's plan during it. A Japan trip was the first real use. It was the test case, not a limit on who the app is for.",
+    "source": "Owner, 29 Sep 2026, 00:36 AEST."
   },
   "_internal": {
-    "_note": "Link only https://japantrip-oeja.onrender.com. Do not link a source repository or any other host. The on-screen product name on the live sign-in page is unconfirmed for this case study — keep the title Japan Trip Planner until Tyler says otherwise. Never show invite codes, trip data or other people's names."
+    "_note": "Title is Tabi. Link only https://japantrip-oeja.onrender.com. Do not link a repository, the Vercel host, or any other host. Do not put the repository name in visible copy. A Japan trip may be named only as the first use. Never show invite codes, trip data or other people's names."
+  },
+  "mechanics": {
+    "status": "confirmed",
+    "source": "Owner, 29 Sep 2026, 00:36 AEST. Confirmed from the build history.",
+    "value": [
+      {
+        "name": "Trips",
+        "text": "More than one trip on an account. Each trip has its own invite-only group, with viewer and editor roles."
+      },
+      {
+        "name": "Itinerary",
+        "text": "A day-by-day plan with map pins."
+      },
+      {
+        "name": "Budget",
+        "text": "A whole-group / per-person toggle, and a warning when spending crosses a budget ceiling. Costs stay marked paid, committed or estimated. With no budget set, the app says \"No budget set\"."
+      },
+      {
+        "name": "Currency",
+        "text": "Live currency conversion."
+      },
+      {
+        "name": "Weather",
+        "text": "Weather for the trip."
+      },
+      {
+        "name": "Home",
+        "text": "Today's plan while a trip is on. A countdown before it starts."
+      },
+      {
+        "name": "Sign-in",
+        "text": "Google sign-in. The app is mobile-first and meant to feel like a phone app."
+      }
+    ]
   }
 }
