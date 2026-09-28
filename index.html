@@ -5,243 +5,288 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Tyler Crump — game designer (gameplay and tools)</title>
 <meta name="description" content="Tyler Crump designs and builds puzzle and gameplay systems in Unity and C#. Flagship: A Course In Time, a time-switching puzzle-platformer in development.">
-<meta name="theme-color" content="#E4D8BC">
+<meta name="theme-color" content="#1C140C">
 <meta property="og:title" content="Tyler Crump — game designer (gameplay and tools)">
 <meta property="og:description" content="Tyler Crump designs and builds puzzle and gameplay systems in Unity and C#. Flagship: A Course In Time, a time-switching puzzle-platformer in development.">
 <meta property="og:type" content="website">
 <link rel="canonical" href="https://crumpyofcl.github.io/">
 <meta property="og:url" content="https://crumpyofcl.github.io/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%237A4A10'/%3E%3Cpath d='M4 4h8v2H9v6H7V6H4z' fill='%23FFF8EA'/%3E%3C/svg%3E">
-<link rel="preload" href="assets/fonts/bricolage-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/styles.css">
+<link rel="stylesheet" href="assets/styles.css?v=63f4841a03">
 <script>document.documentElement.classList.add('js');</script>
 </head>
 <body class="page--home">
 <a class="skip" href="#main">Skip to content</a>
-<a class="recruiter-skip" data-recruiter href="#save">Skip to CV / Recruiter view</a>
+<a class="recruiter-skip" data-recruiter href="#save">Recruiter view: projects and contact</a>
 <header class="masthead">
   <div class="masthead__inner">
     <a class="brand" href="index.html"><span class="brand__name">Tyler Crump</span><span class="brand__role">Game designer · gameplay and tools</span></a>
-    <nav class="primary" aria-label="Primary"><ul><li><a href="#map">Map</a></li><li><a href="#work">List</a></li><li><a href="#skills">Quest log</a></li><li><a href="#save">Save file</a></li><li><a href="#contact">Continue?</a></li></ul></nav>
+    <nav class="primary" aria-label="Primary"><ul><li><a href="#map">Map</a></li><li><a href="#work">List</a></li><li><a href="#skills">Quest log</a></li><li><a href="#save">Save file · About</a></li><li><a href="#contact">Continue? · Contact</a></li></ul></nav>
     <details class="nav-drawer">
       <summary>Menu</summary>
-      <nav aria-label="Menu"><a href="#map">Map</a><a href="#work">List</a><a href="#skills">Quest log</a><a href="#save">Save file</a><a href="#contact">Continue?</a></nav>
+      <nav aria-label="Menu"><a href="#map">Map</a><a href="#work">List</a><a href="#skills">Quest log</a><a href="#save">Save file · About</a><a href="#contact">Continue? · Contact</a></nav>
     </details>
   </div>
 </header>
 <main id="main" tabindex="-1">
 <div class="title-screen" id="title-screen">
+  <div class="title-sky" aria-hidden="true">
+    <i class="star star--twinkle" style="left:61%;top:21%;animation-duration:800ms"></i><i class="star star--twinkle" style="left:26%;top:20%;animation-duration:1000ms"></i><i class="star star--twinkle" style="left:89%;top:53%;animation-duration:1200ms"></i><i class="star star--twinkle" style="left:92%;top:10%;animation-duration:1400ms"></i><i class="star star--twinkle" style="left:9%;top:21%;animation-duration:1600ms"></i><i class="star star--twinkle" style="left:42%;top:16%;animation-duration:800ms"></i><i class="star star--twinkle" style="left:7%;top:31%;animation-duration:1000ms"></i><i class="star star--twinkle" style="left:74%;top:8%;animation-duration:1200ms"></i><i class="star" style="left:22%;top:8%"></i><i class="star" style="left:38%;top:4%"></i><i class="star" style="left:48%;top:34%"></i><i class="star" style="left:30%;top:32%"></i><i class="star" style="left:43%;top:19%"></i><i class="star" style="left:39%;top:7%"></i><i class="star" style="left:85%;top:41%"></i><i class="star" style="left:41%;top:13%"></i><i class="star" style="left:62%;top:24%"></i><i class="star" style="left:63%;top:27%"></i><i class="star" style="left:3%;top:3%"></i><i class="star" style="left:14%;top:36%"></i><i class="star" style="left:33%;top:41%"></i><i class="star" style="left:57%;top:9%"></i><i class="star" style="left:72%;top:54%"></i><i class="star" style="left:45%;top:25%"></i>
+    <svg class="title-hotel" viewBox="0 0 96 48">
+      <path fill="#0F0A06" d="M6 28h84v18H6zM16 18h64v12H16zM34 8h28v12H34zM30 18h36L48 4z"/>
+      <rect class="win" x="12" y="30" width="6" height="6"/>
+      <rect class="win" x="24" y="30" width="6" height="6"/>
+      <rect class="win" x="36" y="30" width="6" height="6"/>
+      <rect class="win" x="54" y="30" width="6" height="6"/>
+      <rect class="win" x="66" y="30" width="6" height="6"/>
+      <rect class="win" x="78" y="30" width="6" height="6"/>
+      <rect class="door" x="44" y="32" width="8" height="14"/>
+    </svg>
+    <div class="title-avatar"></div>
+  </div>
   <div class="title-screen__inner">
-    <svg class="pixel-logo" viewBox="0 0 29 16" role="img" aria-label="Tyler Crump"><rect x="0" y="0" width="1" height="1"/><rect x="1" y="0" width="1" height="1"/><rect x="2" y="0" width="1" height="1"/><rect x="3" y="0" width="1" height="1"/><rect x="4" y="0" width="1" height="1"/><rect x="2" y="1" width="1" height="1"/><rect x="2" y="2" width="1" height="1"/><rect x="2" y="3" width="1" height="1"/><rect x="2" y="4" width="1" height="1"/><rect x="2" y="5" width="1" height="1"/><rect x="2" y="6" width="1" height="1"/><rect x="6" y="0" width="1" height="1"/><rect x="10" y="0" width="1" height="1"/><rect x="6" y="1" width="1" height="1"/><rect x="10" y="1" width="1" height="1"/><rect x="7" y="2" width="1" height="1"/><rect x="9" y="2" width="1" height="1"/><rect x="8" y="3" width="1" height="1"/><rect x="8" y="4" width="1" height="1"/><rect x="8" y="5" width="1" height="1"/><rect x="8" y="6" width="1" height="1"/><rect x="12" y="0" width="1" height="1"/><rect x="12" y="1" width="1" height="1"/><rect x="12" y="2" width="1" height="1"/><rect x="12" y="3" width="1" height="1"/><rect x="12" y="4" width="1" height="1"/><rect x="12" y="5" width="1" height="1"/><rect x="12" y="6" width="1" height="1"/><rect x="13" y="6" width="1" height="1"/><rect x="14" y="6" width="1" height="1"/><rect x="15" y="6" width="1" height="1"/><rect x="16" y="6" width="1" height="1"/><rect x="18" y="0" width="1" height="1"/><rect x="19" y="0" width="1" height="1"/><rect x="20" y="0" width="1" height="1"/><rect x="21" y="0" width="1" height="1"/><rect x="22" y="0" width="1" height="1"/><rect x="18" y="1" width="1" height="1"/><rect x="18" y="2" width="1" height="1"/><rect x="18" y="3" width="1" height="1"/><rect x="19" y="3" width="1" height="1"/><rect x="20" y="3" width="1" height="1"/><rect x="21" y="3" width="1" height="1"/><rect x="18" y="4" width="1" height="1"/><rect x="18" y="5" width="1" height="1"/><rect x="18" y="6" width="1" height="1"/><rect x="19" y="6" width="1" height="1"/><rect x="20" y="6" width="1" height="1"/><rect x="21" y="6" width="1" height="1"/><rect x="22" y="6" width="1" height="1"/><rect x="24" y="0" width="1" height="1"/><rect x="25" y="0" width="1" height="1"/><rect x="26" y="0" width="1" height="1"/><rect x="27" y="0" width="1" height="1"/><rect x="24" y="1" width="1" height="1"/><rect x="28" y="1" width="1" height="1"/><rect x="24" y="2" width="1" height="1"/><rect x="28" y="2" width="1" height="1"/><rect x="24" y="3" width="1" height="1"/><rect x="25" y="3" width="1" height="1"/><rect x="26" y="3" width="1" height="1"/><rect x="27" y="3" width="1" height="1"/><rect x="24" y="4" width="1" height="1"/><rect x="26" y="4" width="1" height="1"/><rect x="24" y="5" width="1" height="1"/><rect x="27" y="5" width="1" height="1"/><rect x="24" y="6" width="1" height="1"/><rect x="28" y="6" width="1" height="1"/><rect x="1" y="9" width="1" height="1"/><rect x="2" y="9" width="1" height="1"/><rect x="3" y="9" width="1" height="1"/><rect x="4" y="9" width="1" height="1"/><rect x="0" y="10" width="1" height="1"/><rect x="0" y="11" width="1" height="1"/><rect x="0" y="12" width="1" height="1"/><rect x="0" y="13" width="1" height="1"/><rect x="0" y="14" width="1" height="1"/><rect x="1" y="15" width="1" height="1"/><rect x="2" y="15" width="1" height="1"/><rect x="3" y="15" width="1" height="1"/><rect x="4" y="15" width="1" height="1"/><rect x="6" y="9" width="1" height="1"/><rect x="7" y="9" width="1" height="1"/><rect x="8" y="9" width="1" height="1"/><rect x="9" y="9" width="1" height="1"/><rect x="6" y="10" width="1" height="1"/><rect x="10" y="10" width="1" height="1"/><rect x="6" y="11" width="1" height="1"/><rect x="10" y="11" width="1" height="1"/><rect x="6" y="12" width="1" height="1"/><rect x="7" y="12" width="1" height="1"/><rect x="8" y="12" width="1" height="1"/><rect x="9" y="12" width="1" height="1"/><rect x="6" y="13" width="1" height="1"/><rect x="8" y="13" width="1" height="1"/><rect x="6" y="14" width="1" height="1"/><rect x="9" y="14" width="1" height="1"/><rect x="6" y="15" width="1" height="1"/><rect x="10" y="15" width="1" height="1"/><rect x="12" y="9" width="1" height="1"/><rect x="16" y="9" width="1" height="1"/><rect x="12" y="10" width="1" height="1"/><rect x="16" y="10" width="1" height="1"/><rect x="12" y="11" width="1" height="1"/><rect x="16" y="11" width="1" height="1"/><rect x="12" y="12" width="1" height="1"/><rect x="16" y="12" width="1" height="1"/><rect x="12" y="13" width="1" height="1"/><rect x="16" y="13" width="1" height="1"/><rect x="12" y="14" width="1" height="1"/><rect x="16" y="14" width="1" height="1"/><rect x="13" y="15" width="1" height="1"/><rect x="14" y="15" width="1" height="1"/><rect x="15" y="15" width="1" height="1"/><rect x="18" y="9" width="1" height="1"/><rect x="22" y="9" width="1" height="1"/><rect x="18" y="10" width="1" height="1"/><rect x="19" y="10" width="1" height="1"/><rect x="21" y="10" width="1" height="1"/><rect x="22" y="10" width="1" height="1"/><rect x="18" y="11" width="1" height="1"/><rect x="20" y="11" width="1" height="1"/><rect x="22" y="11" width="1" height="1"/><rect x="18" y="12" width="1" height="1"/><rect x="22" y="12" width="1" height="1"/><rect x="18" y="13" width="1" height="1"/><rect x="22" y="13" width="1" height="1"/><rect x="18" y="14" width="1" height="1"/><rect x="22" y="14" width="1" height="1"/><rect x="18" y="15" width="1" height="1"/><rect x="22" y="15" width="1" height="1"/><rect x="24" y="9" width="1" height="1"/><rect x="25" y="9" width="1" height="1"/><rect x="26" y="9" width="1" height="1"/><rect x="27" y="9" width="1" height="1"/><rect x="24" y="10" width="1" height="1"/><rect x="28" y="10" width="1" height="1"/><rect x="24" y="11" width="1" height="1"/><rect x="28" y="11" width="1" height="1"/><rect x="24" y="12" width="1" height="1"/><rect x="25" y="12" width="1" height="1"/><rect x="26" y="12" width="1" height="1"/><rect x="27" y="12" width="1" height="1"/><rect x="24" y="13" width="1" height="1"/><rect x="24" y="14" width="1" height="1"/><rect x="24" y="15" width="1" height="1"/></svg>
-    <p class="title-screen__sub">Game / Level / Gameplay Designer</p>
-    <p class="press-start">PRESS START</p>
-    <p class="visually-hidden">Press any key, or click, to open the map. This screen also leaves on its own. Skip to CV / Recruiter view stays at the top right.</p>
+    <svg class="pixel-logo" viewBox="0 0 29 16" role="img" aria-label="Tyler Crump"><path fill="#7A4A10" d="M1 1h5v1H1zM7 1h1v1H7zM11 1h1v1H11zM13 1h1v1H13zM19 1h5v1H19zM25 1h4v1H25zM3 2h1v1H3zM7 2h1v1H7zM11 2h1v1H11zM13 2h1v1H13zM19 2h1v1H19zM25 2h1v1H25zM29 2h1v1H29zM3 3h1v1H3zM8 3h1v1H8zM10 3h1v1H10zM13 3h1v1H13zM19 3h1v1H19zM25 3h1v1H25zM29 3h1v1H29zM3 4h1v1H3zM9 4h1v1H9zM13 4h1v1H13zM19 4h4v1H19zM25 4h4v1H25zM3 5h1v1H3zM9 5h1v1H9zM13 5h1v1H13zM19 5h1v1H19zM25 5h1v1H25zM27 5h1v1H27zM3 6h1v1H3zM9 6h1v1H9zM13 6h1v1H13zM19 6h1v1H19zM25 6h1v1H25zM28 6h1v1H28zM3 7h1v1H3zM9 7h1v1H9zM13 7h5v1H13zM19 7h5v1H19zM25 7h1v1H25zM29 7h1v1H29zM2 10h4v1H2zM7 10h4v1H7zM13 10h1v1H13zM17 10h1v1H17zM19 10h1v1H19zM23 10h1v1H23zM25 10h4v1H25zM1 11h1v1H1zM7 11h1v1H7zM11 11h1v1H11zM13 11h1v1H13zM17 11h1v1H17zM19 11h2v1H19zM22 11h2v1H22zM25 11h1v1H25zM29 11h1v1H29zM1 12h1v1H1zM7 12h1v1H7zM11 12h1v1H11zM13 12h1v1H13zM17 12h1v1H17zM19 12h1v1H19zM21 12h1v1H21zM23 12h1v1H23zM25 12h1v1H25zM29 12h1v1H29zM1 13h1v1H1zM7 13h4v1H7zM13 13h1v1H13zM17 13h1v1H17zM19 13h1v1H19zM23 13h1v1H23zM25 13h4v1H25zM1 14h1v1H1zM7 14h1v1H7zM9 14h1v1H9zM13 14h1v1H13zM17 14h1v1H17zM19 14h1v1H19zM23 14h1v1H23zM25 14h1v1H25zM1 15h1v1H1zM7 15h1v1H7zM10 15h1v1H10zM13 15h1v1H13zM17 15h1v1H17zM19 15h1v1H19zM23 15h1v1H23zM25 15h1v1H25zM2 16h4v1H2zM7 16h1v1H7zM11 16h1v1H11zM14 16h3v1H14zM19 16h1v1H19zM23 16h1v1H23zM25 16h1v1H25z"/><path fill="#FFE9A8" d="M0 0h5v1H0zM6 0h1v1H6zM10 0h1v1H10zM12 0h1v1H12zM18 0h5v1H18zM24 0h4v1H24zM2 1h1v1H2zM6 1h1v1H6zM10 1h1v1H10zM12 1h1v1H12zM18 1h1v1H18zM24 1h1v1H24zM28 1h1v1H28zM2 2h1v1H2zM7 2h1v1H7zM9 2h1v1H9zM12 2h1v1H12zM18 2h1v1H18zM24 2h1v1H24zM28 2h1v1H28zM2 3h1v1H2zM8 3h1v1H8zM12 3h1v1H12zM18 3h4v1H18zM24 3h4v1H24zM1 9h4v1H1zM6 9h4v1H6zM12 9h1v1H12zM16 9h1v1H16zM18 9h1v1H18zM22 9h1v1H22zM24 9h4v1H24zM0 10h1v1H0zM6 10h1v1H6zM10 10h1v1H10zM12 10h1v1H12zM16 10h1v1H16zM18 10h2v1H18zM21 10h2v1H21zM24 10h1v1H24zM28 10h1v1H28zM0 11h1v1H0zM6 11h1v1H6zM10 11h1v1H10zM12 11h1v1H12zM16 11h1v1H16zM18 11h1v1H18zM20 11h1v1H20zM22 11h1v1H22zM24 11h1v1H24zM28 11h1v1H28zM0 12h1v1H0zM6 12h4v1H6zM12 12h1v1H12zM16 12h1v1H16zM18 12h1v1H18zM22 12h1v1H22zM24 12h4v1H24z"/><path fill="#F2B233" d="M2 4h1v1H2zM8 4h1v1H8zM12 4h1v1H12zM18 4h1v1H18zM24 4h1v1H24zM26 4h1v1H26zM2 5h1v1H2zM8 5h1v1H8zM12 5h1v1H12zM18 5h1v1H18zM24 5h1v1H24zM27 5h1v1H27zM2 6h1v1H2zM8 6h1v1H8zM12 6h5v1H12zM18 6h5v1H18zM24 6h1v1H24zM28 6h1v1H28zM0 13h1v1H0zM6 13h1v1H6zM8 13h1v1H8zM12 13h1v1H12zM16 13h1v1H16zM18 13h1v1H18zM22 13h1v1H22zM24 13h1v1H24zM0 14h1v1H0zM6 14h1v1H6zM9 14h1v1H9zM12 14h1v1H12zM16 14h1v1H16zM18 14h1v1H18zM22 14h1v1H22zM24 14h1v1H24zM1 15h4v1H1zM6 15h1v1H6zM10 15h1v1H10zM13 15h3v1H13zM18 15h1v1H18zM22 15h1v1H22zM24 15h1v1H24z"/></svg>
+    <p class="title-screen__sub"><svg class="title-line" viewBox="0 0 101 15" aria-hidden="true"><path fill="#F4E7C8" d="M1 0h4v1H1zM7 0h3v1H7zM12 0h1v1H12zM16 0h1v1H16zM18 0h5v1H18zM27 0h4v1H27zM33 0h5v1H33zM40 0h4v1H40zM45 0h5v1H45zM52 0h4v1H52zM57 0h1v1H57zM61 0h1v1H61zM63 0h5v1H63zM69 0h4v1H69zM0 1h1v1H0zM6 1h1v1H6zM10 1h1v1H10zM12 1h2v1H12zM15 1h2v1H15zM18 1h1v1H18zM27 1h1v1H27zM31 1h1v1H31zM33 1h1v1H33zM39 1h1v1H39zM47 1h1v1H47zM51 1h1v1H51zM57 1h2v1H57zM61 1h1v1H61zM63 1h1v1H63zM69 1h1v1H69zM73 1h1v1H73zM0 2h1v1H0zM6 2h1v1H6zM10 2h1v1H10zM12 2h1v1H12zM14 2h1v1H14zM16 2h1v1H16zM18 2h1v1H18zM27 2h1v1H27zM31 2h1v1H31zM33 2h1v1H33zM39 2h1v1H39zM47 2h1v1H47zM51 2h1v1H51zM57 2h1v1H57zM59 2h1v1H59zM61 2h1v1H61zM63 2h1v1H63zM69 2h1v1H69zM73 2h1v1H73zM0 3h1v1H0zM2 3h3v1H2zM6 3h5v1H6zM12 3h1v1H12zM16 3h1v1H16zM18 3h4v1H18zM27 3h1v1H27zM31 3h1v1H31zM33 3h4v1H33zM40 3h3v1H40zM47 3h1v1H47zM51 3h1v1H51zM53 3h3v1H53zM57 3h1v1H57zM60 3h2v1H60zM63 3h4v1H63zM69 3h4v1H69zM0 4h1v1H0zM4 4h1v1H4zM6 4h1v1H6zM10 4h1v1H10zM12 4h1v1H12zM16 4h1v1H16zM18 4h1v1H18zM27 4h1v1H27zM31 4h1v1H31zM33 4h1v1H33zM43 4h1v1H43zM47 4h1v1H47zM51 4h1v1H51zM55 4h1v1H55zM57 4h1v1H57zM61 4h1v1H61zM63 4h1v1H63zM69 4h1v1H69zM71 4h1v1H71zM0 5h1v1H0zM4 5h1v1H4zM6 5h1v1H6zM10 5h1v1H10zM12 5h1v1H12zM16 5h1v1H16zM18 5h1v1H18zM27 5h1v1H27zM31 5h1v1H31zM33 5h1v1H33zM43 5h1v1H43zM47 5h1v1H47zM51 5h1v1H51zM55 5h1v1H55zM57 5h1v1H57zM61 5h1v1H61zM63 5h1v1H63zM69 5h1v1H69zM72 5h1v1H72zM1 6h4v1H1zM6 6h1v1H6zM10 6h1v1H10zM12 6h1v1H12zM16 6h1v1H16zM18 6h5v1H18zM27 6h4v1H27zM33 6h5v1H33zM39 6h4v1H39zM45 6h5v1H45zM52 6h4v1H52zM57 6h1v1H57zM61 6h1v1H61zM63 6h5v1H63zM69 6h1v1H69zM73 6h1v1H73zM1 8h4v1H1zM7 8h3v1H7zM12 8h1v1H12zM16 8h1v1H16zM18 8h5v1H18zM24 8h4v1H24zM30 8h1v1H30zM37 8h3v1H37zM42 8h1v1H42zM46 8h1v1H46zM52 8h3v1H52zM57 8h1v1H57zM61 8h1v1H61zM63 8h4v1H63zM72 8h5v1H72zM79 8h3v1H79zM85 8h3v1H85zM90 8h1v1H90zM97 8h4v1H97zM0 9h1v1H0zM6 9h1v1H6zM10 9h1v1H10zM12 9h2v1H12zM15 9h2v1H15zM18 9h1v1H18zM24 9h1v1H24zM28 9h1v1H28zM30 9h1v1H30zM36 9h1v1H36zM40 9h1v1H40zM42 9h1v1H42zM46 9h1v1H46zM51 9h1v1H51zM55 9h1v1H55zM57 9h2v1H57zM61 9h1v1H61zM63 9h1v1H63zM67 9h1v1H67zM74 9h1v1H74zM78 9h1v1H78zM82 9h1v1H82zM84 9h1v1H84zM88 9h1v1H88zM90 9h1v1H90zM96 9h1v1H96zM0 10h1v1H0zM6 10h1v1H6zM10 10h1v1H10zM12 10h1v1H12zM14 10h1v1H14zM16 10h1v1H16zM18 10h1v1H18zM24 10h1v1H24zM28 10h1v1H28zM30 10h1v1H30zM36 10h1v1H36zM40 10h1v1H40zM43 10h1v1H43zM45 10h1v1H45zM51 10h1v1H51zM55 10h1v1H55zM57 10h1v1H57zM59 10h1v1H59zM61 10h1v1H61zM63 10h1v1H63zM67 10h1v1H67zM74 10h1v1H74zM78 10h1v1H78zM82 10h1v1H82zM84 10h1v1H84zM88 10h1v1H88zM90 10h1v1H90zM96 10h1v1H96zM0 11h1v1H0zM2 11h3v1H2zM6 11h5v1H6zM12 11h1v1H12zM16 11h1v1H16zM18 11h4v1H18zM24 11h4v1H24zM30 11h1v1H30zM36 11h5v1H36zM44 11h1v1H44zM51 11h5v1H51zM57 11h1v1H57zM60 11h2v1H60zM63 11h1v1H63zM67 11h1v1H67zM74 11h1v1H74zM78 11h1v1H78zM82 11h1v1H82zM84 11h1v1H84zM88 11h1v1H88zM90 11h1v1H90zM97 11h3v1H97zM0 12h1v1H0zM4 12h1v1H4zM6 12h1v1H6zM10 12h1v1H10zM12 12h1v1H12zM16 12h1v1H16zM18 12h1v1H18zM24 12h1v1H24zM30 12h1v1H30zM36 12h1v1H36zM40 12h1v1H40zM44 12h1v1H44zM51 12h1v1H51zM55 12h1v1H55zM57 12h1v1H57zM61 12h1v1H61zM63 12h1v1H63zM67 12h1v1H67zM74 12h1v1H74zM78 12h1v1H78zM82 12h1v1H82zM84 12h1v1H84zM88 12h1v1H88zM90 12h1v1H90zM100 12h1v1H100zM0 13h1v1H0zM4 13h1v1H4zM6 13h1v1H6zM10 13h1v1H10zM12 13h1v1H12zM16 13h1v1H16zM18 13h1v1H18zM24 13h1v1H24zM30 13h1v1H30zM36 13h1v1H36zM40 13h1v1H40zM44 13h1v1H44zM51 13h1v1H51zM55 13h1v1H55zM57 13h1v1H57zM61 13h1v1H61zM63 13h1v1H63zM67 13h1v1H67zM74 13h1v1H74zM78 13h1v1H78zM82 13h1v1H82zM84 13h1v1H84zM88 13h1v1H88zM90 13h1v1H90zM100 13h1v1H100zM1 14h4v1H1zM6 14h1v1H6zM10 14h1v1H10zM12 14h1v1H12zM16 14h1v1H16zM18 14h5v1H18zM24 14h1v1H24zM30 14h5v1H30zM36 14h1v1H36zM40 14h1v1H40zM44 14h1v1H44zM51 14h1v1H51zM55 14h1v1H55zM57 14h1v1H57zM61 14h1v1H61zM63 14h4v1H63zM74 14h1v1H74zM79 14h3v1H79zM85 14h3v1H85zM90 14h5v1H90zM96 14h4v1H96z"/></svg><span class="visually-hidden">Game designer · gameplay and tools</span></p>
+    <p class="press-start"><svg class="title-line" viewBox="0 0 62 7" aria-hidden="true"><path fill="#F2B233" d="M0 0h4v1H0zM6 0h4v1H6zM12 0h5v1H12zM19 0h4v1H19zM25 0h4v1H25zM34 0h4v1H34zM39 0h5v1H39zM46 0h3v1H46zM51 0h4v1H51zM57 0h5v1H57zM0 1h1v1H0zM4 1h1v1H4zM6 1h1v1H6zM10 1h1v1H10zM12 1h1v1H12zM18 1h1v1H18zM24 1h1v1H24zM33 1h1v1H33zM41 1h1v1H41zM45 1h1v1H45zM49 1h1v1H49zM51 1h1v1H51zM55 1h1v1H55zM59 1h1v1H59zM0 2h1v1H0zM4 2h1v1H4zM6 2h1v1H6zM10 2h1v1H10zM12 2h1v1H12zM18 2h1v1H18zM24 2h1v1H24zM33 2h1v1H33zM41 2h1v1H41zM45 2h1v1H45zM49 2h1v1H49zM51 2h1v1H51zM55 2h1v1H55zM59 2h1v1H59zM0 3h4v1H0zM6 3h4v1H6zM12 3h4v1H12zM19 3h3v1H19zM25 3h3v1H25zM34 3h3v1H34zM41 3h1v1H41zM45 3h5v1H45zM51 3h4v1H51zM59 3h1v1H59zM0 4h1v1H0zM6 4h1v1H6zM8 4h1v1H8zM12 4h1v1H12zM22 4h1v1H22zM28 4h1v1H28zM37 4h1v1H37zM41 4h1v1H41zM45 4h1v1H45zM49 4h1v1H49zM51 4h1v1H51zM53 4h1v1H53zM59 4h1v1H59zM0 5h1v1H0zM6 5h1v1H6zM9 5h1v1H9zM12 5h1v1H12zM22 5h1v1H22zM28 5h1v1H28zM37 5h1v1H37zM41 5h1v1H41zM45 5h1v1H45zM49 5h1v1H49zM51 5h1v1H51zM54 5h1v1H54zM59 5h1v1H59zM0 6h1v1H0zM6 6h1v1H6zM10 6h1v1H10zM12 6h5v1H12zM18 6h4v1H18zM24 6h4v1H24zM33 6h4v1H33zM41 6h1v1H41zM45 6h1v1H45zM49 6h1v1H49zM51 6h1v1H51zM55 6h1v1H55zM59 6h1v1H59z"/></svg><span class="visually-hidden">PRESS START</span></p>
+    <p class="visually-hidden">Press any key, or click, to open the map. This screen also leaves on its own. Recruiter view stays at the top right.</p>
   </div>
 </div><section id="map" class="map-section" aria-labelledby="map-title">
-  <div class="wrap map-section__head">
-    <h1 id="map-title">Tyler Crump <span class="map-section__role">Level select</span></h1>
-    <p id="map-help">Each project is a level. Arrow keys or WASD walk the path. Enter, click or tap opens that project. <button type="button" class="btn btn--small" data-list-toggle aria-pressed="false" aria-controls="work">List view</button></p>
-  </div>
+  <h1 id="map-title" class="visually-hidden">Tyler Crump</h1>
   <div class="overworld" aria-describedby="map-help">
-    <svg class="map-path" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><polyline points="50,16 20,46 50,46 80,46 20,78 50,78 80,78"/></svg>
-    <div class="avatar" data-avatar aria-hidden="true"><i></i><b></b></div>
-    <button type="button" class="node node--flagship node--castle" data-node="a-course-in-time" id="node-a-course-in-time">
-    <span class="castle" aria-hidden="true"><i></i><i class="castle__keep"></i><i></i><b></b></span>
+    <div class="hud">
+      <p class="hud__plaque">WORLD 1: TYLER CRUMP</p>
+      <p class="hud__count">WORLD 1 · 7 LEVELS · 3 PLAYABLE IN BROWSER</p>
+      <p id="map-help">Each project is a level. Tap or click one to see its card. On a keyboard, use the arrow keys or WASD to move and Enter to open. <button type="button" class="btn btn--small" data-list-toggle aria-pressed="false" aria-controls="work">List view</button></p>
+      <p class="hud__strength">Team lead on a 5-person Unity 6 game (level design, audio, code) · Creative Director on a 5-person VR client project · Git · FMOD <a href="#save">Recruiter view →</a></p>
+    </div>
+    <div class="world-stage" data-stage>
+      <img class="world-map" src="assets/art/map.png" width="320" height="180" alt="">
+      <i class="lake-shimmer" aria-hidden="true"></i>
+      <svg class="map-road" data-road aria-hidden="true">
+        <path class="road-ink" d="" fill="none" stroke="#1C140C" stroke-width="12" stroke-linecap="square" stroke-linejoin="miter"/>
+        <path class="road-fill" d="" fill="none" stroke="#C4A36A" stroke-width="8" stroke-linecap="square" stroke-linejoin="miter"/>
+        <g class="road-dots"></g>
+      </svg>
+      <div class="avatar" data-avatar aria-hidden="true"><i></i><span class="avatar__shadow"></span></div>
+      <button type="button" class="node node--flagship node--castle" data-node="a-course-in-time" id="node-a-course-in-time">
+    <span class="node__cursor" aria-hidden="true"></span>
+    <span class="landmark landmark--castle" aria-hidden="true"></span>
+    <span class="node__flag">PLAYABLE</span>
+    
     <span class="node__label">A Course In Time</span>
     <span class="node__tier">Final world</span>
   </button><button type="button" class="node node--supporting node--wn" data-node="waking-nightmare" id="node-waking-nightmare">
-    <span class="world" aria-hidden="true"></span>
+    <span class="node__cursor" aria-hidden="true"></span>
+    <span class="landmark landmark--wn" aria-hidden="true"></span>
+    
+    
     <span class="node__label">Waking Nightmare Experience</span>
     <span class="node__tier">World</span>
   </button><button type="button" class="node node--supporting node--tabi" data-node="tabi" id="node-tabi">
-    <span class="suitcase" aria-hidden="true"></span>
+    <span class="node__cursor" aria-hidden="true"></span>
+    <span class="suitcase"><span class="landmark landmark--tabi" aria-hidden="true"></span></span>
+    
+    
     <span class="node__label">Tabi</span>
     <span class="node__tier">travel / multipurpose</span>
-  </button><button type="button" class="node node--supporting node--ikemen" data-node="ikemen-go" id="node-ikemen-go">
-    <span class="world" aria-hidden="true"></span>
+  </button><button type="button" class="node node--supporting node--ikemen node--locked" data-node="ikemen-go" id="node-ikemen-go">
+    <span class="node__cursor" aria-hidden="true"></span>
+    <span class="landmark landmark--ikemen" aria-hidden="true"></span>
+    
+    <span class="node__lock">LOCKED</span>
     <span class="node__label">IkemanGoAss</span>
     <span class="node__tier">World</span>
   </button><button type="button" class="node node--experiment node--sdcs" data-node="sdcs-booking-app" id="node-sdcs-booking-app">
-    <span class="bonus" aria-hidden="true"></span>
+    <span class="node__cursor" aria-hidden="true"></span>
+    <span class="landmark landmark--sdcs" aria-hidden="true"></span>
+    
+    
     <span class="node__label">SDCS Booking App</span>
     <span class="node__tier">Bonus stage</span>
   </button><button type="button" class="node node--experiment node--lit" data-node="lit-flux-mechanics-showcase" id="node-lit-flux-mechanics-showcase">
-    <span class="bonus" aria-hidden="true"></span>
+    <span class="node__cursor" aria-hidden="true"></span>
+    <span class="landmark landmark--lit" aria-hidden="true"></span>
+    <span class="node__flag">PLAYABLE</span>
+    
     <span class="node__label">LIT_Flux Mechanics Showcase</span>
     <span class="node__tier">Bonus stage</span>
   </button><button type="button" class="node node--experiment node--gdt" data-node="gdt2" id="node-gdt2">
-    <span class="bonus" aria-hidden="true"></span>
+    <span class="node__cursor" aria-hidden="true"></span>
+    <span class="landmark landmark--gdt" aria-hidden="true"></span>
+    <span class="node__flag">PLAYABLE</span>
+    
     <span class="node__label">GDT2</span>
     <span class="node__tier">Bonus stage</span>
   </button>
+    </div>
   </div>
   <dialog class="select-card" id="card-a-course-in-time" aria-labelledby="card-title-a-course-in-time">
-  <p class="select-card__kicker">Character select · Final world</p>
-  <h2 id="card-title-a-course-in-time">A Course In Time</h2>
-  <dl class="select-card__facts">
-    <div class="slot-fact"><dt>Role</dt><dd>Team lead — mainly audio, coding and level design</dd></div>
-    <div class="slot-fact"><dt>Team</dt><dd>Team of 5</dd></div>
-  </dl>
-  
-  
-  <h3>Equipment</h3>
-  <ul class="equip" aria-label="Equipment"><li><span class="equip__mark" aria-hidden="true"></span>Unity 6</li><li><span class="equip__mark" aria-hidden="true"></span>C#</li><li><span class="equip__mark" aria-hidden="true"></span>FMOD</li></ul>
-  <h3>Skills</h3>
-  <p class="stat-note">A filled bar is a confirmed fact. A locked bar has no confirmed fact yet. This is not a rating.</p>
-  <div class="stat"><p class="stat__name">Level design</p><div class="stat__track" role="img" aria-label="Level design confirmed: Team lead — mainly audio, coding and level design. Ability-gated progression through an interconnected hotel.. This is not a rating."><span class="stat__fill"></span></div><p class="stat__fact">Team lead — mainly audio, coding and level design. Ability-gated progression through an interconnected hotel.</p></div>
-  <div class="stat"><p class="stat__name">Systems</p><div class="stat__track" role="img" aria-label="Systems confirmed: Playable-build mechanics: Time Switch, Time Beam, Box Pull, Dash and Double Jump.. This is not a rating."><span class="stat__fill"></span></div><p class="stat__fact">Playable-build mechanics: Time Switch, Time Beam, Box Pull, Dash and Double Jump.</p></div>
-  <div class="stat"><p class="stat__name">Collaboration</p><div class="stat__track" role="img" aria-label="Collaboration confirmed: Team of 5. Team lead — mainly audio, coding and level design.. This is not a rating."><span class="stat__fill"></span></div><p class="stat__fact">Team of 5. Team lead — mainly audio, coding and level design.</p></div>
-  
-  <h3>Pitch</h3>
-  <p class="select-card__pitch">A 2D puzzle-platformer set in one hotel that exists in more than one era. Switch time and the building changes around you; what you carry doesn&#39;t.</p>
-  <p class="select-card__actions">
-    <a class="btn btn--primary" href="projects/a-course-in-time/index.html">START LEVEL<span class="visually-hidden">: A Course In Time</span></a>
-    <button type="button" class="btn" data-close-card>Close</button>
-  </p>
+  <div class="select-card__layout">
+    <div class="select-card__portrait" aria-hidden="true"><span class="landmark landmark--castle" aria-hidden="true"></span></div>
+    <div class="select-card__main">
+      <p class="select-card__kicker">Character select · Final world</p>
+      <h2 id="card-title-a-course-in-time">A Course In Time</h2>
+      
+      <dl class="select-card__facts">
+        <div class="slot-fact"><dt>Role</dt><dd>Team lead — mainly audio, coding and level design</dd></div>
+        <div class="slot-fact"><dt>Team</dt><dd>Team of 5</dd></div>
+        <div class="slot-fact"><dt>Stage</dt><dd>In development (playable build on itch.io)</dd></div>
+        <div class="slot-fact"><dt>Timeframe</dt><dd>LOCKED · dates coming</dd></div>
+      </dl>
+      <h3>Tools</h3>
+      <ul class="equip" aria-label="Tools"><li><span class="equip__mark" aria-hidden="true"></span>Unity 6</li><li><span class="equip__mark" aria-hidden="true"></span>C#</li><li><span class="equip__mark" aria-hidden="true"></span>FMOD</li></ul>
+      <h3>Pitch</h3>
+      <p class="select-card__pitch">A 2D puzzle-platformer set in one hotel that exists in more than one era. Switch time and the building changes around you; what you carry doesn&#39;t.</p>
+      <p class="select-card__actions">
+        <a class="btn btn--primary" href="projects/a-course-in-time/index.html">START LEVEL<span class="visually-hidden">: A Course In Time</span></a>
+        <button type="button" class="btn" data-close-card>Close</button>
+      </p>
+    </div>
+  </div>
 </dialog>
 <dialog class="select-card" id="card-waking-nightmare" aria-labelledby="card-title-waking-nightmare">
-  <p class="select-card__kicker">Character select · World</p>
-  <h2 id="card-title-waking-nightmare">Waking Nightmare Experience</h2>
-  <dl class="select-card__facts">
-    <div class="slot-fact"><dt>Role</dt><dd>Creative Director and programmer; client liaison</dd></div>
-    <div class="slot-fact"><dt>Team</dt><dd>Team of 5</dd></div>
-  </dl>
-  
-  
-  <h3>Equipment</h3>
-  <ul class="equip" aria-label="Equipment"><li><span class="equip__mark" aria-hidden="true"></span>Unity 2019</li></ul>
-  <h3>Skills</h3>
-  <p class="stat-note">A filled bar is a confirmed fact. A locked bar has no confirmed fact yet. This is not a rating.</p>
-  <div class="stat stat--locked"><p class="stat__name">Level design</p><p class="stat__lock"><span class="lock" aria-hidden="true"></span> LOCKED <span class="stat__note">evidence coming</span></p><p class="visually-hidden">Level design is locked. Evidence coming. This is not a rating.</p></div>
-  <div class="stat stat--locked"><p class="stat__name">Systems</p><p class="stat__lock"><span class="lock" aria-hidden="true"></span> LOCKED <span class="stat__note">evidence coming</span></p><p class="visually-hidden">Systems is locked. Evidence coming. This is not a rating.</p></div>
-  <div class="stat"><p class="stat__name">Collaboration</p><div class="stat__track" role="img" aria-label="Collaboration confirmed: Team of 5. Creative Director and programmer; client liaison.. This is not a rating."><span class="stat__fill"></span></div><p class="stat__fact">Team of 5. Creative Director and programmer; client liaison.</p></div>
-  
-  <h3>Pitch</h3>
-  <p class="select-card__pitch">A VR experience for Meta Quest, made for the client LiminalVR: awaken in a dark room and fight off the monsters that await. I was Creative Director, a programmer and the team&#39;s contact with the client.</p>
-  <p class="select-card__actions">
-    <a class="btn btn--primary" href="projects/waking-nightmare/index.html">START LEVEL<span class="visually-hidden">: Waking Nightmare Experience</span></a>
-    <button type="button" class="btn" data-close-card>Close</button>
-  </p>
+  <div class="select-card__layout">
+    <div class="select-card__portrait" aria-hidden="true"><span class="landmark landmark--wn" aria-hidden="true"></span></div>
+    <div class="select-card__main">
+      <p class="select-card__kicker">Character select · World</p>
+      <h2 id="card-title-waking-nightmare">Waking Nightmare Experience</h2>
+      
+      <dl class="select-card__facts">
+        <div class="slot-fact"><dt>Role</dt><dd>Creative Director and programmer; client liaison</dd></div>
+        <div class="slot-fact"><dt>Team</dt><dd>Team of 5</dd></div>
+        <div class="slot-fact"><dt>Stage</dt><dd>Client handover (in-progress build)</dd></div>
+        <div class="slot-fact"><dt>Timeframe</dt><dd>LOCKED · evidence coming</dd></div>
+      </dl>
+      <h3>Tools</h3>
+      <ul class="equip" aria-label="Tools"><li><span class="equip__mark" aria-hidden="true"></span>Unity 2019</li></ul>
+      <h3>Pitch</h3>
+      <p class="select-card__pitch">A VR experience for Meta Quest, made for the client LiminalVR: awaken in a dark room and fight off the monsters that await. I was Creative Director, a programmer and the team&#39;s contact with the client.</p>
+      <p class="select-card__actions">
+        <a class="btn btn--primary" href="projects/waking-nightmare/index.html">START LEVEL<span class="visually-hidden">: Waking Nightmare Experience</span></a>
+        <button type="button" class="btn" data-close-card>Close</button>
+      </p>
+    </div>
+  </div>
 </dialog>
 <dialog class="select-card" id="card-tabi" aria-labelledby="card-title-tabi">
-  <p class="select-card__kicker select-card__kicker--plain">Character select · travel / multipurpose</p>
-  <h2 id="card-title-tabi">Tabi</h2>
-  <dl class="select-card__facts">
-    <div class="slot-fact"><dt>Role</dt><dd>Designer and developer (solo)</dd></div>
-    <div class="slot-fact"><dt>Team</dt><dd>Solo</dd></div>
-  </dl>
-  
-  
-  <h3>Equipment</h3>
-  <ul class="equip" aria-label="Equipment"><li><span class="equip__mark" aria-hidden="true"></span>Node.js / Express</li><li><span class="equip__mark" aria-hidden="true"></span>JavaScript</li><li><span class="equip__mark" aria-hidden="true"></span>Express</li><li><span class="equip__mark" aria-hidden="true"></span>SQLite</li><li><span class="equip__mark" aria-hidden="true"></span>Leaflet</li></ul>
-  <h3>Skills</h3>
-  <p class="stat-note">A filled bar is a confirmed fact. A locked bar has no confirmed fact yet. This is not a rating.</p>
-  <div class="stat stat--locked"><p class="stat__name">Level design</p><p class="stat__lock"><span class="lock" aria-hidden="true"></span> LOCKED <span class="stat__note">evidence coming</span></p><p class="visually-hidden">Level design is locked. Evidence coming. This is not a rating.</p></div>
-  <div class="stat"><p class="stat__name">Systems</p><div class="stat__track" role="img" aria-label="Systems confirmed: Playable-build mechanics: Trips, Itinerary, Budget, Currency, Weather, Home, Sign-in.. This is not a rating."><span class="stat__fill"></span></div><p class="stat__fact">Playable-build mechanics: Trips, Itinerary, Budget, Currency, Weather, Home, Sign-in.</p></div>
-  <div class="stat"><p class="stat__name">Collaboration</p><div class="stat__track" role="img" aria-label="Collaboration confirmed: Solo.. This is not a rating."><span class="stat__fill"></span></div><p class="stat__fact">Solo.</p></div>
-  <p class="stat-note">Solo is the confirmed team size, not a collaboration score.</p>
-  <h3>Pitch</h3>
-  <p class="select-card__pitch">A group trip planner for any trip and any group. Invite-only, phone-first, and built so a different trip, group size or budget does not turn into clutter. A Japan trip was the first real use.</p>
-  <p class="select-card__actions">
-    <a class="btn btn--primary" href="projects/tabi/index.html">START LEVEL<span class="visually-hidden">: Tabi</span></a>
-    <button type="button" class="btn" data-close-card>Close</button>
-  </p>
+  <div class="select-card__layout">
+    <div class="select-card__portrait" aria-hidden="true"><span class="suitcase"><span class="landmark landmark--tabi" aria-hidden="true"></span></span></div>
+    <div class="select-card__main">
+      <p class="select-card__kicker select-card__kicker--plain">Character select · travel / multipurpose</p>
+      <h2 id="card-title-tabi">Tabi</h2>
+      
+      <dl class="select-card__facts">
+        <div class="slot-fact"><dt>Role</dt><dd>Designer and developer (solo)</dd></div>
+        <div class="slot-fact"><dt>Team</dt><dd>Solo</dd></div>
+        <div class="slot-fact"><dt>Stage</dt><dd>Live (invite-only)</dd></div>
+        <div class="slot-fact"><dt>Timeframe</dt><dd>September 2026</dd></div>
+      </dl>
+      <h3>Tools</h3>
+      <ul class="equip" aria-label="Tools"><li><span class="equip__mark" aria-hidden="true"></span>Node.js / Express</li><li><span class="equip__mark" aria-hidden="true"></span>JavaScript</li><li><span class="equip__mark" aria-hidden="true"></span>SQLite</li><li><span class="equip__mark" aria-hidden="true"></span>Leaflet</li></ul>
+      <h3>Pitch</h3>
+      <p class="select-card__pitch">A group trip planner for any trip and any group. Invite-only, phone-first, and built so a different trip, group size or budget does not turn into clutter. A Japan trip was the first real use.</p>
+      <p class="select-card__actions">
+        <a class="btn btn--primary" href="projects/tabi/index.html">START LEVEL<span class="visually-hidden">: Tabi</span></a>
+        <button type="button" class="btn" data-close-card>Close</button>
+      </p>
+    </div>
+  </div>
 </dialog>
 <dialog class="select-card" id="card-ikemen-go" aria-labelledby="card-title-ikemen-go">
-  <p class="select-card__kicker">Character select · World</p>
-  <h2 id="card-title-ikemen-go">IkemanGoAss</h2>
-  <dl class="select-card__facts">
-    <div class="slot-fact"><dt>Role</dt><dd>Designed by Tyler Crump</dd></div>
-    <div class="slot-fact"><dt>Team</dt><dd>Solo</dd></div>
-  </dl>
-  
-  
-  <h3>Equipment</h3>
-  <ul class="equip" aria-label="Equipment"><li><span class="equip__mark" aria-hidden="true"></span>Ikemen GO</li><li><span class="equip__mark" aria-hidden="true"></span>Fighter Factory Studio (sprites and animation)</li><li><span class="equip__mark" aria-hidden="true"></span>Notepad++ (editing character and stage files)</li></ul>
-  <h3>Skills</h3>
-  <p class="stat-note">A filled bar is a confirmed fact. A locked bar has no confirmed fact yet. This is not a rating.</p>
-  <div class="stat"><p class="stat__name">Level design</p><div class="stat__track" role="img" aria-label="Level design confirmed: Broken Bridge, a 6-layer storm bridge stage with animated lightning and rain.. This is not a rating."><span class="stat__fill"></span></div><p class="stat__fact">Broken Bridge, a 6-layer storm bridge stage with animated lightning and rain.</p></div>
-  <div class="stat"><p class="stat__name">Systems</p><div class="stat__track" role="img" aria-label="Systems confirmed: Playable-build mechanics: Shared moveset, Normals, Special, Super, Back dash, Block, Stamina.. This is not a rating."><span class="stat__fill"></span></div><p class="stat__fact">Playable-build mechanics: Shared moveset, Normals, Special, Super, Back dash, Block, Stamina.</p></div>
-  <div class="stat"><p class="stat__name">Collaboration</p><div class="stat__track" role="img" aria-label="Collaboration confirmed: Solo.. This is not a rating."><span class="stat__fill"></span></div><p class="stat__fact">Solo.</p></div>
-  <p class="stat-note">Solo is the confirmed team size, not a collaboration score.</p>
-  <h3>Pitch</h3>
-  <p class="select-card__pitch">Designed by Tyler Crump. A solo design project in Ikemen GO, the open-source fighting game engine it&#39;s built on. Character and moveset design for The Sword Saint and Unknown, combat systems for their shared moveset, and the Broken Bridge stage.</p>
-  <p class="select-card__actions">
-    <a class="btn btn--primary" href="projects/ikemen-go/index.html">START LEVEL<span class="visually-hidden">: IkemanGoAss</span></a>
-    <button type="button" class="btn" data-close-card>Close</button>
-  </p>
+  <div class="select-card__layout">
+    <div class="select-card__portrait" aria-hidden="true"><span class="landmark landmark--ikemen" aria-hidden="true"></span></div>
+    <div class="select-card__main">
+      <p class="select-card__kicker">Character select · World</p>
+      <h2 id="card-title-ikemen-go">IkemanGoAss</h2>
+      <p class="select-card__by">Designed by Tyler Crump</p>
+      <dl class="select-card__facts">
+        <div class="slot-fact"><dt>Role</dt><dd>Solo designer</dd></div>
+        <div class="slot-fact"><dt>Team</dt><dd>Solo</dd></div>
+        <div class="slot-fact"><dt>Stage</dt><dd>LOCKED · evidence coming</dd></div>
+        <div class="slot-fact"><dt>Timeframe</dt><dd>LOCKED · evidence coming</dd></div>
+      </dl>
+      <h3>Tools</h3>
+      <ul class="equip" aria-label="Tools"><li><span class="equip__mark" aria-hidden="true"></span>Ikemen GO</li><li><span class="equip__mark" aria-hidden="true"></span>Fighter Factory Studio (sprites and animation)</li><li><span class="equip__mark" aria-hidden="true"></span>Notepad++ (editing character and stage files)</li></ul>
+      <h3>Pitch</h3>
+      <p class="select-card__pitch">A solo design project in Ikemen GO, the open-source fighting game engine it&#39;s built on. Character and moveset design for The Sword Saint and Unknown, combat systems for their shared moveset, and the Broken Bridge stage.</p>
+      <p class="select-card__actions">
+        <a class="btn btn--primary" href="projects/ikemen-go/index.html">START LEVEL<span class="visually-hidden">: IkemanGoAss</span></a>
+        <button type="button" class="btn" data-close-card>Close</button>
+      </p>
+    </div>
+  </div>
 </dialog>
 <dialog class="select-card" id="card-sdcs-booking-app" aria-labelledby="card-title-sdcs-booking-app">
-  <p class="select-card__kicker">Character select · Bonus stage</p>
-  <h2 id="card-title-sdcs-booking-app">SDCS Booking App</h2>
-  <dl class="select-card__facts">
-    <div class="slot-fact"><dt>Role</dt><dd>Solo developer</dd></div>
-    <div class="slot-fact"><dt>Team</dt><dd>Solo</dd></div>
-  </dl>
-  
-  
-  <h3>Equipment</h3>
-  <ul class="equip" aria-label="Equipment"><li><span class="equip__mark" aria-hidden="true"></span>React Native (Expo Snack)</li><li><span class="equip__mark" aria-hidden="true"></span>React Native</li><li><span class="equip__mark" aria-hidden="true"></span>Expo</li><li><span class="equip__mark" aria-hidden="true"></span>JavaScript</li></ul>
-  <h3>Skills</h3>
-  <p class="stat-note">A filled bar is a confirmed fact. A locked bar has no confirmed fact yet. This is not a rating.</p>
-  <div class="stat stat--locked"><p class="stat__name">Level design</p><p class="stat__lock"><span class="lock" aria-hidden="true"></span> LOCKED <span class="stat__note">evidence coming</span></p><p class="visually-hidden">Level design is locked. Evidence coming. This is not a rating.</p></div>
-  <div class="stat stat--locked"><p class="stat__name">Systems</p><p class="stat__lock"><span class="lock" aria-hidden="true"></span> LOCKED <span class="stat__note">evidence coming</span></p><p class="visually-hidden">Systems is locked. Evidence coming. This is not a rating.</p></div>
-  <div class="stat"><p class="stat__name">Collaboration</p><div class="stat__track" role="img" aria-label="Collaboration confirmed: Solo.. This is not a rating."><span class="stat__fill"></span></div><p class="stat__fact">Solo.</p></div>
-  <p class="stat-note">Solo is the confirmed team size, not a collaboration score.</p>
-  <h3>Pitch</h3>
-  <p class="select-card__pitch">A React Native booking screen for a dog-care service: pick a dog and hours, a service and quantity, and get the total cost.</p>
-  <p class="select-card__actions">
-    <a class="btn btn--primary" href="projects/sdcs-booking-app/index.html">START LEVEL<span class="visually-hidden">: SDCS Booking App</span></a>
-    <button type="button" class="btn" data-close-card>Close</button>
-  </p>
+  <div class="select-card__layout">
+    <div class="select-card__portrait" aria-hidden="true"><span class="landmark landmark--sdcs" aria-hidden="true"></span></div>
+    <div class="select-card__main">
+      <p class="select-card__kicker">Character select · Bonus stage</p>
+      <h2 id="card-title-sdcs-booking-app">SDCS Booking App</h2>
+      
+      <dl class="select-card__facts">
+        <div class="slot-fact"><dt>Role</dt><dd>Solo developer</dd></div>
+        <div class="slot-fact"><dt>Team</dt><dd>Solo</dd></div>
+        <div class="slot-fact"><dt>Stage</dt><dd>Coursework submission</dd></div>
+        <div class="slot-fact"><dt>Timeframe</dt><dd>May 2025</dd></div>
+      </dl>
+      <h3>Tools</h3>
+      <ul class="equip" aria-label="Tools"><li><span class="equip__mark" aria-hidden="true"></span>React Native (Expo Snack)</li><li><span class="equip__mark" aria-hidden="true"></span>JavaScript</li></ul>
+      <h3>Pitch</h3>
+      <p class="select-card__pitch">A React Native booking screen for a dog-care service: pick a dog and hours, a service and quantity, and get the total cost.</p>
+      <p class="select-card__actions">
+        <a class="btn btn--primary" href="projects/sdcs-booking-app/index.html">START LEVEL<span class="visually-hidden">: SDCS Booking App</span></a>
+        <button type="button" class="btn" data-close-card>Close</button>
+      </p>
+    </div>
+  </div>
 </dialog>
 <dialog class="select-card" id="card-lit-flux-mechanics-showcase" aria-labelledby="card-title-lit-flux-mechanics-showcase">
-  <p class="select-card__kicker">Character select · Bonus stage</p>
-  <h2 id="card-title-lit-flux-mechanics-showcase">LIT_Flux Mechanics Showcase</h2>
-  <dl class="select-card__facts">
-    
-    
-  </dl>
-  <div class="slot-lock"><span class="lock" aria-hidden="true"></span> <span class="slot-lock__name">Role</span> <span class="slot-lock__state">LOCKED</span> <span class="slot-lock__note">evidence coming</span></div>
-  <div class="slot-lock"><span class="lock" aria-hidden="true"></span> <span class="slot-lock__name">Team</span> <span class="slot-lock__state">LOCKED</span> <span class="slot-lock__note">evidence coming</span></div>
-  <h3>Equipment</h3>
-  <ul class="equip" aria-label="Equipment"><li><span class="equip__mark" aria-hidden="true"></span>Unity</li></ul>
-  <h3>Skills</h3>
-  <p class="stat-note">A filled bar is a confirmed fact. A locked bar has no confirmed fact yet. This is not a rating.</p>
-  <div class="stat stat--locked"><p class="stat__name">Level design</p><p class="stat__lock"><span class="lock" aria-hidden="true"></span> LOCKED <span class="stat__note">evidence coming</span></p><p class="visually-hidden">Level design is locked. Evidence coming. This is not a rating.</p></div>
-  <div class="stat"><p class="stat__name">Systems</p><div class="stat__track" role="img" aria-label="Systems confirmed: A browser-playable Unity prototype: swap time period, aim and fire a time cannon, double jump and dash.. This is not a rating."><span class="stat__fill"></span></div><p class="stat__fact">A browser-playable Unity prototype: swap time period, aim and fire a time cannon, double jump and dash.</p></div>
-  <div class="stat stat--locked"><p class="stat__name">Collaboration</p><p class="stat__lock"><span class="lock" aria-hidden="true"></span> LOCKED <span class="stat__note">evidence coming</span></p><p class="visually-hidden">Collaboration is locked. Evidence coming. This is not a rating.</p></div>
-  
-  <h3>Pitch</h3>
-  <p class="select-card__pitch">A browser-playable Unity prototype: swap time period, aim and fire a time cannon, double jump and dash.</p>
-  <p class="select-card__actions">
-    <a class="btn btn--primary" href="projects/lit-flux-mechanics-showcase/index.html">START LEVEL<span class="visually-hidden">: LIT_Flux Mechanics Showcase</span></a>
-    <button type="button" class="btn" data-close-card>Close</button>
-  </p>
+  <div class="select-card__layout">
+    <div class="select-card__portrait" aria-hidden="true"><span class="landmark landmark--lit" aria-hidden="true"></span></div>
+    <div class="select-card__main">
+      <p class="select-card__kicker">Character select · Bonus stage</p>
+      <h2 id="card-title-lit-flux-mechanics-showcase">LIT_Flux Mechanics Showcase</h2>
+      
+      <dl class="select-card__facts">
+        <div class="slot-fact"><dt>Role</dt><dd><span class="slot-lock__state">LOCKED · evidence coming</span></dd></div>
+        <div class="slot-fact"><dt>Team</dt><dd><span class="slot-lock__state">LOCKED · evidence coming</span></dd></div>
+        <div class="slot-fact"><dt>Stage</dt><dd>Prototype</dd></div>
+        <div class="slot-fact"><dt>Timeframe</dt><dd>LOCKED · evidence coming</dd></div>
+      </dl>
+      <h3>Tools</h3>
+      <ul class="equip" aria-label="Tools"><li><span class="equip__mark" aria-hidden="true"></span>Unity</li></ul>
+      <h3>Pitch</h3>
+      <p class="select-card__pitch">A browser-playable Unity prototype: swap time period, aim and fire a time cannon, double jump and dash.</p>
+      <p class="select-card__actions">
+        <a class="btn btn--primary" href="projects/lit-flux-mechanics-showcase/index.html">START LEVEL<span class="visually-hidden">: LIT_Flux Mechanics Showcase</span></a>
+        <button type="button" class="btn" data-close-card>Close</button>
+      </p>
+    </div>
+  </div>
 </dialog>
 <dialog class="select-card" id="card-gdt2" aria-labelledby="card-title-gdt2">
-  <p class="select-card__kicker">Character select · Bonus stage</p>
-  <h2 id="card-title-gdt2">GDT2</h2>
-  <dl class="select-card__facts">
-    
-    
-  </dl>
-  <div class="slot-lock"><span class="lock" aria-hidden="true"></span> <span class="slot-lock__name">Role</span> <span class="slot-lock__state">LOCKED</span> <span class="slot-lock__note">evidence coming</span></div>
-  <div class="slot-lock"><span class="lock" aria-hidden="true"></span> <span class="slot-lock__name">Team</span> <span class="slot-lock__state">LOCKED</span> <span class="slot-lock__note">evidence coming</span></div>
-  <h3>Equipment</h3>
-  <ul class="equip" aria-label="Equipment"><li><span class="equip__mark" aria-hidden="true"></span>Unity</li></ul>
-  <h3>Skills</h3>
-  <p class="stat-note">A filled bar is a confirmed fact. A locked bar has no confirmed fact yet. This is not a rating.</p>
-  <div class="stat stat--locked"><p class="stat__name">Level design</p><p class="stat__lock"><span class="lock" aria-hidden="true"></span> LOCKED <span class="stat__note">evidence coming</span></p><p class="visually-hidden">Level design is locked. Evidence coming. This is not a rating.</p></div>
-  <div class="stat stat--locked"><p class="stat__name">Systems</p><p class="stat__lock"><span class="lock" aria-hidden="true"></span> LOCKED <span class="stat__note">evidence coming</span></p><p class="visually-hidden">Systems is locked. Evidence coming. This is not a rating.</p></div>
-  <div class="stat stat--locked"><p class="stat__name">Collaboration</p><p class="stat__lock"><span class="lock" aria-hidden="true"></span> LOCKED <span class="stat__note">evidence coming</span></p><p class="visually-hidden">Collaboration is locked. Evidence coming. This is not a rating.</p></div>
-  
-  <h3>Pitch</h3>
-  <p class="select-card__pitch">A browser-playable Unity prototype on itch.io.</p>
-  <p class="select-card__actions">
-    <a class="btn btn--primary" href="projects/gdt2/index.html">START LEVEL<span class="visually-hidden">: GDT2</span></a>
-    <button type="button" class="btn" data-close-card>Close</button>
-  </p>
+  <div class="select-card__layout">
+    <div class="select-card__portrait" aria-hidden="true"><span class="landmark landmark--gdt" aria-hidden="true"></span></div>
+    <div class="select-card__main">
+      <p class="select-card__kicker">Character select · Bonus stage</p>
+      <h2 id="card-title-gdt2">GDT2</h2>
+      
+      <dl class="select-card__facts">
+        <div class="slot-fact"><dt>Role</dt><dd><span class="slot-lock__state">LOCKED · evidence coming</span></dd></div>
+        <div class="slot-fact"><dt>Team</dt><dd><span class="slot-lock__state">LOCKED · evidence coming</span></dd></div>
+        <div class="slot-fact"><dt>Stage</dt><dd>Prototype</dd></div>
+        <div class="slot-fact"><dt>Timeframe</dt><dd>LOCKED · evidence coming</dd></div>
+      </dl>
+      <h3>Tools</h3>
+      <ul class="equip" aria-label="Tools"><li><span class="equip__mark" aria-hidden="true"></span>Unity</li></ul>
+      <h3>Pitch</h3>
+      <p class="select-card__pitch">A browser-playable Unity prototype on itch.io.</p>
+      <p class="select-card__actions">
+        <a class="btn btn--primary" href="projects/gdt2/index.html">START LEVEL<span class="visually-hidden">: GDT2</span></a>
+        <button type="button" class="btn" data-close-card>Close</button>
+      </p>
+    </div>
+  </div>
 </dialog>
 </section><section id="work" class="section wrap list-panel" aria-labelledby="work-title">
   <h2 id="work-title" class="section__title">List view</h2>
@@ -306,9 +351,9 @@
   <article aria-labelledby="list-ikemen-go">
     <h4 class="card__title" id="list-ikemen-go"><a href="projects/ikemen-go/index.html">IkemanGoAss</a></h4>
     <p class="card__meta">Design project · Ikemen GO</p>
-    <p class="card__tagline">Designed by Tyler Crump. A solo design project in Ikemen GO, the open-source fighting game engine it&#39;s built on. Character and moveset design for The Sword Saint and Unknown, combat systems for their shared moveset, and the Broken Bridge stage.</p>
+    <p class="card__tagline">A solo design project in Ikemen GO, the open-source fighting game engine it&#39;s built on. Character and moveset design for The Sword Saint and Unknown, combat systems for their shared moveset, and the Broken Bridge stage.</p>
     <dl class="card__facts">
-      <div><dt>Role</dt><dd>Designed by Tyler Crump</dd></div>
+      <div><dt>Role</dt><dd>Solo designer</dd></div>
       <div><dt>Team</dt><dd>Solo</dd></div>
     </dl>
     <ul class="tags" aria-label="Disciplines"><li>Fighting game</li><li>Character design</li><li>Combat design</li><li>Stage design</li><li>Ikemen GO</li></ul>
@@ -332,8 +377,8 @@
     <p class="card__meta">Mechanics prototype · Unity · Prototype</p>
     <p class="card__tagline">A browser-playable Unity prototype: swap time period, aim and fire a time cannon, double jump and dash.</p>
     <dl class="card__facts">
-      <div><dt>Role</dt><dd><span class="pending pending--inline"><span class="pending__label">Pending</span> <span class="pending__req">pending: role confirmation</span></span></dd></div>
-      <div><dt>Team</dt><dd><span class="pending pending--inline"><span class="pending__label">Pending</span> <span class="pending__req">pending: role confirmation</span></span></dd></div>
+      <div><dt>Role</dt><dd><span class="pending pending--inline"><span class="pending__label">LOCKED · evidence coming</span></span></dd></div>
+      <div><dt>Team</dt><dd><span class="pending pending--inline"><span class="pending__label">LOCKED · evidence coming</span></span></dd></div>
     </dl>
     <ul class="tags" aria-label="Disciplines"><li>Prototyping</li><li>Gameplay</li></ul>
     <p class="card__links"><a href="projects/lit-flux-mechanics-showcase/index.html">Case study<span class="visually-hidden">: LIT_Flux Mechanics Showcase</span></a><a class="" href="https://crumpyofcl.itch.io/lit-flux-mechanics-showcasae" rel="noopener">Play / itch.io page<span class="visually-hidden">: LIT_Flux Mechanics Showcase</span><span class="visually-hidden"> (opens external site)</span></a><button type="button" class="linklike" data-open-card="lit-flux-mechanics-showcase">Open character card<span class="visually-hidden">: LIT_Flux Mechanics Showcase</span></button></p>
@@ -344,8 +389,8 @@
     <p class="card__meta">Prototype · Unity · Prototype</p>
     <p class="card__tagline">A browser-playable Unity prototype on itch.io.</p>
     <dl class="card__facts">
-      <div><dt>Role</dt><dd><span class="pending pending--inline"><span class="pending__label">Pending</span> <span class="pending__req">pending: role confirmation</span></span></dd></div>
-      <div><dt>Team</dt><dd><span class="pending pending--inline"><span class="pending__label">Pending</span> <span class="pending__req">pending: role confirmation</span></span></dd></div>
+      <div><dt>Role</dt><dd><span class="pending pending--inline"><span class="pending__label">LOCKED · evidence coming</span></span></dd></div>
+      <div><dt>Team</dt><dd><span class="pending pending--inline"><span class="pending__label">LOCKED · evidence coming</span></span></dd></div>
     </dl>
     <ul class="tags" aria-label="Disciplines"><li>Prototyping</li></ul>
     <p class="card__links"><a href="projects/gdt2/index.html">Case study<span class="visually-hidden">: GDT2</span></a><a class="" href="https://crumpyofcl.itch.io/gdt2" rel="noopener">Play / itch.io page<span class="visually-hidden">: GDT2</span><span class="visually-hidden"> (opens external site)</span></a><button type="button" class="linklike" data-open-card="gdt2">Open character card<span class="visually-hidden">: GDT2</span></button></p>
@@ -354,15 +399,15 @@
   <p class="empty" data-empty hidden>No project matches those filters yet. <button type="button" class="linklike" data-clear>Clear filters</button></p>
 </section><section id="skills" class="section wrap" aria-labelledby="skills-title">
   <h2 id="skills-title" class="section__title">Quest log</h2>
-  <p class="section__intro">Unlocked means a project on this site backs it. In progress means Tyler-attested, and the file is not published yet. Locked means evidence coming. A described row in the record below is a written claim, not an unlocked achievement.</p>
-  <ul class="quests" role="list"><li class="quest quest--unlocked"><span class="quest__badge">Unlocked</span><span class="quest__body"><span class="matrix__group">Engines</span> <button type="button" class="linklike matrix__skill" data-skill="Unity 6" data-skill-projects="a-course-in-time">Unity 6</button> <span class="quest__note">Backed by a project on this site.</span><span class="quest__where"><a href="projects/a-course-in-time/index.html">A Course In Time</a></span></span></li><li class="quest quest--unlocked"><span class="quest__badge">Unlocked</span><span class="quest__body"><span class="matrix__group">Engines</span> <button type="button" class="linklike matrix__skill" data-skill="Unity (prototypes)" data-skill-projects="lit-flux-mechanics-showcase gdt2">Unity (prototypes)</button> <span class="quest__note">Backed by a project on this site.</span><span class="quest__where"><a href="projects/lit-flux-mechanics-showcase/index.html">LIT_Flux Mechanics Showcase</a>, <a href="projects/gdt2/index.html">GDT2</a></span></span></li><li class="quest quest--unlocked"><span class="quest__badge">Unlocked</span><span class="quest__body"><span class="matrix__group">Engines</span> <button type="button" class="linklike matrix__skill" data-skill="Unity 2019" data-skill-projects="waking-nightmare">Unity 2019</button> <span class="quest__note">Backed by a project on this site.</span><span class="quest__where"><a href="projects/waking-nightmare/index.html">Waking Nightmare Experience</a></span></span></li><li class="quest quest--progress"><span class="quest__badge">In progress</span><span class="quest__body"><span class="matrix__group">Engines</span> <button type="button" class="linklike matrix__skill" data-skill="Ikemen GO" data-skill-projects="ikemen-go">Ikemen GO</button> <span class="quest__note">Tyler-attested</span><span class="quest__where"><a href="projects/ikemen-go/index.html">IkemanGoAss</a></span></span></li><li class="quest quest--locked"><span class="quest__badge">Locked</span><span class="quest__body"><span class="matrix__group">Engines</span> <span class="matrix__skill">Unreal Engine</span> <span class="quest__note">evidence coming</span></span></li><li class="quest quest--unlocked"><span class="quest__badge">Unlocked</span><span class="quest__body"><span class="matrix__group">Programming</span> <button type="button" class="linklike matrix__skill" data-skill="C#" data-skill-projects="a-course-in-time waking-nightmare">C#</button> <span class="quest__note">Backed by a project on this site.</span><span class="quest__where"><a href="projects/a-course-in-time/index.html">A Course In Time</a>, <a href="projects/waking-nightmare/index.html">Waking Nightmare Experience</a></span></span></li><li class="quest quest--unlocked"><span class="quest__badge">Unlocked</span><span class="quest__body"><span class="matrix__group">Systems</span> <button type="button" class="linklike matrix__skill" data-skill="Gameplay architecture, save/state, procedural generation, physics" data-skill-projects="a-course-in-time">Gameplay architecture, save/state, procedural generation, physics</button> <span class="quest__note">Backed by a project on this site.</span><span class="quest__where"><a href="projects/a-course-in-time/index.html">A Course In Time</a></span></span></li><li class="quest quest--unlocked"><span class="quest__badge">Unlocked</span><span class="quest__body"><span class="matrix__group">Tools</span> <button type="button" class="linklike matrix__skill" data-skill="Custom inspectors, editor windows, Scene-view authoring tools" data-skill-projects="a-course-in-time">Custom inspectors, editor windows, Scene-view authoring tools</button> <span class="quest__note">Backed by a project on this site.</span><span class="quest__where"><a href="projects/a-course-in-time/index.html">A Course In Time</a></span></span></li><li class="quest quest--unlocked"><span class="quest__badge">Unlocked</span><span class="quest__body"><span class="matrix__group">Tools</span> <button type="button" class="linklike matrix__skill" data-skill="Playtest tooling (in-build debug console)" data-skill-projects="a-course-in-time">Playtest tooling (in-build debug console)</button> <span class="quest__note">Backed by a project on this site.</span><span class="quest__where"><a href="projects/a-course-in-time/index.html">A Course In Time</a></span></span></li><li class="quest quest--unlocked"><span class="quest__badge">Unlocked</span><span class="quest__body"><span class="matrix__group">Audio</span> <button type="button" class="linklike matrix__skill" data-skill="FMOD Studio (event design, parameters, runtime)" data-skill-projects="a-course-in-time">FMOD Studio (event design, parameters, runtime)</button> <span class="quest__note">Backed by a project on this site.</span><span class="quest__where"><a href="projects/a-course-in-time/index.html">A Course In Time</a></span></span></li><li class="quest quest--unlocked"><span class="quest__badge">Unlocked</span><span class="quest__body"><span class="matrix__group">Design</span> <button type="button" class="linklike matrix__skill" data-skill="Level design" data-skill-projects="a-course-in-time">Level design</button> <span class="quest__note">Backed by a project on this site.</span><span class="quest__where"><a href="projects/a-course-in-time/index.html">A Course In Time</a></span></span></li><li class="quest quest--progress"><span class="quest__badge">In progress</span><span class="quest__body"><span class="matrix__group">Design</span> <button type="button" class="linklike matrix__skill" data-skill="Character and moveset design" data-skill-projects="ikemen-go">Character and moveset design</button> <span class="quest__note">Tyler-attested</span><span class="quest__where"><a href="projects/ikemen-go/index.html">IkemanGoAss</a></span></span></li><li class="quest quest--progress"><span class="quest__badge">In progress</span><span class="quest__body"><span class="matrix__group">Design</span> <button type="button" class="linklike matrix__skill" data-skill="Combat design" data-skill-projects="ikemen-go">Combat design</button> <span class="quest__note">Tyler-attested</span><span class="quest__where"><a href="projects/ikemen-go/index.html">IkemanGoAss</a></span></span></li><li class="quest quest--progress"><span class="quest__badge">In progress</span><span class="quest__body"><span class="matrix__group">Design</span> <button type="button" class="linklike matrix__skill" data-skill="Stage design" data-skill-projects="ikemen-go">Stage design</button> <span class="quest__note">Tyler-attested</span><span class="quest__where"><a href="projects/ikemen-go/index.html">IkemanGoAss</a></span></span></li><li class="quest quest--unlocked"><span class="quest__badge">Unlocked</span><span class="quest__body"><span class="matrix__group">Design</span> <button type="button" class="linklike matrix__skill" data-skill="Creative direction" data-skill-projects="waking-nightmare">Creative direction</button> <span class="quest__note">Backed by a project on this site.</span><span class="quest__where"><a href="projects/waking-nightmare/index.html">Waking Nightmare Experience</a></span></span></li><li class="quest quest--unlocked"><span class="quest__badge">Unlocked</span><span class="quest__body"><span class="matrix__group">Team</span> <button type="button" class="linklike matrix__skill" data-skill="Client communication" data-skill-projects="waking-nightmare">Client communication</button> <span class="quest__note">Backed by a project on this site.</span><span class="quest__where"><a href="projects/waking-nightmare/index.html">Waking Nightmare Experience</a></span></span></li><li class="quest quest--unlocked"><span class="quest__badge">Unlocked</span><span class="quest__body"><span class="matrix__group">Team</span> <button type="button" class="linklike matrix__skill" data-skill="Team leadership" data-skill-projects="a-course-in-time">Team leadership</button> <span class="quest__note">Backed by a project on this site.</span><span class="quest__where"><a href="projects/a-course-in-time/index.html">A Course In Time</a></span></span></li><li class="quest quest--unlocked"><span class="quest__badge">Unlocked</span><span class="quest__body"><span class="matrix__group">Design</span> <button type="button" class="linklike matrix__skill" data-skill="Mobile-first UX" data-skill-projects="tabi sdcs-booking-app">Mobile-first UX</button> <span class="quest__note">Backed by a project on this site.</span><span class="quest__where"><a href="projects/tabi/index.html">Tabi</a>, <a href="projects/sdcs-booking-app/index.html">SDCS Booking App</a></span></span></li><li class="quest quest--unlocked"><span class="quest__badge">Unlocked</span><span class="quest__body"><span class="matrix__group">Web</span> <button type="button" class="linklike matrix__skill" data-skill="JavaScript, Express, SQLite" data-skill-projects="tabi">JavaScript, Express, SQLite</button> <span class="quest__note">Backed by a project on this site.</span><span class="quest__where"><a href="projects/tabi/index.html">Tabi</a></span></span></li><li class="quest quest--unlocked"><span class="quest__badge">Unlocked</span><span class="quest__body"><span class="matrix__group">Web</span> <button type="button" class="linklike matrix__skill" data-skill="React Native (Expo)" data-skill-projects="sdcs-booking-app">React Native (Expo)</button> <span class="quest__note">Backed by a project on this site.</span><span class="quest__where"><a href="projects/sdcs-booking-app/index.html">SDCS Booking App</a></span></span></li><li class="quest quest--unlocked"><span class="quest__badge">Unlocked</span><span class="quest__body"><span class="matrix__group">Workflow</span> <button type="button" class="linklike matrix__skill" data-skill="Git" data-skill-projects="tabi sdcs-booking-app">Git</button> <span class="quest__note">Backed by a project on this site.</span><span class="quest__where"><a href="projects/tabi/index.html">Tabi</a>, <a href="projects/sdcs-booking-app/index.html">SDCS Booking App</a></span></span></li><li class="quest quest--progress"><span class="quest__badge">In progress</span><span class="quest__body"><span class="matrix__group">Tools</span> <button type="button" class="linklike matrix__skill" data-skill="Fighter Factory Studio" data-skill-projects="ikemen-go">Fighter Factory Studio</button> <span class="quest__note">Tyler-attested</span><span class="quest__where"><a href="projects/ikemen-go/index.html">IkemanGoAss</a></span></span></li><li class="quest quest--progress"><span class="quest__badge">In progress</span><span class="quest__body"><span class="matrix__group">Tools</span> <button type="button" class="linklike matrix__skill" data-skill="Notepad++" data-skill-projects="ikemen-go">Notepad++</button> <span class="quest__note">Tyler-attested</span><span class="quest__where"><a href="projects/ikemen-go/index.html">IkemanGoAss</a></span></span></li><li class="quest quest--progress"><span class="quest__badge">In progress</span><span class="quest__body"><span class="matrix__group">Unity</span> <span class="matrix__skill">Cinemachine, New Input System, controller support</span> <span class="quest__note">Tyler-attested. No single project is attached.</span></span></li><li class="quest quest--progress"><span class="quest__badge">In progress</span><span class="quest__body"><span class="matrix__group">Workflow</span> <span class="matrix__skill">Visual Studio Code</span> <span class="quest__note">Tyler-attested. No single project is attached.</span></span></li><li class="quest quest--progress"><span class="quest__badge">In progress</span><span class="quest__body"><span class="matrix__group">Design</span> <span class="matrix__skill">GoodNotes (design notes and sketching)</span> <span class="quest__note">Tyler-attested. No single project is attached.</span></span></li><li class="quest quest--progress"><span class="quest__badge">In progress</span><span class="quest__body"><span class="matrix__group">Art</span> <span class="matrix__skill">Aseprite (pixel art)</span> <span class="quest__note">Tyler-attested. No single project is attached.</span></span></li><li class="quest quest--locked"><span class="quest__badge">Locked</span><span class="quest__body"><span class="matrix__group">Art</span> <span class="matrix__skill">Blender</span> <span class="quest__note">evidence coming</span></span></li></ul>
+  <p class="section__intro">Unlocked means a recruiter can open the work. In progress means it is described or Tyler-attested, and the artefact is not published yet. Locked means evidence coming.</p>
+  <ul class="quests" role="list"><li class="quest quest--unlocked"><span class="quest__badge">Unlocked</span><span class="quest__body"><span class="matrix__group">Engines</span> <button type="button" class="linklike matrix__skill" data-skill="Unity 6" data-skill-projects="a-course-in-time">Unity 6</button> <span class="quest__note">Backed by a project on this site.</span><span class="quest__where"><a href="projects/a-course-in-time/index.html">A Course In Time</a></span></span></li><li class="quest quest--unlocked"><span class="quest__badge">Unlocked</span><span class="quest__body"><span class="matrix__group">Engines</span> <button type="button" class="linklike matrix__skill" data-skill="Unity (prototypes)" data-skill-projects="lit-flux-mechanics-showcase gdt2">Unity (prototypes)</button> <span class="quest__note">Backed by a project on this site.</span><span class="quest__where"><a href="projects/lit-flux-mechanics-showcase/index.html">LIT_Flux Mechanics Showcase</a>, <a href="projects/gdt2/index.html">GDT2</a></span></span></li><li class="quest quest--unlocked"><span class="quest__badge">Unlocked</span><span class="quest__body"><span class="matrix__group">Engines</span> <button type="button" class="linklike matrix__skill" data-skill="Unity 2019" data-skill-projects="waking-nightmare">Unity 2019</button> <span class="quest__note">Backed by a project on this site.</span><span class="quest__where"><a href="projects/waking-nightmare/index.html">Waking Nightmare Experience</a></span></span></li><li class="quest quest--progress"><span class="quest__badge">In progress</span><span class="quest__body"><span class="matrix__group">Engines</span> <button type="button" class="linklike matrix__skill" data-skill="Ikemen GO" data-skill-projects="ikemen-go">Ikemen GO</button> <span class="quest__note">Tyler-attested</span><span class="quest__where"><a href="projects/ikemen-go/index.html">IkemanGoAss</a></span></span></li><li class="quest quest--locked"><span class="quest__badge">Locked</span><span class="quest__body"><span class="matrix__group">Engines</span> <span class="matrix__skill">Unreal Engine</span> <span class="quest__note">evidence coming</span></span></li><li class="quest quest--unlocked"><span class="quest__badge">Unlocked</span><span class="quest__body"><span class="matrix__group">Programming</span> <button type="button" class="linklike matrix__skill" data-skill="C#" data-skill-projects="a-course-in-time waking-nightmare">C#</button> <span class="quest__note">Backed by a project on this site.</span><span class="quest__where"><a href="projects/a-course-in-time/index.html">A Course In Time</a>, <a href="projects/waking-nightmare/index.html">Waking Nightmare Experience</a></span></span></li><li class="quest quest--progress"><span class="quest__badge">In progress</span><span class="quest__body"><span class="matrix__group">Systems</span> <button type="button" class="linklike matrix__skill" data-skill="Gameplay architecture, save/state, procedural generation, physics" data-skill-projects="a-course-in-time">Gameplay architecture, save/state, procedural generation, physics</button> <span class="quest__note">Described on the project page; artefact not published yet.</span><span class="quest__where"><a href="projects/a-course-in-time/index.html">A Course In Time</a></span></span></li><li class="quest quest--progress"><span class="quest__badge">In progress</span><span class="quest__body"><span class="matrix__group">Tools</span> <button type="button" class="linklike matrix__skill" data-skill="Custom inspectors, editor windows, Scene-view authoring tools" data-skill-projects="a-course-in-time">Custom inspectors, editor windows, Scene-view authoring tools</button> <span class="quest__note">Described on the project page; artefact not published yet.</span><span class="quest__where"><a href="projects/a-course-in-time/index.html">A Course In Time</a></span></span></li><li class="quest quest--progress"><span class="quest__badge">In progress</span><span class="quest__body"><span class="matrix__group">Tools</span> <button type="button" class="linklike matrix__skill" data-skill="Playtest tooling (in-build debug console)" data-skill-projects="a-course-in-time">Playtest tooling (in-build debug console)</button> <span class="quest__note">Described on the project page; artefact not published yet.</span><span class="quest__where"><a href="projects/a-course-in-time/index.html">A Course In Time</a></span></span></li><li class="quest quest--progress"><span class="quest__badge">In progress</span><span class="quest__body"><span class="matrix__group">Audio</span> <button type="button" class="linklike matrix__skill" data-skill="FMOD Studio (event design, parameters, runtime)" data-skill-projects="a-course-in-time">FMOD Studio (event design, parameters, runtime)</button> <span class="quest__note">Described on the project page; artefact not published yet.</span><span class="quest__where"><a href="projects/a-course-in-time/index.html">A Course In Time</a></span></span></li><li class="quest quest--progress"><span class="quest__badge">In progress</span><span class="quest__body"><span class="matrix__group">Design</span> <button type="button" class="linklike matrix__skill" data-skill="Level design" data-skill-projects="a-course-in-time">Level design</button> <span class="quest__note">Described on the project page; artefact not published yet.</span><span class="quest__where"><a href="projects/a-course-in-time/index.html">A Course In Time</a></span></span></li><li class="quest quest--progress"><span class="quest__badge">In progress</span><span class="quest__body"><span class="matrix__group">Design</span> <button type="button" class="linklike matrix__skill" data-skill="Character and moveset design" data-skill-projects="ikemen-go">Character and moveset design</button> <span class="quest__note">Tyler-attested</span><span class="quest__where"><a href="projects/ikemen-go/index.html">IkemanGoAss</a></span></span></li><li class="quest quest--progress"><span class="quest__badge">In progress</span><span class="quest__body"><span class="matrix__group">Design</span> <button type="button" class="linklike matrix__skill" data-skill="Combat design" data-skill-projects="ikemen-go">Combat design</button> <span class="quest__note">Tyler-attested</span><span class="quest__where"><a href="projects/ikemen-go/index.html">IkemanGoAss</a></span></span></li><li class="quest quest--progress"><span class="quest__badge">In progress</span><span class="quest__body"><span class="matrix__group">Design</span> <button type="button" class="linklike matrix__skill" data-skill="Stage design" data-skill-projects="ikemen-go">Stage design</button> <span class="quest__note">Tyler-attested</span><span class="quest__where"><a href="projects/ikemen-go/index.html">IkemanGoAss</a></span></span></li><li class="quest quest--progress"><span class="quest__badge">In progress</span><span class="quest__body"><span class="matrix__group">Design</span> <button type="button" class="linklike matrix__skill" data-skill="Creative direction" data-skill-projects="waking-nightmare">Creative direction</button> <span class="quest__note">Described on the project page; artefact not published yet.</span><span class="quest__where"><a href="projects/waking-nightmare/index.html">Waking Nightmare Experience</a></span></span></li><li class="quest quest--progress"><span class="quest__badge">In progress</span><span class="quest__body"><span class="matrix__group">Team</span> <button type="button" class="linklike matrix__skill" data-skill="Client communication" data-skill-projects="waking-nightmare">Client communication</button> <span class="quest__note">Described on the project page; artefact not published yet.</span><span class="quest__where"><a href="projects/waking-nightmare/index.html">Waking Nightmare Experience</a></span></span></li><li class="quest quest--progress"><span class="quest__badge">In progress</span><span class="quest__body"><span class="matrix__group">Team</span> <button type="button" class="linklike matrix__skill" data-skill="Team leadership" data-skill-projects="a-course-in-time">Team leadership</button> <span class="quest__note">Described on the project page; artefact not published yet.</span><span class="quest__where"><a href="projects/a-course-in-time/index.html">A Course In Time</a></span></span></li><li class="quest quest--unlocked"><span class="quest__badge">Unlocked</span><span class="quest__body"><span class="matrix__group">Design</span> <button type="button" class="linklike matrix__skill" data-skill="Mobile-first UX" data-skill-projects="tabi sdcs-booking-app">Mobile-first UX</button> <span class="quest__note">Backed by a project on this site.</span><span class="quest__where"><a href="projects/tabi/index.html">Tabi</a>, <a href="projects/sdcs-booking-app/index.html">SDCS Booking App</a></span></span></li><li class="quest quest--unlocked"><span class="quest__badge">Unlocked</span><span class="quest__body"><span class="matrix__group">Web</span> <button type="button" class="linklike matrix__skill" data-skill="JavaScript, Express, SQLite" data-skill-projects="tabi">JavaScript, Express, SQLite</button> <span class="quest__note">Backed by a project on this site.</span><span class="quest__where"><a href="projects/tabi/index.html">Tabi</a></span></span></li><li class="quest quest--unlocked"><span class="quest__badge">Unlocked</span><span class="quest__body"><span class="matrix__group">Web</span> <button type="button" class="linklike matrix__skill" data-skill="React Native (Expo)" data-skill-projects="sdcs-booking-app">React Native (Expo)</button> <span class="quest__note">Backed by a project on this site.</span><span class="quest__where"><a href="projects/sdcs-booking-app/index.html">SDCS Booking App</a></span></span></li><li class="quest quest--unlocked"><span class="quest__badge">Unlocked</span><span class="quest__body"><span class="matrix__group">Workflow</span> <button type="button" class="linklike matrix__skill" data-skill="Git" data-skill-projects="sdcs-booking-app">Git</button> <span class="quest__note">Backed by a project on this site.</span><span class="quest__where"><a href="projects/sdcs-booking-app/index.html">SDCS Booking App (public repo)</a></span></span></li><li class="quest quest--progress"><span class="quest__badge">In progress</span><span class="quest__body"><span class="matrix__group">Tools</span> <button type="button" class="linklike matrix__skill" data-skill="Fighter Factory Studio" data-skill-projects="ikemen-go">Fighter Factory Studio</button> <span class="quest__note">Tyler-attested</span><span class="quest__where"><a href="projects/ikemen-go/index.html">IkemanGoAss</a></span></span></li><li class="quest quest--progress"><span class="quest__badge">In progress</span><span class="quest__body"><span class="matrix__group">Tools</span> <button type="button" class="linklike matrix__skill" data-skill="Notepad++" data-skill-projects="ikemen-go">Notepad++</button> <span class="quest__note">Tyler-attested</span><span class="quest__where"><a href="projects/ikemen-go/index.html">IkemanGoAss</a></span></span></li><li class="quest quest--progress"><span class="quest__badge">In progress</span><span class="quest__body"><span class="matrix__group">Unity</span> <span class="matrix__skill">Cinemachine, New Input System, controller support</span> <span class="quest__note">Tyler-attested. No single project is attached.</span></span></li><li class="quest quest--progress"><span class="quest__badge">In progress</span><span class="quest__body"><span class="matrix__group">Workflow</span> <span class="matrix__skill">Visual Studio Code</span> <span class="quest__note">Tyler-attested. No single project is attached.</span></span></li><li class="quest quest--progress"><span class="quest__badge">In progress</span><span class="quest__body"><span class="matrix__group">Design</span> <span class="matrix__skill">GoodNotes (design notes and sketching)</span> <span class="quest__note">Tyler-attested. No single project is attached.</span></span></li><li class="quest quest--progress"><span class="quest__badge">In progress</span><span class="quest__body"><span class="matrix__group">Art</span> <span class="matrix__skill">Aseprite (pixel art)</span> <span class="quest__note">Tyler-attested. No single project is attached.</span></span></li><li class="quest quest--locked"><span class="quest__badge">Locked</span><span class="quest__body"><span class="matrix__group">Art</span> <span class="matrix__skill">Blender</span> <span class="quest__note">evidence coming</span></span></li></ul>
 </section><section id="evidence" class="section wrap" aria-labelledby="evidence-title">
   <h2 id="evidence-title" class="section__title">Design record</h2>
   <p class="section__intro">What each design skill is backed by. <strong>Evidenced</strong> means you can open it. <strong>Described</strong> means it is written here and the artefact is not public. <strong>Pending</strong> means the work is still to come. 3 evidenced · 11 described · 3 pending.</p>
-  <ul class="quests" role="list"><li class="quest quest--described"><span class="quest__badge">Described</span><span class="quest__body"><span class="quest__name">Systems and gameplay design</span> <span class="status status--stated">Described</span> <a href="projects/a-course-in-time/index.html">A Course In Time</a> <span class="quest__note">Era system, puzzle generators, save ledger (my description).</span></span></li><li class="quest quest--unlocked"><span class="quest__badge">Unlocked</span><span class="quest__body"><span class="quest__name">Prototyping</span> <span class="status status--evidenced">Evidenced</span> <a href="projects/lit-flux-mechanics-showcase/index.html">LIT_Flux Mechanics Showcase</a> <span class="quest__note">Browser-playable prototypes on itch.io.</span></span></li><li class="quest quest--described"><span class="quest__badge">Described</span><span class="quest__body"><span class="quest__name">Playtest support</span> <span class="status status--stated">Described</span> <a href="projects/a-course-in-time/index.html">A Course In Time</a> <span class="quest__note">In-build debug console for playtesters.</span></span></li><li class="quest quest--described"><span class="quest__badge">Described</span><span class="quest__body"><span class="quest__name">Iterating in small steps</span> <span class="status status--stated">Described</span> <a href="projects/tabi/index.html">Tabi</a> <span class="quest__note">60 pull requests over eight days (57 merged), named on the case study. The repository is private, so those pull requests are not publicly openable.</span></span></li><li class="quest quest--locked"><span class="quest__badge">Locked</span><span class="quest__body"><span class="quest__name">Playtest design and analysis</span> <span class="status status--pending">Pending</span>  <span class="quest__note">Needs a playtest plan and findings.</span></span></li><li class="quest quest--described"><span class="quest__badge">Described</span><span class="quest__body"><span class="quest__name">Level design (paper, greybox, flow)</span> <span class="status status--stated">Described</span> <a href="projects/a-course-in-time/index.html">A Course In Time</a> <span class="quest__note">One of my main areas on A Course In Time; level maps and greybox captures still to add.</span></span></li><li class="quest quest--described"><span class="quest__badge">Described</span><span class="quest__body"><span class="quest__name">Character and moveset design</span> <span class="status status--stated">Described</span> <a href="projects/ikemen-go/index.html">IkemanGoAss</a> <span class="quest__note">The Sword Saint, and Unknown, a mirror fighter on the same moveset. Designed by Tyler Crump. Sprite sheet and GIFs are not published.</span></span></li><li class="quest quest--described"><span class="quest__badge">Described</span><span class="quest__body"><span class="quest__name">Combat design</span> <span class="status status--stated">Described</span> <a href="projects/ikemen-go/index.html">IkemanGoAss</a> <span class="quest__note">7 moves: 4 normals, a two-projectile lightning special, a meter-gated super, a back dash, plus block, a timed perfect block, and a stamina system. No clip is published.</span></span></li><li class="quest quest--described"><span class="quest__badge">Described</span><span class="quest__body"><span class="quest__name">Stage design</span> <span class="status status--stated">Described</span> <a href="projects/ikemen-go/index.html">IkemanGoAss</a> <span class="quest__note">Broken Bridge, a 6-layer storm bridge stage with animated lightning and rain. No screenshot is published.</span></span></li><li class="quest quest--described"><span class="quest__badge">Described</span><span class="quest__body"><span class="quest__name">Player experience / UX</span> <span class="status status--stated">Described</span> <a href="projects/tabi/index.html">Tabi</a> <span class="quest__note">UX decisions for a live invite-only app are written up on its case study. The public sign-in page can be opened; screens behind it are not public. Game playtest evidence is still pending.</span></span></li><li class="quest quest--locked"><span class="quest__badge">Locked</span><span class="quest__body"><span class="quest__name">Design documentation</span> <span class="status status--pending">Pending</span>  <span class="quest__note">Needs a GDD, proposal or playtest report.</span></span></li><li class="quest quest--described"><span class="quest__badge">Described</span><span class="quest__body"><span class="quest__name">Team collaboration</span> <span class="status status--stated">Described</span> <a href="projects/waking-nightmare/index.html">Waking Nightmare Experience</a> <span class="quest__note">Creative Director, programmer and client liaison on a five-person client project.</span></span></li><li class="quest quest--described"><span class="quest__badge">Described</span><span class="quest__body"><span class="quest__name">Client / stakeholder communication</span> <span class="status status--stated">Described</span> <a href="projects/waking-nightmare/index.html">Waking Nightmare Experience</a> <span class="quest__note">Regular meetings and email with the client.</span></span></li><li class="quest quest--unlocked"><span class="quest__badge">Unlocked</span><span class="quest__body"><span class="quest__name">Unity 6 and C#</span> <span class="status status--evidenced">Evidenced</span> <a href="projects/a-course-in-time/index.html">A Course In Time</a> <span class="quest__note">Playable Unity build; C# systems described.</span></span></li><li class="quest quest--described"><span class="quest__badge">Described</span><span class="quest__body"><span class="quest__name">Audio implementation (FMOD Studio)</span> <span class="status status--stated">Described</span> <a href="projects/a-course-in-time/index.html">A Course In Time</a> <span class="quest__note">FMOD listed for A Course In Time.</span></span></li><li class="quest quest--unlocked"><span class="quest__badge">Unlocked</span><span class="quest__body"><span class="quest__name">Version control (Git)</span> <span class="status status--evidenced">Evidenced</span> <a href="projects/sdcs-booking-app/index.html">SDCS Booking App</a> <span class="quest__note">Public source repository for the SDCS booking app.</span></span></li><li class="quest quest--locked"><span class="quest__badge">Locked</span><span class="quest__body"><span class="quest__name">Agile / production practice</span> <span class="status status--pending">Pending</span>  <span class="quest__note">Needs sprint boards, stand-up notes or milestone plans.</span></span></li></ul>
+  <ul class="quests" role="list"><li class="quest quest--described"><span class="quest__badge">Described</span><span class="quest__body"><span class="quest__name">Systems and gameplay design</span> <span class="status status--stated">Described</span> <a href="projects/a-course-in-time/index.html">A Course In Time</a> <span class="quest__note">Era system, puzzle generators, save ledger (my description).</span></span></li><li class="quest quest--unlocked"><span class="quest__badge">Unlocked</span><span class="quest__body"><span class="quest__name">Prototyping</span> <span class="status status--evidenced">Evidenced</span> <a href="projects/lit-flux-mechanics-showcase/index.html">LIT_Flux Mechanics Showcase</a> <span class="quest__note">Browser-playable prototypes on itch.io.</span></span></li><li class="quest quest--described"><span class="quest__badge">Described</span><span class="quest__body"><span class="quest__name">Playtest support</span> <span class="status status--stated">Described</span> <a href="projects/a-course-in-time/index.html">A Course In Time</a> <span class="quest__note">In-build debug console for playtesters.</span></span></li><li class="quest quest--described"><span class="quest__badge">Described</span><span class="quest__body"><span class="quest__name">Iterating in small steps</span> <span class="status status--stated">Described</span> <a href="projects/tabi/index.html">Tabi</a> <span class="quest__note">60 pull requests over eight days (57 merged), named on the case study. The repository is private, so those pull requests are not publicly openable.</span></span></li><li class="quest quest--locked"><span class="quest__badge">Locked</span><span class="quest__body"><span class="quest__name">Playtest design and analysis</span> <span class="status status--pending">Pending</span>  <span class="quest__note">Needs a playtest plan and findings.</span></span></li><li class="quest quest--described"><span class="quest__badge">Described</span><span class="quest__body"><span class="quest__name">Level design (paper, greybox, flow)</span> <span class="status status--stated">Described</span> <a href="projects/a-course-in-time/index.html">A Course In Time</a> <span class="quest__note">One of my main areas on A Course In Time; level maps and greybox captures still to add.</span></span></li><li class="quest quest--described"><span class="quest__badge">Described</span><span class="quest__body"><span class="quest__name">Character and moveset design</span> <span class="status status--stated">Described</span> <a href="projects/ikemen-go/index.html">IkemanGoAss</a> <span class="quest__note">The Sword Saint, and Unknown, a mirror fighter on the same moveset. Sprite sheet and GIFs are not published.</span></span></li><li class="quest quest--described"><span class="quest__badge">Described</span><span class="quest__body"><span class="quest__name">Combat design</span> <span class="status status--stated">Described</span> <a href="projects/ikemen-go/index.html">IkemanGoAss</a> <span class="quest__note">7 moves: 4 normals, a two-projectile lightning special, a meter-gated super, a back dash, plus block, a timed perfect block, and a stamina system. No clip is published.</span></span></li><li class="quest quest--described"><span class="quest__badge">Described</span><span class="quest__body"><span class="quest__name">Stage design</span> <span class="status status--stated">Described</span> <a href="projects/ikemen-go/index.html">IkemanGoAss</a> <span class="quest__note">Broken Bridge, a 6-layer storm bridge stage with animated lightning and rain. No screenshot is published.</span></span></li><li class="quest quest--described"><span class="quest__badge">Described</span><span class="quest__body"><span class="quest__name">Player experience / UX</span> <span class="status status--stated">Described</span> <a href="projects/tabi/index.html">Tabi</a> <span class="quest__note">UX decisions for a live invite-only app are written up on its case study. The public sign-in page can be opened; screens behind it are not public. Game playtest evidence is still pending.</span></span></li><li class="quest quest--locked"><span class="quest__badge">Locked</span><span class="quest__body"><span class="quest__name">Design documentation</span> <span class="status status--pending">Pending</span>  <span class="quest__note">Needs a GDD, proposal or playtest report.</span></span></li><li class="quest quest--described"><span class="quest__badge">Described</span><span class="quest__body"><span class="quest__name">Team collaboration</span> <span class="status status--stated">Described</span> <a href="projects/waking-nightmare/index.html">Waking Nightmare Experience</a> <span class="quest__note">Creative Director, programmer and client liaison on a five-person client project.</span></span></li><li class="quest quest--described"><span class="quest__badge">Described</span><span class="quest__body"><span class="quest__name">Client / stakeholder communication</span> <span class="status status--stated">Described</span> <a href="projects/waking-nightmare/index.html">Waking Nightmare Experience</a> <span class="quest__note">Regular meetings and email with the client.</span></span></li><li class="quest quest--unlocked"><span class="quest__badge">Unlocked</span><span class="quest__body"><span class="quest__name">Unity 6 and C#</span> <span class="status status--evidenced">Evidenced</span> <a href="projects/a-course-in-time/index.html">A Course In Time</a> <span class="quest__note">Playable Unity build; C# systems described.</span></span></li><li class="quest quest--described"><span class="quest__badge">Described</span><span class="quest__body"><span class="quest__name">Audio implementation (FMOD Studio)</span> <span class="status status--stated">Described</span> <a href="projects/a-course-in-time/index.html">A Course In Time</a> <span class="quest__note">FMOD listed for A Course In Time.</span></span></li><li class="quest quest--unlocked"><span class="quest__badge">Unlocked</span><span class="quest__body"><span class="quest__name">Version control (Git)</span> <span class="status status--evidenced">Evidenced</span> <a href="projects/sdcs-booking-app/index.html">SDCS Booking App</a> <span class="quest__note">Public source repository for the SDCS booking app.</span></span></li><li class="quest quest--locked"><span class="quest__badge">Locked</span><span class="quest__body"><span class="quest__name">Agile / production practice</span> <span class="status status--pending">Pending</span>  <span class="quest__note">Needs sprint boards, stand-up notes or milestone plans.</span></span></li></ul>
 </section><section id="method" class="section wrap" aria-labelledby="method-title">
   <h2 id="method-title" class="section__title">How I work</h2>
-  <ol class="method"><li class="method__step"><h3><span class="method__n" aria-hidden="true">1</span> Research</h3><p>Find out what players and the brief actually need before building.</p><div class="method__ex"><span class="method__exlabel">From my work</span> <span class="pending pending--inline"><span class="pending__label">Evidence pending</span> <span class="pending__req">One real example of research that shaped a design (e.g. reference study, player interviews).</span></span></div></li><li class="method__step"><h3><span class="method__n" aria-hidden="true">2</span> Prototype</h3><p>Get the idea into something playable as cheaply as possible.</p><div class="method__ex"><span class="method__exlabel">From my work</span> LIT_Flux Mechanics Showcase and GDT2 are browser-playable Unity prototypes on my itch.io page.</div></li><li class="method__step"><h3><span class="method__n" aria-hidden="true">3</span> Test</h3><p>Put it in front of players and watch what they do.</p><div class="method__ex"><span class="method__exlabel">From my work</span> Built an in-build debug console for playtesters on A Course In Time — noclip, ability grants, scene jumps and objective control without an editor.</div></li><li class="method__step"><h3><span class="method__n" aria-hidden="true">4</span> Analyse</h3><p>Turn observations into findings, and findings into a decision.</p><div class="method__ex"><span class="method__exlabel">From my work</span> <span class="pending pending--inline"><span class="pending__label">Evidence pending</span> <span class="pending__req">One playtest finding and the analysis behind it.</span></span></div></li><li class="method__step"><h3><span class="method__n" aria-hidden="true">5</span> Iterate</h3><p>Change the design, then check the change did what it was meant to.</p><div class="method__ex"><span class="method__exlabel">From my work</span> <span class="pending pending--inline"><span class="pending__label">Evidence pending</span> <span class="pending__req">One before/after change with the reason for it.</span></span></div></li></ol>
+  <ol class="method"><li class="method__step"><h3><span class="method__n" aria-hidden="true">1</span> Research</h3><p>Find out what players and the brief actually need before building.</p><div class="method__ex"><span class="method__exlabel">From my work</span> <span class="pending pending--inline"><span class="pending__label">Coming soon: Research</span></span></div></li><li class="method__step"><h3><span class="method__n" aria-hidden="true">2</span> Prototype</h3><p>Get the idea into something playable as cheaply as possible.</p><div class="method__ex"><span class="method__exlabel">From my work</span> LIT_Flux Mechanics Showcase and GDT2 are browser-playable Unity prototypes on my itch.io page.</div></li><li class="method__step"><h3><span class="method__n" aria-hidden="true">3</span> Test</h3><p>Put it in front of players and watch what they do.</p><div class="method__ex"><span class="method__exlabel">From my work</span> Built an in-build debug console for playtesters on A Course In Time — noclip, ability grants, scene jumps and objective control without an editor.</div></li><li class="method__step"><h3><span class="method__n" aria-hidden="true">4</span> Analyse</h3><p>Turn observations into findings, and findings into a decision.</p><div class="method__ex"><span class="method__exlabel">From my work</span> <span class="pending pending--inline"><span class="pending__label">Coming soon: Analyse</span></span></div></li><li class="method__step"><h3><span class="method__n" aria-hidden="true">5</span> Iterate</h3><p>Change the design, then check the change did what it was meant to.</p><div class="method__ex"><span class="method__exlabel">From my work</span> <span class="pending pending--inline"><span class="pending__label">Coming soon: Iterate</span></span></div></li></ol>
   <div class="loop-explainer">
     <h3>How decisions are written up here</h3>
     <p>Every design decision on a project page follows the same chain. Links I can't back up yet stay empty and marked, rather than being filled in.</p>
@@ -371,14 +416,14 @@
 </section><section id="docs" class="section wrap" aria-labelledby="docs-title">
   <h2 id="docs-title" class="section__title">Documentation</h2>
   <p class="section__intro">Design writing I'll publish here. Each opens to a preview.</p>
-  <ul class="docs" role="list"><li><details class="doc"><summary><span class="doc__title">Game design document</span> <span class="status status--pending">Pending</span></summary><div class="doc__body"><div class="pending"><span class="pending__label">Evidence pending</span> <span class="pending__req">A GDD (or excerpt) for A Course In Time — 2–4 pages as PDF or images.</span></div></div></details></li><li><details class="doc"><summary><span class="doc__title">Level design document / level maps</span> <span class="status status--pending">Pending</span></summary><div class="doc__body"><div class="pending"><span class="pending__label">Evidence pending</span> <span class="pending__req">Level maps or a level design doc showing flow and mechanic introduction.</span></div></div></details></li><li><details class="doc"><summary><span class="doc__title">Playtest plan and report</span> <span class="status status--pending">Pending</span></summary><div class="doc__body"><div class="pending"><span class="pending__label">Evidence pending</span> <span class="pending__req">A playtest plan (research question, method) and the resulting findings.</span></div></div></details></li><li><details class="doc"><summary><span class="doc__title">Pitch or proposal</span> <span class="status status--pending">Pending</span></summary><div class="doc__body"><div class="pending"><span class="pending__label">Evidence pending</span> <span class="pending__req">A pitch deck or written proposal you authored or co-authored.</span></div></div></details></li><li><details class="doc"><summary><span class="doc__title">Presentation</span> <span class="status status--pending">Pending</span></summary><div class="doc__body"><div class="pending"><span class="pending__label">Evidence pending</span> <span class="pending__req">Slides from a milestone or post-mortem presentation.</span></div></div></details></li><li><details class="doc"><summary><span class="doc__title">Technical design notes</span> <span class="status status--pending">Pending</span></summary><div class="doc__body"><div class="pending"><span class="pending__label">Evidence pending</span> <span class="pending__req">Notes or diagrams for the era system, save ledger or puzzle generators.</span></div></div></details></li></ul>
+  <ul class="docs" role="list"><li><details class="doc"><summary><span class="doc__title">Game design document</span> <span class="status status--pending">Pending</span></summary><div class="doc__body"><div class="pending"><span class="pending__label">Coming soon: Game design document</span></div></div></details></li><li><details class="doc"><summary><span class="doc__title">Level design document / level maps</span> <span class="status status--pending">Pending</span></summary><div class="doc__body"><div class="pending"><span class="pending__label">Coming soon: Level design document / level maps</span></div></div></details></li><li><details class="doc"><summary><span class="doc__title">Playtest plan and report</span> <span class="status status--pending">Pending</span></summary><div class="doc__body"><div class="pending"><span class="pending__label">Coming soon: Playtest plan and report</span></div></div></details></li><li><details class="doc"><summary><span class="doc__title">Pitch or proposal</span> <span class="status status--pending">Pending</span></summary><div class="doc__body"><div class="pending"><span class="pending__label">Coming soon: Pitch or proposal</span></div></div></details></li><li><details class="doc"><summary><span class="doc__title">Presentation</span> <span class="status status--pending">Pending</span></summary><div class="doc__body"><div class="pending"><span class="pending__label">Coming soon: Presentation</span></div></div></details></li><li><details class="doc"><summary><span class="doc__title">Technical design notes</span> <span class="status status--pending">Pending</span></summary><div class="doc__body"><div class="pending"><span class="pending__label">Coming soon: Technical design notes</span></div></div></details></li></ul>
 </section><section id="journal" class="section wrap" aria-labelledby="journal-title">
   <h2 id="journal-title" class="section__title">Designer's journal</h2>
   <p class="section__intro">What didn't work, and what I did about it. Each entry uses the same four questions. Nothing is filled in until there is a real entry.</p>
-  <div class="journal"><article class="journal__entry journal__entry--pending" aria-label="Journal entry 1, evidence pending"><ol class="journal__qs"><li>What I tried</li><li>Why it failed</li><li>What I learned</li><li>What I changed</li></ol><div class="pending"><span class="pending__label">Evidence pending</span> <span class="pending__req">What I tried / Why it failed / What I learned / What I changed — one real entry from any project.</span></div></article><article class="journal__entry journal__entry--pending" aria-label="Journal entry 2, evidence pending"><ol class="journal__qs"><li>What I tried</li><li>Why it failed</li><li>What I learned</li><li>What I changed</li></ol><div class="pending"><span class="pending__label">Evidence pending</span> <span class="pending__req">A second entry: something a playtest or teammate showed you that changed your mind.</span></div></article></div>
+  <div class="journal"><article class="journal__entry journal__entry--pending" aria-label="Journal entry 1, evidence pending"><ol class="journal__qs"><li>What I tried</li><li>Why it failed</li><li>What I learned</li><li>What I changed</li></ol><div class="pending"><span class="pending__label">Coming soon: Journal entry</span></div></article><article class="journal__entry journal__entry--pending" aria-label="Journal entry 2, evidence pending"><ol class="journal__qs"><li>What I tried</li><li>Why it failed</li><li>What I learned</li><li>What I changed</li></ol><div class="pending"><span class="pending__label">Coming soon: Journal entry</span></div></article></div>
 </section><section id="save" class="section wrap save-file" aria-labelledby="save-title">
   <h2 id="save-title" class="section__title">Save file</h2>
-  <p class="section__intro">The short version for a recruiter. The role line is the confirmed one. The title screen uses a separate subtitle.</p>
+  <p class="section__intro">The short version: who I am, what I'm looking for, and how to reach me.</p>
   <div class="save-grid">
     <div>
       <p class="save-file__name">Tyler Crump</p>
@@ -407,12 +452,12 @@
     <div>
       <h3 class="section__title">About</h3>
       <p>I like games where the rules are the level. My flagship project, A Course In Time, is a puzzle-platformer about one building across time — so most of what I&#39;ve built is the machinery underneath: the switch between eras, the generators that make puzzles, the save system that remembers them, and the tools that let other people test them.</p>
-      <div class="pending"><span class="pending__label">Evidence pending</span> <span class="pending__req">Degree, institution and expected completion — only if you want it public.</span></div>
-      <div class="pending"><span class="pending__label">Evidence pending</span> <span class="pending__req">One or two sentences about what you play or what got you into design (optional).</span></div>
+      <div class="pending"><span class="pending__label">Coming soon: this</span></div>
+      <div class="pending"><span class="pending__label">Coming soon: this</span></div>
     </div>
     <div id="resume">
       <h3 class="section__title">CV file</h3>
-      <div class="pending"><span class="pending__label">Evidence pending</span> <span class="pending__req">A one-page CV as PDF (public/cv.pdf) plus a 3–5 line preview. Remove personal phone/address first.</span></div>
+      <p>CV not published here yet. For now, email me at <a href="mailto:tylercrump@outlook.com.au">tylercrump@outlook.com.au</a>.</p>
     </div>
   </div>
 </section><section id="contact" class="section wrap continue" aria-labelledby="contact-title">
@@ -434,7 +479,7 @@
   </div>
 </footer>
 <nav class="mobilebar" aria-label="Sections"><ul>
-  <li><a href="#map">Map</a></li><li><a href="#work">List</a></li><li><a href="#skills">Quests</a></li><li><a href="#contact">Continue?</a></li></ul></nav>
-<script src="assets/app.js" defer></script>
+  <li><a href="#map">Map</a></li><li><a href="#work">List</a></li><li><a href="#save">Recruiter</a></li><li><a href="#contact">Contact</a></li></ul></nav>
+<script src="assets/app.js?v=63f4841a03" defer></script>
 </body>
 </html>

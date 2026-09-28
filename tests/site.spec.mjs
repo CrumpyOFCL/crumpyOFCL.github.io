@@ -31,10 +31,11 @@ test('title screen shows, then yields to the map', async ({ page }) => {
   await page.goto('/');
   await expect(page.locator('#title-screen')).toBeVisible();
   await expect(page.locator('.pixel-logo')).toHaveAttribute('aria-label', 'Tyler Crump');
-  await expect(page.locator('.title-screen__sub')).toHaveText('Game / Level / Gameplay Designer');
+  await expect(page.locator('.title-screen__sub')).toHaveText('Game designer · gameplay and tools');
   await expect(page.locator('.press-start')).toHaveText('PRESS START');
-  await expect(page.locator('.recruiter-skip')).toBeVisible();
-  await page.clock.fastForward(2500);
+  await expect(page.locator('.title-hotel')).toBeVisible();
+  await expect(page.locator('.recruiter-skip')).toHaveText('Recruiter view: projects and contact');
+  await page.clock.fastForward(3000);
   await expect(page.locator('#title-screen')).toBeHidden();
   await expect(page.locator('#map')).toBeVisible();
   await expect(page.locator('#node-a-course-in-time')).toBeVisible();
@@ -79,9 +80,21 @@ test('keyboard walks the path and opens a character card', async ({ page }) => {
   await expect(card).toContainText('Team of 5');
   await expect(card).toContainText('LOCKED');
   await expect(card).toContainText('evidence coming');
-  await expect(card).toContainText('not a rating');
+  await expect(card).toContainText('Stage');
+  await expect(card).toContainText('Timeframe');
+  await expect(card.locator('.stat__fill')).toHaveCount(0);
   await card.getByRole('link', { name: /START LEVEL/ }).click();
   await expect(page).toHaveURL(/waking-nightmare/);
+});
+
+test('masthead List link opens the list', async ({ page }) => {
+  await page.goto('/#map');
+  await page.locator('a[href="#work"]').first().click();
+  await expect(page.locator('#work')).toBeVisible();
+  await expect(page.locator('#work-title')).toBeFocused();
+  for (const slug of ['a-course-in-time', 'waking-nightmare', 'tabi', 'ikemen-go', 'sdcs-booking-app', 'lit-flux-mechanics-showcase', 'gdt2']) {
+    await expect(page.locator(`#work a[href*="${slug}"]`).first()).toBeVisible();
+  }
 });
 
 test('list view reaches every level, including a locked experiment card', async ({ page }) => {
@@ -107,8 +120,10 @@ test('flagship card uses confirmed facts and not a score', async ({ page }) => {
   await expect(card).toContainText('Team lead — mainly audio, coding and level design');
   await expect(card).toContainText('Team of 5');
   await expect(card).toContainText('Unity 6');
-  await expect(card).toContainText('Time Switch');
-  await expect(card).toContainText('not a rating');
+  await expect(card).toContainText('Switch time');
+  await expect(card).toContainText('In development (playable build on itch.io)');
+  await expect(card).toContainText('LOCKED · dates coming');
+  await expect(card.locator('.stat__fill')).toHaveCount(0);
   await expect(card).not.toContainText('%');
 });
 
@@ -116,11 +131,11 @@ test('case study keeps every section, with checkpoints and a way back to the map
   await page.goto('/projects/a-course-in-time/index.html');
   await expect(page.locator('#overview')).toBeVisible();
   await expect(page.locator('#decisions')).toBeVisible();
-  await expect(page.locator('#level')).toBeVisible();
-  await expect(page.locator('#gaps')).toBeVisible();
+  await expect(page.locator('#role')).toBeVisible();
+  await expect(page.locator('#still')).toBeVisible();
   await expect(page.locator('.cs-section__cp').first()).toContainText('Checkpoint');
-  await page.locator('a[href="#level"]').click();
-  await expect(page.locator('a[href="#level"]')).toHaveAttribute('aria-current', 'true');
+  await page.locator('a[href="#what"]').click();
+  await expect(page.locator('a[href="#what"]')).toHaveAttribute('aria-current', 'true');
   await expect(page.getByRole('link', { name: '← Back to map' })).toHaveAttribute('href', /#map$/);
 });
 
@@ -142,7 +157,7 @@ test('ikemen go page states the confirmed work and leaves the rest pending', asy
   await expect(page.locator('#media .media-frame--gif')).toHaveCount(2);
   await expect(page.locator('#media .media-frame--stage')).toHaveCount(1);
   await expect(page.locator('#media .media-frame--clip')).toHaveCount(1);
-  await expect(page.locator('#media')).toContainText('Evidence pending');
+  await expect(page.locator('#media')).toContainText('Coming soon');
   await expect(page.locator('#level')).toBeVisible();
   await expect(page.locator('#level')).toContainText('Broken Bridge');
   await expect(page.locator('#level')).toContainText('animated lightning and rain');
@@ -185,6 +200,7 @@ test('filters, skill filter, reset and empty state', async ({ page }) => {
 
 test('iteration tabs, compare slider and era diagram', async ({ page }) => {
   await page.goto('/projects/a-course-in-time/index.html');
+  await page.locator('#still-title').click();
   const tabs = page.locator('#iterations [role="tab"]');
   await expect(tabs).toHaveCount(4);
   await tabs.nth(0).focus();
@@ -217,7 +233,7 @@ test('disclosures open from the keyboard', async ({ page }) => {
   await doc.locator('summary').focus();
   await page.keyboard.press('Enter');
   await expect(doc).toHaveAttribute('open', '');
-  await expect(doc).toContainText('Evidence pending');
+  await expect(doc).toContainText('Coming soon');
 });
 
 test('keyboard path reaches a case study and contact without a mouse', async ({ page }) => {
@@ -235,9 +251,14 @@ test('keyboard path reaches a case study and contact without a mouse', async ({ 
   await expect(page.locator('#contact')).toBeInViewport();
 });
 
-test('reduced motion shows the map immediately, with no blink, wipe or bob', async ({ page }) => {
+test('reduced motion shows a static title, then the map, with no blink or walk', async ({ page }) => {
+  await page.clock.install();
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/');
+  await expect(page.locator('#title-screen')).toBeVisible();
+  const blink = await page.locator('.press-start').evaluate(el => getComputedStyle(el).animationName);
+  expect(blink === 'none').toBeTruthy();
+  await page.clock.fastForward(3000);
   await expect(page.locator('#title-screen')).toBeHidden();
   await expect(page.locator('#map')).toBeVisible();
   const avatar = await page.locator('.avatar').evaluate(el => getComputedStyle(el).animationName);
@@ -280,18 +301,29 @@ test('axe character card and reduced-motion home', async ({ page }) => {
 });
 
 test('screenshots at review widths', async ({ page }) => {
-  test.setTimeout(180000);
+  test.setTimeout(300000);
   await page.clock.install();
-  const widths = [375, 768, 1280, 1440];
+  const widths = [375, 700, 768, 800, 1280, 1440];
   for (const width of widths) {
-    await page.setViewportSize({ width, height: 900 });
+    await page.setViewportSize({ width, height: width === 375 ? 812 : 900 });
     await page.goto('/');
-    await page.locator('.press-start').evaluate(el => { el.style.animation = 'none'; });
+    await page.evaluate((ms) => {
+      for (const anim of document.getAnimations()) { anim.pause(); anim.currentTime = ms; }
+    }, 1300);
+    await page.screenshot({ path: `docs/screenshots/title-mid-${width}.png` });
+    await page.evaluate((ms) => {
+      for (const anim of document.getAnimations()) { anim.currentTime = ms; }
+    }, 2600);
+    await page.locator('.press-start').evaluate(el => { el.style.animation = 'none'; el.style.opacity = '1'; });
+    await page.screenshot({ path: `docs/screenshots/title-final-${width}.png` });
     await page.screenshot({ path: `docs/screenshots/title-${width}.png` });
     await page.keyboard.press('KeyK');
     await expect(page.locator('#title-screen')).toBeHidden();
     await page.screenshot({ path: `docs/screenshots/hub-${width}.png`, fullPage: width === 375 || width === 1440 });
     await page.screenshot({ path: `docs/screenshots/home-${width}.png`, fullPage: width === 375 || width === 1440 });
+    await page.locator('#node-a-course-in-time').click();
+    await page.screenshot({ path: `docs/screenshots/card-${width}.png` });
+    await page.keyboard.press('Escape');
   }
 
   await page.setViewportSize({ width: 1440, height: 900 });

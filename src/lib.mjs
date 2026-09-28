@@ -14,11 +14,19 @@ export const val = (f) =>
 export const html = (strings, ...vals) =>
   strings.reduce((out, s, i) => out + s + (i < vals.length ? [].concat(vals[i] ?? '').join('') : ''), '');
 
-// The honest placeholder. Dashed, labelled, never looks like data.
+// Public label only. The request stays in JSON and is never printed.
+export function publicSlot(f, label = 'this') {
+  const req = String((f && f.request) || '');
+  if (/role confirmation \(dates\)/i.test(req)) return 'LOCKED · dates coming';
+  if (/role confirmation/i.test(req)) return 'LOCKED · evidence coming';
+  if (/public build or page/i.test(req)) return 'Coming soon: public build or page';
+  const name = label && label !== 'Evidence pending' ? label : 'this';
+  return `Coming soon: ${name}`;
+}
+
 export function pending(f, { label = 'Evidence pending', inline = false, tag } = {}) {
-  const req = (f && f.request) || 'Tyler to supply';
   const t = tag || (inline ? 'span' : 'div');
-  return `<${t} class="pending${inline ? ' pending--inline' : ''}"><span class="pending__label">${esc(label)}</span> <span class="pending__req">${esc(req)}</span></${t}>`;
+  return `<${t} class="pending${inline ? ' pending--inline' : ''}"><span class="pending__label">${esc(publicSlot(f, label))}</span></${t}>`;
 }
 
 // Render a field: value through fn, or the placeholder.

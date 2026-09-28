@@ -5,15 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>A Course In Time — case study · Tyler Crump</title>
 <meta name="description" content="A 2D puzzle-platformer set in one hotel that exists in more than one era. Switch time and the building changes around you; what you carry doesn&#39;t.">
-<meta name="theme-color" content="#E4D8BC">
+<meta name="theme-color" content="#1C140C">
 <meta property="og:title" content="A Course In Time — case study · Tyler Crump">
 <meta property="og:description" content="A 2D puzzle-platformer set in one hotel that exists in more than one era. Switch time and the building changes around you; what you carry doesn&#39;t.">
 <meta property="og:type" content="website">
 <link rel="canonical" href="https://crumpyofcl.github.io/projects/a-course-in-time/">
 <meta property="og:url" content="https://crumpyofcl.github.io/projects/a-course-in-time/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%237A4A10'/%3E%3Cpath d='M4 4h8v2H9v6H7V6H4z' fill='%23FFF8EA'/%3E%3C/svg%3E">
-<link rel="preload" href="../../assets/fonts/bricolage-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../assets/styles.css">
+<link rel="stylesheet" href="../../assets/styles.css?v=63f4841a03">
 <script>document.documentElement.classList.add('js');</script>
 </head>
 <body class="page--case">
@@ -22,10 +21,10 @@
 <header class="masthead">
   <div class="masthead__inner">
     <a class="brand" href="../../index.html"><span class="brand__name">Tyler Crump</span><span class="brand__role">Game designer · gameplay and tools</span></a>
-    <nav class="primary" aria-label="Primary"><ul><li><a href="../../index.html#map">Back to map</a></li><li><a href="../../index.html#skills">Quest log</a></li><li><a href="../../index.html#contact">Continue?</a></li></ul></nav>
+    <nav class="primary" aria-label="Primary"><ul><li><a href="../../index.html#map">Back to map</a></li><li><a href="../../index.html#skills">Quest log</a></li><li><a href="../../index.html#contact">Continue? · Contact</a></li></ul></nav>
     <details class="nav-drawer">
       <summary>Menu</summary>
-      <nav aria-label="Menu"><a href="../../index.html#map">Back to map</a><a href="../../index.html#skills">Quest log</a><a href="../../index.html#contact">Continue?</a></nav>
+      <nav aria-label="Menu"><a href="../../index.html#map">Back to map</a><a href="../../index.html#skills">Quest log</a><a href="../../index.html#contact">Continue? · Contact</a></nav>
     </details>
   </div>
 </header>
@@ -37,25 +36,21 @@
       <p class="cs-head__tier">Level · Flagship project</p>
       <h1>A Course In Time</h1>
       <p class="lede">A 2D puzzle-platformer set in one hotel that exists in more than one era. Switch time and the building changes around you; what you carry doesn&#39;t.</p>
-      <p class="evidence-line"><strong>64</strong> evidence slots on this page are still empty. Empty slots stay marked. Nothing here is filled with a guess.</p>
+      <p class="evidence-line">Playable build on itch.io. Level maps, playtest notes and a gameplay clip are still to come.</p>
       
       <p class="cs-head__links"><a href="https://crumpyofcl.itch.io/a-course-in-time" rel="noopener">Play in browser (itch.io)<span class="visually-hidden"> (opens external site)</span></a></p>
     </div>
     <img class="cs-cover" src="../../img/acit-logo.png" alt="A Course In Time title logo in orange pixel lettering." width="559" height="257" decoding="async">
   </header>
   <div class="cs-body">
-    <nav class="toc" aria-label="Checkpoints"><details class="toc__details" open><summary>Checkpoints</summary><ol class="toc__list"><li><a href="#overview">Overview</a></li><li><a href="#what">What it is</a></li><li><a href="#role">What I did</a></li><li><a href="#team">Who did what</a></li><li><a href="#video">Gameplay video</a></li><li><a href="#goal">Problem and design goal</a></li><li><a href="#process">Process</a></li><li><a href="#decisions">Design decisions</a></li><li><a href="#level">Level design</a></li><li><a href="#experience">Player experience</a></li><li><a href="#playtesting">Playtesting</a></li><li><a href="#iterations">Iterations</a></li><li><a href="#results">Results</a></li><li><a href="#reflection">Reflection</a></li><li><a href="#next">Next</a></li><li><a href="#gaps">Evidence still to add</a></li></ol></details></nav>
+    <nav class="toc" aria-label="Checkpoints"><details class="toc__details" open><summary>Checkpoints</summary><ol class="toc__list"><li><a href="#overview">Overview</a></li><li><a href="#what">What it is</a></li><li><a href="#role">What I did</a></li><li><a href="#team">Who did what</a></li><li><a href="#decisions">Design decisions</a></li><li><a href="#process">Process</a></li><li><a href="#level">Level design</a></li><li><a href="#experience">Player experience</a></li><li><a href="#playtesting">Playtesting</a></li><li><a href="#still">Still to add</a></li></ol></details></nav>
     <div class="cs-sections"><section id="overview" class="cs-section" aria-labelledby="overview-title">
   <h2 id="overview-title" class="cs-section__title"><span class="cs-section__cp">Checkpoint 1</span>Overview</h2>
-  <dl class="facts"><div><dt>Genre</dt><dd>2D puzzle-platformer / metroidvania</dd></div><div><dt>Type</dt><dd>University team project (COMP3150, Macquarie University)</dd></div><div><dt>My role</dt><dd>Team lead — mainly audio, coding and level design</dd></div><div><dt>Team</dt><dd>Team of 5</dd></div><div><dt>Timeframe</dt><dd><span class="pending pending--inline"><span class="pending__label">Pending</span> <span class="pending__req">pending: role confirmation (dates)</span></span></dd></div><div><dt>Engine</dt><dd>Unity 6</dd></div><div><dt>Tools</dt><dd>Unity 6, C#, FMOD</dd></div><div><dt>Platforms</dt><dd>Browser (WebGL) and Windows</dd></div><div><dt>Stage</dt><dd>In development (playable build on itch.io)</dd></div></dl>
+  <dl class="facts"><div><dt>Genre</dt><dd>2D puzzle-platformer / metroidvania</dd></div><div><dt>Type</dt><dd>University team project (COMP3150, Macquarie University)</dd></div><div><dt>My role</dt><dd>Team lead — mainly audio, coding and level design</dd></div><div><dt>Team</dt><dd>Team of 5</dd></div><div><dt>Engine</dt><dd>Unity 6</dd></div><div><dt>Tools</dt><dd>Unity 6, C#, FMOD</dd></div><div><dt>Platforms</dt><dd>Browser (WebGL) and Windows</dd></div><div><dt>Stage</dt><dd>In development (playable build on itch.io)</dd></div></dl>
 </section>
 <section id="what" class="cs-section" aria-labelledby="what-title">
   <h2 id="what-title" class="cs-section__title"><span class="cs-section__cp">Checkpoint 2</span>What it is</h2>
-  
-    <h3>Mechanics in the playable build</h3><p class="source">As described on the itch.io page. The project is in development, so this is not a shipped storefront credit.</p><dl class="mechanics"><div><dt>Time Switch</dt><dd>Shift between Present and Past. Platforms appear, walls vanish and hazards change.</dd></div><div><dt>Time Beam</dt><dd>Freeze objects across both timelines; bounce beams off mirrors to hit targets around corners.</dd></div><div><dt>Box Pull</dt><dd>Grab and move boxes into position to solve environmental puzzles.</dd></div><div><dt>Dash and Double Jump</dt><dd>Movement abilities that open paths that were visible but previously unreachable.</dd></div></dl>
-    <h3>Structure</h3><p>Progression is gated by abilities, not combat: each new tool opens paths that were visible but previously unreachable. The hotel is interconnected, with hidden rooms and shortcuts.</p>
-    <h3>How many eras</h3><div class="pending"><span class="pending__label">Evidence pending</span> <span class="pending__req">Era count is not confirmed. The itch.io build describes two eras (Past and Present). The previous site describes three (Past 1743, Present, Future 2311). Say which count to publish.</span></div>
-    <h3>The rule, in one picture</h3><figure class="diagram" data-diagram>
+  <h3>Mechanics in the playable build</h3><p class="source">As described on the itch.io page. The project is in development, so this is not a shipped storefront credit.</p><dl class="mechanics"><div><dt>Time Switch</dt><dd>Shift between Present and Past. Platforms appear, walls vanish and hazards change.</dd></div><div><dt>Time Beam</dt><dd>Freeze objects across both timelines; bounce beams off mirrors to hit targets around corners.</dd></div><div><dt>Box Pull</dt><dd>Grab and move boxes into position to solve environmental puzzles.</dd></div><div><dt>Dash and Double Jump</dt><dd>Movement abilities that open paths that were visible but previously unreachable.</dd></div></dl><h3>Structure</h3><p>Progression is gated by abilities, not combat: each new tool opens paths that were visible but previously unreachable. The hotel is interconnected, with hidden rooms and shortcuts.</p><h3>How many eras</h3><p>The current itch.io build has two eras, Past and Present. An earlier plan had three.</p><h3>The rule, in one picture</h3><figure class="diagram" data-diagram>
   <div class="diagram__controls" role="group" aria-label="Show the room in">
     <button type="button" class="era__btn" data-dg="past" aria-pressed="true">Past</button>
     <button type="button" class="era__btn" data-dg="present" aria-pressed="false">Present</button>
@@ -70,150 +65,100 @@
 </section>
 <section id="role" class="cs-section" aria-labelledby="role-title">
   <h2 id="role-title" class="cs-section__title"><span class="cs-section__cp">Checkpoint 3</span>What I did</h2>
-  <ul class="bullets"><li>The era system — collision layers, object state and physics swapping in step, with a crush check so time closing around the player is a death rather than a glitch.</li><li>Procedural puzzle generators with Scene-view grid painting: pipe networks with a connectivity solver, and elemental puzzles that pick their own elements by counting how many valid solutions each set allows.</li><li>A save system built around an objective ledger, so a reloaded world remembers which doors are open and which puzzles are done.</li><li>An in-build debug console for playtesters — noclip, ability grants, scene jumps and objective control without an editor.</li></ul><p class="source">Source: My previous site (crumpyofcl.github.io). These are my claims — a design doc or code sample is still to be published.</p>
+  <ul class="bullets"><li>The era system — collision layers, object state and physics swapping in step, with a crush check so time closing around the player is a death rather than a glitch.</li><li>Procedural puzzle generators with Scene-view grid painting: pipe networks with a connectivity solver, and elemental puzzles that pick their own elements by counting how many valid solutions each set allows.</li><li>A save system built around an objective ledger, so a reloaded world remembers which doors are open and which puzzles are done.</li><li>An in-build debug console for playtesters — noclip, ability grants, scene jumps and objective control without an editor.</li></ul>
 </section>
 <section id="team" class="cs-section" aria-labelledby="team-title">
   <h2 id="team-title" class="cs-section__title"><span class="cs-section__cp">Checkpoint 4</span>Who did what</h2>
-  <ul class="collab" role="list"><li class="collab__item"><span class="collab__disc">Team lead / production</span>Me</li><li class="collab__item"><span class="collab__disc">Audio (FMOD)</span>Me — one of my main areas</li><li class="collab__item"><span class="collab__disc">Programming</span>Me, with the team</li><li class="collab__item"><span class="collab__disc">Level design</span>Me — one of my main areas</li><li class="collab__item collab__item--pending"><span class="collab__disc">Art and animation</span><span class="pending pending--inline"><span class="pending__label">Pending</span> <span class="pending__req">Teammates (names optional, with their permission)</span></span></li><li class="collab__item collab__item--pending"><span class="collab__disc">QA / playtesting</span><span class="pending pending--inline"><span class="pending__label">Pending</span> <span class="pending__req">Who ran testing, and how</span></span></li></ul>
-</section>
-<section id="video" class="cs-section" aria-labelledby="video-title">
-  <h2 id="video-title" class="cs-section__title"><span class="cs-section__cp">Checkpoint 5</span>Gameplay video</h2>
-  <div class="pending"><span class="pending__label">Evidence pending</span> <span class="pending__req">A 30–60 s gameplay clip showing an era switch (MP4 ≤ 10 MB, or a YouTube link).</span></div>
-</section>
-<section id="goal" class="cs-section" aria-labelledby="goal-title">
-  <h2 id="goal-title" class="cs-section__title"><span class="cs-section__cp">Checkpoint 6</span>Problem and design goal</h2>
-  <dl class="facts"><div><dt>Problem</dt><dd><span class="pending pending--inline"><span class="pending__label">Pending</span> <span class="pending__req">The design problem in 1–2 sentences, in your words.</span></span></dd></div><div><dt>Design goal</dt><dd><span class="pending pending--inline"><span class="pending__label">Pending</span> <span class="pending__req">The design goal / intended player experience (e.g. what should a player feel the first time time closes around them?).</span></span></dd></div></dl>
-</section>
-<section id="process" class="cs-section" aria-labelledby="process-title">
-  <h2 id="process-title" class="cs-section__title"><span class="cs-section__cp">Checkpoint 7</span>Process</h2>
-  <ol class="process"><li class="process__step is-empty"><span class="process__stage">Idea</span><span class="pending pending--inline"><span class="pending__label">Pending</span> <span class="pending__req">Where the idea came from.</span></span></li><li class="process__step is-empty"><span class="process__stage">Research</span><span class="pending pending--inline"><span class="pending__label">Pending</span> <span class="pending__req">References or research that shaped it.</span></span></li><li class="process__step is-empty"><span class="process__stage">Concept</span><span class="pending pending--inline"><span class="pending__label">Pending</span> <span class="pending__req">Concept sketch or one-page pitch.</span></span></li><li class="process__step is-empty"><span class="process__stage">Paper prototype</span><span class="pending pending--inline"><span class="pending__label">Pending</span> <span class="pending__req">Photo of a paper prototype, if one was made.</span></span></li><li class="process__step is-empty"><span class="process__stage">Prototype</span><span class="pending pending--inline"><span class="pending__label">Pending</span> <span class="pending__req">Confirm whether LIT_Flux Mechanics Showcase was an early prototype of this game.</span></span></li><li class="process__step is-empty"><span class="process__stage">Greybox</span><span class="pending pending--inline"><span class="pending__label">Pending</span> <span class="pending__req">Greybox screenshots of a room before art.</span></span></li><li class="process__step is-empty"><span class="process__stage">Playtest</span><span class="pending pending--inline"><span class="pending__label">Pending</span> <span class="pending__req">When and how it was playtested.</span></span></li><li class="process__step is-empty"><span class="process__stage">Analysis</span><span class="pending pending--inline"><span class="pending__label">Pending</span> <span class="pending__req">What the playtests showed.</span></span></li><li class="process__step is-empty"><span class="process__stage">Iteration</span><span class="pending pending--inline"><span class="pending__label">Pending</span> <span class="pending__req">What changed as a result.</span></span></li><li class="process__step is-filled"><span class="process__stage">Playable build</span>A playable WebGL build and a Windows build are on itch.io. The project is still in development, so this is not a shipped storefront credit.</li></ol><p class="source">Stages are only marked done where I can show them.</p>
+  <ul class="collab" role="list"><li class="collab__item"><span class="collab__disc">Team lead / production</span>Me</li><li class="collab__item"><span class="collab__disc">Audio (FMOD)</span>Me — one of my main areas</li><li class="collab__item"><span class="collab__disc">Programming</span>Me, with the team</li><li class="collab__item"><span class="collab__disc">Level design</span>Me — one of my main areas</li></ul>
 </section>
 <section id="decisions" class="cs-section" aria-labelledby="decisions-title">
-  <h2 id="decisions-title" class="cs-section__title"><span class="cs-section__cp">Checkpoint 8</span>Design decisions</h2>
+  <h2 id="decisions-title" class="cs-section__title"><span class="cs-section__cp">Checkpoint 5</span>Design decisions</h2>
   <div class="decisions"><details class="decision" open>
   <summary><span class="decision__title">Treat time closing around the player as a death, not a glitch</span></summary>
   <div class="decision__body">
     <ol class="loop loop--small" aria-label="Evidence chain: 2 of 6 links published"><li class="is-filled">Assumption<span class="visually-hidden"> (published)</span></li><li class="is-empty">Test<span class="visually-hidden"> (pending)</span></li><li class="is-empty">Evidence<span class="visually-hidden"> (pending)</span></li><li class="is-empty">Insight<span class="visually-hidden"> (pending)</span></li><li class="is-filled">Decision<span class="visually-hidden"> (published)</span></li><li class="is-empty">Iteration<span class="visually-hidden"> (pending)</span></li></ol>
-    <dl class="facts facts--stack">
-      <div><dt>Decision</dt><dd>The era system swaps collision layers, object state and physics in step. A crush check catches the moment solid geometry from the other era would occupy the player&#39;s space.</dd></div>
-      <div><dt>Why it mattered</dt><dd>So that time closing around the player reads as a death — a rule of the world — rather than a glitch.</dd></div>
-      <div><dt>Options considered</dt><dd><span class="pending pending--inline"><span class="pending__label">Evidence pending</span> <span class="pending__req">Other options considered (e.g. block the switch, push the player out).</span></span></dd></div>
-      <div><dt>Evidence</dt><dd><span class="pending pending--inline"><span class="pending__label">Evidence pending</span> <span class="pending__req">What showed this was the right call (playtest, bug report).</span></span></dd></div>
-      <div><dt>Trade-off</dt><dd><span class="pending pending--inline"><span class="pending__label">Evidence pending</span> <span class="pending__req">What it cost.</span></span></dd></div>
-      <div><dt>Result</dt><dd><span class="pending pending--inline"><span class="pending__label">Evidence pending</span> <span class="pending__req">What happened after.</span></span></dd></div>
-    </dl>
+    <dl class="facts facts--stack"><div><dt>Decision</dt><dd>The era system swaps collision layers, object state and physics in step. A crush check catches the moment solid geometry from the other era would occupy the player&#39;s space.</dd></div><div><dt>Why it mattered</dt><dd>So that time closing around the player reads as a death — a rule of the world — rather than a glitch.</dd></div></dl>
   </div>
 </details><details class="decision">
   <summary><span class="decision__title">Build saving around an objective ledger</span></summary>
   <div class="decision__body">
     <ol class="loop loop--small" aria-label="Evidence chain: 2 of 6 links published"><li class="is-filled">Assumption<span class="visually-hidden"> (published)</span></li><li class="is-empty">Test<span class="visually-hidden"> (pending)</span></li><li class="is-empty">Evidence<span class="visually-hidden"> (pending)</span></li><li class="is-empty">Insight<span class="visually-hidden"> (pending)</span></li><li class="is-filled">Decision<span class="visually-hidden"> (published)</span></li><li class="is-empty">Iteration<span class="visually-hidden"> (pending)</span></li></ol>
-    <dl class="facts facts--stack">
-      <div><dt>Decision</dt><dd>The save system records objectives, so a reloaded world remembers which doors are open and which puzzles are done.</dd></div>
-      <div><dt>Why it mattered</dt><dd>So a reloaded world remembers which doors are open and which puzzles are done, not just where the player was standing.</dd></div>
-      <div><dt>Options considered</dt><dd><span class="pending pending--inline"><span class="pending__label">Evidence pending</span> <span class="pending__req">Alternatives considered (e.g. serialising every object).</span></span></dd></div>
-      <div><dt>Evidence</dt><dd><span class="pending pending--inline"><span class="pending__label">Evidence pending</span> <span class="pending__req">—</span></span></dd></div>
-      <div><dt>Trade-off</dt><dd><span class="pending pending--inline"><span class="pending__label">Evidence pending</span> <span class="pending__req">—</span></span></dd></div>
-      <div><dt>Result</dt><dd><span class="pending pending--inline"><span class="pending__label">Evidence pending</span> <span class="pending__req">—</span></span></dd></div>
-    </dl>
+    <dl class="facts facts--stack"><div><dt>Decision</dt><dd>The save system records objectives, so a reloaded world remembers which doors are open and which puzzles are done.</dd></div><div><dt>Why it mattered</dt><dd>So a reloaded world remembers which doors are open and which puzzles are done, not just where the player was standing.</dd></div></dl>
   </div>
 </details><details class="decision">
   <summary><span class="decision__title">Put a debug console in the playtest build</span></summary>
   <div class="decision__body">
     <ol class="loop loop--small" aria-label="Evidence chain: 2 of 6 links published"><li class="is-filled">Assumption<span class="visually-hidden"> (published)</span></li><li class="is-empty">Test<span class="visually-hidden"> (pending)</span></li><li class="is-empty">Evidence<span class="visually-hidden"> (pending)</span></li><li class="is-empty">Insight<span class="visually-hidden"> (pending)</span></li><li class="is-filled">Decision<span class="visually-hidden"> (published)</span></li><li class="is-empty">Iteration<span class="visually-hidden"> (pending)</span></li></ol>
-    <dl class="facts facts--stack">
-      <div><dt>Decision</dt><dd>Noclip, ability grants, scene jumps and objective control, available without the Unity editor.</dd></div>
-      <div><dt>Why it mattered</dt><dd>Playtesters and teammates can reach and repeat any situation without the editor.</dd></div>
-      <div><dt>Options considered</dt><dd><span class="pending pending--inline"><span class="pending__label">Evidence pending</span> <span class="pending__req">—</span></span></dd></div>
-      <div><dt>Evidence</dt><dd><span class="pending pending--inline"><span class="pending__label">Evidence pending</span> <span class="pending__req">How testers used it.</span></span></dd></div>
-      <div><dt>Trade-off</dt><dd><span class="pending pending--inline"><span class="pending__label">Evidence pending</span> <span class="pending__req">—</span></span></dd></div>
-      <div><dt>Result</dt><dd><span class="pending pending--inline"><span class="pending__label">Evidence pending</span> <span class="pending__req">—</span></span></dd></div>
-    </dl>
+    <dl class="facts facts--stack"><div><dt>Decision</dt><dd>Noclip, ability grants, scene jumps and objective control, available without the Unity editor.</dd></div><div><dt>Why it mattered</dt><dd>Playtesters and teammates can reach and repeat any situation without the editor.</dd></div></dl>
   </div>
 </details><details class="decision">
   <summary><span class="decision__title">Let elemental puzzles choose their own elements</span></summary>
   <div class="decision__body">
     <ol class="loop loop--small" aria-label="Evidence chain: 1 of 6 links published"><li class="is-empty">Assumption<span class="visually-hidden"> (pending)</span></li><li class="is-empty">Test<span class="visually-hidden"> (pending)</span></li><li class="is-empty">Evidence<span class="visually-hidden"> (pending)</span></li><li class="is-empty">Insight<span class="visually-hidden"> (pending)</span></li><li class="is-filled">Decision<span class="visually-hidden"> (published)</span></li><li class="is-empty">Iteration<span class="visually-hidden"> (pending)</span></li></ol>
-    <dl class="facts facts--stack">
-      <div><dt>Decision</dt><dd>The generator counts how many valid solutions each candidate element set allows, and picks from that.</dd></div>
-      <div><dt>Why it mattered</dt><dd><span class="pending pending--inline"><span class="pending__label">Evidence pending</span> <span class="pending__req">Why solution-counting mattered for the design (in your words).</span></span></dd></div>
-      <div><dt>Options considered</dt><dd><span class="pending pending--inline"><span class="pending__label">Evidence pending</span> <span class="pending__req">—</span></span></dd></div>
-      <div><dt>Evidence</dt><dd><span class="pending pending--inline"><span class="pending__label">Evidence pending</span> <span class="pending__req">—</span></span></dd></div>
-      <div><dt>Trade-off</dt><dd><span class="pending pending--inline"><span class="pending__label">Evidence pending</span> <span class="pending__req">—</span></span></dd></div>
-      <div><dt>Result</dt><dd><span class="pending pending--inline"><span class="pending__label">Evidence pending</span> <span class="pending__req">—</span></span></dd></div>
-    </dl>
+    <dl class="facts facts--stack"><div><dt>Decision</dt><dd>The generator counts how many valid solutions each candidate element set allows, and picks from that.</dd></div></dl>
   </div>
 </details></div>
 </section>
+<section id="process" class="cs-section" aria-labelledby="process-title">
+  <h2 id="process-title" class="cs-section__title"><span class="cs-section__cp">Checkpoint 6</span>Process</h2>
+  <ol class="process"><li class="process__step is-filled"><span class="process__stage">Playable build</span>A playable WebGL build and a Windows build are on itch.io. The project is still in development, so this is not a shipped storefront credit.</li></ol>
+</section>
 <section id="level" class="cs-section" aria-labelledby="level-title">
-  <h2 id="level-title" class="cs-section__title"><span class="cs-section__cp">Checkpoint 9</span>Level design</h2>
-  <dl class="facts"><div><dt>Level</dt><dd><span class="pending pending--inline"><span class="pending__label">Pending</span> <span class="pending__req">Which level/room you designed and why you&#39;re presenting it (level design is one of your main areas on this project).</span></span></dd></div><div><dt>Goals</dt><dd><span class="pending pending--inline"><span class="pending__label">Pending</span> <span class="pending__req">What this level had to teach or test.</span></span></dd></div><div><dt>Structure</dt><dd>Ability-gated progression through an interconnected hotel.</dd></div><div><dt>Flow</dt><dd><span class="pending pending--inline"><span class="pending__label">Pending</span> <span class="pending__req">Flow diagram or annotated map (image).</span></span></dd></div><div><dt>Mechanic introduction</dt><dd><span class="pending pending--inline"><span class="pending__label">Pending</span> <span class="pending__req">The order mechanics are introduced and how each is taught.</span></span></dd></div><div><dt>Challenge curve</dt><dd><span class="pending pending--inline"><span class="pending__label">Pending</span> <span class="pending__req">How difficulty rises across the level (sketch is fine — no invented numbers).</span></span></dd></div><div><dt>Greybox</dt><dd><span class="pending pending--inline"><span class="pending__label">Pending</span> <span class="pending__req">Greybox capture(s).</span></span></dd></div><div><dt>Final</dt><dd><span class="pending pending--inline"><span class="pending__label">Pending</span> <span class="pending__req">Final screenshot of the same space.</span></span></dd></div></dl>
+  <h2 id="level-title" class="cs-section__title"><span class="cs-section__cp">Checkpoint 7</span>Level design</h2>
+  <dl class="facts"><div><dt>Structure</dt><dd>Ability-gated progression through an interconnected hotel.</dd></div></dl>
 </section>
 <section id="experience" class="cs-section" aria-labelledby="experience-title">
-  <h2 id="experience-title" class="cs-section__title"><span class="cs-section__cp">Checkpoint 10</span>Player experience</h2>
-  <dl class="facts"><div><dt>Intended experience</dt><dd><span class="pending pending--inline"><span class="pending__label">Pending</span> <span class="pending__req">Intended player experience, in your words.</span></span></dd></div><div><dt>Design tools used to shape it</dt><dd><ul class="bullets"><li>Scene-view grid painting for authoring puzzles quickly.</li><li>Element selection by counting valid solutions per element set.</li><li>Debug console so playtesters can reach any state without the editor.</li></ul></dd></div><div><dt>Evidence</dt><dd><span class="pending pending--inline"><span class="pending__label">Pending</span> <span class="pending__req">Evidence the experience landed: playtest notes, quotes you have permission to use, or observed behaviour.</span></span></dd></div></dl>
+  <h2 id="experience-title" class="cs-section__title"><span class="cs-section__cp">Checkpoint 8</span>Player experience</h2>
+  <dl class="facts"><div><dt>Design tools used to shape it</dt><dd><ul class="bullets"><li>Scene-view grid painting for authoring puzzles quickly.</li><li>Element selection by counting valid solutions per element set.</li><li>Debug console so playtesters can reach any state without the editor.</li></ul></dd></div></dl>
 </section>
 <section id="playtesting" class="cs-section" aria-labelledby="playtesting-title">
-  <h2 id="playtesting-title" class="cs-section__title"><span class="cs-section__cp">Checkpoint 11</span>Playtesting</h2>
-  
-    <p>Playtest builds included a debug console (noclip, ability grants, scene jumps, objective control) so testers could reach any state without the editor.</p>
-    <h3>Sessions</h3>
-    <div class="oicr" aria-label="Playtest write-up template"><ol class="oicr__steps"><li>Observation</li><li>Insight</li><li>Design change</li><li>Result</li></ol><div class="pending"><span class="pending__label">Evidence pending</span> <span class="pending__req">For one session: research question, objective, method, setup, observations, findings, changes.</span></div></div>
+  <h2 id="playtesting-title" class="cs-section__title"><span class="cs-section__cp">Checkpoint 9</span>Playtesting</h2>
+  <p>Playtest builds included a debug console (noclip, ability grants, scene jumps, objective control) so testers could reach any state without the editor.</p>
 </section>
-<section id="iterations" class="cs-section" aria-labelledby="iterations-title">
-  <h2 id="iterations-title" class="cs-section__title"><span class="cs-section__cp">Checkpoint 12</span>Iterations</h2>
-  <div class="iter" data-iter>
+<section id="still" class="cs-section" aria-labelledby="still-title">
+  <details class="still">
+    <summary id="still-title"><span class="cs-section__cp">Checkpoint 10</span> Still to add (63): level maps, playtest notes, gameplay clip and more</summary>
+    <ul class="bullets"><li>Coming soon: Timeframe</li><li>Coming soon: Art and animation</li><li>Coming soon: QA / playtesting</li><li>Coming soon: Options considered</li><li>Coming soon: Evidence</li><li>Coming soon: Trade-off</li><li>Coming soon: Result</li><li>Coming soon: Why it mattered</li><li>Coming soon: Idea</li><li>Coming soon: Research</li><li>Coming soon: Concept</li><li>Coming soon: Paper prototype</li><li>Coming soon: Prototype</li><li>Coming soon: Greybox</li><li>Coming soon: Playtest</li><li>Coming soon: Analysis</li><li>Coming soon: Iteration</li><li>Coming soon: Level</li><li>Coming soon: Goals</li><li>Coming soon: Flow</li><li>Coming soon: Mechanic introduction</li><li>Coming soon: Challenge curve</li><li>Coming soon: Final</li><li>Coming soon: Intended experience</li><li>Coming soon: Gameplay video</li><li>Coming soon: Results</li><li>Coming soon: Reflection</li><li>Coming soon: Next</li><li>Coming soon: Problem</li><li>Coming soon: Design goal</li></ul>
+    <div id="playtesting"><h3>Playtesting</h3><div class="oicr" aria-label="Playtest write-up template"><ol class="oicr__steps"><li>Observation</li><li>Insight</li><li>Design change</li><li>Result</li></ol><p>Coming soon: Playtest write-up</p></div></div>
+<h3 id="reflection">Reflection</h3><p>Coming soon: Reflection</p>
+<div id="iterations"><h3>Iterations</h3><div class="iter" data-iter>
   <div class="iter__tabs" role="tablist" aria-label="Versions"><button type="button" role="tab" id="a-course-in-time-tab-0" aria-controls="a-course-in-time-panel-0" aria-selected="true" tabindex="0">V1</button><button type="button" role="tab" id="a-course-in-time-tab-1" aria-controls="a-course-in-time-panel-1" aria-selected="false" tabindex="-1">V2</button><button type="button" role="tab" id="a-course-in-time-tab-2" aria-controls="a-course-in-time-panel-2" aria-selected="false" tabindex="-1">V3</button><button type="button" role="tab" id="a-course-in-time-tab-3" aria-controls="a-course-in-time-panel-3" aria-selected="false" tabindex="-1">Final</button></div>
   <div class="iter__panel" role="tabpanel" id="a-course-in-time-panel-0" aria-labelledby="a-course-in-time-tab-0" tabindex="0">
-      <div class="compare compare--single"><div class="slot "><div class="pending"><span class="pending__label">Image pending</span> <span class="pending__req">V1 screenshot or level map</span></div></div></div>
-      <dl class="facts facts--three"><div><dt>What changed</dt><dd><span class="pending pending--inline"><span class="pending__label">Evidence pending</span> <span class="pending__req">What V1 was</span></span></dd></div><div><dt>Why</dt><dd><span class="pending pending--inline"><span class="pending__label">Evidence pending</span> <span class="pending__req">—</span></span></dd></div><div><dt>Evidence</dt><dd><span class="pending pending--inline"><span class="pending__label">Evidence pending</span> <span class="pending__req">—</span></span></dd></div></dl>
+      <div class="compare compare--single"><div class="slot "><div class="pending"><span class="pending__label">Coming soon: Image pending</span></div></div></div>
+      <dl class="facts facts--three"><div><dt>What changed</dt><dd><span class="pending pending--inline"><span class="pending__label">Coming soon: this</span></span></dd></div><div><dt>Why</dt><dd><span class="pending pending--inline"><span class="pending__label">Coming soon: this</span></span></dd></div><div><dt>Evidence</dt><dd><span class="pending pending--inline"><span class="pending__label">Coming soon: this</span></span></dd></div></dl>
     </div><div class="iter__panel" role="tabpanel" id="a-course-in-time-panel-1" aria-labelledby="a-course-in-time-tab-1" tabindex="0" hidden>
       <div class="compare" data-compare style="--pos:50%">
       <div class="compare__stage">
-        <div class="compare__a"><div class="slot "><div class="pending"><span class="pending__label">Image pending</span> <span class="pending__req">V1 screenshot or level map</span></div></div><span class="compare__tag">V1</span></div>
-        <div class="compare__b"><div class="slot "><div class="pending"><span class="pending__label">Image pending</span> <span class="pending__req">V2 screenshot or level map</span></div></div><span class="compare__tag">V2</span></div>
+        <div class="compare__a"><div class="slot "><div class="pending"><span class="pending__label">Coming soon: Image pending</span></div></div><span class="compare__tag">V1</span></div>
+        <div class="compare__b"><div class="slot "><div class="pending"><span class="pending__label">Coming soon: Image pending</span></div></div><span class="compare__tag">V2</span></div>
       </div>
       <label class="compare__label" for="a-course-in-time-cmp-1">Compare V1 (left) with V2 (right)</label>
       <input class="compare__range" id="a-course-in-time-cmp-1" type="range" min="0" max="100" value="50" aria-valuetext="50% V1, 50% V2" data-a="V1" data-b="V2">
     </div>
-      <dl class="facts facts--three"><div><dt>What changed</dt><dd><span class="pending pending--inline"><span class="pending__label">Evidence pending</span> <span class="pending__req">What changed from V1</span></span></dd></div><div><dt>Why</dt><dd><span class="pending pending--inline"><span class="pending__label">Evidence pending</span> <span class="pending__req">Why it changed</span></span></dd></div><div><dt>Evidence</dt><dd><span class="pending pending--inline"><span class="pending__label">Evidence pending</span> <span class="pending__req">What evidence prompted it</span></span></dd></div></dl>
+      <dl class="facts facts--three"><div><dt>What changed</dt><dd><span class="pending pending--inline"><span class="pending__label">Coming soon: this</span></span></dd></div><div><dt>Why</dt><dd><span class="pending pending--inline"><span class="pending__label">Coming soon: this</span></span></dd></div><div><dt>Evidence</dt><dd><span class="pending pending--inline"><span class="pending__label">Coming soon: this</span></span></dd></div></dl>
     </div><div class="iter__panel" role="tabpanel" id="a-course-in-time-panel-2" aria-labelledby="a-course-in-time-tab-2" tabindex="0" hidden>
       <div class="compare" data-compare style="--pos:50%">
       <div class="compare__stage">
-        <div class="compare__a"><div class="slot "><div class="pending"><span class="pending__label">Image pending</span> <span class="pending__req">V2 screenshot or level map</span></div></div><span class="compare__tag">V2</span></div>
-        <div class="compare__b"><div class="slot "><div class="pending"><span class="pending__label">Image pending</span> <span class="pending__req">V3 screenshot or level map</span></div></div><span class="compare__tag">V3</span></div>
+        <div class="compare__a"><div class="slot "><div class="pending"><span class="pending__label">Coming soon: Image pending</span></div></div><span class="compare__tag">V2</span></div>
+        <div class="compare__b"><div class="slot "><div class="pending"><span class="pending__label">Coming soon: Image pending</span></div></div><span class="compare__tag">V3</span></div>
       </div>
       <label class="compare__label" for="a-course-in-time-cmp-2">Compare V2 (left) with V3 (right)</label>
       <input class="compare__range" id="a-course-in-time-cmp-2" type="range" min="0" max="100" value="50" aria-valuetext="50% V2, 50% V3" data-a="V2" data-b="V3">
     </div>
-      <dl class="facts facts--three"><div><dt>What changed</dt><dd><span class="pending pending--inline"><span class="pending__label">Evidence pending</span> <span class="pending__req">What changed from V2</span></span></dd></div><div><dt>Why</dt><dd><span class="pending pending--inline"><span class="pending__label">Evidence pending</span> <span class="pending__req">Why it changed</span></span></dd></div><div><dt>Evidence</dt><dd><span class="pending pending--inline"><span class="pending__label">Evidence pending</span> <span class="pending__req">What evidence prompted it</span></span></dd></div></dl>
+      <dl class="facts facts--three"><div><dt>What changed</dt><dd><span class="pending pending--inline"><span class="pending__label">Coming soon: this</span></span></dd></div><div><dt>Why</dt><dd><span class="pending pending--inline"><span class="pending__label">Coming soon: this</span></span></dd></div><div><dt>Evidence</dt><dd><span class="pending pending--inline"><span class="pending__label">Coming soon: this</span></span></dd></div></dl>
     </div><div class="iter__panel" role="tabpanel" id="a-course-in-time-panel-3" aria-labelledby="a-course-in-time-tab-3" tabindex="0" hidden>
       <div class="compare" data-compare style="--pos:50%">
       <div class="compare__stage">
-        <div class="compare__a"><div class="slot "><div class="pending"><span class="pending__label">Image pending</span> <span class="pending__req">V3 screenshot or level map</span></div></div><span class="compare__tag">V3</span></div>
-        <div class="compare__b"><div class="slot "><div class="pending"><span class="pending__label">Image pending</span> <span class="pending__req">Final screenshot</span></div></div><span class="compare__tag">Final</span></div>
+        <div class="compare__a"><div class="slot "><div class="pending"><span class="pending__label">Coming soon: Image pending</span></div></div><span class="compare__tag">V3</span></div>
+        <div class="compare__b"><div class="slot "><div class="pending"><span class="pending__label">Coming soon: Image pending</span></div></div><span class="compare__tag">Final</span></div>
       </div>
       <label class="compare__label" for="a-course-in-time-cmp-3">Compare V3 (left) with Final (right)</label>
       <input class="compare__range" id="a-course-in-time-cmp-3" type="range" min="0" max="100" value="50" aria-valuetext="50% V3, 50% Final" data-a="V3" data-b="Final">
     </div>
-      <dl class="facts facts--three"><div><dt>What changed</dt><dd><span class="pending pending--inline"><span class="pending__label">Evidence pending</span> <span class="pending__req">What the current playable build contains</span></span></dd></div><div><dt>Why</dt><dd><span class="pending pending--inline"><span class="pending__label">Evidence pending</span> <span class="pending__req">Why this is the final form</span></span></dd></div><div><dt>Evidence</dt><dd><span class="pending pending--inline"><span class="pending__label">Evidence pending</span> <span class="pending__req">Result after the change</span></span></dd></div></dl>
+      <dl class="facts facts--three"><div><dt>What changed</dt><dd><span class="pending pending--inline"><span class="pending__label">Coming soon: this</span></span></dd></div><div><dt>Why</dt><dd><span class="pending pending--inline"><span class="pending__label">Coming soon: this</span></span></dd></div><div><dt>Evidence</dt><dd><span class="pending pending--inline"><span class="pending__label">Coming soon: this</span></span></dd></div></dl>
     </div>
-</div>
-</section>
-<section id="results" class="cs-section" aria-labelledby="results-title">
-  <h2 id="results-title" class="cs-section__title"><span class="cs-section__cp">Checkpoint 13</span>Results</h2>
-  <div class="pending"><span class="pending__label">Evidence pending</span> <span class="pending__req">Outcome: grade/feedback you&#39;re happy to share, player numbers only if real, or what you&#39;d ship next.</span></div>
-</section>
-<section id="reflection" class="cs-section" aria-labelledby="reflection-title">
-  <h2 id="reflection-title" class="cs-section__title"><span class="cs-section__cp">Checkpoint 14</span>Reflection</h2>
-  <ol class="journal__qs"><li>What I tried</li><li>Why it failed</li><li>What I learned</li><li>What I changed</li></ol><div class="pending"><span class="pending__label">Evidence pending</span> <span class="pending__req">What I tried / why it failed / what I learned / what I changed.</span></div>
-</section>
-<section id="next" class="cs-section" aria-labelledby="next-title">
-  <h2 id="next-title" class="cs-section__title"><span class="cs-section__cp">Checkpoint 15</span>Next</h2>
-  <div class="pending"><span class="pending__label">Evidence pending</span> <span class="pending__req">What&#39;s next for the project (e.g. the three-era version described on your current site).</span></div>
-</section>
-<section id="gaps" class="cs-section" aria-labelledby="gaps-title">
-  <h2 id="gaps-title" class="cs-section__title"><span class="cs-section__cp">Checkpoint 16</span>Evidence still to add</h2>
-  <p>This page has <strong>64</strong> evidence slots I haven't filled yet. They are marked with dashed boxes rather than filled with guesses.</p>
+</div></div>
+  </details>
 </section></div>
   </div>
   <p class="cs-back"><a href="../../index.html#map">← Back to map</a></p>
@@ -226,6 +171,6 @@
   </div>
 </footer>
 
-<script src="../../assets/app.js" defer></script>
+<script src="../../assets/app.js?v=63f4841a03" defer></script>
 </body>
 </html>

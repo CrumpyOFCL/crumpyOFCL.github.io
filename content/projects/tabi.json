@@ -162,7 +162,7 @@
       },
       "result": {
         "status": "confirmed",
-        "value": "Shipped in the 'precise money states' iteration (PR #56) and carried onto the plan (PR #59).",
+        "value": "Added in the 'precise money states' iteration (PR #56) and carried onto the plan (PR #59).",
         "source": "Build history, read-only"
       }
     },

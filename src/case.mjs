@@ -1,4 +1,4 @@
-import { esc, val, isPending, pending, field, countPending, href } from './lib.mjs';
+import { esc, val, isPending, pending, field, countPending, href, publicSlot } from './lib.mjs';
 
 const LOOP = ['Assumption', 'Test', 'Evidence', 'Insight', 'Decision', 'Iteration'];
 const ext = (href, text) => `<a href="${esc(href)}" rel="noopener">${text}<span class="visually-hidden"> (opens external site)</span></a>`;
@@ -48,21 +48,30 @@ function chain(d) {
   return `<ol class="loop loop--small" aria-label="Evidence chain: ${LOOP.filter(s => filled[s]).length} of 6 links published">${LOOP.map(s => `<li class="${filled[s] ? 'is-filled' : 'is-empty'}">${s}<span class="visually-hidden">${filled[s] ? ' (published)' : ' (pending)'}</span></li>`).join('')}</ol>`;
 }
 
-function decisions(ds) {
-  return `<div class="decisions">${ds.map((d, i) => `<details class="decision"${i === 0 ? ' open' : ''}>
+function decisions(ds, note, happened = false) {
+  return `<div class="decisions">${ds.map((d, i) => {
+    const fields = [
+      [happened ? 'What happened' : 'Decision', d.detail],
+      ['Why it mattered', d.why],
+      ['Options considered', d.options],
+      ['Evidence', d.evidence],
+      ['Trade-off', d.tradeoff],
+      ['Result', d.result],
+    ];
+    const rows = fields.map(([k, f]) => {
+      if (f == null) return '';
+      if (typeof f === 'string') return `<div><dt>${esc(k)}</dt><dd>${esc(f)}</dd></div>`;
+      if (isPending(f)) { note(k); return ''; }
+      return `<div><dt>${esc(k)}</dt><dd>${esc(val(f))}</dd></div>`;
+    }).join('');
+    return `<details class="decision"${i === 0 ? ' open' : ''}>
   <summary><span class="decision__title">${esc(d.decision)}</span></summary>
   <div class="decision__body">
     ${chain(d)}
-    <dl class="facts facts--stack">
-      <div><dt>Decision</dt><dd>${esc(d.detail)}</dd></div>
-      <div><dt>Why it mattered</dt><dd>${field(d.why, esc, { inline: true })}</dd></div>
-      <div><dt>Options considered</dt><dd>${field(d.options, esc, { inline: true })}</dd></div>
-      <div><dt>Evidence</dt><dd>${field(d.evidence, esc, { inline: true })}</dd></div>
-      <div><dt>Trade-off</dt><dd>${field(d.tradeoff, esc, { inline: true })}</dd></div>
-      <div><dt>Result</dt><dd>${field(d.result, esc, { inline: true })}</dd></div>
-    </dl>
+    <dl class="facts facts--stack">${rows}</dl>
   </div>
-</details>`).join('')}</div>`;
+</details>`;
+  }).join('')}</div>`;
 }
 
 function slot(f, cls = '') {
@@ -128,7 +137,7 @@ function mediaGallery(items) {
       : (v && typeof v === 'object' && v.src
         ? `<img class="media-frame__img" src="${esc(href(v.src))}" alt="${esc(v.alt || m.label)}" loading="lazy" decoding="async">`
         : `<div class="media-frame__canvas" aria-hidden="true"></div>`);
-    const note = pendingItem ? `<span class="pending__label">Evidence pending</span> <span class="media-frame__note">${esc(m.item.request || '')}</span>` : '';
+    const note = pendingItem ? `<span class="pending__label">${esc(publicSlot(m.item, m.label))}</span>` : '';
     return `<li><figure class="media-frame media-frame--${kind}">${visual}<figcaption><span class="media-frame__name">${esc(m.label)}</span>${note ? ` ${note}` : ''}</figcaption></figure></li>`;
   }).join('')}</ul>`;
 }
@@ -137,57 +146,150 @@ export function caseStudy(p) {
   const o = p.overview || {};
   const S = [];
   const toc = [];
+  const notes = [];
+  const deferred = [];
   let cp = 0;
-  const add = (id, _lens, title, inner) => { cp += 1; S.push(section(id, title, inner, cp)); toc.push({ id, title, n: cp }); };
+  const note = (label) => { if (label) notes.push(label); };
+  const add = (id, title, inner) => {
+    if (!inner || !String(inner).trim()) return;
+    cp += 1;
+    S.push(section(id, title, inner, cp));
+    toc.push({ id, title, n: cp });
+  };
+  const show = (v) => esc(Array.isArray(v) ? v.join(', ') : v);
+  const rowsHtml = (rows) => {
+    const bits = [];
+    for (const [k, f, fn] of rows) {
+      if (f == null) continue;
+      if (isPending(f)) note(k);
+      else bits.push(`<div><dt>${esc(k)}</dt><dd>${(fn || show)(val(f))}</dd></div>`);
+    }
+    return bits.length ? `<dl class="facts">${bits.join('')}</dl>` : '';
+  };
 
-  // ---------------- Present: what it is
-  if (p.media && p.media.length) add('media', 'present', 'Media', `<p class="media-lead">Frames for the sprite sheet, each character, the stage, and a gameplay clip.</p>${mediaGallery(p.media)}`);
-  add('overview', 'present', 'Overview', dlRows([
+  const NON_GAME = new Set(['tabi', 'sdcs-booking-app']);
+  add('overview', 'Overview', rowsHtml([
     ...(o.projectTitle ? [['Project title', o.projectTitle]] : []),
     ['Genre', o.genre], ...(o.characters ? [['Characters', o.characters]] : []), ...(o.moves ? [['Moves', o.moves]] : []),
     ['Type', o.type], ['My role', o.role], ['Team', o.team], ['Timeframe', o.timeframe],
     ['Engine', o.engine], ['Tools', o.tools], ['Platforms', o.platforms], ['Stage', o.stage],
   ]));
-  if (p.mechanics || p.structure) add('what', 'present', 'What it is', `
-    ${p.mechanics ? `<h3>${p.slug === 'a-course-in-time' ? 'Mechanics in the playable build' : 'Mechanics'}</h3>${p.slug === 'a-course-in-time' ? '<p class="source">As described on the itch.io page. The project is in development, so this is not a shipped storefront credit.</p>' : ''}<dl class="mechanics">${val(p.mechanics).map(m => `<div><dt>${esc(m.name)}</dt><dd>${esc(m.text)}</dd></div>`).join('')}</dl>` : ''}
-    ${p.structure ? `<h3>Structure</h3>${field(p.structure, v => `<p>${esc(v)}</p>`)}` : ''}
-    ${p.eraNote ? `<h3>How many eras</h3>${field(p.eraNote, v => `<p>${esc(v)}</p>`)}` : ''}
-    ${p.slug === 'a-course-in-time' ? `<h3>The rule, in one picture</h3>${eraDiagram()}` : ''}`);
-  if (p.contributions) add('role', 'present', 'What I did', `${field(p.contributions, v => list(v))}${p.contributions.source && !isPending(p.contributions) ? `<p class="source">Source: ${esc(p.contributions.source)}</p>` : ''}`);
-  if (p.clientWork) add('client', 'present', 'Working with the client', dlRows([
-    ['Communication', p.clientWork.cadence], ['Handover', p.clientWork.handover], ['Client', p.clientWork.clientName],
-    ['Client feedback', p.clientWork.feedback], ['Handover documentation', p.clientWork.handoverNotes],
-  ]));
-  if (p.collaboration) add('team', 'present', 'Who did what', collaboration(p.collaboration));
-  if (p.videos) add('video', 'present', 'Gameplay video', field(p.videos, v => `<p>${esc(v)}</p>`));
 
-  // ---------------- Past: how it was made
-  if (p.problem || p.designGoal) add('goal', 'past', 'Problem and design goal', dlRows([['Problem', p.problem], ['Design goal', p.designGoal]]));
-  if (p.process) add('process', 'past', 'Process', `<ol class="process">${p.process.map(s => `<li class="process__step${isPending(s.item) ? ' is-empty' : ' is-filled'}"><span class="process__stage">${esc(s.stage)}</span>${field(s.item, esc, { inline: true, label: 'Pending' })}</li>`).join('')}</ol><p class="source">Stages are only marked done where I can show them.</p>`);
-  if (p.decisions && p.decisions.length) add('decisions', 'past', 'Design decisions', decisions(p.decisions));
-  if (p.levelDesign) { const l = p.levelDesign; add('level', 'past', 'Level design', dlRows([
-    ['Level', l.overview], ['Goals', l.goals], ['Structure', l.structure], ['Flow', l.flow],
-    ['Mechanic introduction', l.mechanicIntroduction], ['Challenge curve', l.challengeCurve], ['Greybox', l.greybox], ['Final', l.final],
-  ])); }
-  if (p.experience) add('experience', 'past', 'Player experience', dlRows([
-    ['Intended experience', p.experience.intended], ['Design tools used to shape it', p.experience.tools, v => list(v)], ['Evidence', p.experience.evidence],
-  ]));
-  if (p.playtesting) { const t = p.playtesting; add('playtesting', 'past', 'Playtesting', `
-    ${field(t.support, v => `<p>${esc(v)}</p>`)}
-    <h3>Sessions</h3>
-    ${t.sessions && t.sessions.length ? t.sessions.map(sessionBlock).join('') : `<div class="oicr" aria-label="Playtest write-up template"><ol class="oicr__steps"><li>Observation</li><li>Insight</li><li>Design change</li><li>Result</li></ol>${pending(t.template)}</div>`}`); }
-  if (p.iterations) add('iterations', 'past', 'Iterations', iterations(p.iterations, p.slug));
+  let what = '';
+  if (p.mechanics && !isPending(p.mechanics)) {
+    const heading = NON_GAME.has(p.slug) ? 'Features' : (p.slug === 'a-course-in-time' ? 'Mechanics in the playable build' : 'Mechanics');
+    const caveat = p.slug === 'a-course-in-time' ? '<p class="source">As described on the itch.io page. The project is in development, so this is not a shipped storefront credit.</p>' : '';
+    const listClass = NON_GAME.has(p.slug) ? 'spec-list' : 'mechanics';
+    what += `<h3>${heading}</h3>${caveat}<dl class="${listClass}">${val(p.mechanics).map(m => `<div><dt>${esc(m.name)}</dt><dd>${esc(m.text)}</dd></div>`).join('')}</dl>`;
+  } else if (p.mechanics) note(NON_GAME.has(p.slug) ? 'Features' : 'Mechanics');
+  if (p.structure) {
+    if (isPending(p.structure)) note('Structure');
+    else what += `<h3>Structure</h3><p>${esc(val(p.structure))}</p>`;
+  }
+  if (p.eraNote) {
+    if (isPending(p.eraNote)) note('How many eras');
+    else what += `<h3>How many eras</h3><p>${esc(val(p.eraNote))}</p>`;
+  }
+  if (p.slug === 'a-course-in-time') what += `<h3>The rule, in one picture</h3>${eraDiagram()}`;
+  add('what', 'What it is', what);
 
-  // ---------------- Future: what's next
-  if (p.results) add('results', 'future', 'Results', field(p.results, v => `<p>${esc(v)}</p>`));
-  if (p.reflection) add('reflection', 'future', 'Reflection', `<ol class="journal__qs"><li>What I tried</li><li>Why it failed</li><li>What I learned</li><li>What I changed</li></ol>${field(p.reflection, v => `<p>${esc(v)}</p>`)}`);
-  if (p.next) add('next', 'future', 'Next', field(p.next, v => `<p>${esc(v)}</p>`));
+  if (p.contributions) {
+    if (isPending(p.contributions)) note('What I did');
+    else add('role', 'What I did', list(val(p.contributions)));
+  }
+  if (p.clientWork) {
+    const client = rowsHtml([
+      ['Communication', p.clientWork.cadence], ['Handover', p.clientWork.handover], ['Client', p.clientWork.clientName],
+      ['Client feedback', p.clientWork.feedback], ['Handover documentation', p.clientWork.handoverNotes],
+    ]);
+    add('client', 'Working with the client', client);
+  }
+  if (p.collaboration) {
+    const ready = p.collaboration.filter(c => !isPending(c.item));
+    p.collaboration.filter(c => isPending(c.item)).forEach(c => note(c.discipline));
+    if (ready.length) add('team', 'Who did what', collaboration(ready));
+  }
+  if (p.decisions && p.decisions.length) add('decisions', 'Design decisions', decisions(p.decisions, note, p.slug === 'waking-nightmare'));
+
+  if (p.process) {
+    const filled = p.process.filter(s => !isPending(s.item));
+    p.process.filter(s => isPending(s.item)).forEach(s => note(s.stage));
+    if (filled.length) add('process', 'Process', `<ol class="process">${filled.map(s => `<li class="process__step is-filled"><span class="process__stage">${esc(s.stage)}</span>${esc(val(s.item))}</li>`).join('')}</ol>`);
+  }
+  if (p.levelDesign) {
+    const l = p.levelDesign;
+    const level = rowsHtml([
+      ['Level', l.overview], ['Goals', l.goals], ['Structure', l.structure], ['Flow', l.flow],
+      ['Mechanic introduction', l.mechanicIntroduction], ['Challenge curve', l.challengeCurve], ['Greybox', l.greybox], ['Final', l.final],
+    ]);
+    if (level) add('level', 'Level design', level);
+    else deferred.push('<h3 id="level">Level design</h3>');
+  }
+  if (p.experience) {
+    const exp = rowsHtml([
+      ['Intended experience', p.experience.intended], ['Design tools used to shape it', p.experience.tools, v => list(v)], ['Evidence', p.experience.evidence],
+    ]);
+    add('experience', 'Player experience', exp);
+  }
+  if (p.playtesting) {
+    const t = p.playtesting;
+    if (t.support && !isPending(t.support)) add('playtesting', 'Playtesting', `<p>${esc(val(t.support))}</p>`);
+    else note('Playtesting');
+    deferred.push(`<div id="playtesting"><h3>Playtesting</h3>${t.sessions && t.sessions.length ? t.sessions.map(sessionBlock).join('') : `<div class="oicr" aria-label="Playtest write-up template"><ol class="oicr__steps"><li>Observation</li><li>Insight</li><li>Design change</li><li>Result</li></ol><p>${esc(publicSlot(t.template, 'Playtest write-up'))}</p></div>`}</div>`);
+  }
+  if (p.videos) {
+    if (isPending(p.videos)) note('Gameplay video');
+    else add('video', 'Gameplay video', `<p>${esc(val(p.videos))}</p>`);
+  }
+  if (p.results) {
+    if (isPending(p.results)) note('Results');
+    else add('results', 'Results', `<p>${esc(val(p.results))}</p>`);
+  }
+  if (p.reflection) {
+    if (isPending(p.reflection)) {
+      note('Reflection');
+      deferred.push(`<h3 id="reflection">Reflection</h3><p>${esc(publicSlot(p.reflection, 'Reflection'))}</p>`);
+    } else add('reflection', 'Reflection', `<p>${esc(val(p.reflection))}</p>`);
+  }
+  if (p.next) {
+    if (isPending(p.next)) note('Next');
+    else add('next', 'Next', `<p>${esc(val(p.next))}</p>`);
+  }
+  if (p.problem || p.designGoal) {
+    const goal = rowsHtml([['Problem', p.problem], ['Design goal', p.designGoal]]);
+    if (goal) add('goal', 'Problem and design goal', goal);
+  }
+  if (p.media && p.media.length) {
+    p.media.filter(m => isPending(m.item)).forEach(m => note(m.label));
+    deferred.push(`<div id="media"><h3>Media</h3><p class="media-lead">Frames for the sprite sheet, each character, the stage, and a gameplay clip.</p>${mediaGallery(p.media)}</div>`);
+  }
+  if (p.iterations) deferred.push(`<div id="iterations"><h3>Iterations</h3>${iterations(p.iterations, p.slug)}</div>`);
+  if (p.cover && isPending(p.cover)) note('Cover image');
+
   const n = countPending(p);
-  add('gaps', 'future', 'Evidence still to add', `<p>This page has <strong>${n}</strong> evidence slot${n === 1 ? '' : 's'} I haven't filled yet. They are marked with dashed boxes rather than filled with guesses.</p>`);
+  const summary = p.slug === 'a-course-in-time'
+    ? `Still to add (${n}): level maps, playtest notes, gameplay clip and more`
+    : `Still to add (${n})`;
+  const listItems = [...new Set(notes)].map(label => `<li>Coming soon: ${esc(label)}</li>`).join('');
+  cp += 1;
+  S.push(`<section id="still" class="cs-section" aria-labelledby="still-title">
+  <details class="still">
+    <summary id="still-title"><span class="cs-section__cp">Checkpoint ${cp}</span> ${esc(summary)}</summary>
+    <ul class="bullets">${listItems}</ul>
+    ${deferred.join('\n')}
+  </details>
+</section>`);
+  toc.push({ id: 'still', title: 'Still to add', n: cp });
 
+  const HEADS = {
+    'a-course-in-time': 'Playable build on itch.io. Level maps, playtest notes and a gameplay clip are still to come.',
+    tabi: 'Live, invite-only. A cover image and the remaining write-up slots are still to come.',
+    'ikemen-go': 'Coming soon: public build or page. Sprite sheet, character GIFs and a gameplay clip are still to come.',
+    'waking-nightmare': 'Client handover of an in-progress build. Several write-up slots are still to come.',
+  };
+  const line = HEADS[p.slug] || 'Confirmed work is in the sections above. Empty slots are listed at the end and are not filled with guesses.';
   const links = (p.links || []).filter(l => !isPending(l.item));
-  const cover = p.cover && !isPending(p.cover) ? `<img class="cs-cover" src="${esc(href(val(p.cover).src))}" alt="${esc(val(p.cover).alt)}" width="559" height="257" decoding="async">` : (p.cover ? `<div class="cs-cover cs-cover--pending">${pending(p.cover, { label: 'Image pending' })}</div>` : '');
-
+  const cover = p.cover && !isPending(p.cover) ? `<img class="cs-cover" src="${esc(href(val(p.cover).src))}" alt="${esc(val(p.cover).alt)}" width="559" height="257" decoding="async">` : '';
   const checkpoints = toc.map(t => `<li><a href="#${t.id}">${esc(t.title)}</a></li>`).join('');
 
   return `<div class="wrap cs">
@@ -195,10 +297,10 @@ export function caseStudy(p) {
   <header class="cs-head level-head${cover ? '' : ' cs-head--solo'}">
     <div>
       <p class="cs-head__tier">Level · ${{ flagship: 'Flagship project', supporting: 'Supporting project', experiment: 'Experiment / prototype' }[p.tier]}</p>
-      <h1>${esc(p.title)}</h1>${p.subtitle ? `\n      <p class="cs-head__sub">${field(p.subtitle)}</p>` : ''}
-      <p class="lede">${field(p.tagline)}</p>
-      <p class="evidence-line"><strong>${n}</strong> evidence slot${n === 1 ? '' : 's'} on this page ${n === 1 ? 'is' : 'are'} still empty. Empty slots stay marked. Nothing here is filled with a guess.</p>
-      ${p.access ? field(p.access, v => `<p>${esc(v)}</p>`) : ''}
+      <h1>${esc(p.title)}</h1>${p.subtitle ? `\n      <p class="cs-head__sub">${field(p.subtitle, esc, { label: 'Subtitle' })}</p>` : ''}
+      <p class="lede">${field(p.tagline, esc, { label: 'Summary' })}</p>
+      <p class="evidence-line">${esc(line)}</p>
+      ${p.access && !isPending(p.access) ? `<p>${esc(val(p.access))}</p>` : ''}
       ${links.length ? `<p class="cs-head__links">${links.map((l) => ext(val(l.item), `${esc(l.label)}`)).join('')}</p>` : ''}
     </div>
     ${cover}

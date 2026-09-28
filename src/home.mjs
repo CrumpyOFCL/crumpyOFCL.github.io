@@ -7,16 +7,79 @@ const STATUS_TEXT = { evidenced: 'Evidenced', stated: 'Described', pending: 'Pen
 const QUEST_FROM_LEDGER = { evidenced: 'unlocked', stated: 'described', pending: 'locked' };
 
 const GLYPH = {
-  T: '11111,00100,00100,00100,00100,00100,00100',
-  Y: '10001,10001,01010,00100,00100,00100,00100',
-  L: '10000,10000,10000,10000,10000,10000,11111',
-  E: '11111,10000,10000,11110,10000,10000,11111',
-  R: '11110,10001,10001,11110,10100,10010,10001',
+  A: '01110,10001,10001,11111,10001,10001,10001',
+  B: '11110,10001,10001,11110,10001,10001,11110',
   C: '01111,10000,10000,10000,10000,10000,01111',
-  U: '10001,10001,10001,10001,10001,10001,01110',
+  D: '11110,10001,10001,10001,10001,10001,11110',
+  E: '11111,10000,10000,11110,10000,10000,11111',
+  F: '11111,10000,10000,11110,10000,10000,10000',
+  G: '01111,10000,10000,10111,10001,10001,01111',
+  H: '10001,10001,10001,11111,10001,10001,10001',
+  I: '11111,00100,00100,00100,00100,00100,11111',
+  J: '00111,00010,00010,00010,00010,10010,01100',
+  K: '10001,10010,10100,11000,10100,10010,10001',
+  L: '10000,10000,10000,10000,10000,10000,11111',
   M: '10001,11011,10101,10001,10001,10001,10001',
+  N: '10001,11001,10101,10011,10001,10001,10001',
+  O: '01110,10001,10001,10001,10001,10001,01110',
   P: '11110,10001,10001,11110,10000,10000,10000',
+  Q: '01110,10001,10001,10001,10101,10010,01101',
+  R: '11110,10001,10001,11110,10100,10010,10001',
+  S: '01111,10000,10000,01110,00001,00001,11110',
+  T: '11111,00100,00100,00100,00100,00100,00100',
+  U: '10001,10001,10001,10001,10001,10001,01110',
+  V: '10001,10001,10001,10001,10001,01010,00100',
+  W: '10001,10001,10001,10101,10101,10101,01010',
+  X: '10001,10001,01010,00100,01010,10001,10001',
+  Y: '10001,10001,01010,00100,00100,00100,00100',
+  Z: '11111,00001,00010,00100,01000,10000,11111',
 };
+
+function pixelsFor(lines, { gap = 1, lh = 8, rowOk } = {}) {
+  const cells = [];
+  let width = 0;
+  lines.forEach((line, li) => {
+    let x = 0;
+    const y0 = li * lh;
+    for (const ch of line) {
+      if (ch === ' ') { x += 3; continue; }
+      const g = GLYPH[ch];
+      if (!g) { x += 3; continue; }
+      g.split(',').forEach((row, ry) => {
+        if (rowOk && !rowOk(ry)) return;
+        [...row].forEach((bit, rx) => { if (bit === '1') cells.push([x + rx, y0 + ry]); });
+      });
+      x += 5 + gap;
+    }
+    width = Math.max(width, Math.max(0, x - gap));
+  });
+  return { cells, width, height: (lines.length - 1) * lh + 7 };
+}
+
+function pathFrom(cells) {
+  const byY = new Map();
+  for (const [x, y] of cells) {
+    if (!byY.has(y)) byY.set(y, []);
+    byY.get(y).push(x);
+  }
+  let d = '';
+  for (const [y, xs] of byY) {
+    xs.sort((a, b) => a - b);
+    let start = xs[0];
+    let prev = xs[0];
+    const flush = (a, b) => { d += `M${a} ${y}h${b - a + 1}v1H${a}z`; };
+    for (let i = 1; i <= xs.length; i++) {
+      if (i < xs.length && xs[i] === prev + 1) prev = xs[i];
+      else { flush(start, prev); if (i < xs.length) start = prev = xs[i]; }
+    }
+  }
+  return d;
+}
+
+function pixelLine(text, fill) {
+  const { cells, width, height } = pixelsFor(text.split('\n'), { lh: 8 });
+  return `<svg class="title-line" viewBox="0 0 ${width} ${height}" aria-hidden="true"><path fill="${fill}" d="${pathFrom(cells)}"/></svg>`;
+}
 
 function link(url, text, cls = '') {
   const ext = /^https?:/.test(url);
@@ -40,31 +103,11 @@ function toolsOf(f) {
 
 function pixelLogo() {
   const lines = ['TYLER', 'CRUMP'];
-  const gap = 1;
-  const lh = 9;
-  let width = 0;
-  const rows = lines.map(line => [...line]);
-  for (const chars of rows) {
-    const w = chars.reduce((n, ch) => n + (GLYPH[ch] ? 5 : 3) + gap, -gap);
-    width = Math.max(width, w);
-  }
-  const height = rows.length * lh - 2;
-  let rects = '';
-  rows.forEach((chars, li) => {
-    let x = 0;
-    const y0 = li * lh;
-    for (const ch of chars) {
-      const g = GLYPH[ch];
-      if (!g) { x += 3 + gap; continue; }
-      g.split(',').forEach((row, ry) => {
-        [...row].forEach((bit, rx) => {
-          if (bit === '1') rects += `<rect x="${x + rx}" y="${y0 + ry}" width="1" height="1"/>`;
-        });
-      });
-      x += 5 + gap;
-    }
-  });
-  return `<svg class="pixel-logo" viewBox="0 0 ${width} ${height}" role="img" aria-label="Tyler Crump">${rects}</svg>`;
+  const top = pixelsFor(lines, { lh: 9, rowOk: (ry) => ry < 4 });
+  const bot = pixelsFor(lines, { lh: 9, rowOk: (ry) => ry >= 4 });
+  const all = pixelsFor(lines, { lh: 9 });
+  const shadow = pathFrom(all.cells.map(([x, y]) => [x + 1, y + 1]));
+  return `<svg class="pixel-logo" viewBox="0 0 ${all.width} ${all.height}" role="img" aria-label="Tyler Crump"><path fill="#7A4A10" d="${shadow}"/><path fill="#FFE9A8" d="${pathFrom(top.cells)}"/><path fill="#F2B233" d="${pathFrom(bot.cells)}"/></svg>`;
 }
 
 function nodeKind(p) {
@@ -72,94 +115,90 @@ function nodeKind(p) {
   return TIER_NODE[p.tier];
 }
 
+const ART = {
+  'a-course-in-time': 'castle',
+  'waking-nightmare': 'wn',
+  tabi: 'tabi',
+  'ikemen-go': 'ikemen',
+  'sdcs-booking-app': 'sdcs',
+  'lit-flux-mechanics-showcase': 'lit',
+  gdt2: 'gdt',
+};
+const PLAYABLE = new Set(['a-course-in-time', 'lit-flux-mechanics-showcase', 'gdt2']);
+
 function nodeArt(p) {
-  if (p.tier === 'flagship') {
-    return `<span class="castle" aria-hidden="true"><i></i><i class="castle__keep"></i><i></i><b></b></span>`;
-  }
-  if (p.slug === 'tabi') return `<span class="suitcase" aria-hidden="true"></span>`;
-  if (p.tier === 'experiment') return `<span class="bonus" aria-hidden="true"></span>`;
-  return `<span class="world" aria-hidden="true"></span>`;
+  const kind = ART[p.slug] || 'wn';
+  const mark = `<span class="landmark landmark--${kind}" aria-hidden="true"></span>`;
+  return p.slug === 'tabi' ? `<span class="suitcase">${mark}</span>` : mark;
 }
 
-function slotFact(label, text) {
-  if (!text) {
-    return `<div class="slot-lock"><span class="lock" aria-hidden="true"></span> <span class="slot-lock__name">${esc(label)}</span> <span class="slot-lock__state">LOCKED</span> <span class="slot-lock__note">evidence coming</span></div>`;
-  }
-  return `<div class="slot-fact"><dt>${esc(label)}</dt><dd>${esc(text)}</dd></div>`;
+function equipList(engine, tools) {
+  const out = [];
+  const add = (t) => {
+    const n = String(t).toLowerCase();
+    if (out.some(e => {
+      const h = e.toLowerCase();
+      return h === n || h.includes(n) || n.includes(h);
+    })) return;
+    out.push(String(t));
+  };
+  if (engine) add(engine);
+  (tools || []).forEach(add);
+  return out;
 }
 
-function statBar(name, text) {
-  if (!text) {
-    return `<div class="stat stat--locked"><p class="stat__name">${esc(name)}</p><p class="stat__lock"><span class="lock" aria-hidden="true"></span> LOCKED <span class="stat__note">evidence coming</span></p><p class="visually-hidden">${esc(name)} is locked. Evidence coming. This is not a rating.</p></div>`;
-  }
-  return `<div class="stat"><p class="stat__name">${esc(name)}</p><div class="stat__track" role="img" aria-label="${esc(name)} confirmed: ${esc(text)}. This is not a rating."><span class="stat__fill"></span></div><p class="stat__fact">${esc(text)}</p></div>`;
+function stageLabel(p) {
+  const s = confirmed(p.overview && p.overview.stage);
+  return s ? String(s) : 'LOCKED · evidence coming';
 }
 
-function statsFor(p) {
-  const o = p.overview || {};
-  const role = confirmed(o.role);
-  const team = confirmed(o.team);
-  const levelOver = p.levelDesign && confirmed(p.levelDesign.overview);
-  const levelStruct = p.levelDesign && confirmed(p.levelDesign.structure);
-  let level = null;
-  if (levelOver) level = String(levelOver);
-  else if (p.slug === 'a-course-in-time' && role && /level design/i.test(role)) {
-    level = levelStruct ? `${role}. ${levelStruct}` : String(role);
-  }
-  let systems = null;
-  if (p.mechanics && !isPending(p.mechanics)) {
-    systems = `Playable-build mechanics: ${val(p.mechanics).map(m => m.name).join(', ')}.`;
-  } else if (p.slug === 'ikemen-go' && Array.isArray(p.process)) {
-    const combat = p.process.find(s => s.stage === 'Combat systems');
-    if (combat && !isPending(combat.item)) systems = String(val(combat.item));
-  } else if (p.slug === 'tabi') {
-    const tools = toolsOf(o.tools);
-    const engine = confirmed(o.engine);
-    if (engine && tools) systems = `${engine}: ${tools.join(', ')}.`;
-  } else if (p.slug === 'lit-flux-mechanics-showcase') {
-    const tag = confirmed(p.tagline);
-    if (tag) systems = String(tag);
-  }
-  let collab = null;
-  if (team) collab = role && String(team) !== 'Solo' ? `${team}. ${role}.` : `${team}.`;
-  return { level, systems, collab, role: role && String(role), team: team && String(team) };
+function timeLabel(p) {
+  const t = confirmed(p.overview && p.overview.timeframe);
+  if (t) return String(t);
+  if (p.slug === 'a-course-in-time') return 'LOCKED · dates coming';
+  return 'LOCKED · evidence coming';
+}
+
+function factRow(label, text) {
+  const body = text
+    ? esc(text)
+    : '<span class="slot-lock__state">LOCKED · evidence coming</span>';
+  return `<div class="slot-fact"><dt>${esc(label)}</dt><dd>${body}</dd></div>`;
 }
 
 function characterCard(p) {
   const o = p.overview || {};
-  const s = statsFor(p);
+  const role = confirmed(o.role);
+  const team = confirmed(o.team);
   const pitch = confirmed(p.tagline);
-  const engine = confirmed(o.engine);
-  const tools = toolsOf(o.tools);
-  const equip = [];
-  if (engine) equip.push(engine);
-  if (tools) equip.push(...tools.filter(t => t !== engine));
+  const equip = equipList(confirmed(o.engine), toolsOf(o.tools));
   const equipHtml = equip.length
-    ? `<ul class="equip" aria-label="Equipment">${equip.map(t => `<li><span class="equip__mark" aria-hidden="true"></span>${esc(t)}</li>`).join('')}</ul>`
-    : slotFact('Equipment', null);
+    ? `<ul class="equip" aria-label="Tools">${equip.map(t => `<li><span class="equip__mark" aria-hidden="true"></span>${esc(t)}</li>`).join('')}</ul>`
+    : factRow('Tools', null);
+  const credit = p.slug === 'ikemen-go' ? '<p class="select-card__by">Designed by Tyler Crump</p>' : '';
   return `<dialog class="select-card" id="card-${p.slug}" aria-labelledby="card-title-${p.slug}">
-  <p class="select-card__kicker${p.slug === 'tabi' ? ' select-card__kicker--plain' : ''}">Character select · ${esc(nodeKind(p))}</p>
-  <h2 id="card-title-${p.slug}">${esc(p.title)}</h2>
-  <dl class="select-card__facts">
-    ${s.role ? `<div class="slot-fact"><dt>Role</dt><dd>${esc(s.role)}</dd></div>` : ''}
-    ${s.team ? `<div class="slot-fact"><dt>Team</dt><dd>${esc(s.team)}</dd></div>` : ''}
-  </dl>
-  ${s.role ? '' : slotFact('Role', null)}
-  ${s.team ? '' : slotFact('Team', null)}
-  <h3>Equipment</h3>
-  ${equipHtml}
-  <h3>Skills</h3>
-  <p class="stat-note">A filled bar is a confirmed fact. A locked bar has no confirmed fact yet. This is not a rating.</p>
-  ${statBar('Level design', s.level)}
-  ${statBar('Systems', s.systems)}
-  ${statBar('Collaboration', s.collab)}
-  ${s.team === 'Solo' ? '<p class="stat-note">Solo is the confirmed team size, not a collaboration score.</p>' : ''}
-  <h3>Pitch</h3>
-  ${pitch ? `<p class="select-card__pitch">${esc(pitch)}</p>` : slotFact('Pitch', null)}
-  <p class="select-card__actions">
-    <a class="btn btn--primary" href="${projectHref(p.slug)}">START LEVEL<span class="visually-hidden">: ${esc(p.title)}</span></a>
-    <button type="button" class="btn" data-close-card>Close</button>
-  </p>
+  <div class="select-card__layout">
+    <div class="select-card__portrait" aria-hidden="true">${nodeArt(p)}</div>
+    <div class="select-card__main">
+      <p class="select-card__kicker${p.slug === 'tabi' ? ' select-card__kicker--plain' : ''}">Character select · ${esc(nodeKind(p))}</p>
+      <h2 id="card-title-${p.slug}">${esc(p.title)}</h2>
+      ${credit}
+      <dl class="select-card__facts">
+        ${factRow('Role', role && String(role))}
+        ${factRow('Team', team && String(team))}
+        ${factRow('Stage', stageLabel(p))}
+        ${factRow('Timeframe', timeLabel(p))}
+      </dl>
+      <h3>Tools</h3>
+      ${equipHtml}
+      <h3>Pitch</h3>
+      ${pitch ? `<p class="select-card__pitch">${esc(pitch)}</p>` : factRow('Pitch', null)}
+      <p class="select-card__actions">
+        <a class="btn btn--primary" href="${projectHref(p.slug)}">START LEVEL<span class="visually-hidden">: ${esc(p.title)}</span></a>
+        <button type="button" class="btn" data-close-card>Close</button>
+      </p>
+    </div>
+  </div>
 </dialog>`;
 }
 
@@ -189,10 +228,25 @@ function select(name, label, values) {
 
 function questState(evidence) {
   if (evidence === 'project') return ['unlocked', 'Unlocked', 'Backed by a project on this site.'];
+  if (evidence === 'described') return ['progress', 'In progress', 'Described on the project page; artefact not published yet.'];
   if (evidence === 'attested') return ['progress', 'In progress', 'Tyler-attested'];
   if (evidence === 'attested-pending') return ['progress', 'In progress', 'Tyler-attested, evidence pending'];
   if (evidence === 'general') return ['progress', 'In progress', 'Tyler-attested. No single project is attached.'];
   return ['locked', 'Locked', 'evidence coming'];
+}
+
+function stars() {
+  let n = 17;
+  let html = '';
+  for (let i = 0; i < 24; i++) {
+    n = (n * 37 + 11) % 97;
+    const left = 3 + (n % 92);
+    const top = 3 + ((n * 3) % 52);
+    const tw = i < 8;
+    const dur = 800 + (i % 5) * 200;
+    html += `<i class="star${tw ? ' star--twinkle' : ''}" style="left:${left}%;top:${top}%${tw ? `;animation-duration:${dur}ms` : ''}"></i>`;
+  }
+  return html;
 }
 
 export function home(site, projects) {
@@ -208,30 +262,61 @@ export function home(site, projects) {
   const path = [...vis.filter(p => p.tier === 'flagship'), ...vis.filter(p => p.tier === 'supporting'), ...vis.filter(p => p.tier === 'experiment')];
 
   const title = `<div class="title-screen" id="title-screen">
+  <div class="title-sky" aria-hidden="true">
+    ${stars()}
+    <svg class="title-hotel" viewBox="0 0 96 48">
+      <path fill="#0F0A06" d="M6 28h84v18H6zM16 18h64v12H16zM34 8h28v12H34zM30 18h36L48 4z"/>
+      <rect class="win" x="12" y="30" width="6" height="6"/>
+      <rect class="win" x="24" y="30" width="6" height="6"/>
+      <rect class="win" x="36" y="30" width="6" height="6"/>
+      <rect class="win" x="54" y="30" width="6" height="6"/>
+      <rect class="win" x="66" y="30" width="6" height="6"/>
+      <rect class="win" x="78" y="30" width="6" height="6"/>
+      <rect class="door" x="44" y="32" width="8" height="14"/>
+    </svg>
+    <div class="title-avatar"></div>
+  </div>
   <div class="title-screen__inner">
     ${pixelLogo()}
-    <p class="title-screen__sub">Game / Level / Gameplay Designer</p>
-    <p class="press-start">PRESS START</p>
-    <p class="visually-hidden">Press any key, or click, to open the map. This screen also leaves on its own. Skip to CV / Recruiter view stays at the top right.</p>
+    <p class="title-screen__sub">${pixelLine('GAME DESIGNER\nGAMEPLAY AND TOOLS', '#F4E7C8')}<span class="visually-hidden">Game designer · gameplay and tools</span></p>
+    <p class="press-start">${pixelLine('PRESS START', '#F2B233')}<span class="visually-hidden">PRESS START</span></p>
+    <p class="visually-hidden">Press any key, or click, to open the map. This screen also leaves on its own. Recruiter view stays at the top right.</p>
   </div>
 </div>`;
 
-  const areaOf = { 'a-course-in-time': 'castle', 'waking-nightmare': 'wn', 'tabi': 'tabi', 'ikemen-go': 'ikemen', 'sdcs-booking-app': 'sdcs', 'lit-flux-mechanics-showcase': 'lit', 'gdt2': 'gdt' };
-  const nodes = path.map(p => `<button type="button" class="node node--${p.tier} node--${areaOf[p.slug] || 'x'}" data-node="${p.slug}" id="node-${p.slug}">
+  const nodes = path.map(p => {
+    const locked = p.slug === 'ikemen-go';
+    const play = PLAYABLE.has(p.slug);
+    return `<button type="button" class="node node--${p.tier} node--${ART[p.slug] || 'x'}${locked ? ' node--locked' : ''}" data-node="${p.slug}" id="node-${p.slug}">
+    <span class="node__cursor" aria-hidden="true"></span>
     ${nodeArt(p)}
+    ${play ? '<span class="node__flag">PLAYABLE</span>' : ''}
+    ${locked ? '<span class="node__lock">LOCKED</span>' : ''}
     <span class="node__label">${esc(p.title)}</span>
     <span class="node__tier">${esc(nodeKind(p))}</span>
-  </button>`).join('');
+  </button>`;
+  }).join('');
 
   const map = `<section id="map" class="map-section" aria-labelledby="map-title">
-  <div class="wrap map-section__head">
-    <h1 id="map-title">Tyler Crump <span class="map-section__role">Level select</span></h1>
-    <p id="map-help">Each project is a level. Arrow keys or WASD walk the path. Enter, click or tap opens that project. <button type="button" class="btn btn--small" data-list-toggle aria-pressed="false" aria-controls="work">List view</button></p>
-  </div>
+  <h1 id="map-title" class="visually-hidden">Tyler Crump</h1>
   <div class="overworld" aria-describedby="map-help">
-    <svg class="map-path" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><polyline points="50,16 20,46 50,46 80,46 20,78 50,78 80,78"/></svg>
-    <div class="avatar" data-avatar aria-hidden="true"><i></i><b></b></div>
-    ${nodes}
+    <div class="hud">
+      <p class="hud__plaque">WORLD 1: TYLER CRUMP</p>
+      <p class="hud__count">WORLD 1 · 7 LEVELS · 3 PLAYABLE IN BROWSER</p>
+      <p id="map-help">Each project is a level. Tap or click one to see its card. On a keyboard, use the arrow keys or WASD to move and Enter to open. <button type="button" class="btn btn--small" data-list-toggle aria-pressed="false" aria-controls="work">List view</button></p>
+      <p class="hud__strength">Team lead on a 5-person Unity 6 game (level design, audio, code) · Creative Director on a 5-person VR client project · Git · FMOD <a href="#save">Recruiter view →</a></p>
+    </div>
+    <div class="world-stage" data-stage>
+      <img class="world-map" src="${href('/assets/art/map.png')}" width="320" height="180" alt="">
+      <i class="lake-shimmer" aria-hidden="true"></i>
+      <svg class="map-road" data-road aria-hidden="true">
+        <path class="road-ink" d="" fill="none" stroke="#1C140C" stroke-width="12" stroke-linecap="square" stroke-linejoin="miter"/>
+        <path class="road-fill" d="" fill="none" stroke="#C4A36A" stroke-width="8" stroke-linecap="square" stroke-linejoin="miter"/>
+        <g class="road-dots"></g>
+      </svg>
+      <div class="avatar" data-avatar aria-hidden="true"><i></i><span class="avatar__shadow"></span></div>
+      ${nodes}
+    </div>
   </div>
   ${path.map(characterCard).join('\n')}
 </section>`;
@@ -274,12 +359,14 @@ export function home(site, projects) {
   const skillRows = site.skills.rows.filter(r => !r.hide).map(r => ({ ...r, projects: (r.projects || []).filter(s => vis.some(p => p.slug === s)) }));
   const quests = `<section id="skills" class="section wrap" aria-labelledby="skills-title">
   <h2 id="skills-title" class="section__title">Quest log</h2>
-  <p class="section__intro">Unlocked means a project on this site backs it. In progress means Tyler-attested, and the file is not published yet. Locked means evidence coming. A described row in the record below is a written claim, not an unlocked achievement.</p>
+  <p class="section__intro">Unlocked means a recruiter can open the work. In progress means it is described or Tyler-attested, and the artefact is not published yet. Locked means evidence coming.</p>
   <ul class="quests" role="list">${skillRows.map(r => {
     const [state, label, note] = questState(r.evidence);
     const where = r.projects.map(slug => {
       const p = vis.find(x => x.slug === slug);
-      return p ? `<a href="${projectHref(p.slug)}">${esc(p.title)}</a>` : '';
+      if (!p) return '';
+      const label = r.skill === 'Git' ? `${p.title} (public repo)` : p.title;
+      return `<a href="${projectHref(p.slug)}">${esc(label)}</a>`;
     }).filter(Boolean).join(', ');
     const name = r.projects.length
       ? `<button type="button" class="linklike matrix__skill" data-skill="${esc(r.skill)}" data-skill-projects="${r.projects.join(' ')}">${esc(r.skill)}</button>`
@@ -304,7 +391,7 @@ export function home(site, projects) {
   const loop = ['Assumption', 'Test', 'Evidence', 'Insight', 'Decision', 'Iteration'];
   const method = `<section id="method" class="section wrap" aria-labelledby="method-title">
   <h2 id="method-title" class="section__title">How I work</h2>
-  <ol class="method">${approach.map((s, i) => `<li class="method__step"><h3><span class="method__n" aria-hidden="true">${i + 1}</span> ${esc(s.step)}</h3><p>${esc(s.means)}</p><div class="method__ex"><span class="method__exlabel">From my work</span> ${field(s.example, esc, { inline: true })}</div></li>`).join('')}</ol>
+  <ol class="method">${approach.map((s, i) => `<li class="method__step"><h3><span class="method__n" aria-hidden="true">${i + 1}</span> ${esc(s.step)}</h3><p>${esc(s.means)}</p><div class="method__ex"><span class="method__exlabel">From my work</span> ${field(s.example, esc, { inline: true, label: s.step })}</div></li>`).join('')}</ol>
   <div class="loop-explainer">
     <h3>How decisions are written up here</h3>
     <p>Every design decision on a project page follows the same chain. Links I can't back up yet stay empty and marked, rather than being filled in.</p>
@@ -315,7 +402,7 @@ export function home(site, projects) {
   const docs = `<section id="docs" class="section wrap" aria-labelledby="docs-title">
   <h2 id="docs-title" class="section__title">Documentation</h2>
   <p class="section__intro">Design writing I'll publish here. Each opens to a preview.</p>
-  <ul class="docs" role="list">${site.documents.map(d => `<li><details class="doc"><summary><span class="doc__title">${esc(d.title)}</span> <span class="status status--${isPending(d.item) ? 'pending' : 'evidenced'}">${isPending(d.item) ? 'Pending' : 'Available'}</span></summary><div class="doc__body">${field(d.item)}</div></details></li>`).join('')}</ul>
+  <ul class="docs" role="list">${site.documents.map(d => `<li><details class="doc"><summary><span class="doc__title">${esc(d.title)}</span> <span class="status status--${isPending(d.item) ? 'pending' : 'evidenced'}">${isPending(d.item) ? 'Pending' : 'Available'}</span></summary><div class="doc__body">${field(d.item, v => esc(v), { label: d.title })}</div></details></li>`).join('')}</ul>
 </section>`;
 
   const journalBody = (j) => {
@@ -329,12 +416,12 @@ export function home(site, projects) {
   const journal = `<section id="journal" class="section wrap" aria-labelledby="journal-title">
   <h2 id="journal-title" class="section__title">Designer's journal</h2>
   <p class="section__intro">What didn't work, and what I did about it. Each entry uses the same four questions. Nothing is filled in until there is a real entry.</p>
-  <div class="journal">${site.journal.map((j, i) => isPending(j) ? `<article class="journal__entry journal__entry--pending" aria-label="Journal entry ${i + 1}, evidence pending"><ol class="journal__qs"><li>What I tried</li><li>Why it failed</li><li>What I learned</li><li>What I changed</li></ol>${pending(j)}</article>` : `<article class="journal__entry">${journalBody(j)}</article>`).join('')}</div>
+  <div class="journal">${site.journal.map((j, i) => isPending(j) ? `<article class="journal__entry journal__entry--pending" aria-label="Journal entry ${i + 1}, evidence pending"><ol class="journal__qs"><li>What I tried</li><li>Why it failed</li><li>What I learned</li><li>What I changed</li></ol>${pending(j, { label: 'Journal entry' })}</article>` : `<article class="journal__entry">${journalBody(j)}</article>`).join('')}</div>
 </section>`;
 
   const save = `<section id="save" class="section wrap save-file" aria-labelledby="save-title">
   <h2 id="save-title" class="section__title">Save file</h2>
-  <p class="section__intro">The short version for a recruiter. The role line is the confirmed one. The title screen uses a separate subtitle.</p>
+  <p class="section__intro">The short version: who I am, what I'm looking for, and how to reach me.</p>
   <div class="save-grid">
     <div>
       <p class="save-file__name">Tyler Crump</p>
@@ -368,7 +455,7 @@ export function home(site, projects) {
     </div>
     <div id="resume">
       <h3 class="section__title">CV file</h3>
-      ${field(site.resume, v => `<p>${esc(v)}</p><p><a class="btn" href="${href('/cv.pdf')}" download>Download CV (PDF)</a></p>`)}
+      <p>CV not published here yet. For now, email me at <a href="mailto:${esc(val(c.email))}">${esc(val(c.email))}</a>.</p>
     </div>
   </div>
 </section>`;

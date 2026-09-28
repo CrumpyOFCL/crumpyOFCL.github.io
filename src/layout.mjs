@@ -1,6 +1,6 @@
 import { esc, href } from './lib.mjs';
 
-export function layout({ title, description, body, page = 'home', canonical = '/', nav = [] }) {
+export function layout({ title, description, body, page = 'home', canonical = '/', nav = [], asset = '' }) {
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -8,20 +8,19 @@ export function layout({ title, description, body, page = 'home', canonical = '/
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(description)}">
-<meta name="theme-color" content="#E4D8BC">
+<meta name="theme-color" content="#1C140C">
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(description)}">
 <meta property="og:type" content="website">
 <link rel="canonical" href="https://crumpyofcl.github.io${canonical}">
 <meta property="og:url" content="https://crumpyofcl.github.io${canonical}">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%237A4A10'/%3E%3Cpath d='M4 4h8v2H9v6H7V6H4z' fill='%23FFF8EA'/%3E%3C/svg%3E">
-<link rel="preload" href="${href('/assets/fonts/bricolage-latin-wght.woff2')}" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="${href('/assets/styles.css')}">
+<link rel="stylesheet" href="${href(`/assets/styles.css?v=${asset}`)}">
 <script>document.documentElement.classList.add('js');</script>
 </head>
 <body class="page--${page}">
 <a class="skip" href="#main">Skip to content</a>
-${page === 'home' ? `<a class="recruiter-skip" data-recruiter href="#save">Skip to CV / Recruiter view</a>` : ''}
+${page === 'home' ? `<a class="recruiter-skip" data-recruiter href="#save">Recruiter view: projects and contact</a>` : ''}
 <header class="masthead">
   <div class="masthead__inner">
     <a class="brand" href="${href('/index.html')}"><span class="brand__name">Tyler Crump</span><span class="brand__role">Game designer · gameplay and tools</span></a>
@@ -42,8 +41,8 @@ ${body}
   </div>
 </footer>
 ${page === 'home' ? `<nav class="mobilebar" aria-label="Sections"><ul>
-  <li><a href="#map">Map</a></li><li><a href="#work">List</a></li><li><a href="#skills">Quests</a></li><li><a href="#contact">Continue?</a></li></ul></nav>` : ''}
-<script src="${href('/assets/app.js')}" defer></script>
+  <li><a href="#map">Map</a></li><li><a href="#work">List</a></li><li><a href="#save">Recruiter</a></li><li><a href="#contact">Contact</a></li></ul></nav>` : ''}
+<script src="${href(`/assets/app.js?v=${asset}`)}" defer></script>
 </body>
 </html>`;
 }

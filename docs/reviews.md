@@ -1,14 +1,14 @@
 # Reviews
 
-Reviewed against the built site on `portfolio-v2`. Lighthouse scores below were re-recorded on 28 Sep 2026 after IkemanGoAss moved to supporting. They are from that build, not estimates.
+Reviewed against the built site on `portfolio-v2` after the stage-1 design pass. Lighthouse scores below were re-recorded on 28 Sep 2026 against that build, with gzip on. They are from that run, not estimates.
 
 ## 30-second recruiter test — pass, with a skip
 
-The first frame is a pixel title card: TYLER CRUMP, "Game / Level / Gameplay Designer", and PRESS START. It leaves after 2.5 seconds, or on any key, click or tap. "Skip to CV / Recruiter view" is fixed at the top right from that first frame. It opens the plain list and the save file: confirmed role, what he is looking for, the flagship, four tools, itch.io, GitHub, and the email.
+The first frame is a pixel night sky and a grand-hotel silhouette. The windows light one by one, the avatar walks to the door, and the door lighting starts an iris wipe into the map. The wordmark is TYLER CRUMP, the subtitle is "Game designer · gameplay and tools", and PRESS START blinks. It leaves after 3 seconds, or instantly on any key, click or tap. "Recruiter view: projects and contact" is fixed at the top right from that first frame. There is no CV file yet, so the save file says so and gives the email. It opens the plain list and the save file: confirmed role, what he is looking for, the flagship, four tools, itch.io, GitHub, and the email.
 
 The hub under the title is a level-select map. A Course In Time is the large castle. The other projects are smaller nodes on the same path. List view is one button away if the map is not how someone wants to read.
 
-At 375px the path is a vertical stack. Targets are at least 44px. A bottom bar jumps to Map, List, Quests and Continue?
+At 375px the path is a vertical overworld: landmarks alternate left and right on an S-curve road. Targets are at least 44px. A bottom bar jumps to Map, List, Recruiter and Contact. The recruiter button on the hub itself is hidden at that width; it stays on the title screen.
 
 ## 5-minute designer test — pass on orientation, not on depth
 
@@ -22,7 +22,7 @@ A designer can tell, inside five minutes, what is published and what is not. The
 
 The organising picture is a level select. The title does not block. The map, the list, and Skip to CV are three ways to the same projects. Filters are checkboxes plus four selects, with a visible count, an empty state, and a reset. Choosing a quest filters the list and can be removed. Nothing depends on a drag.
 
-The weak UX is the length of a case study, and the number of empty slots. That is an honest reflection of the evidence. They are locked or dashed, and they are not hidden.
+The weak UX is the length of a case study, and the number of empty slots. Confirmed sections come first. Empty slots sit in one closed "Still to add" disclosure, with a public "Coming soon" or "LOCKED" label. Internal requests stay in the JSON.
 
 ## Game design
 
@@ -34,9 +34,9 @@ IkemanGoAss is a supporting piece, framed by an owner decision on 29 Sep 2026, 0
 
 ## Visual and communication
 
-One parchment palette, the same ink, cream and amber as the pixel-art end of the previous site. The title card is the dark brown from that palette, not a second theme. Type is Bricolage for headings (self-hosted) and the system sans for text, so a font host is not on the critical path. Pixel art is a small original SVG wordmark and CSS shapes. It is not artwork from another game.
+One parchment palette, the same ink, cream and amber as the pixel-art end of the previous site. The title is a banded night sky over an original hotel silhouette. Type is the system sans, so no font file is on the hub. Pixel art is original: the wordmark, the avatar, the landmark sprites, and the tile map. It is not artwork from another game. The hotel is a nod to A Course In Time, not a copied sprite.
 
-Locked slots and dashed boxes are the only "illustration" of missing work. Status labels are words (Unlocked, In progress, Locked, Evidenced, Described, Pending), not colour alone. A filled skill bar is a confirmed fact, and the card says it is not a rating.
+Locked slots use the words LOCKED and Coming soon. Status labels are words (Unlocked, In progress, Locked, Evidenced, Described, Pending), not colour alone. Character cards have no score bars. They show Role, Team, Stage and Timeframe.
 
 ## Engineering
 
@@ -46,11 +46,11 @@ Astro was considered and not used. The site is a few pages, the edit model is JS
 
 ## QA
 
-Playwright covers the title card (auto-advance, key, click, recruiter skip), walking the map with arrows and WASD, character cards including locked slots, list view, filters, the Ikemen GO case study, iteration tabs, the compare slider, the era-rule diagram, disclosures, a keyboard path from the skip link to a case study and back to contact, reduced motion, and the footer era mark not recolouring the page. axe-core (WCAG 2.0/2.1/2.2 A and AA) runs on all 8 pages, on the title card, on an open character card, and on the reduced-motion home page. 26 tests, all passing.
+Playwright covers the title card (3s auto-advance, key, click, recruiter skip), walking the map with arrows and WASD, character cards including locked slots, list view, a click on the masthead List link, filters, the Ikemen GO case study, iteration tabs, the compare slider, the era-rule diagram, disclosures, a keyboard path from the skip link to a case study and back to contact, reduced motion, and the footer era mark not recolouring the page. axe-core (WCAG 2.0/2.1/2.2 A and AA) runs on all 8 pages, on the title card, on an open character card, and on the reduced-motion home page. 27 tests, all passing.
 
 ## Accessibility
 
-Landmarks, a skip link, the recruiter skip, visible focus, labels on the filters, 44px targets on the map nodes, the mobile bar, the checkpoint list and the quest buttons. List view is a plain list of the same levels. Case-study sections are all in the page. Without JavaScript the title leaves on its own and the list is visible. `prefers-reduced-motion` hides the title and turns off the wipe, the blink, the bob, transitions and smooth scrolling. `forced-colors` keeps the pressed state and the dashed slots visible. There is no autoplay audio.
+Landmarks, a skip link, the recruiter skip, visible focus (cream ring on the dark masthead), labels on the filters, 44px targets on the map nodes, the buttons, the chips, the mobile bar, the checkpoint list and the quest buttons. List view is a plain list of the same levels. The masthead List link opens it. Case-study sections are all in the page; empty ones are inside a closed disclosure. Without JavaScript the title stays off and the list is visible. `prefers-reduced-motion` shows a static composed title (windows lit, avatar at the door, no blink), then cuts to the map. It turns off the wipe, the walk and smooth scrolling. `forced-colors` keeps the pressed state visible. There is no autoplay audio.
 
 ## Performance
 
@@ -63,9 +63,9 @@ Lighthouse 12, gzip on (the same compression GitHub Pages and Render apply). Pyt
 | A Course In Time | Mobile | 100 | 100 | 100 | 100 |
 | A Course In Time | Desktop | 96 | 100 | 100 | 100 |
 | Tabi | Mobile | 100 | 100 | 100 | 100 |
-| Tabi | Desktop | 96 | 100 | 100 | 100 |
+| Tabi | Desktop | 98 | 100 | 100 | 100 |
 
-Desktop performance sits in the mid-90s because the stylesheet is render-blocking. Cumulative layout shift is 0. There is no third-party script and no autoplay audio. The hub stylesheet, script and self-hosted font together stay under 150 KB. Raw numbers are in [lighthouse-scores.json](lighthouse-scores.json). Recorded again after the level-select rebuild.
+Desktop performance sits in the mid-90s because the stylesheet is render-blocking. Cumulative layout shift is 0. There is no third-party script and no autoplay audio. Raw bytes of every file the hub requests (HTML, CSS, JS, map, landmarks, avatar, lake shimmer) are 147,003, under the 150,000 budget. The font file is not requested. Raw numbers are in [lighthouse-scores.json](lighthouse-scores.json). Recorded again after the stage-1 rebuild.
 
 ## Red team — what would make a pro reviewer walk away
 

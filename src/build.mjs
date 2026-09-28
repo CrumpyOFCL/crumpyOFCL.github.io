@@ -1,6 +1,7 @@
 // Static site generator: content/*.json -> HTML at the repo root.
 // Zero dependencies; needs Node 18+. Run: node src/build.mjs
 import { readFileSync, writeFileSync, mkdirSync, readdirSync, copyFileSync, existsSync, rmSync, statSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { layout } from './layout.mjs';
@@ -30,24 +31,30 @@ const copyDir = (from, to) => {
   }
 };
 
+const assetHash = createHash('sha256');
+for (const rel of ['src/assets/styles.css', 'src/assets/app.js']) assetHash.update(readFileSync(join(root, rel)));
+const artDir = join(root, 'src/assets/art');
+if (existsSync(artDir)) for (const f of readdirSync(artDir).sort()) assetHash.update(readFileSync(join(artDir, f)));
+const asset = assetHash.digest('hex').slice(0, 10);
+
 const homeNav = [
   { href: '#map', label: 'Map' },
   { href: '#work', label: 'List' },
   { href: '#skills', label: 'Quest log' },
-  { href: '#save', label: 'Save file' },
-  { href: '#contact', label: 'Continue?' },
+  { href: '#save', label: 'Save file · About' },
+  { href: '#contact', label: 'Continue? · Contact' },
 ];
 const caseNav = [
   { href: '/index.html#map', label: 'Back to map' },
   { href: '/index.html#skills', label: 'Quest log' },
-  { href: '/index.html#contact', label: 'Continue?' },
+  { href: '/index.html#contact', label: 'Continue? · Contact' },
 ];
 
 setRootFromCanonical('/');
 write('index.html', layout({
   title: 'Tyler Crump — game designer (gameplay and tools)',
   description: 'Tyler Crump designs and builds puzzle and gameplay systems in Unity and C#. Flagship: A Course In Time, a time-switching puzzle-platformer in development.',
-  body: home(site, projects), page: 'home', canonical: '/', nav: homeNav,
+  body: home(site, projects), page: 'home', canonical: '/', nav: homeNav, asset,
 }));
 
 // Clear stale case studies before writing (only inside /projects).
@@ -58,7 +65,7 @@ for (const p of projects.filter(p => p.visible)) {
   write(`projects/${p.slug}/index.html`, layout({
     title: `${p.title} — case study · Tyler Crump`,
     description: (p.tagline && p.tagline.value) || `${p.title} by Tyler Crump`,
-    body: caseStudy(p), page: 'case', canonical, nav: caseNav,
+    body: caseStudy(p), page: 'case', canonical, nav: caseNav, asset,
   }));
 }
 

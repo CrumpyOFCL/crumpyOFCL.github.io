@@ -213,7 +213,7 @@
       {
         "skill": "Character and moveset design",
         "where": "ikemen-go",
-        "note": "The Sword Saint, and Unknown, a mirror fighter on the same moveset. Designed by Tyler Crump. Sprite sheet and GIFs are not published.",
+        "note": "The Sword Saint, and Unknown, a mirror fighter on the same moveset. Sprite sheet and GIFs are not published.",
         "level": "stated"
       },
       {
@@ -333,7 +333,7 @@
         "projects": [
           "a-course-in-time"
         ],
-        "evidence": "project"
+        "evidence": "described"
       },
       {
         "skill": "Custom inspectors, editor windows, Scene-view authoring tools",
@@ -341,7 +341,7 @@
         "projects": [
           "a-course-in-time"
         ],
-        "evidence": "project"
+        "evidence": "described"
       },
       {
         "skill": "Playtest tooling (in-build debug console)",
@@ -349,7 +349,7 @@
         "projects": [
           "a-course-in-time"
         ],
-        "evidence": "project"
+        "evidence": "described"
       },
       {
         "skill": "FMOD Studio (event design, parameters, runtime)",
@@ -357,7 +357,7 @@
         "projects": [
           "a-course-in-time"
         ],
-        "evidence": "project"
+        "evidence": "described"
       },
       {
         "skill": "Level design",
@@ -365,7 +365,7 @@
         "projects": [
           "a-course-in-time"
         ],
-        "evidence": "project"
+        "evidence": "described"
       },
       {
         "skill": "Character and moveset design",
@@ -397,7 +397,7 @@
         "projects": [
           "waking-nightmare"
         ],
-        "evidence": "project"
+        "evidence": "described"
       },
       {
         "skill": "Client communication",
@@ -405,7 +405,7 @@
         "projects": [
           "waking-nightmare"
         ],
-        "evidence": "project"
+        "evidence": "described"
       },
       {
         "skill": "Team leadership",
@@ -413,7 +413,7 @@
         "projects": [
           "a-course-in-time"
         ],
-        "evidence": "project"
+        "evidence": "described"
       },
       {
         "skill": "Mobile-first UX",
@@ -444,7 +444,6 @@
         "skill": "Git",
         "group": "Workflow",
         "projects": [
-          "tabi",
           "sdcs-booking-app"
         ],
         "evidence": "project"

@@ -37,24 +37,49 @@
     }
   }
 
+  function openWork() {
+    showList();
+    const panel = $('#work');
+    const heading = $('#work-title');
+    if (panel) panel.scrollIntoView();
+    if (heading) {
+      heading.setAttribute('tabindex', '-1');
+      heading.focus({ preventScroll: true });
+    }
+  }
+
   if (title) {
     const hash = location.hash;
-    if (reduce || hash) dismissTitle({ instant: true, recruiter: hash === '#save' || hash === '#resume' });
-    else setTimeout(() => dismissTitle(), 2500);
+    if (hash) dismissTitle({ instant: true, recruiter: hash === '#save' || hash === '#resume' });
+    else setTimeout(() => dismissTitle({ instant: reduce }), 3000);
     if (hash === '#work' || hash === '#skills' || hash === '#evidence') showList();
 
     document.addEventListener('keydown', (e) => {
       if (titleDone) return;
       if (e.target.closest && e.target.closest('[data-recruiter]')) return;
-      dismissTitle();
+      dismissTitle({ instant: true });
     });
-    title.addEventListener('pointerdown', () => dismissTitle());
+    title.addEventListener('pointerdown', (e) => {
+      if (e.target.closest && e.target.closest('a, button')) return;
+      dismissTitle({ instant: true });
+    });
     document.addEventListener('click', (e) => {
       const rec = e.target.closest && e.target.closest('[data-recruiter]');
       if (!rec) return;
       dismissTitle({ recruiter: true, instant: true });
     });
   }
+
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest && e.target.closest('a[href="#work"]');
+    if (!a) return;
+    openWork();
+  });
+  window.addEventListener('hashchange', () => {
+    const hash = location.hash;
+    if (hash === '#work') openWork();
+    else if (hash === '#skills' || hash === '#evidence') showList();
+  });
 
   const toggle = $('[data-list-toggle]');
   if (toggle) {
@@ -68,13 +93,61 @@
 
   const nodes = $$('[data-node]');
   const avatar = $('[data-avatar]');
-  const world = $('.overworld');
-  function place(node) {
-    if (!avatar || !world || !node) return;
-    const map = world.getBoundingClientRect();
-    const r = node.getBoundingClientRect();
-    avatar.style.left = (r.left - map.left + r.width / 2) + 'px';
-    avatar.style.top = (r.top - map.top + r.height * 0.42) + 'px';
+  const stage = $('[data-stage]');
+  let avatarX = null;
+  function drawRoad() {
+    const svg = $('[data-road]');
+    if (!svg || !stage || !nodes.length) return;
+    const map = stage.getBoundingClientRect();
+    if (!map.width) return;
+    const pts = nodes.map((n) => {
+      const art = n.querySelector('.landmark') || n;
+      const r = art.getBoundingClientRect();
+      return [r.left - map.left + r.width / 2, r.bottom - map.top];
+    });
+    svg.setAttribute('viewBox', `0 0 ${map.width} ${map.height}`);
+    const d = pts.map((p, i) => `${i ? 'L' : 'M'}${p[0].toFixed(1)} ${p[1].toFixed(1)}`).join(' ');
+    const ink = $('.road-ink', svg);
+    const fill = $('.road-fill', svg);
+    if (ink) ink.setAttribute('d', d);
+    if (fill) fill.setAttribute('d', d);
+    const dots = $('.road-dots', svg);
+    if (!dots) return;
+    dots.replaceChildren();
+    for (let i = 0; i < pts.length - 1; i++) {
+      const [x1, y1] = pts[i];
+      const [x2, y2] = pts[i + 1];
+      const len = Math.hypot(x2 - x1, y2 - y1);
+      const steps = Math.max(1, Math.floor(len / 16));
+      for (let s = 0; s <= steps; s++) {
+        const t = s / steps;
+        const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+        rect.setAttribute('x', (x1 + (x2 - x1) * t - 2).toFixed(1));
+        rect.setAttribute('y', (y1 + (y2 - y1) * t - 2).toFixed(1));
+        rect.setAttribute('width', '4');
+        rect.setAttribute('height', '4');
+        rect.setAttribute('fill', '#F4E7C8');
+        dots.appendChild(rect);
+      }
+    }
+  }
+  function place(node, animate) {
+    if (!avatar || !stage || !node) return;
+    const map = stage.getBoundingClientRect();
+    const art = node.querySelector('.landmark') || node;
+    const r = art.getBoundingClientRect();
+    const x = r.left - map.left + r.width / 2 - 28;
+    const y = r.bottom - map.top - avatar.offsetHeight;
+    if (animate && avatarX != null && !reduce) {
+      avatar.classList.toggle('is-left', x < avatarX - 1);
+      avatar.classList.add('is-walk');
+      clearTimeout(avatar._t);
+      avatar._t = setTimeout(() => avatar.classList.remove('is-walk'), 280);
+    }
+    avatarX = x;
+    avatar.style.left = x + 'px';
+    avatar.style.top = y + 'px';
+    nodes.forEach(n => n.classList.toggle('is-selected', n === node));
   }
   function openCard(slug, opener) {
     const card = document.getElementById('card-' + slug);
@@ -84,8 +157,8 @@
     card.dataset.opener = opener ? opener.id || '' : '';
   }
   nodes.forEach((node, i) => {
-    node.addEventListener('focus', () => place(node));
-    node.addEventListener('click', () => { place(node); openCard(node.dataset.node, node); });
+    node.addEventListener('focus', () => place(node, true));
+    node.addEventListener('click', () => { place(node, true); openCard(node.dataset.node, node); });
     node.addEventListener('keydown', (e) => {
       const step = { arrowright: 1, arrowdown: 1, d: 1, s: 1, arrowleft: -1, arrowup: -1, a: -1, w: -1 }[e.key.toLowerCase()];
       if (!step) return;
@@ -94,10 +167,12 @@
       next.focus();
     });
   });
-  if (nodes[0]) place(nodes[0]);
+  if (nodes[0]) place(nodes[0], false);
+  drawRoad();
   window.addEventListener('resize', () => {
     const current = nodes.find(n => n === document.activeElement) || nodes[0];
-    place(current);
+    place(current, false);
+    drawRoad();
   });
   $$('[data-open-card]').forEach(b => b.addEventListener('click', () => {
     const node = document.getElementById('node-' + b.dataset.openCard);
@@ -108,10 +183,20 @@
     const card = b.closest('dialog');
     if (card) card.close();
   }));
-  $$('dialog.select-card').forEach(card => card.addEventListener('close', () => {
-    const opener = card.dataset.opener && document.getElementById(card.dataset.opener);
-    if (opener) opener.focus();
-  }));
+  $$('dialog.select-card').forEach(card => {
+    card.addEventListener('click', (e) => { if (e.target === card) card.close(); });
+    card.addEventListener('close', () => {
+      const opener = card.dataset.opener && document.getElementById(card.dataset.opener);
+      if (opener) opener.focus();
+    });
+  });
+
+  const still = $('#still');
+  if (still && location.hash) {
+    const target = document.getElementById(location.hash.slice(1));
+    const details = $('details', still);
+    if (target && details && still.contains(target)) details.open = true;
+  }
 
   const egg = $('[data-egg]');
   if (egg) egg.addEventListener('click', () => {

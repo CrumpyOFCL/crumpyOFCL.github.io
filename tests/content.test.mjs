@@ -34,7 +34,7 @@ for (const file of htmlFiles) {
     assert.equal(html.includes(needle), false, `${file} should not contain ${needle}`);
   }
   assert.match(html, /<html lang="en"/);
-  assert.match(html, /Evidence pending|evidence pending|evidence coming/i);
+  assert.match(html, /Evidence pending|evidence pending|evidence coming|Coming soon|LOCKED/i);
 }
 
 const tabi = readFileSync(join(root, 'projects/tabi/index.html'), 'utf8');
@@ -78,6 +78,10 @@ assert.doesNotMatch(ikemen, /\bAI\b/);
 assert.doesNotMatch(ikemen, /\bgeneration\b|\bpipeline\b/i);
 assert.doesNotMatch(ikemen, /Aseprite/);
 assert.doesNotMatch(ikemen, /github\.com\/CrumpyOFCL\/IkemanGoAss/i);
+assert.match(ikemen, /Solo designer/);
+assert.equal((ikemen.match(/Designed by Tyler Crump/g) || []).length, 1);
+assert.doesNotMatch(tabi, /\bmechanics\b|\bshipped\b/i);
+assert.doesNotMatch(wn, /shipped|released/i);
 
 const home = readFileSync(join(root, 'index.html'), 'utf8');
 assert.match(home, /node__label">Tabi</);

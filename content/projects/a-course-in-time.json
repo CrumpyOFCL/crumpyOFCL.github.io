@@ -517,8 +517,9 @@
     }
   ],
   "eraNote": {
-    "status": "pending",
-    "request": "Era count is not confirmed. The itch.io build describes two eras (Past and Present). The previous site describes three (Past 1743, Present, Future 2311). Say which count to publish."
+    "status": "confirmed",
+    "value": "The current itch.io build has two eras, Past and Present. An earlier plan had three.",
+    "source": "itch.io page describes two eras. The previous site described three. Neither count is published here as the only one."
   },
   "videos": {
     "status": "pending",

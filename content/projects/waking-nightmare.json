@@ -109,7 +109,7 @@
   },
   "decisions": [
     {
-      "decision": "Hand over an in-progress build rather than hold it back",
+      "decision": "Handover: an in-progress build",
       "detail": "The project was delivered to the client unfinished, for them to clean up.",
       "why": {
         "status": "pending",
