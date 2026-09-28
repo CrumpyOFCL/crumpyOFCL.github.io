@@ -68,6 +68,7 @@ const browser = await chromium.launch({
 });
 
 const summary = {};
+let failed = false;
 try {
   for (const [name, path] of pages) {
     summary[name] = {};
@@ -87,10 +88,20 @@ try {
       }
       summary[name][form] = scores;
       console.log(`${name} ${form}:`, scores);
+      const performanceFloor = 90;
+      const otherFloor = 95;
+      for (const [key, score] of Object.entries(scores)) {
+        const floor = key === 'performance' ? performanceFloor : otherFloor;
+        if (score < floor) {
+          console.error(`${name} ${form} ${key} ${score} is below ${floor}`);
+          failed = true;
+        }
+      }
     }
   }
   mkdirSync(outDir, { recursive: true });
   writeFileSync(join(outDir, 'lighthouse-scores.json'), JSON.stringify(summary, null, 2));
+  if (failed) process.exitCode = 1;
 } finally {
   await browser.close();
   server.close();

@@ -13,11 +13,14 @@ const TABS = [
 export function layout({ title, description, body, canonical = '/', asset = '', email, github, itch }) {
   const mail = esc(email);
   return `<!doctype html>
-<html lang="en">
+<html lang="en-AU">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="light dark">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<script src="${href(`/assets/boot.js?v=${asset}`)}"></script>
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(description)}">
 <meta name="theme-color" content="#f2efe8" media="(prefers-color-scheme: light)">
@@ -27,7 +30,7 @@ export function layout({ title, description, body, canonical = '/', asset = '', 
 <meta property="og:type" content="website">
 <link rel="canonical" href="https://crumpyofcl.github.io${canonical}">
 <meta property="og:url" content="https://crumpyofcl.github.io${canonical}">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%2317150f'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-family='Georgia,serif' font-size='13' fill='%23fffefb'%3ETC%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="${href('/favicon.svg')}" type="image/svg+xml">
 <link rel="stylesheet" href="${href(`/assets/styles.css?v=${asset}`)}">
 </head>
 <body>
@@ -35,22 +38,22 @@ export function layout({ title, description, body, canonical = '/', asset = '', 
 <header class="appbar">
   <div class="appbar-inner">
     <div class="appbar-titles">
-      <h1 class="appbar-title">Tyler Crump</h1>
+      <p class="appbar-title">Tyler Crump</p>
       <p class="appbar-sub">Game designer · gameplay and tools</p>
     </div>
-    <button id="account-btn" class="appbar-account" type="button" aria-haspopup="dialog" aria-controls="contact-sheet" aria-expanded="false">TC<span class="visually-hidden">, open contact</span></button>
+    <button id="account-btn" class="appbar-account" type="button" aria-haspopup="dialog" aria-controls="contact-dialog" aria-expanded="false">TC<span class="visually-hidden">, open contact</span></button>
   </div>
 </header>
 <nav class="tabbar" aria-label="Sections">
-  <div class="tabbar-inner" role="tablist">
-    ${TABS.map(([id, label, svg, name], i) => `<a class="tab" role="tab" id="tab-${id}" href="#${id}" aria-controls="${id}" aria-label="${esc(name || label)}" aria-selected="${i === 0 ? 'true' : 'false'}" tabindex="${i === 0 ? '0' : '-1'}">${svg}<span aria-hidden="true">${esc(label)}</span></a>`).join('')}
+  <div class="tabbar-inner">
+    ${TABS.map(([id, label, svg, name]) => `<a class="tab" id="tab-${id}" href="#${id}"${id === 'about' ? ' aria-current="page"' : ''}>${svg}<span>${esc(label)}</span>${name ? `<span class="visually-hidden"> (${esc(name)})</span>` : ''}</a>`).join('')}
   </div>
 </nav>
 <main id="main" tabindex="-1">
 ${body}
 </main>
 <div id="contact-sheet" class="modal-backdrop" hidden>
-  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="contact-title">
+  <div id="contact-dialog" class="modal" role="dialog" aria-modal="true" aria-labelledby="contact-title">
     <h2 id="contact-title">Contact</h2>
     <p class="page-sub">Email is the way to reach me. GitHub and itch.io are the public pages I can point to.</p>
     <p><a class="primary" href="mailto:${mail}">${mail}</a></p>

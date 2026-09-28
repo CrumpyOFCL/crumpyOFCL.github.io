@@ -122,10 +122,10 @@
   "contributions": {
     "status": "confirmed",
     "value": [
-      "The era system — collision layers, object state and physics swapping in step, with a crush check so time closing around the player is a death rather than a glitch.",
+      "The era system - collision layers, object state and physics swapping in step, with a crush check so time closing around the player is a death rather than a glitch.",
       "Procedural puzzle generators with Scene-view grid painting: pipe networks with a connectivity solver, and elemental puzzles that pick their own elements by counting how many valid solutions each set allows.",
       "A save system built around an objective ledger, so a reloaded world remembers which doors are open and which puzzles are done.",
-      "An in-build debug console for playtesters — noclip, ability grants, scene jumps and objective control without an editor."
+      "An in-build debug console for playtesters - noclip, ability grants, scene jumps and objective control without an editor."
     ]
   },
   "problem": {
@@ -355,7 +355,7 @@
       "detail": "The era system swaps collision layers, object state and physics in step. A crush check catches the moment solid geometry from the other era would occupy the player's space.",
       "why": {
         "status": "confirmed",
-        "value": "So that time closing around the player reads as a death — a rule of the world — rather than a glitch."
+        "value": "So that time closing around the player reads as a death - a rule of the world - rather than a glitch."
       },
       "options": {
         "status": "pending",
@@ -459,7 +459,7 @@
       "discipline": "Audio (FMOD)",
       "item": {
         "status": "confirmed",
-        "value": "Me — one of my main areas"
+        "value": "Me - one of my main areas"
       }
     },
     {
@@ -473,7 +473,7 @@
       "discipline": "Level design",
       "item": {
         "status": "confirmed",
-        "value": "Me — one of my main areas"
+        "value": "Me - one of my main areas"
       }
     },
     {

@@ -23,8 +23,14 @@ function still(slug) {
   return `<details class="still"><summary>Still to add</summary><ul>${items.map((item) => `<li>Coming soon: ${esc(item)}</li>`).join('')}</ul></details>`;
 }
 
+function uniqueFacts(items) {
+  const list = items.filter(Boolean).map((item) => String(item));
+  const namedSolo = list.some((item) => /\bsolo\b/i.test(item) && !/^solo$/i.test(item.trim()));
+  return namedSolo ? list.filter((item) => !/^solo$/i.test(item.trim())) : list;
+}
+
 function chips(items) {
-  return `<ul class="fact-chips">${items.filter(Boolean).map((item) => `<li>${esc(item)}</li>`).join('')}</ul>`;
+  return `<ul class="fact-chips">${uniqueFacts(items).map((item) => `<li>${esc(item)}</li>`).join('')}</ul>`;
 }
 
 function bullets(title, items) {
@@ -51,37 +57,18 @@ function action(url, label) {
 }
 
 function head({ id, project, eyebrow, title, credit, hook, chipItems, url, cta, media, mark, labelledby }) {
-  return `<section id="${id}" class="panel" role="tabpanel" data-project="${project}" aria-labelledby="${labelledby || `${id}-title`}">
+  return `<section id="${id}" class="panel" data-project="${project}" aria-labelledby="${labelledby || `${id}-title`}">
     <div class="proj-top" data-first>
       <div class="proj-copy">
         <p class="eyebrow">${mark ? `<img class="mark" src="${href(mark)}" alt="" width="174" height="80">` : ''}${esc(eyebrow)}</p>
-        <h1 class="page-title" id="${id}-title">${esc(title)}</h1>
+        <h1 class="page-title" id="${id}-title" tabindex="-1">${esc(title)}</h1>
         ${credit ? `<p class="page-credit">${esc(credit)}</p>` : ''}
         <p class="hook">${esc(hook)}</p>
         ${chips(chipItems)}
         ${action(url, cta)}
       </div>
-      <div class="proj-hero">${media}</div>
+      ${media ? `<div class="proj-hero">${media}</div>` : ''}
     </div>`;
-}
-
-function eraDiagram(project) {
-  const mechanic = (val(project.mechanics) || []).find((item) => item.name === 'Time Switch');
-  const text = mechanic?.text || '';
-  const note = 'Diagram. It is an illustration, not a level from the game. Logo: A Course In Time team.';
-  return `<figure class="diagram">
-    <figcaption>Diagram</figcaption>
-    <div class="era-toggle" role="group" aria-label="Era">
-      <button type="button" aria-pressed="true" data-era="past">Past</button>
-      <button type="button" aria-pressed="false" data-era="present">Present</button>
-    </div>
-    <div class="stage" data-stage="past">
-      <span class="room past-room"></span><span class="room present-room"></span>
-      <span class="player"></span>
-    </div>
-    <p class="era-copy" data-past="${esc(text)}" data-present="${esc(text)}">${esc(text)}</p>
-    <p class="diagram-note">${esc(note)}</p>
-  </figure>`;
 }
 
 function moveList() {
@@ -139,10 +126,10 @@ export function shell(site, projects) {
   const itch = val(site.contact.itch);
   const positioning = 'Game development student, looking for Game Designer, Level Designer, Gameplay Designer and UX/Player Experience roles.';
 
-  const about = `<section id="about" class="panel" role="tabpanel" aria-labelledby="about-title">
+  const about = `<section id="about" class="panel" aria-labelledby="about-title">
     <div data-first>
       <p class="eyebrow">Portfolio</p>
-      <h1 class="page-title" id="about-title">About me</h1>
+      <h1 class="page-title" id="about-title" tabindex="-1">About me</h1>
       <p class="hook">I design and build gameplay systems and the tools behind them, in Unity and C#.</p>
       <p class="lede">${esc(positioning)}</p>
       ${chips([
@@ -153,7 +140,7 @@ export function shell(site, projects) {
       ])}
       <div class="tiles">
         <a class="work-tile" data-project="acit" href="#acit">
-          <img src="${href('/img/acit-mark.webp')}" alt="A Course In Time logo" width="174" height="80">
+          <img src="${href('/img/acit-mark.webp')}" alt="" width="174" height="80">
           <span><em>Flagship</em><strong>A Course In Time</strong><span>Time-switch puzzle-platformer · playable</span></span>
         </a>
         <a class="work-tile" data-project="sword" href="#sword-saint">
@@ -193,7 +180,8 @@ export function shell(site, projects) {
     ],
     url: ACIT,
     cta: 'Play in browser',
-    media: eraDiagram(acit),
+    credit: 'Logo: A Course In Time team.',
+    media: '',
   }) + `
     ${bullets('What I designed', val(acit.contributions))}
     ${systems([
@@ -272,7 +260,7 @@ export function shell(site, projects) {
     url: TABI,
     cta: 'Open Tabi',
     media: `<figure class="proj-media">
-      <img src="${href('/img/tabi-signin.webp')}" alt="Tabi sign-in screen" width="455" height="220" loading="lazy">
+      <img src="${href('/img/tabi-signin.webp')}" alt="Tabi sign-in screen" width="455" height="220">
       <figcaption>The public sign-in screen.</figcaption>
     </figure>`,
   }) + `
@@ -301,10 +289,10 @@ export function shell(site, projects) {
     gdt2: true,
   };
 
-  const more = `<section id="more" class="panel" role="tabpanel" data-project="more" aria-labelledby="more-title">
+  const more = `<section id="more" class="panel" data-project="more" aria-labelledby="more-title">
     <div data-first>
       <p class="eyebrow">Also</p>
-      <h1 class="page-title" id="more-title">More</h1>
+      <h1 class="page-title" id="more-title" tabindex="-1">More</h1>
       <p class="page-sub">Smaller work, with Waking Nightmare Experience first.</p>
     </div>
     <div class="work-list">${moreProjects.map((project) => card(project, playable[project.slug])).join('')}</div>
@@ -327,7 +315,7 @@ function card(project, play) {
   const source = slug === 'sdcs-booking-app' ? `<a class="text-link" href="${SDCS}">Source (GitHub)</a>` : '';
   const tools = confirmed(project.overview.tools);
   const tool = Array.isArray(tools) ? tools.slice(0, 3).join(' · ') : confirmed(project.overview.engine);
-  const meta = [confirmed(project.overview.role), confirmed(project.overview.team), tool, confirmed(project.overview.timeframe)].filter(Boolean);
+  const meta = uniqueFacts([confirmed(project.overview.role), confirmed(project.overview.team), tool, confirmed(project.overview.timeframe)]);
   const letter = project.title.replace(/[^A-Za-z]/g, '').slice(0, 2).toUpperCase();
   const body = slug === 'sdcs-booking-app' ? sdcsBody(project) : plainBody(project);
   return `<article class="more-row">
@@ -379,7 +367,7 @@ function sdcsBody(project) {
       outcome: 'The screen shows the total cost.',
     }])}
     <figure class="code-slot">
-      <figcaption>App.js, lines 38–44. <a href="${SDCS}">Source (GitHub)</a></figcaption>
+      <figcaption>App.js, lines 38-44. <a href="${SDCS}">Source (GitHub)</a></figcaption>
       <pre tabindex="0"><code>${esc(code)}</code></pre>
     </figure>`;
 }

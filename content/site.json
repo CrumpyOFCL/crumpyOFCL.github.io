@@ -6,7 +6,7 @@
   },
   "lede": {
     "status": "confirmed",
-    "value": "I build the parts of games that have to keep working when everything else changes — and I like it when everything changes."
+    "value": "I build the parts of games that have to keep working when everything else changes - and I like it when everything changes."
   },
   "intro": {
     "status": "confirmed",
@@ -36,7 +36,7 @@
         "means": "Put it in front of players and watch what they do.",
         "example": {
           "status": "confirmed",
-          "value": "Built an in-build debug console for playtesters on A Course In Time — noclip, ability grants, scene jumps and objective control without an editor."
+          "value": "Built an in-build debug console for playtesters on A Course In Time - noclip, ability grants, scene jumps and objective control without an editor."
         }
       },
       {
@@ -63,12 +63,12 @@
   },
   "strongestSkill": {
     "status": "confirmed",
-    "value": "Designing and building the systems a puzzle game runs on — switching the world between eras, puzzle generators, save state and playtest tooling."
+    "value": "Designing and building the systems a puzzle game runs on - switching the world between eras, puzzle generators, save state and playtest tooling."
   },
   "about": {
     "body": {
       "status": "confirmed",
-      "value": "I like games where the rules are the level. My flagship project, A Course In Time, is a puzzle-platformer about one building across time — so most of what I've built is the machinery underneath: the switch between eras, the generators that make puzzles, the save system that remembers them, and the tools that let other people test them."
+      "value": "I like games where the rules are the level. My flagship project, A Course In Time, is a puzzle-platformer about one building across time - so most of what I've built is the machinery underneath: the switch between eras, the generators that make puzzles, the save system that remembers them, and the tools that let other people test them."
     },
     "education": {
       "status": "pending",

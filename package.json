@@ -11,7 +11,7 @@
     "test:content": "node tests/content.test.mjs",
     "test:browser": "playwright test",
     "test:lighthouse": "node tests/lighthouse.mjs",
-    "test": "npm run build && npm run test:content && npm run test:browser && npm run test:lighthouse"
+    "test": "npm run build && npm run test:content && node tests/banned.test.mjs && npm run test:browser && npm run test:lighthouse"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.10.2",

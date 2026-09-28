@@ -17,7 +17,9 @@ const site = read('content/site.json');
 const projects = readdirSync(join(root, 'content/projects')).filter(f => f.endsWith('.json'))
   .map(f => read(`content/projects/${f}`)).sort((a, b) => a.order - b.order);
 
-const problems = validate(site, projects);
+let problems = [];
+try { problems = validate(site, projects); }
+catch (error) { console.error('Content problems:\n- ' + String(error.message).split('\n').join('\n- ')); process.exit(1); }
 if (problems.length) { console.error('Content problems:\n- ' + problems.join('\n- ')); process.exit(1); }
 
 const write = (p, s) => { const f = join(out, p); mkdirSync(dirname(f), { recursive: true }); writeFileSync(f, s); };
@@ -31,13 +33,13 @@ const copyDir = (from, to) => {
 };
 
 const assetHash = createHash('sha256');
-for (const rel of ['src/assets/styles.css', 'src/assets/app.js']) assetHash.update(readFileSync(join(root, rel)));
+for (const rel of ['src/assets/styles.css', 'src/assets/app.js', 'src/assets/boot.js']) assetHash.update(readFileSync(join(root, rel)));
 const asset = assetHash.digest('hex').slice(0, 10);
 
 setRootFromCanonical('/');
 const contact = contactFrom(site);
 write('index.html', layout({
-  title: 'Tyler Crump — game designer (gameplay and tools)',
+  title: 'Tyler Crump: game designer (gameplay and tools)',
   description: 'Tyler Crump is a game development student, looking for Game Designer, Level Designer, Gameplay Designer and UX/Player Experience roles. Flagship: A Course In Time.',
   body: shell(site, projects),
   page: 'home',
@@ -57,4 +59,17 @@ copyDir(join(root, 'public'), out);
 write('robots.txt', 'User-agent: *\nAllow: /\nSitemap: https://crumpyofcl.github.io/sitemap.xml\n');
 write('sitemap.xml', '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n<url><loc>https://crumpyofcl.github.io/</loc></url>\n</urlset>\n');
 write('.nojekyll', '');
+
+const html = readFileSync(join(out, 'index.html'), 'utf8');
+const missing = [];
+for (const match of html.matchAll(/\b(?:src|href)="([^"]+)"/g)) {
+  const raw = match[1];
+  if (!raw || raw.startsWith('#') || raw.startsWith('mailto:') || raw.startsWith('http:') || raw.startsWith('https:') || raw.startsWith('data:')) continue;
+  const path = decodeURIComponent(raw.split('#')[0].split('?')[0]);
+  if (!existsSync(join(out, path))) missing.push(path);
+}
+if (missing.length) {
+  console.error('Missing files referenced by the page:\n- ' + missing.join('\n- '));
+  process.exit(1);
+}
 console.log(`Built the app shell into ${out} (asset ${asset})`);

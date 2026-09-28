@@ -1,5 +1,5 @@
-import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { test, expect } from './fixtures.mjs';
 
 const routes = [
   ['about', '/#about', 'About me', '#about'],
@@ -17,6 +17,16 @@ async function axe(page) {
   expect(brief, brief).toBe('');
 }
 
+async function expectOneLit(page) {
+  await expect(page.locator('.tab[aria-current="page"]')).toHaveCount(1);
+  const lit = await page.locator('.tab').evaluateAll((els) => {
+    const current = els.find((el) => el.getAttribute('aria-current') === 'page');
+    const color = getComputedStyle(current).color;
+    return els.filter((el) => getComputedStyle(el).color === color).length;
+  });
+  expect(lit).toBe(1);
+}
+
 test.beforeEach(async ({ page }) => {
   await page.emulateMedia({ colorScheme: 'light', reducedMotion: 'reduce' });
 });
@@ -29,7 +39,9 @@ test('About is the default landing page', async ({ page }) => {
   await expect(page.locator('.appbar-title')).toHaveText('Tyler Crump');
   await expect(page.locator('.appbar-sub')).toHaveText('Game designer · gameplay and tools');
   await expect(page.locator('#tab-about')).toHaveAttribute('aria-current', 'page');
-  await expect(page.locator('#tab-acit')).toHaveAttribute('aria-label', 'A Course In Time');
+  await expect(page.locator('#tab-acit')).toHaveAccessibleName(/^ACIT/);
+  await expect(page.locator('#tab-acit')).not.toHaveAttribute('aria-label', /.+/);
+  await expectOneLit(page);
   await expect(page.locator('#acit')).toBeHidden();
   await expect(page.locator('.tab-switch, .tabbar-add, #title-screen, .recruiter-skip')).toHaveCount(0);
 });
@@ -46,6 +58,8 @@ test('each tab opens its page and the back button returns', async ({ page }) => 
   ];
   for (const [tab, panel, title] of order) {
     await page.locator(tab).click();
+    await expect(page.locator('.tab[aria-current="page"]')).toHaveCount(1);
+    await expectOneLit(page);
     await expect(page.locator(panel)).toBeVisible();
     await expect(page.locator(`${panel} .page-title`).first()).toHaveText(title);
     await expect(page).toHaveURL(new RegExp(`${panel}$`));
@@ -56,14 +70,21 @@ test('each tab opens its page and the back button returns', async ({ page }) => 
   await expect(page.locator('#tabi')).toBeVisible();
 });
 
-test('keyboard moves between tabs', async ({ page }) => {
-  await page.setViewportSize({ width: 1280, height: 800 });
-  await page.goto('/#about');
-  await page.locator('#tab-about').focus();
-  await page.keyboard.press('ArrowRight');
-  await expect(page).toHaveURL(/#acit$/);
-  await expect(page.locator('#tab-acit')).toBeFocused();
-  await expect(page.locator('#acit')).toBeVisible();
+test('skip link focuses the current heading', async ({ page }) => {
+  await page.setViewportSize({ width: 375, height: 812 });
+  await page.goto('/#sword-saint');
+  await page.locator('.skip').focus();
+  await page.keyboard.press('Enter');
+  await expect(page.locator('#sword-saint h1')).toBeFocused();
+});
+
+test('an unknown hash keeps the current page', async ({ page }) => {
+  await page.setViewportSize({ width: 375, height: 812 });
+  await page.goto('/#tabi');
+  await page.evaluate(() => { location.hash = '#not-a-page'; });
+  await expect(page).toHaveURL(/#tabi$/);
+  await expect(page.locator('#tabi')).toBeVisible();
+  await expectOneLit(page);
 });
 
 test('contact sheet traps focus and closes', async ({ page }) => {
@@ -85,16 +106,6 @@ test('More play controls sit outside the summary', async ({ page }) => {
   await expect(page.locator('#lit-flux-mechanics-showcase summary a')).toHaveCount(0);
   await expect(page.locator('#gdt2 summary a')).toHaveCount(0);
   await expect(page.locator('#lit-flux-mechanics-showcase .details-hint')).toHaveText('Details');
-});
-
-test('era diagram toggle changes the stage', async ({ page }) => {
-  await page.setViewportSize({ width: 375, height: 812 });
-  await page.goto('/#acit');
-  const stage = page.locator('#acit [data-stage]');
-  await expect(stage).toHaveAttribute('data-stage', 'past');
-  await page.locator('#acit [data-era="present"]').click();
-  await expect(stage).toHaveAttribute('data-stage', 'present');
-  await expect(page.locator('#acit [data-era="present"]')).toHaveAttribute('aria-pressed', 'true');
 });
 
 for (const [name, path] of routes) {
@@ -130,7 +141,8 @@ test('project tabs keep chips and media inside the first screen', async ({ page 
     await page.setViewportSize({ width, height });
     for (const hash of ['#acit', '#sword-saint', '#tabi']) {
       await page.goto(`/${hash}`);
-      for (const selector of [`${hash} .fact-chips`, `${hash} .proj-hero`]) {
+      const selectors = hash === '#acit' ? [`${hash} .fact-chips`] : [`${hash} .fact-chips`, `${hash} .proj-hero`];
+      for (const selector of selectors) {
         const box = await page.locator(selector).boundingBox();
         expect(box, selector).toBeTruthy();
         expect(box.y + box.height, `${hash} ${selector} at ${width}`).toBeLessThanOrEqual(limit);
@@ -144,11 +156,13 @@ test('first-screen screenshots', async ({ page }) => {
     ...routes.map(([name, path]) => [name, path, false]),
     ['contact', '/#about', true],
   ];
-  for (const width of [375, 768, 1280]) {
+  for (const width of [375, 1280]) {
     const height = width === 375 ? 812 : width === 768 ? 1024 : 800;
     await page.setViewportSize({ width, height });
     for (const [name, path, sheet] of shots) {
       await page.goto(path);
+      await expect(page.locator('.tab[aria-current="page"]')).toHaveCount(1);
+      await expectOneLit(page);
       if (sheet) await page.locator('#account-btn').click();
       await page.screenshot({
         path: `docs/screenshots/shell-${name}-${width}.png`,

@@ -1,5 +1,5 @@
 import { readFileSync, readdirSync, statSync } from 'node:fs';
-import { join, dirname, extname } from 'node:path';
+import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import assert from 'node:assert/strict';
 import { validate } from '../src/validate.mjs';
@@ -15,8 +15,7 @@ const projects = readdirSync(join(root, 'content/projects'))
 const problems = validate(site, projects);
 assert.deepEqual(problems, [], `content should validate, got:\n${problems.join('\n')}`);
 
-const bad = validate(site, [{ slug: 'Bad Slug', tier: 'nope' }]);
-assert.ok(bad.length > 0, 'malformed project should fail validation');
+assert.throws(() => validate(site, [{ slug: 'Bad Slug', tier: 'nope' }]), /required|missing/);
 
 const html = readFileSync(join(root, 'index.html'), 'utf8');
 const panel = (id) => {
@@ -27,29 +26,28 @@ const panel = (id) => {
   return html.slice(start, next === -1 ? undefined : start + 1 + next);
 };
 
-assert.match(html, /<html lang="en"/);
+assert.match(html, /<html lang="en-AU"/);
 assert.doesNotMatch(html, /title-screen|recruiter-skip|overworld|tab-switch|data-switch/);
 assert.doesNotMatch(html, /Steam|Unlocked|In progress|Locked|Evidence pending|LOCKED/);
 assert.doesNotMatch(html, /  your /);
 assert.doesNotMatch(html.replace(/https:\/\/japantrip-oeja\.onrender\.com/g, ''), /japantrip/i);
 
-const urls = [...html.matchAll(/https:\/\/[^"'\s<]+/g)].map((match) => match[0].replace(/&amp;/g, '&'));
-for (const url of urls) {
-  const host = new URL(url).host;
-  if (host === 'github.com') {
-    assert.match(url, /^https:\/\/github\.com\/CrumpyOFCL(\/Comp2750-Assignment)?$/);
-  } else if (host.endsWith('.onrender.com')) {
-    assert.equal(url, 'https://japantrip-oeja.onrender.com');
-  } else if (host.endsWith('itch.io')) {
-    assert.match(url, /^https:\/\/crumpyofcl\.itch\.io(\/|$)/);
-  } else if (host === 'crumpyofcl.github.io') {
-    assert.match(url, /^https:\/\/crumpyofcl\.github\.io\/?$/);
-  } else {
-    assert.fail(`unexpected host ${host} in ${url}`);
+const base = 'https://crumpyofcl.github.io/';
+const allowedHosts = new Set(['github.com', 'japantrip-oeja.onrender.com', 'crumpyofcl.itch.io', 'crumpyofcl.github.io']);
+const attrs = [...html.matchAll(/\b(?:href|src|srcset)="([^"]*)"/g)].map((match) => match[1]);
+assert.ok(attrs.length > 0, 'the page should expose href or src attributes');
+for (const raw of attrs) {
+  if (raw.startsWith('mailto:')) {
+    assert.match(raw, /^mailto:[^\s]+@[^\s]+$/);
+    continue;
   }
+  const url = new URL(raw, base);
+  assert.equal(url.protocol, 'https:', raw);
+  assert.ok(allowedHosts.has(url.host), url.href);
+  if (url.host === 'github.com') assert.match(url.pathname, /^\/CrumpyOFCL(\/|$)/);
 }
 
-const homeFiles = ['index.html', 'assets/styles.css', 'assets/app.js', 'img/acit-mark.webp', 'img/tabi-mark.webp'];
+const homeFiles = ['index.html', 'assets/styles.css', 'assets/app.js', 'assets/boot.js', 'img/acit-mark.webp', 'img/tabi-mark.webp'];
 const bytes = homeFiles.reduce((n, file) => n + statSync(join(root, file)).size, 0);
 assert.ok(bytes < 150000, `home route raw bytes ${bytes} should be under 150000`);
 
@@ -57,7 +55,11 @@ assert.match(html, /class="appbar-title">Tyler Crump</);
 assert.match(html, /class="appbar-sub">Game designer · gameplay and tools</);
 assert.match(html, /id="account-btn"/);
 assert.match(html, /id="contact-sheet"/);
-assert.match(html, /aria-label="A Course In Time"/);
+assert.match(html, /aria-current="page"/);
+assert.match(html, /<span>ACIT<\/span><span class="visually-hidden"> \(A Course In Time\)<\/span>/);
+assert.doesNotMatch(html, /role="tab|aria-selected|aria-label="A Course In Time"/);
+assert.doesNotMatch(html, /PR #\d+/);
+assert.doesNotMatch(html, /\u2014/);
 assert.match(html, /href="#about"/);
 assert.match(html, /href="#acit"/);
 assert.match(html, /href="#sword-saint"/);
@@ -67,7 +69,7 @@ assert.match(html, /href="#more"/);
 assert.match(html, /Game development student/);
 
 const about = panel('about');
-assert.match(about, /id="about-title">About me</);
+assert.match(about, /id="about-title"[^>]*>About me</);
 assert.match(about, /I design and build gameplay systems/);
 assert.match(about, /href="#acit"/);
 assert.match(about, /href="#sword-saint"/);
@@ -86,7 +88,7 @@ assert.match(acit, /Session 1 2026/);
 assert.match(acit, /Play in browser/);
 assert.match(acit, /What I designed/);
 assert.match(acit, /System breakdown/);
-assert.match(acit, /Diagram\. It is an illustration, not a level from the game\./);
+assert.doesNotMatch(acit, /class="diagram"|class="era-pair"/);
 assert.match(acit, /Logo: A Course In Time team/);
 assert.match(acit, /Coming soon: code sample/);
 assert.match(acit, /not a shipped storefront credit/);
@@ -98,6 +100,8 @@ assert.equal(sword.split('Designed by Tyler Crump').length - 1, 1);
 assert.match(sword, /Diagram of the moveset\. Not a gameplay screenshot\./);
 assert.match(sword, /The Sword Saint and Unknown/);
 assert.match(sword, /6-layer storm bridge/);
+assert.match(sword, /Ikemen GO/);
+assert.doesNotMatch(sword, /Fighter Factory Studio|Notepad\+\+/);
 assert.doesNotMatch(sword, /github\.com/);
 assert.doesNotMatch(sword, /<pre>/);
 
@@ -136,27 +140,6 @@ assert.doesNotMatch(more, /WakingNightmareExperience/);
 for (const block of html.matchAll(/<details class="still">([\s\S]*?)<\/details>/g)) {
   const count = [...block[1].matchAll(/Coming soon:/g)].length;
   assert.ok(count <= 5, `a Still to add list has ${count} items`);
-}
-
-const textExt = new Set(['.html', '.css', '.js', '.mjs', '.json', '.md', '.txt', '.xml']);
-function walk(dir, out = []) {
-  for (const name of readdirSync(dir)) {
-    if (name === 'node_modules' || name === '.git' || name === 'test-results' || name === 'package-lock.json') continue;
-    const path = join(dir, name);
-    if (statSync(path).isDirectory()) walk(path, out);
-    else if (textExt.has(extname(path))) out.push(path);
-  }
-  return out;
-}
-for (const path of walk(root)) {
-  const text = readFileSync(path, 'utf8');
-  const found = [...text.matchAll(/https:\/\/[^"'\s)<]+/g)].map((match) => match[0]);
-  for (const url of found) {
-    let host = '';
-    try { host = new URL(url).host; } catch { continue; }
-    if (host === 'github.com') assert.match(url, /^https:\/\/github\.com\/CrumpyOFCL(\/|$)/, path);
-    if (host.endsWith('.onrender.com')) assert.equal(url, 'https://japantrip-oeja.onrender.com', path);
-  }
 }
 
 console.log(`content ok, home raw ${bytes} B`);

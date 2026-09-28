@@ -20,7 +20,7 @@
     },
     "characters": {
       "status": "confirmed",
-      "value": "2 — The Sword Saint and Unknown, a mirror fighter on the same moveset"
+      "value": "2 - The Sword Saint and Unknown, a mirror fighter on the same moveset"
     },
     "moves": {
       "status": "confirmed",
@@ -49,9 +49,7 @@
     "tools": {
       "status": "confirmed",
       "value": [
-        "Ikemen GO",
-        "Fighter Factory Studio (sprites and animation)",
-        "Notepad++ (editing character and stage files)"
+        "Ikemen GO"
       ]
     },
     "platforms": {
@@ -98,7 +96,7 @@
       "discipline": "Character and moveset design",
       "item": {
         "status": "confirmed",
-        "value": "Me — The Sword Saint and Unknown"
+        "value": "Me - The Sword Saint and Unknown"
       }
     },
     {
@@ -112,7 +110,7 @@
       "discipline": "Stage design",
       "item": {
         "status": "confirmed",
-        "value": "Me — Broken Bridge"
+        "value": "Me - Broken Bridge"
       }
     }
   ],

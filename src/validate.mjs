@@ -1,6 +1,15 @@
 // Checks content before building so a typo can't publish half a page.
 const TIERS = ['flagship', 'supporting', 'experiment'];
 const STATUSES = ['confirmed', 'pending'];
+const REQUIRED_SLUGS = [
+  'a-course-in-time',
+  'sword-saint-broken-bridge',
+  'tabi',
+  'waking-nightmare',
+  'sdcs-booking-app',
+  'lit-flux-mechanics-showcase',
+  'gdt2',
+];
 
 export function validate(site, projects) {
   const errs = [];
@@ -27,5 +36,13 @@ export function validate(site, projects) {
     walk(p, id);
   }
   if (projects.filter(p => p.visible && p.tier === 'flagship').length !== 1) errs.push('Exactly one visible project should be the flagship.');
+  for (const slug of REQUIRED_SLUGS) {
+    if (!slugs.has(slug)) errs.push(`missing required slug ${slug}`);
+  }
+  if (errs.some((err) => /required|missing/i.test(err))) {
+    const error = new Error(errs.join('\n'));
+    error.problems = errs;
+    throw error;
+  }
   return errs;
 }

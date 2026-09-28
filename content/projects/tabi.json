@@ -15,7 +15,7 @@
   "overview": {
     "genre": {
       "status": "confirmed",
-      "value": "Group trip planner (not a game) — multipurpose product and UX case study"
+      "value": "Group trip planner (not a game) - multipurpose product and UX case study"
     },
     "type": {
       "status": "confirmed",
@@ -115,7 +115,7 @@
       "status": "confirmed",
       "value": [
         "Mobile-first layout with a bottom bar per section and a single + that adds anything from anywhere.",
-        "Three money states on every cost — paid, committed, estimated — that always add up to the projected total.",
+        "Three money states on every cost - paid, committed, estimated - that always add up to the projected total.",
         "'Still to sort' health check listing only what needs a look (nights with nowhere to stay, payments due, missing prices).",
         "'What changed?' line after an edit, e.g. projected cost before → after."
       ]
@@ -147,7 +147,7 @@
       },
       "result": {
         "status": "confirmed",
-        "value": "Added in the 'precise money states' iteration (PR #56) and carried onto the plan (PR #59)."
+        "value": "Added in the 'precise money states' iteration and carried onto the plan."
       }
     },
     {
@@ -155,7 +155,7 @@
       "detail": "A gate is a field filled in on the day through a deliberately small form, and the app records when it was set. A live-status link sits beside it; flights without a number say so instead of showing a dead button.",
       "why": {
         "status": "confirmed",
-        "value": "Airports assign gates a few hours before departure, so the app doesn't pretend to know — and a gate from yesterday is worse than no gate at all."
+        "value": "Airports assign gates a few hours before departure, so the app doesn't pretend to know - and a gate from yesterday is worse than no gate at all."
       },
       "options": {
         "status": "pending",
@@ -183,7 +183,7 @@
       },
       "options": {
         "status": "confirmed",
-        "value": "Password sign-in and Apple Sign In were tried; Apple was removed (PR #21), then sign-in was made Google-only (PR #24)."
+        "value": "Password sign-in and Apple Sign In were tried; Apple was removed, then sign-in was made Google-only."
       },
       "evidence": {
         "status": "pending",
@@ -256,7 +256,7 @@
       },
       "what": {
         "status": "confirmed",
-        "value": "Feature build-out: a budget against a group target, live currency conversion (the first trip, a Japan trip, used AUD and JPY), a Today view, and maps (PRs #1–26)."
+        "value": "Feature build-out: a budget against a group target, live currency conversion (the first trip, a Japan trip, used AUD and JPY), a Today view, and maps."
       },
       "why": {
         "status": "pending",
@@ -275,7 +275,7 @@
       },
       "what": {
         "status": "confirmed",
-        "value": "'Budget-first, mobile-first redesign' (PR #27), then 'a full visual redesign' (PR #28)."
+        "value": "'Budget-first, mobile-first redesign', then 'a full visual redesign'."
       },
       "why": {
         "status": "pending",
@@ -294,7 +294,7 @@
       },
       "what": {
         "status": "confirmed",
-        "value": "Design pass: trip pass, departure board, route strip, payments to approve (PR #54)."
+        "value": "Design pass: trip pass, departure board, route strip, payments to approve."
       },
       "why": {
         "status": "pending",
@@ -313,7 +313,7 @@
       },
       "what": {
         "status": "confirmed",
-        "value": "Precise money states, honest empty states, trips on their own clock, daily backups (PRs #55–60)."
+        "value": "Precise money states, honest empty states, trips on their own clock, daily backups."
       },
       "why": {
         "status": "pending",

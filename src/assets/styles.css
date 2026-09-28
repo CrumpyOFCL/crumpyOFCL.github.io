@@ -1,4 +1,4 @@
-/* Tyler Crump — portfolio shell. Tokens follow the Tabi app: washi paper,
+/* Tyler Crump, portfolio shell. Tokens follow the Tabi app: washi paper,
    sumi ink, aizome for links, display serif for page names. System fonts. */
 
 :root {
@@ -126,7 +126,7 @@ button, input { font: inherit; color: inherit; }
   display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
   padding: 6px 2px; margin: 0;
   background: none; border: 0; border-radius: 0;
-  color: var(--text-faint); font-size: .62rem; font-weight: 560; line-height: 1.15;
+  color: var(--text-faint); font-size: .7rem; font-weight: 560; line-height: 1.15;
   text-decoration: none; text-align: center; cursor: pointer;
 }
 .tabbar .tab span { display: block; max-width: 4.7rem; text-wrap: balance; }
@@ -134,37 +134,32 @@ button, input { font: inherit; color: inherit; }
   width: 22px; height: 22px; stroke: currentColor; fill: none;
   stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round;
 }
-.tabbar .tab[aria-current="page"],
-body:not(:has(.panel:target)):not(:has(#waking-nightmare:target)):not(:has(#sdcs-booking-app:target)):not(:has(#lit-flux-mechanics-showcase:target)):not(:has(#gdt2:target)) .tab[href="#about"],
-body:has(#about:target) .tab[href="#about"],
-body:has(#acit:target) .tab[href="#acit"],
-body:has(#sword-saint:target) .tab[href="#sword-saint"],
-body:has(#tabi:target) .tab[href="#tabi"],
-body:has(#more:target) .tab[href="#more"],
-body:has(#waking-nightmare:target) .tab[href="#more"],
-body:has(#sdcs-booking-app:target) .tab[href="#more"],
-body:has(#lit-flux-mechanics-showcase:target) .tab[href="#more"],
-body:has(#gdt2:target) .tab[href="#more"] { color: var(--ink); font-weight: 650; }
-.tabbar .tab[aria-current="page"] svg,
-body:has(#acit:target) .tab[href="#acit"] svg,
-body:has(#sword-saint:target) .tab[href="#sword-saint"] svg,
-body:has(#tabi:target) .tab[href="#tabi"] svg,
-body:has(#more:target) .tab[href="#more"] svg,
-body:has(#about:target) .tab[href="#about"] svg { stroke-width: 2.1; }
+.tabbar .tab[aria-current="page"] { color: var(--ink); font-weight: 650; }
+.tabbar .tab[aria-current="page"] svg { stroke-width: 2.1; }
 .tabbar .tab[aria-current="page"]::before,
-body:not(:has(.panel:target)):not(:has(#waking-nightmare:target)):not(:has(#sdcs-booking-app:target)):not(:has(#lit-flux-mechanics-showcase:target)):not(:has(#gdt2:target)) .tab[href="#about"]::before,
-body:has(#about:target) .tab[href="#about"]::before,
-body:has(#acit:target) .tab[href="#acit"]::before,
-body:has(#sword-saint:target) .tab[href="#sword-saint"]::before,
-body:has(#tabi:target) .tab[href="#tabi"]::before,
-body:has(#more:target) .tab[href="#more"]::before,
-body:has(#waking-nightmare:target) .tab[href="#more"]::before,
-body:has(#sdcs-booking-app:target) .tab[href="#more"]::before,
-body:has(#lit-flux-mechanics-showcase:target) .tab[href="#more"]::before,
-body:has(#gdt2:target) .tab[href="#more"]::before {
+html:not(.js) body:not(:has(.panel:target)):not(:has(#waking-nightmare:target)):not(:has(#sdcs-booking-app:target)):not(:has(#lit-flux-mechanics-showcase:target)):not(:has(#gdt2:target)) .tab[href="#about"]::before,
+html:not(.js) body:has(#about:target) .tab[href="#about"]::before,
+html:not(.js) body:has(#acit:target) .tab[href="#acit"]::before,
+html:not(.js) body:has(#sword-saint:target) .tab[href="#sword-saint"]::before,
+html:not(.js) body:has(#tabi:target) .tab[href="#tabi"]::before,
+html:not(.js) body:has(#more:target) .tab[href="#more"]::before,
+html:not(.js) body:has(#waking-nightmare:target) .tab[href="#more"]::before,
+html:not(.js) body:has(#sdcs-booking-app:target) .tab[href="#more"]::before,
+html:not(.js) body:has(#lit-flux-mechanics-showcase:target) .tab[href="#more"]::before,
+html:not(.js) body:has(#gdt2:target) .tab[href="#more"]::before {
   content: ""; position: absolute; top: 0; left: 50%; width: 26px; height: 3px; margin-left: -13px;
   border-radius: 0 0 3px 3px; background: var(--ink);
 }
+html:not(.js) body:not(:has(.panel:target)):not(:has(#waking-nightmare:target)):not(:has(#sdcs-booking-app:target)):not(:has(#lit-flux-mechanics-showcase:target)):not(:has(#gdt2:target)) .tab[href="#about"],
+html:not(.js) body:has(#about:target) .tab[href="#about"],
+html:not(.js) body:has(#acit:target) .tab[href="#acit"],
+html:not(.js) body:has(#sword-saint:target) .tab[href="#sword-saint"],
+html:not(.js) body:has(#tabi:target) .tab[href="#tabi"],
+html:not(.js) body:has(#more:target) .tab[href="#more"],
+html:not(.js) body:has(#waking-nightmare:target) .tab[href="#more"],
+html:not(.js) body:has(#sdcs-booking-app:target) .tab[href="#more"],
+html:not(.js) body:has(#lit-flux-mechanics-showcase:target) .tab[href="#more"],
+html:not(.js) body:has(#gdt2:target) .tab[href="#more"] { color: var(--ink); font-weight: 650; }
 .tabbar .tab:focus-visible { outline: 2px solid var(--accent); outline-offset: -3px; }
 @media (min-width: 720px) {
   .tabbar .tab { font-size: .72rem; }
@@ -176,25 +171,28 @@ main {
   padding: 16px calc(var(--gutter) + var(--safe-right)) calc(var(--tabbar-h) + var(--safe-bottom) + 28px) calc(var(--gutter) + var(--safe-left));
 }
 .panel { display: none; }
-#about { display: block; }
-.panel.is-on { display: block !important; }
-body:has(.panel.is-on) .panel:not(.is-on) { display: none !important; }
-body:has(#acit:target) #acit,
-body:has(#sword-saint:target) #sword-saint,
-body:has(#tabi:target) #tabi,
-body:has(#more:target) #more,
-body:has(#about:target) #about,
-body:has(#waking-nightmare:target) #more,
-body:has(#sdcs-booking-app:target) #more,
-body:has(#lit-flux-mechanics-showcase:target) #more,
-body:has(#gdt2:target) #more { display: block; }
-body:has(.panel:target) #about:not(:target),
-body:has(#waking-nightmare:target) #about,
-body:has(#sdcs-booking-app:target) #about,
-body:has(#lit-flux-mechanics-showcase:target) #about,
-body:has(#gdt2:target) #about { display: none; }
+html:not(.js) #about { display: block; }
+html:not(.js) body:has(#acit:target) #acit,
+html:not(.js) body:has(#sword-saint:target) #sword-saint,
+html:not(.js) body:has(#tabi:target) #tabi,
+html:not(.js) body:has(#more:target) #more,
+html:not(.js) body:has(#about:target) #about,
+html:not(.js) body:has(#waking-nightmare:target) #more,
+html:not(.js) body:has(#sdcs-booking-app:target) #more,
+html:not(.js) body:has(#lit-flux-mechanics-showcase:target) #more,
+html:not(.js) body:has(#gdt2:target) #more { display: block; }
+html:not(.js) body:has(.panel:target) #about:not(:target),
+html:not(.js) body:has(#waking-nightmare:target) #about,
+html:not(.js) body:has(#sdcs-booking-app:target) #about,
+html:not(.js) body:has(#lit-flux-mechanics-showcase:target) #about,
+html:not(.js) body:has(#gdt2:target) #about { display: none; }
+html.js #about { display: block; }
+html.js .panel.is-on { display: block; }
+html.js body:has(.panel.is-on) .panel:not(.is-on) { display: none; }
+html.js body:has(.panel.is-on) #about:not(.is-on) { display: none; }
 
-.panel:target, #more details.work:target { scroll-margin-top: calc(var(--appbar-h) + var(--safe-top) + 8px); }
+.panel h1, #more details.work { scroll-margin-top: calc(var(--appbar-h) + var(--safe-top) + 12px); }
+html.is-locked { overflow: hidden; }
 
 .page-head { margin: 6px 4px 18px; }
 .eyebrow {
@@ -362,8 +360,7 @@ body:has(#gdt2:target) #about { display: none; }
 .diagram__note, .diagram__desc { font-size: .86rem; color: var(--text-dim); }
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
-  .card:hover, .work-tile:hover, .more-row:hover { transform: none; }
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: 0s !important; scroll-behavior: auto !important; }
 }
 
 [data-project="acit"] { --p: #a4460a; }
@@ -500,8 +497,22 @@ body:has(#gdt2:target) #about { display: none; }
   [data-project="more"] { --p: #8ed0a0; }
   .glyph, .play-pill { color: #121210; }
 }
-[data-theme="dark"] [data-project="acit"] { --p: #f0b07a; }
-[data-theme="dark"] [data-project="sword"] { --p: #ffb4b0; }
-[data-theme="dark"] [data-project="tabi"] { --p: #9db7ef; }
-[data-theme="dark"] [data-project="more"] { --p: #8ed0a0; }
-[data-theme="dark"] .glyph, [data-theme="dark"] .play-pill { color: #121210; }
+.era-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.era-panel { margin: 0; }
+.era-label, .era-state { margin: 0; font-size: .78rem; font-weight: 700; }
+.era-state { font-weight: 560; color: var(--text-dim); }
+.room-sketch {
+  position: relative; height: 72px; margin: 4px 0; border-radius: 12px;
+  background: var(--bg-sunken); border: 1px solid var(--line); overflow: hidden;
+}
+.room-sketch .floor { position: absolute; left: 8px; right: 8px; bottom: 10px; height: 8px; border-radius: 4px; background: #8a8172; }
+.room-sketch .barrier { position: absolute; top: 14px; bottom: 18px; width: 10px; border-radius: 3px; background: #2a5ca8; }
+.room-sketch[data-path="closed"] .barrier { left: 46%; }
+.room-sketch[data-path="open"] .barrier { left: 18%; height: 16px; top: 14px; bottom: auto; background: #9a6200; }
+.room-sketch .walker { position: absolute; width: 14px; height: 14px; border-radius: 50%; background: var(--ink); bottom: 20px; }
+.room-sketch[data-path="closed"] .walker { left: 16%; }
+.room-sketch[data-path="open"] .walker { left: 62%; }
+
+@media (prefers-reduced-motion: reduce) {
+  .card:hover, .work-tile:hover, .more-row:hover { transform: none; }
+}

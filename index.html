@@ -1,48 +1,51 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-AU">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="light dark">
-<title>Tyler Crump — game designer (gameplay and tools)</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<script src="assets/boot.js?v=8771214120"></script>
+<title>Tyler Crump: game designer (gameplay and tools)</title>
 <meta name="description" content="Tyler Crump is a game development student, looking for Game Designer, Level Designer, Gameplay Designer and UX/Player Experience roles. Flagship: A Course In Time.">
 <meta name="theme-color" content="#f2efe8" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0d0d0c" media="(prefers-color-scheme: dark)">
-<meta property="og:title" content="Tyler Crump — game designer (gameplay and tools)">
+<meta property="og:title" content="Tyler Crump: game designer (gameplay and tools)">
 <meta property="og:description" content="Tyler Crump is a game development student, looking for Game Designer, Level Designer, Gameplay Designer and UX/Player Experience roles. Flagship: A Course In Time.">
 <meta property="og:type" content="website">
 <link rel="canonical" href="https://crumpyofcl.github.io/">
 <meta property="og:url" content="https://crumpyofcl.github.io/">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%2317150f'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-family='Georgia,serif' font-size='13' fill='%23fffefb'%3ETC%3C/text%3E%3C/svg%3E">
-<link rel="stylesheet" href="assets/styles.css?v=8f16afcf70">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/styles.css?v=8771214120">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <header class="appbar">
   <div class="appbar-inner">
     <div class="appbar-titles">
-      <h1 class="appbar-title">Tyler Crump</h1>
+      <p class="appbar-title">Tyler Crump</p>
       <p class="appbar-sub">Game designer · gameplay and tools</p>
     </div>
-    <button id="account-btn" class="appbar-account" type="button" aria-haspopup="dialog" aria-controls="contact-sheet" aria-expanded="false">TC<span class="visually-hidden">, open contact</span></button>
+    <button id="account-btn" class="appbar-account" type="button" aria-haspopup="dialog" aria-controls="contact-dialog" aria-expanded="false">TC<span class="visually-hidden">, open contact</span></button>
   </div>
 </header>
 <nav class="tabbar" aria-label="Sections">
-  <div class="tabbar-inner" role="tablist">
-    <a class="tab" role="tab" id="tab-about" href="#about" aria-controls="about" aria-label="About me" aria-selected="true" tabindex="0"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8.5" r="3.2"/><path d="M5 19.5c.7-3.4 3.2-5.2 7-5.2s6.3 1.8 7 5.2"/></svg><span aria-hidden="true">About me</span></a><a class="tab" role="tab" id="tab-acit" href="#acit" aria-controls="acit" aria-label="A Course In Time" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 8v4.5l3 2"/></svg><span aria-hidden="true">ACIT</span></a><a class="tab" role="tab" id="tab-sword-saint" href="#sword-saint" aria-controls="sword-saint" aria-label="Sword Saint" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.2 3.8l6 6-9.2 9.2H6.2v-4.8z"/><path d="M4 20.2l3.2-3.2M11 13.2l2.2 2.2"/></svg><span aria-hidden="true">Sword Saint</span></a><a class="tab" role="tab" id="tab-tabi" href="#tabi" aria-controls="tabi" aria-label="Tabi" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6-5.4-6-10a6 6 0 0 1 12 0c0 4.6-6 10-6 10z"/><circle cx="12" cy="11" r="2.2"/></svg><span aria-hidden="true">Tabi</span></a><a class="tab" role="tab" id="tab-more" href="#more" aria-controls="more" aria-label="More" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.5"/></svg><span aria-hidden="true">More</span></a>
+  <div class="tabbar-inner">
+    <a class="tab" id="tab-about" href="#about" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8.5" r="3.2"/><path d="M5 19.5c.7-3.4 3.2-5.2 7-5.2s6.3 1.8 7 5.2"/></svg><span>About me</span></a><a class="tab" id="tab-acit" href="#acit"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 8v4.5l3 2"/></svg><span>ACIT</span><span class="visually-hidden"> (A Course In Time)</span></a><a class="tab" id="tab-sword-saint" href="#sword-saint"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.2 3.8l6 6-9.2 9.2H6.2v-4.8z"/><path d="M4 20.2l3.2-3.2M11 13.2l2.2 2.2"/></svg><span>Sword Saint</span></a><a class="tab" id="tab-tabi" href="#tabi"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6-5.4-6-10a6 6 0 0 1 12 0c0 4.6-6 10-6 10z"/><circle cx="12" cy="11" r="2.2"/></svg><span>Tabi</span></a><a class="tab" id="tab-more" href="#more"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.5"/></svg><span>More</span></a>
   </div>
 </nav>
 <main id="main" tabindex="-1">
-<section id="about" class="panel" role="tabpanel" aria-labelledby="about-title">
+<section id="about" class="panel" aria-labelledby="about-title">
     <div data-first>
       <p class="eyebrow">Portfolio</p>
-      <h1 class="page-title" id="about-title">About me</h1>
+      <h1 class="page-title" id="about-title" tabindex="-1">About me</h1>
       <p class="hook">I design and build gameplay systems and the tools behind them, in Unity and C#.</p>
       <p class="lede">Game development student, looking for Game Designer, Level Designer, Gameplay Designer and UX/Player Experience roles.</p>
       <ul class="fact-chips"><li>Team lead · 5-person Unity 6 game</li><li>Creative Director · 5-person VR client project</li><li>Unity · C# · FMOD</li><li>Open to junior design, gameplay and tools roles</li></ul>
       <div class="tiles">
         <a class="work-tile" data-project="acit" href="#acit">
-          <img src="img/acit-mark.webp" alt="A Course In Time logo" width="174" height="80">
+          <img src="img/acit-mark.webp" alt="" width="174" height="80">
           <span><em>Flagship</em><strong>A Course In Time</strong><span>Time-switch puzzle-platformer · playable</span></span>
         </a>
         <a class="work-tile" data-project="sword" href="#sword-saint">
@@ -64,33 +67,21 @@
       <li><a href="https://github.com/CrumpyOFCL">GitHub</a></li>
       <li><a href="https://crumpyofcl.itch.io">itch.io</a></li>
     </ul></section>
-    <section class="block"><h2>In short</h2><p>I build the parts of games that have to keep working when everything else changes — and I like it when everything changes.</p><p>Most of my work sits under the surface: the systems that hold a level together, and the editor tools that let a designer build twenty rooms instead of two. I work in Unity and C#, with FMOD for audio.</p></section>
+    <section class="block"><h2>In short</h2><p>I build the parts of games that have to keep working when everything else changes - and I like it when everything changes.</p><p>Most of my work sits under the surface: the systems that hold a level together, and the editor tools that let a designer build twenty rooms instead of two. I work in Unity and C#, with FMOD for audio.</p></section>
     <details class="still"><summary>Still to add</summary><ul><li>Coming soon: Education</li><li>Coming soon: LinkedIn</li><li>Coming soon: Game design document</li><li>Coming soon: Playtest report</li><li>Coming soon: Level maps</li></ul></details>
-  </section><section id="acit" class="panel" role="tabpanel" data-project="acit" aria-labelledby="acit-title">
+  </section><section id="acit" class="panel" data-project="acit" aria-labelledby="acit-title">
     <div class="proj-top" data-first>
       <div class="proj-copy">
         <p class="eyebrow"><img class="mark" src="img/acit-mark.webp" alt="" width="174" height="80">Flagship project</p>
-        <h1 class="page-title" id="acit-title">A Course In Time</h1>
-        
+        <h1 class="page-title" id="acit-title" tabindex="-1">A Course In Time</h1>
+        <p class="page-credit">Logo: A Course In Time team.</p>
         <p class="hook">Switch a hotel between Past and Present to open paths.</p>
         <ul class="fact-chips"><li>Producer / team lead, also audio, level design and programming</li><li>Team of 5</li><li>Unity 6 · C# · FMOD</li><li>Session 1 2026</li></ul>
         <a class="primary" href="https://crumpyofcl.itch.io/a-course-in-time">Play in browser</a>
       </div>
-      <div class="proj-hero"><figure class="diagram">
-    <figcaption>Diagram</figcaption>
-    <div class="era-toggle" role="group" aria-label="Era">
-      <button type="button" aria-pressed="true" data-era="past">Past</button>
-      <button type="button" aria-pressed="false" data-era="present">Present</button>
+      
     </div>
-    <div class="stage" data-stage="past">
-      <span class="room past-room"></span><span class="room present-room"></span>
-      <span class="player"></span>
-    </div>
-    <p class="era-copy" data-past="Shift between Present and Past. Platforms appear, walls vanish and hazards change." data-present="Shift between Present and Past. Platforms appear, walls vanish and hazards change.">Shift between Present and Past. Platforms appear, walls vanish and hazards change.</p>
-    <p class="diagram-note">Diagram. It is an illustration, not a level from the game. Logo: A Course In Time team.</p>
-  </figure></div>
-    </div>
-    <section class="block"><h2>What I designed</h2><ul class="points"><li>The era system — collision layers, object state and physics swapping in step, with a crush check so time closing around the player is a death rather than a glitch.</li><li>Procedural puzzle generators with Scene-view grid painting: pipe networks with a connectivity solver, and elemental puzzles that pick their own elements by counting how many valid solutions each set allows.</li><li>A save system built around an objective ledger, so a reloaded world remembers which doors are open and which puzzles are done.</li></ul></section>
+    <section class="block"><h2>What I designed</h2><ul class="points"><li>The era system - collision layers, object state and physics swapping in step, with a crush check so time closing around the player is a death rather than a glitch.</li><li>Procedural puzzle generators with Scene-view grid painting: pipe networks with a connectivity solver, and elemental puzzles that pick their own elements by counting how many valid solutions each set allows.</li><li>A save system built around an objective ledger, so a reloaded world remembers which doors are open and which puzzles are done.</li></ul></section>
     <section class="block"><h2>System breakdown</h2><div class="sys-list"><article class="card sys">
     <h3>Time switch</h3>
     <ol class="io">
@@ -117,14 +108,14 @@
       <ul class="spec-list"><li><strong>Time Switch</strong> Shift between Present and Past. Platforms appear, walls vanish and hazards change.</li><li><strong>Time Beam</strong> Freeze objects across both timelines; bounce beams off mirrors to hit targets around corners.</li><li><strong>Box Pull</strong> Grab and move boxes into position to solve environmental puzzles.</li><li><strong>Dash and Double Jump</strong> Movement abilities that open paths that were visible but previously unreachable.</li></ul>
     </section>
     <details class="still"><summary>Still to add</summary><ul><li>Coming soon: Gameplay video</li><li>Coming soon: Level map</li><li>Coming soon: Playtest write-up</li><li>Coming soon: code sample</li><li>Coming soon: Devlog</li></ul></details>
-  </section><section id="sword-saint" class="panel" role="tabpanel" data-project="sword" aria-labelledby="sword-saint-title">
+  </section><section id="sword-saint" class="panel" data-project="sword" aria-labelledby="sword-saint-title">
     <div class="proj-top" data-first>
       <div class="proj-copy">
         <p class="eyebrow">Fighting game</p>
-        <h1 class="page-title" id="sword-saint-title">Sword Saint: Broken Bridge</h1>
+        <h1 class="page-title" id="sword-saint-title" tabindex="-1">Sword Saint: Broken Bridge</h1>
         <p class="page-credit">Designed by Tyler Crump</p>
         <p class="hook">Two fighters, one 7-move set, and a storm-bridge stage in Ikemen GO.</p>
-        <ul class="fact-chips"><li>Solo designer</li><li>Solo</li><li>Ikemen GO · Fighter Factory Studio (sprites and animation) · Notepad++ (editing character and stage files)</li></ul>
+        <ul class="fact-chips"><li>Solo designer</li><li>Ikemen GO</li></ul>
         
       </div>
       <div class="proj-hero"><figure class="move-list">
@@ -149,18 +140,18 @@
     </ol>
   </article></div></section>
     <details class="still"><summary>Still to add</summary><ul><li>Coming soon: Sprite sheet</li><li>Coming soon: The Sword Saint GIF</li><li>Coming soon: Unknown GIF</li><li>Coming soon: Broken Bridge screenshot</li><li>Coming soon: Gameplay clip</li></ul></details>
-  </section><section id="tabi" class="panel" role="tabpanel" data-project="tabi" aria-labelledby="tabi-title">
+  </section><section id="tabi" class="panel" data-project="tabi" aria-labelledby="tabi-title">
     <div class="proj-top" data-first>
       <div class="proj-copy">
         <p class="eyebrow">Tool</p>
-        <h1 class="page-title" id="tabi-title">Tabi</h1>
+        <h1 class="page-title" id="tabi-title" tabindex="-1">Tabi</h1>
         
         <p class="hook">A group trip planner for any trip and any group, phone-first.</p>
-        <ul class="fact-chips"><li>Designer and developer (solo)</li><li>Solo</li><li>JavaScript · Express · SQLite · Leaflet</li><li>September 2026</li></ul>
+        <ul class="fact-chips"><li>Designer and developer (solo)</li><li>JavaScript · Express · SQLite · Leaflet</li><li>September 2026</li></ul>
         <a class="primary" href="https://japantrip-oeja.onrender.com">Open Tabi</a>
       </div>
       <div class="proj-hero"><figure class="proj-media">
-      <img src="img/tabi-signin.webp" alt="Tabi sign-in screen" width="455" height="220" loading="lazy">
+      <img src="img/tabi-signin.webp" alt="Tabi sign-in screen" width="455" height="220">
       <figcaption>The public sign-in screen.</figcaption>
     </figure></div>
     </div>
@@ -186,12 +177,12 @@
       <p>Also used: Visual Studio Code, GoodNotes, Aseprite.</p>
       <ul class="spec-list"><li><strong>Trips</strong> More than one trip on an account. Each trip has its own invite-only group, with viewer and editor roles.</li><li><strong>Itinerary</strong> A day-by-day plan with map pins.</li><li><strong>Budget</strong> A whole-group / per-person toggle, and a warning when spending crosses a budget ceiling. Costs stay marked paid, committed or estimated. With no budget set, the app says &quot;No budget set&quot;.</li><li><strong>Currency</strong> Live currency conversion.</li><li><strong>Weather</strong> Weather for the trip.</li><li><strong>Home</strong> Today&#39;s plan while a trip is on. A countdown before it starts.</li><li><strong>Sign-in</strong> Google sign-in. The app is mobile-first and meant to feel like a phone app.</li></ul>
     </section>
-    <section class="block"><h2>A decision</h2><p><strong>Never show a guess as if it were certain.</strong> Added in the &#39;precise money states&#39; iteration (PR #56) and carried onto the plan (PR #59).</p></section>
+    <section class="block"><h2>A decision</h2><p><strong>Never show a guess as if it were certain.</strong> Added in the &#39;precise money states&#39; iteration and carried onto the plan.</p></section>
     <details class="still"><summary>Still to add</summary><ul><li>Coming soon: Screenshots of a trip</li><li>Coming soon: Tester feedback</li><li>Coming soon: Results</li></ul></details>
-  </section><section id="more" class="panel" role="tabpanel" data-project="more" aria-labelledby="more-title">
+  </section><section id="more" class="panel" data-project="more" aria-labelledby="more-title">
     <div data-first>
       <p class="eyebrow">Also</p>
-      <h1 class="page-title" id="more-title">More</h1>
+      <h1 class="page-title" id="more-title" tabindex="-1">More</h1>
       <p class="page-sub">Smaller work, with Waking Nightmare Experience first.</p>
     </div>
     <div class="work-list"><article class="more-row">
@@ -218,7 +209,7 @@
         <span class="work-text">
           <span class="work-name">SDCS Booking App</span>
           <span class="work-hook">A React Native booking screen for a dog-care service.</span>
-          <span class="work-meta">Solo developer · Solo · React Native · Expo · JavaScript · May 2025</span>
+          <span class="work-meta">Solo developer · React Native · Expo · JavaScript · May 2025</span>
         </span>
         <span class="details-hint">Details</span>
       </summary>
@@ -232,7 +223,7 @@
     </ol>
   </article></div></section>
     <figure class="code-slot">
-      <figcaption>App.js, lines 38–44. <a href="https://github.com/CrumpyOFCL/Comp2750-Assignment">Source (GitHub)</a></figcaption>
+      <figcaption>App.js, lines 38-44. <a href="https://github.com/CrumpyOFCL/Comp2750-Assignment">Source (GitHub)</a></figcaption>
       <pre tabindex="0"><code>  const handleCalculate = () =&gt; {
     let cost = dogRate * dogHours + serviceRate * serviceQty;
     if (dogRate === 0 || dogHours === 0) {
@@ -278,7 +269,7 @@
   </section>
 </main>
 <div id="contact-sheet" class="modal-backdrop" hidden>
-  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="contact-title">
+  <div id="contact-dialog" class="modal" role="dialog" aria-modal="true" aria-labelledby="contact-title">
     <h2 id="contact-title">Contact</h2>
     <p class="page-sub">Email is the way to reach me. GitHub and itch.io are the public pages I can point to.</p>
     <p><a class="primary" href="mailto:tylercrump@outlook.com.au">tylercrump@outlook.com.au</a></p>
@@ -286,6 +277,6 @@
     <div class="modal-actions"><button type="button" class="primary" data-close>Close</button></div>
   </div>
 </div>
-<script src="assets/app.js?v=8f16afcf70"></script>
+<script src="assets/app.js?v=8771214120"></script>
 </body>
 </html>
