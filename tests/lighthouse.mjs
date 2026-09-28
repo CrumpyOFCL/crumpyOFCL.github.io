@@ -50,11 +50,7 @@ const server = createServer((req, res) => {
 });
 await new Promise(resolve => server.listen(port, '127.0.0.1', resolve));
 
-const pages = [
-  ['home', '/'],
-  ['acit', '/#acit'],
-  ['tabi', '/#tabi'],
-];
+const pages = [['home', '/']];
 
 const flags = {
   logLevel: 'error',
@@ -88,6 +84,11 @@ try {
       }
       summary[name][form] = scores;
       console.log(`${name} ${form}:`, scores);
+      for (const audit of Object.values(result.lhr.audits)) {
+        if (audit.score !== null && audit.score < 1 && audit.id && result.lhr.categories.seo.auditRefs.some((ref) => ref.id === audit.id)) {
+          console.log(`SEO audit ${audit.id}: ${audit.title} — ${audit.explanation || audit.displayValue || ''}`);
+        }
+      }
       const performanceFloor = 90;
       const otherFloor = 95;
       for (const [key, score] of Object.entries(scores)) {
