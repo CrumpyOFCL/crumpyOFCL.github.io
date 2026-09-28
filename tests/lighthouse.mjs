@@ -35,7 +35,7 @@ const server = createServer((req, res) => {
   if (!file.startsWith(root) || !existsSync(file)) { res.writeHead(404); res.end('not found'); return; }
   const body = readFileSync(file);
   const ext = extname(file);
-  const compressible = !['.png', '.woff2', '.jpg'].includes(ext);
+  const compressible = !['.png', '.woff2', '.jpg', '.txt'].includes(ext);
   const headers = { 'content-type': types[ext] || 'application/octet-stream' };
   if (compressible) {
     const gz = gzipSync(body);
