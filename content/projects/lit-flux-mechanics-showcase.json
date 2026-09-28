@@ -1,0 +1,83 @@
+{
+  "slug": "lit-flux-mechanics-showcase",
+  "visible": true,
+  "tier": "experiment",
+  "order": 6,
+  "title": "LIT_Flux Mechanics Showcase",
+  "tagline": {
+    "status": "confirmed",
+    "value": "A browser-playable Unity prototype: swap time period, aim and fire a time cannon, double jump and dash."
+  },
+  "cover": {
+    "status": "pending",
+    "request": "Still to add."
+  },
+  "overview": {
+    "genre": {
+      "status": "confirmed",
+      "value": "Puzzle prototype"
+    },
+    "type": {
+      "status": "confirmed",
+      "value": "Mechanics prototype"
+    },
+    "role": {
+      "status": "pending",
+      "request": "Still to add."
+    },
+    "team": {
+      "status": "pending",
+      "request": "Still to add."
+    },
+    "timeframe": {
+      "status": "pending",
+      "request": "Still to add."
+    },
+    "engine": {
+      "status": "confirmed",
+      "value": "Unity"
+    },
+    "tools": {
+      "status": "confirmed",
+      "value": [
+        "Unity"
+      ]
+    },
+    "platforms": {
+      "status": "confirmed",
+      "value": "Browser (HTML5)"
+    },
+    "stage": {
+      "status": "confirmed",
+      "value": "Prototype"
+    }
+  },
+  "filters": {
+    "engine": "Unity",
+    "year": null,
+    "type": "Prototype",
+    "stage": "Prototype",
+    "disciplines": [
+      "Prototyping",
+      "Gameplay"
+    ]
+  },
+  "links": [
+    {
+      "label": "Play in browser (itch.io)",
+      "item": {
+        "status": "confirmed",
+        "value": "https://crumpyofcl.itch.io/lit-flux-mechanics-showcasae"
+      }
+    }
+  ],
+  "contributions": {
+    "status": "pending",
+    "request": "Still to add."
+  },
+  "problem": {
+    "status": "pending",
+    "request": "Still to add."
+  },
+  "decisions": []
+}

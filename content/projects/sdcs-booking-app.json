@@ -1,0 +1,106 @@
+{
+  "slug": "sdcs-booking-app",
+  "visible": true,
+  "tier": "experiment",
+  "order": 5,
+  "title": "SDCS Booking App",
+  "tagline": {
+    "status": "confirmed",
+    "value": "A React Native booking screen for a dog-care service: pick a dog and hours, a service and quantity, and get the total cost."
+  },
+  "cover": {
+    "status": "pending",
+    "request": "Still to add."
+  },
+  "overview": {
+    "genre": {
+      "status": "confirmed",
+      "value": "Mobile app (not a game)"
+    },
+    "type": {
+      "status": "confirmed",
+      "value": "University app project (COMP2750)"
+    },
+    "role": {
+      "status": "confirmed",
+      "value": "Solo developer"
+    },
+    "team": {
+      "status": "confirmed",
+      "value": "Solo"
+    },
+    "timeframe": {
+      "status": "confirmed",
+      "value": "May 2025"
+    },
+    "engine": {
+      "status": "confirmed",
+      "value": "React Native (Expo Snack)"
+    },
+    "tools": {
+      "status": "confirmed",
+      "value": [
+        "React Native",
+        "Expo",
+        "JavaScript"
+      ]
+    },
+    "platforms": {
+      "status": "confirmed",
+      "value": "Android and iOS (via Expo)"
+    },
+    "stage": {
+      "status": "confirmed",
+      "value": "Coursework submission"
+    }
+  },
+  "filters": {
+    "engine": "React Native",
+    "year": "2025",
+    "type": "University",
+    "stage": "Complete",
+    "disciplines": [
+      "UX",
+      "Programming",
+      "Personal"
+    ]
+  },
+  "links": [
+    {
+      "label": "Source (GitHub)",
+      "item": {
+        "status": "confirmed",
+        "value": "https://github.com/CrumpyOFCL/Comp2750-Assignment"
+      }
+    }
+  ],
+  "contributions": {
+    "status": "confirmed",
+    "value": [
+      "Built the booking screen in React Native: dog and hours pickers, service and quantity pickers, cost calculation.",
+      "Adjusted the layout so it works on both Android and iOS in Expo Snack."
+    ]
+  },
+  "problem": {
+    "status": "pending",
+    "request": "Still to add."
+  },
+  "designGoal": {
+    "status": "pending",
+    "request": "Still to add."
+  },
+  "decisions": [],
+  "collaboration": [
+    {
+      "discipline": "Team",
+      "item": {
+        "status": "confirmed",
+        "value": "Solo project"
+      }
+    }
+  ],
+  "reflection": {
+    "status": "pending",
+    "request": "Still to add."
+  }
+}

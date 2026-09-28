@@ -1,0 +1,7 @@
+node_modules/
+_out/
+test-results/
+playwright-report/
+blob-report/
+.lighthouseci/
+*.log

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://crumpyofcl.github.io/sitemap.xml

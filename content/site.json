@@ -1,0 +1,463 @@
+{
+  "name": "Tyler Crump",
+  "role": {
+    "status": "confirmed",
+    "value": "Game designer · gameplay and tools"
+  },
+  "lede": {
+    "status": "confirmed",
+    "value": "I build the parts of games that have to keep working when everything else changes - and I like it when everything changes."
+  },
+  "intro": {
+    "status": "confirmed",
+    "value": "Most of my work sits under the surface: the systems that hold a level together, and the editor tools that let a designer build twenty rooms instead of two. I work in Unity and C#, with FMOD for audio."
+  },
+  "approach": {
+    "status": "confirmed",
+    "value": [
+      {
+        "step": "Research",
+        "means": "Find out what players and the brief actually need before building.",
+        "example": {
+          "status": "pending",
+          "request": "Still to add."
+        }
+      },
+      {
+        "step": "Prototype",
+        "means": "Get the idea into something playable as cheaply as possible.",
+        "example": {
+          "status": "confirmed",
+          "value": "LIT_Flux Mechanics Showcase and GDT2 are browser-playable Unity prototypes on my itch.io page."
+        }
+      },
+      {
+        "step": "Test",
+        "means": "Put it in front of players and watch what they do.",
+        "example": {
+          "status": "confirmed",
+          "value": "Built an in-build debug console for playtesters on A Course In Time - noclip, ability grants, scene jumps and objective control without an editor."
+        }
+      },
+      {
+        "step": "Analyse",
+        "means": "Turn observations into findings, and findings into a decision.",
+        "example": {
+          "status": "pending",
+          "request": "Still to add."
+        }
+      },
+      {
+        "step": "Iterate",
+        "means": "Change the design, then check the change did what it was meant to.",
+        "example": {
+          "status": "pending",
+          "request": "Still to add."
+        }
+      }
+    ]
+  },
+  "openTo": {
+    "status": "confirmed",
+    "value": "Junior design, gameplay and tools roles."
+  },
+  "strongestSkill": {
+    "status": "confirmed",
+    "value": "Designing and building the systems a puzzle game runs on - switching the world between eras, puzzle generators, save state and playtest tooling."
+  },
+  "about": {
+    "body": {
+      "status": "confirmed",
+      "value": "I like games where the rules are the level. My flagship project, A Course In Time, is a puzzle-platformer about one building across time - so most of what I've built is the machinery underneath: the switch between eras, the generators that make puzzles, the save system that remembers them, and the tools that let other people test them."
+    },
+    "education": {
+      "status": "pending",
+      "request": "Still to add."
+    },
+    "personal": {
+      "status": "pending",
+      "request": "Still to add."
+    }
+  },
+  "resume": {
+    "status": "pending",
+    "request": "Still to add."
+  },
+  "contact": {
+    "email": {
+      "status": "confirmed",
+      "value": "tylercrump@outlook.com.au"
+    },
+    "github": {
+      "status": "confirmed",
+      "value": "https://github.com/CrumpyOFCL"
+    },
+    "itch": {
+      "status": "confirmed",
+      "value": "https://crumpyofcl.itch.io"
+    },
+    "linkedin": {
+      "status": "pending",
+      "request": "Still to add."
+    }
+  },
+  "documents": [
+    {
+      "title": "Game design document",
+      "item": {
+        "status": "pending",
+        "request": "Still to add."
+      }
+    },
+    {
+      "title": "Level design document / level maps",
+      "item": {
+        "status": "pending",
+        "request": "Still to add."
+      }
+    },
+    {
+      "title": "Playtest plan and report",
+      "item": {
+        "status": "pending",
+        "request": "Still to add."
+      }
+    },
+    {
+      "title": "Pitch or proposal",
+      "item": {
+        "status": "pending",
+        "request": "Still to add."
+      }
+    },
+    {
+      "title": "Presentation",
+      "item": {
+        "status": "pending",
+        "request": "Still to add."
+      }
+    },
+    {
+      "title": "Technical design notes",
+      "item": {
+        "status": "pending",
+        "request": "Still to add."
+      }
+    }
+  ],
+  "journal": [
+    {
+      "status": "pending",
+      "request": "Still to add."
+    },
+    {
+      "status": "pending",
+      "request": "Still to add."
+    }
+  ],
+  "benchmark": {
+    "rows": [
+      {
+        "skill": "Systems and gameplay design",
+        "where": "a-course-in-time",
+        "level": "stated"
+      },
+      {
+        "skill": "Prototyping",
+        "where": "lit-flux-mechanics-showcase",
+        "level": "evidenced"
+      },
+      {
+        "skill": "Playtest support",
+        "where": "a-course-in-time",
+        "level": "stated"
+      },
+      {
+        "skill": "Iterating in small steps",
+        "where": "tabi",
+        "level": "stated"
+      },
+      {
+        "skill": "Playtest design and analysis",
+        "level": "pending"
+      },
+      {
+        "skill": "Level design (paper, greybox, flow)",
+        "where": "a-course-in-time",
+        "level": "stated"
+      },
+      {
+        "skill": "Character and moveset design",
+        "where": "sword-saint-broken-bridge",
+        "level": "stated"
+      },
+      {
+        "skill": "Combat design",
+        "where": "sword-saint-broken-bridge",
+        "level": "stated"
+      },
+      {
+        "skill": "Stage design",
+        "where": "sword-saint-broken-bridge",
+        "level": "stated"
+      },
+      {
+        "skill": "Player experience / UX",
+        "where": "tabi",
+        "level": "stated"
+      },
+      {
+        "skill": "Design documentation",
+        "level": "pending"
+      },
+      {
+        "skill": "Team collaboration",
+        "where": "waking-nightmare",
+        "level": "stated"
+      },
+      {
+        "skill": "Client / stakeholder communication",
+        "where": "waking-nightmare",
+        "level": "stated"
+      },
+      {
+        "skill": "Unity 6 and C#",
+        "where": "a-course-in-time",
+        "level": "evidenced"
+      },
+      {
+        "skill": "Audio implementation (FMOD Studio)",
+        "where": "a-course-in-time",
+        "level": "stated"
+      },
+      {
+        "skill": "Version control (Git)",
+        "where": "sdcs-booking-app",
+        "level": "evidenced"
+      },
+      {
+        "skill": "Agile / production practice",
+        "level": "pending"
+      }
+    ]
+  },
+  "skills": {
+    "rows": [
+      {
+        "skill": "Unity 6",
+        "group": "Engines",
+        "projects": [
+          "a-course-in-time"
+        ],
+        "evidence": "project"
+      },
+      {
+        "skill": "Unity (prototypes)",
+        "group": "Engines",
+        "projects": [
+          "lit-flux-mechanics-showcase",
+          "gdt2"
+        ],
+        "evidence": "project"
+      },
+      {
+        "skill": "Unity 2019",
+        "group": "Engines",
+        "projects": [
+          "waking-nightmare"
+        ],
+        "evidence": "project"
+      },
+      {
+        "skill": "Ikemen GO",
+        "group": "Engines",
+        "projects": [
+          "sword-saint-broken-bridge"
+        ],
+        "evidence": "attested"
+      },
+      {
+        "skill": "Unreal Engine",
+        "group": "Engines",
+        "projects": [],
+        "evidence": "coming"
+      },
+      {
+        "skill": "C#",
+        "group": "Programming",
+        "projects": [
+          "a-course-in-time",
+          "waking-nightmare"
+        ],
+        "evidence": "project"
+      },
+      {
+        "skill": "Gameplay architecture, save/state, procedural generation, physics",
+        "group": "Systems",
+        "projects": [
+          "a-course-in-time"
+        ],
+        "evidence": "described"
+      },
+      {
+        "skill": "Custom inspectors, editor windows, Scene-view authoring tools",
+        "group": "Tools",
+        "projects": [
+          "a-course-in-time"
+        ],
+        "evidence": "described"
+      },
+      {
+        "skill": "Playtest tooling (in-build debug console)",
+        "group": "Tools",
+        "projects": [
+          "a-course-in-time"
+        ],
+        "evidence": "described"
+      },
+      {
+        "skill": "FMOD Studio (event design, parameters, runtime)",
+        "group": "Audio",
+        "projects": [
+          "a-course-in-time"
+        ],
+        "evidence": "described"
+      },
+      {
+        "skill": "Level design",
+        "group": "Design",
+        "projects": [
+          "a-course-in-time"
+        ],
+        "evidence": "described"
+      },
+      {
+        "skill": "Character and moveset design",
+        "group": "Design",
+        "projects": [
+          "sword-saint-broken-bridge"
+        ],
+        "evidence": "attested"
+      },
+      {
+        "skill": "Combat design",
+        "group": "Design",
+        "projects": [
+          "sword-saint-broken-bridge"
+        ],
+        "evidence": "attested"
+      },
+      {
+        "skill": "Stage design",
+        "group": "Design",
+        "projects": [
+          "sword-saint-broken-bridge"
+        ],
+        "evidence": "attested"
+      },
+      {
+        "skill": "Creative direction",
+        "group": "Design",
+        "projects": [
+          "waking-nightmare"
+        ],
+        "evidence": "described"
+      },
+      {
+        "skill": "Client communication",
+        "group": "Team",
+        "projects": [
+          "waking-nightmare"
+        ],
+        "evidence": "described"
+      },
+      {
+        "skill": "Team leadership",
+        "group": "Team",
+        "projects": [
+          "a-course-in-time"
+        ],
+        "evidence": "described"
+      },
+      {
+        "skill": "Mobile-first UX",
+        "group": "Design",
+        "projects": [
+          "tabi",
+          "sdcs-booking-app"
+        ],
+        "evidence": "project"
+      },
+      {
+        "skill": "JavaScript, Express, SQLite",
+        "group": "Web",
+        "projects": [
+          "tabi"
+        ],
+        "evidence": "project"
+      },
+      {
+        "skill": "React Native (Expo)",
+        "group": "Web",
+        "projects": [
+          "sdcs-booking-app"
+        ],
+        "evidence": "project"
+      },
+      {
+        "skill": "Git",
+        "group": "Workflow",
+        "projects": [
+          "sdcs-booking-app"
+        ],
+        "evidence": "project"
+      },
+      {
+        "skill": "Fighter Factory Studio",
+        "group": "Tools",
+        "projects": [
+          "sword-saint-broken-bridge"
+        ],
+        "evidence": "attested"
+      },
+      {
+        "skill": "Notepad++",
+        "group": "Tools",
+        "projects": [
+          "sword-saint-broken-bridge"
+        ],
+        "evidence": "attested"
+      },
+      {
+        "skill": "Cinemachine, New Input System, controller support",
+        "group": "Unity",
+        "projects": [],
+        "evidence": "general"
+      },
+      {
+        "skill": "Visual Studio Code",
+        "group": "Workflow",
+        "projects": [],
+        "evidence": "general"
+      },
+      {
+        "skill": "GoodNotes (design notes and sketching)",
+        "group": "Design",
+        "projects": [],
+        "evidence": "general"
+      },
+      {
+        "skill": "Aseprite (pixel art)",
+        "group": "Art",
+        "projects": [],
+        "evidence": "general"
+      },
+      {
+        "skill": "Blender",
+        "group": "Art",
+        "projects": [],
+        "evidence": "coming"
+      }
+    ]
+  }
+}
