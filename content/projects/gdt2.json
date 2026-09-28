@@ -6,56 +6,50 @@
   "title": "GDT2",
   "tagline": {
     "status": "confirmed",
-    "value": "A browser-playable Unity prototype on itch.io.",
-    "source": "itch.io"
+    "value": "A browser-playable Unity prototype on itch.io."
   },
   "cover": {
     "status": "pending",
-    "request": "A screenshot."
+    "request": "Still to add."
   },
   "overview": {
     "genre": {
       "status": "pending",
-      "request": "Genre"
+      "request": "Still to add."
     },
     "type": {
       "status": "confirmed",
-      "value": "Prototype",
-      "source": "itch.io status"
+      "value": "Prototype"
     },
     "role": {
       "status": "pending",
-      "request": "pending: role confirmation"
+      "request": "Still to add."
     },
     "team": {
       "status": "pending",
-      "request": "pending: role confirmation"
+      "request": "Still to add."
     },
     "timeframe": {
       "status": "pending",
-      "request": "pending: role confirmation"
+      "request": "Still to add."
     },
     "engine": {
       "status": "confirmed",
-      "value": "Unity",
-      "source": "itch.io"
+      "value": "Unity"
     },
     "tools": {
       "status": "confirmed",
       "value": [
         "Unity"
-      ],
-      "source": "itch.io"
+      ]
     },
     "platforms": {
       "status": "confirmed",
-      "value": "Browser (HTML5)",
-      "source": "itch.io"
+      "value": "Browser (HTML5)"
     },
     "stage": {
       "status": "confirmed",
-      "value": "Prototype",
-      "source": "itch.io"
+      "value": "Prototype"
     }
   },
   "filters": {
@@ -72,18 +66,17 @@
       "label": "Play in browser (itch.io)",
       "item": {
         "status": "confirmed",
-        "value": "https://crumpyofcl.itch.io/gdt2",
-        "source": "itch.io"
+        "value": "https://crumpyofcl.itch.io/gdt2"
       }
     }
   ],
   "contributions": {
     "status": "pending",
-    "request": "pending: role confirmation"
+    "request": "Still to add."
   },
   "problem": {
     "status": "pending",
-    "request": "What GDT2 is and what it explores (one or two sentences)."
+    "request": "Still to add."
   },
   "decisions": []
 }

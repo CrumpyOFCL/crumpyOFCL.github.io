@@ -111,16 +111,14 @@ document.addEventListener('keydown', (e) => {
   else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
 });
 
-const DG = {
-  past: 'Past: a wall blocks the way. The crate has just been pushed into place.',
-  present: 'Present: the wall is gone. The crate is still where it was pushed.',
-};
-document.querySelectorAll('[data-dg]').forEach(btn => {
+document.querySelectorAll('[data-era]').forEach((btn) => {
   btn.addEventListener('click', () => {
-    const state = btn.getAttribute('data-dg');
+    const era = btn.getAttribute('data-era');
     const fig = btn.closest('.diagram');
-    fig.querySelector('[data-dg-state]').setAttribute('data-dg-state', state);
-    fig.querySelector('[data-dg-desc]').textContent = DG[state];
-    fig.querySelectorAll('[data-dg]').forEach(b => b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'));
+    const stage = fig.querySelector('[data-stage]');
+    if (stage) stage.setAttribute('data-stage', era);
+    const copy = fig.querySelector('.era-copy');
+    if (copy) copy.textContent = copy.getAttribute(era === 'present' ? 'data-present' : 'data-past') || '';
+    fig.querySelectorAll('[data-era]').forEach((other) => other.setAttribute('aria-pressed', other === btn ? 'true' : 'false'));
   });
 });

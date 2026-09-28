@@ -6,57 +6,50 @@
   "title": "LIT_Flux Mechanics Showcase",
   "tagline": {
     "status": "confirmed",
-    "value": "A browser-playable Unity prototype: swap time period, aim and fire a time cannon, double jump and dash.",
-    "source": "itch.io controls list"
+    "value": "A browser-playable Unity prototype: swap time period, aim and fire a time cannon, double jump and dash."
   },
   "cover": {
     "status": "pending",
-    "request": "A screenshot."
+    "request": "Still to add."
   },
   "overview": {
     "genre": {
       "status": "confirmed",
-      "value": "Puzzle prototype",
-      "source": "itch.io"
+      "value": "Puzzle prototype"
     },
     "type": {
       "status": "confirmed",
-      "value": "Mechanics prototype",
-      "source": "itch.io title/status"
+      "value": "Mechanics prototype"
     },
     "role": {
       "status": "pending",
-      "request": "pending: role confirmation"
+      "request": "Still to add."
     },
     "team": {
       "status": "pending",
-      "request": "pending: role confirmation"
+      "request": "Still to add."
     },
     "timeframe": {
       "status": "pending",
-      "request": "pending: role confirmation"
+      "request": "Still to add."
     },
     "engine": {
       "status": "confirmed",
-      "value": "Unity",
-      "source": "itch.io"
+      "value": "Unity"
     },
     "tools": {
       "status": "confirmed",
       "value": [
         "Unity"
-      ],
-      "source": "itch.io"
+      ]
     },
     "platforms": {
       "status": "confirmed",
-      "value": "Browser (HTML5)",
-      "source": "itch.io"
+      "value": "Browser (HTML5)"
     },
     "stage": {
       "status": "confirmed",
-      "value": "Prototype",
-      "source": "itch.io"
+      "value": "Prototype"
     }
   },
   "filters": {
@@ -74,18 +67,17 @@
       "label": "Play in browser (itch.io)",
       "item": {
         "status": "confirmed",
-        "value": "https://crumpyofcl.itch.io/lit-flux-mechanics-showcasae",
-        "source": "itch.io"
+        "value": "https://crumpyofcl.itch.io/lit-flux-mechanics-showcasae"
       }
     }
   ],
   "contributions": {
     "status": "pending",
-    "request": "pending: role confirmation"
+    "request": "Still to add."
   },
   "problem": {
     "status": "pending",
-    "request": "What question this prototype was built to answer, and whether it fed into A Course In Time."
+    "request": "Still to add."
   },
   "decisions": []
 }

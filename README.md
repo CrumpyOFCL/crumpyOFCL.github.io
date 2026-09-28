@@ -6,7 +6,7 @@ The live site is `main` ([crumpyofcl.github.io](https://crumpyofcl.github.io/)).
 
 ## Why this stack
 
-Astro 5 would compile the same handful of pages and add a dependency tree Tyler would have to keep installing. The generator in `src/` is one `node src/build.mjs` with no packages. It refuses to build if a fact is malformed, and every unknown renders as a dashed **Evidence pending** slot instead of invented copy. Generated HTML is committed so Pages can serve the branch with no build command and no settings change.
+The script in `src/` is one `node src/build.mjs` with no packages. It refuses to build if a fact is malformed, and every unknown stays out of the page instead of becoming invented copy. The HTML is committed so Pages can serve the branch with no build command and no settings change.
 
 Node 18+ is enough (`package.json` engines). Node 22 is what this branch was built with.
 
@@ -24,17 +24,10 @@ Browser tests use Playwright, `@axe-core/playwright` and Lighthouse, listed as d
 
 ## Editing
 
-See [CONTENT.md](CONTENT.md). Do not invent projects, tools, dates, quotes or playtest results. If it is not confirmed, leave the pending object in place.
-
-## Design notes
-
-- The current pages are one app shell: About, A Course In Time, Sword Saint, Tabi and More, with a contact sheet. [docs/concepts.md](docs/concepts.md) records the earlier concepts.
-- [docs/reviews.md](docs/reviews.md) — reviews and test scores
-- [docs/requirements-checklist.md](docs/requirements-checklist.md) — against the three junior briefs
-- [prototypes/](prototypes/) — throwaway concept sketches, not linked from the site
+Edit `content/`. Do not invent projects, tools, dates, quotes or playtest results. If a fact is not confirmed, leave the pending object in place. The page shows it only inside "Still to add", as "Coming soon: <slot>".
 
 ## Preview
 
 Do not point GitHub Pages at this branch. That would replace the live site. A preview has to be a host that is not `crumpyofcl.github.io`.
 
-Internal links are relative (`assets/styles.css`, `projects/…/index.html`) so a static file host can serve the branch from a subpath. Canonical URLs still point at the production domain.
+Internal links are relative (`assets/styles.css`) so a static file host can serve the branch from a subpath. Canonical URLs still point at the production domain.

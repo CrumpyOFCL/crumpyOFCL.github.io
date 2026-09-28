@@ -4,7 +4,7 @@ const icon = (paths) => `<svg viewBox="0 0 24 24" aria-hidden="true">${paths}</s
 
 const TABS = [
   ['about', 'About me', icon('<circle cx="12" cy="8.5" r="3.2"/><path d="M5 19.5c.7-3.4 3.2-5.2 7-5.2s6.3 1.8 7 5.2"/>')],
-  ['acit', 'A Course In Time', icon('<circle cx="12" cy="12" r="8"/><path d="M12 8v4.5l3 2"/>')],
+  ['acit', 'ACIT', icon('<circle cx="12" cy="12" r="8"/><path d="M12 8v4.5l3 2"/>'), 'A Course In Time'],
   ['sword-saint', 'Sword Saint', icon('<path d="M14.2 3.8l6 6-9.2 9.2H6.2v-4.8z"/><path d="M4 20.2l3.2-3.2M11 13.2l2.2 2.2"/>')],
   ['tabi', 'Tabi', icon('<path d="M12 21s-6-5.4-6-10a6 6 0 0 1 12 0c0 4.6-6 10-6 10z"/><circle cx="12" cy="11" r="2.2"/>')],
   ['more', 'More', icon('<rect x="4" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.5"/>')],
@@ -43,7 +43,7 @@ export function layout({ title, description, body, canonical = '/', asset = '', 
 </header>
 <nav class="tabbar" aria-label="Sections">
   <div class="tabbar-inner" role="tablist">
-    ${TABS.map(([id, label, svg], i) => `<a class="tab" role="tab" id="tab-${id}" href="#${id}" aria-controls="${id}" aria-selected="${i === 0 ? 'true' : 'false'}" tabindex="${i === 0 ? '0' : '-1'}">${svg}<span>${esc(label)}</span></a>`).join('')}
+    ${TABS.map(([id, label, svg, name], i) => `<a class="tab" role="tab" id="tab-${id}" href="#${id}" aria-controls="${id}" aria-label="${esc(name || label)}" aria-selected="${i === 0 ? 'true' : 'false'}" tabindex="${i === 0 ? '0' : '-1'}">${svg}<span aria-hidden="true">${esc(label)}</span></a>`).join('')}
   </div>
 </nav>
 <main id="main" tabindex="-1">

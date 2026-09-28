@@ -7,56 +7,44 @@
   "title": "Sword Saint: Broken Bridge",
   "subtitle": {
     "status": "confirmed",
-    "value": "Designed by Tyler Crump",
-    "source": "Owner decision, 29 Sep 2026, 00:29 AEST."
-  },
-  "_internal": {
-    "note": "Owner decision, 29 Sep 2026, 00:29 AEST, renamed 28 Sep 2026 to Sword Saint: Broken Bridge. Solo design project built in Ikemen GO. Credit the character, combat, and stage design below. Do not describe how the art was produced. Do not link the private repository. Media stays placeholder. Not a shipped credit."
+    "value": "Designed by Tyler Crump"
   },
   "tagline": {
     "status": "confirmed",
-    "value": "A solo design project built in Ikemen GO, the open-source fighting game engine. Character and moveset design for The Sword Saint and Unknown, combat systems for their shared moveset, and the Broken Bridge stage.",
-    "source": "Owner decision, 29 Sep 2026, 00:29 AEST."
+    "value": "A solo design project built in Ikemen GO, the open-source fighting game engine. Character and moveset design for The Sword Saint and Unknown, combat systems for their shared moveset, and the Broken Bridge stage."
   },
   "overview": {
     "genre": {
       "status": "confirmed",
-      "value": "Fighting game",
-      "source": "Owner decision, 29 Sep 2026, 00:29 AEST."
+      "value": "Fighting game"
     },
     "characters": {
       "status": "confirmed",
-      "value": "2 — The Sword Saint and Unknown, a mirror fighter on the same moveset",
-      "source": "Owner decision, 29 Sep 2026, 00:29 AEST."
+      "value": "2 — The Sword Saint and Unknown, a mirror fighter on the same moveset"
     },
     "moves": {
       "status": "confirmed",
-      "value": "7 shared moves: 4 normals, a two-projectile lightning special, a meter-gated super, and a back dash. Also block and a timed perfect block.",
-      "source": "Owner decision, 29 Sep 2026, 00:29 AEST."
+      "value": "7 shared moves: 4 normals, a two-projectile lightning special, a meter-gated super, and a back dash. Also block and a timed perfect block."
     },
     "type": {
       "status": "confirmed",
-      "value": "Design project",
-      "source": "Owner decision, 29 Sep 2026, 00:29 AEST: a solo design project."
+      "value": "Design project"
     },
     "role": {
       "status": "confirmed",
-      "value": "Solo designer",
-      "source": "Owner decision, 29 Sep 2026, 00:29 AEST."
+      "value": "Solo designer"
     },
     "team": {
       "status": "confirmed",
-      "value": "Solo",
-      "source": "Owner decision, 29 Sep 2026, 00:29 AEST."
+      "value": "Solo"
     },
     "timeframe": {
       "status": "pending",
-      "request": "When this was made."
+      "request": "Still to add."
     },
     "engine": {
       "status": "confirmed",
-      "value": "Ikemen GO",
-      "source": "The open-source fighting game engine the project is built on. Tyler designed the project in it."
+      "value": "Ikemen GO"
     },
     "tools": {
       "status": "confirmed",
@@ -64,16 +52,15 @@
         "Ikemen GO",
         "Fighter Factory Studio (sprites and animation)",
         "Notepad++ (editing character and stage files)"
-      ],
-      "source": "Owner, 29 Sep 2026, 00:30 AEST."
+      ]
     },
     "platforms": {
       "status": "pending",
-      "request": "Where it can be played, if anywhere."
+      "request": "Still to add."
     },
     "stage": {
       "status": "pending",
-      "request": "A public build or page, if one exists. Do not mark it shipped."
+      "request": "Still to add."
     }
   },
   "filters": {
@@ -94,7 +81,7 @@
       "label": "Source or playable build",
       "item": {
         "status": "pending",
-        "request": "A public page or build, if one exists. Do not link the private repository."
+        "request": "Still to add."
       }
     }
   ],
@@ -104,32 +91,28 @@
       "Character and moveset design for two fighters, The Sword Saint and Unknown. Unknown is a mirror fighter who shares the same moveset.",
       "Combat systems design: 4 normals, a two-projectile lightning special, a meter-gated super, and a back dash, plus block and a timed perfect block, and a stamina system.",
       "Stage design: Broken Bridge, a 6-layer storm bridge stage with animated lightning and rain."
-    ],
-    "source": "Owner decision, 29 Sep 2026, 00:29 AEST."
+    ]
   },
   "collaboration": [
     {
       "discipline": "Character and moveset design",
       "item": {
         "status": "confirmed",
-        "value": "Me — The Sword Saint and Unknown",
-        "source": "Owner decision, 29 Sep 2026, 00:29 AEST."
+        "value": "Me — The Sword Saint and Unknown"
       }
     },
     {
       "discipline": "Combat systems design",
       "item": {
         "status": "confirmed",
-        "value": "Me",
-        "source": "Owner decision, 29 Sep 2026, 00:29 AEST."
+        "value": "Me"
       }
     },
     {
       "discipline": "Stage design",
       "item": {
         "status": "confirmed",
-        "value": "Me — Broken Bridge",
-        "source": "Owner decision, 29 Sep 2026, 00:29 AEST."
+        "value": "Me — Broken Bridge"
       }
     }
   ],
@@ -139,7 +122,7 @@
       "label": "Sprite sheet",
       "item": {
         "status": "pending",
-        "request": "Sprite sheet for The Sword Saint and Unknown."
+        "request": "Still to add."
       }
     },
     {
@@ -147,7 +130,7 @@
       "label": "The Sword Saint",
       "item": {
         "status": "pending",
-        "request": "GIF for The Sword Saint."
+        "request": "Still to add."
       }
     },
     {
@@ -155,7 +138,7 @@
       "label": "Unknown",
       "item": {
         "status": "pending",
-        "request": "GIF for Unknown."
+        "request": "Still to add."
       }
     },
     {
@@ -163,7 +146,7 @@
       "label": "Broken Bridge",
       "item": {
         "status": "pending",
-        "request": "A screenshot of Broken Bridge."
+        "request": "Still to add."
       }
     },
     {
@@ -171,13 +154,12 @@
       "label": "Gameplay clip",
       "item": {
         "status": "pending",
-        "request": "A clip of the game being played."
+        "request": "Still to add."
       }
     }
   ],
   "mechanics": {
     "status": "confirmed",
-    "source": "Owner decision, 29 Sep 2026, 00:29 AEST. No public build is linked.",
     "value": [
       {
         "name": "Shared moveset",
@@ -211,72 +193,67 @@
   },
   "problem": {
     "status": "pending",
-    "request": "What this fighting-game project set out to explore."
+    "request": "Still to add."
   },
   "designGoal": {
     "status": "pending",
-    "request": "The design goal for the characters, the combat, or the stage."
+    "request": "Still to add."
   },
   "process": [
     {
       "stage": "Characters",
       "item": {
         "status": "confirmed",
-        "value": "The Sword Saint and Unknown, a mirror fighter who shares the same moveset.",
-        "source": "Owner decision, 29 Sep 2026, 00:29 AEST."
+        "value": "The Sword Saint and Unknown, a mirror fighter who shares the same moveset."
       }
     },
     {
       "stage": "Combat systems",
       "item": {
         "status": "confirmed",
-        "value": "7 moves: 4 normals, a two-projectile lightning special, a meter-gated super, and a back dash, plus block, a timed perfect block, and a stamina system.",
-        "source": "Owner decision, 29 Sep 2026, 00:29 AEST."
+        "value": "7 moves: 4 normals, a two-projectile lightning special, a meter-gated super, and a back dash, plus block, a timed perfect block, and a stamina system."
       }
     },
     {
       "stage": "Stage",
       "item": {
         "status": "confirmed",
-        "value": "Broken Bridge, a 6-layer storm bridge stage with animated lightning and rain.",
-        "source": "Owner decision, 29 Sep 2026, 00:29 AEST."
+        "value": "Broken Bridge, a 6-layer storm bridge stage with animated lightning and rain."
       }
     }
   ],
   "levelDesign": {
     "overview": {
       "status": "confirmed",
-      "value": "Broken Bridge, a 6-layer storm bridge stage with animated lightning and rain.",
-      "source": "Owner decision, 29 Sep 2026, 00:29 AEST."
+      "value": "Broken Bridge, a 6-layer storm bridge stage with animated lightning and rain."
     },
     "goals": {
       "status": "pending",
-      "request": "What the stage was designed to do for a match."
+      "request": "Still to add."
     },
     "structure": {
       "status": "confirmed",
-      "value": "6 layers.",
-      "source": "Owner decision, 29 Sep 2026, 00:29 AEST."
+      "value": "6 layers."
     },
     "flow": {
       "status": "pending",
-      "request": "How a fight moves through the stage."
+      "request": "Still to add."
     },
     "mechanicIntroduction": {
       "status": "pending",
-      "request": "Stage-specific mechanics, if any."
+      "request": "Still to add."
     },
     "challengeCurve": {
       "status": "pending",
-      "request": "How the stage shapes the fight."
+      "request": "Still to add."
     },
     "greybox": {
       "status": "pending",
-      "request": "An early layout of the stage, if one exists."
+      "request": "Still to add."
     },
     "final": {
       "status": "pending",
-      "request": "A screenshot of Broken Bridge."
+      "request": "Still to add."
     }
   },
   "decisions": []

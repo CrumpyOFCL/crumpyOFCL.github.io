@@ -16,10 +16,6 @@ export const html = (strings, ...vals) =>
 
 // Public label only. The request stays in JSON and is never printed.
 export function publicSlot(f, label = 'this') {
-  const req = String((f && f.request) || '');
-  if (/role confirmation \(dates\)/i.test(req)) return 'LOCKED · dates coming';
-  if (/role confirmation/i.test(req)) return 'LOCKED · evidence coming';
-  if (/public build or page/i.test(req)) return 'Coming soon: public build or page';
   const name = label && label !== 'Evidence pending' ? label : 'this';
   return `Coming soon: ${name}`;
 }

@@ -6,46 +6,39 @@
   "title": "A Course In Time",
   "tagline": {
     "status": "confirmed",
-    "value": "A 2D puzzle-platformer set in one hotel that exists in more than one era. Switch time and the building changes around you; what you carry doesn't.",
-    "source": "itch.io page ('The Astoria Grand Hotel exists in two eras at once… Platforms appear, walls vanish') + crumpyofcl.github.io ('the building changes around them, and nothing they're carrying does')"
+    "value": "A 2D puzzle-platformer set in one hotel that exists in more than one era. Switch time and the building changes around you; what you carry doesn't."
   },
   "cover": {
     "status": "confirmed",
     "value": {
       "src": "/img/acit-logo.png",
       "alt": "A Course In Time title logo in orange pixel lettering."
-    },
-    "source": "itch.io page image (team asset — Tyler to confirm use)"
+    }
   },
   "overview": {
     "genre": {
       "status": "confirmed",
-      "value": "2D puzzle-platformer / metroidvania",
-      "source": "itch.io"
+      "value": "2D puzzle-platformer / metroidvania"
     },
     "type": {
       "status": "confirmed",
-      "value": "University team project (COMP3150, Macquarie University)",
-      "source": "itch.io page footer + owner"
+      "value": "University team project (COMP3150, Macquarie University)"
     },
     "role": {
       "status": "confirmed",
-      "value": "Team lead — mainly audio, coding and level design",
-      "source": "Tyler (owner confirmation, 28 Sep 2026)"
+      "value": "Producer / team lead, also audio, level design and programming"
     },
     "team": {
       "status": "confirmed",
-      "value": "Team of 5",
-      "source": "Tyler (owner confirmation, 28 Sep 2026)"
+      "value": "Team of 5"
     },
     "timeframe": {
-      "status": "pending",
-      "request": "pending: role confirmation (dates)"
+      "status": "confirmed",
+      "value": "Session 1 2026"
     },
     "engine": {
       "status": "confirmed",
-      "value": "Unity 6",
-      "source": "crumpyofcl.github.io"
+      "value": "Unity 6"
     },
     "tools": {
       "status": "confirmed",
@@ -53,18 +46,15 @@
         "Unity 6",
         "C#",
         "FMOD"
-      ],
-      "source": "crumpyofcl.github.io"
+      ]
     },
     "platforms": {
       "status": "confirmed",
-      "value": "Browser (WebGL) and Windows",
-      "source": "itch.io"
+      "value": "Browser (WebGL) and Windows"
     },
     "stage": {
       "status": "confirmed",
-      "value": "In development (playable build on itch.io)",
-      "source": "Tyler (owner confirmation, 28 Sep 2026) + itch.io"
+      "value": "In development (playable build on itch.io)"
     }
   },
   "filters": {
@@ -86,28 +76,26 @@
       "label": "Play in browser (itch.io)",
       "item": {
         "status": "confirmed",
-        "value": "https://crumpyofcl.itch.io/a-course-in-time",
-        "source": "itch.io"
+        "value": "https://crumpyofcl.itch.io/a-course-in-time"
       }
     },
     {
       "label": "Source",
       "item": {
         "status": "pending",
-        "request": "Public repo link, or a short code sample of the era system."
+        "request": "Still to add."
       }
     },
     {
       "label": "Devlog",
       "item": {
         "status": "pending",
-        "request": "Devlog URL, if one exists."
+        "request": "Still to add."
       }
     }
   ],
   "mechanics": {
     "status": "confirmed",
-    "source": "itch.io page (describes the playable build; the project is still in development)",
     "value": [
       {
         "name": "Time Switch",
@@ -129,12 +117,10 @@
   },
   "structure": {
     "status": "confirmed",
-    "value": "Progression is gated by abilities, not combat: each new tool opens paths that were visible but previously unreachable. The hotel is interconnected, with hidden rooms and shortcuts.",
-    "source": "itch.io"
+    "value": "Progression is gated by abilities, not combat: each new tool opens paths that were visible but previously unreachable. The hotel is interconnected, with hidden rooms and shortcuts."
   },
   "contributions": {
     "status": "confirmed",
-    "source": "My previous site (crumpyofcl.github.io). These are my claims — a design doc or code sample is still to be published.",
     "value": [
       "The era system — collision layers, object state and physics swapping in step, with a crush check so time closing around the player is a death rather than a glitch.",
       "Procedural puzzle generators with Scene-view grid painting: pipe networks with a connectivity solver, and elemental puzzles that pick their own elements by counting how many valid solutions each set allows.",
@@ -144,20 +130,19 @@
   },
   "problem": {
     "status": "pending",
-    "request": "The design problem in 1–2 sentences, in your words."
+    "request": "Still to add."
   },
   "designGoal": {
     "status": "pending",
-    "request": "The design goal / intended player experience (e.g. what should a player feel the first time time closes around them?)."
+    "request": "Still to add."
   },
   "experience": {
     "intended": {
       "status": "pending",
-      "request": "Intended player experience, in your words."
+      "request": "Still to add."
     },
     "tools": {
       "status": "confirmed",
-      "source": "crumpyofcl.github.io",
       "value": [
         "Scene-view grid painting for authoring puzzles quickly.",
         "Element selection by counting valid solutions per element set.",
@@ -166,7 +151,7 @@
     },
     "evidence": {
       "status": "pending",
-      "request": "Evidence the experience landed: playtest notes, quotes you have permission to use, or observed behaviour."
+      "request": "Still to add."
     }
   },
   "process": [
@@ -174,119 +159,116 @@
       "stage": "Idea",
       "item": {
         "status": "pending",
-        "request": "Where the idea came from."
+        "request": "Still to add."
       }
     },
     {
       "stage": "Research",
       "item": {
         "status": "pending",
-        "request": "References or research that shaped it."
+        "request": "Still to add."
       }
     },
     {
       "stage": "Concept",
       "item": {
         "status": "pending",
-        "request": "Concept sketch or one-page pitch."
+        "request": "Still to add."
       }
     },
     {
       "stage": "Paper prototype",
       "item": {
         "status": "pending",
-        "request": "Photo of a paper prototype, if one was made."
+        "request": "Still to add."
       }
     },
     {
       "stage": "Prototype",
       "item": {
         "status": "pending",
-        "request": "Confirm whether LIT_Flux Mechanics Showcase was an early prototype of this game."
+        "request": "Still to add."
       }
     },
     {
       "stage": "Greybox",
       "item": {
         "status": "pending",
-        "request": "Greybox screenshots of a room before art."
+        "request": "Still to add."
       }
     },
     {
       "stage": "Playtest",
       "item": {
         "status": "pending",
-        "request": "When and how it was playtested."
+        "request": "Still to add."
       }
     },
     {
       "stage": "Analysis",
       "item": {
         "status": "pending",
-        "request": "What the playtests showed."
+        "request": "Still to add."
       }
     },
     {
       "stage": "Iteration",
       "item": {
         "status": "pending",
-        "request": "What changed as a result."
+        "request": "Still to add."
       }
     },
     {
       "stage": "Playable build",
       "item": {
         "status": "confirmed",
-        "value": "A playable WebGL build and a Windows build are on itch.io. The project is still in development, so this is not a shipped storefront credit.",
-        "source": "itch.io + Tyler (owner confirmation, 28 Sep 2026): in development"
+        "value": "A playable WebGL build and a Windows build are on itch.io. The project is still in development, so this is not a shipped storefront credit."
       }
     }
   ],
   "levelDesign": {
     "overview": {
       "status": "pending",
-      "request": "Which level/room you designed and why you're presenting it (level design is one of your main areas on this project)."
+      "request": "Still to add."
     },
     "goals": {
       "status": "pending",
-      "request": "What this level had to teach or test."
+      "request": "Still to add."
     },
     "flow": {
       "status": "pending",
-      "request": "Flow diagram or annotated map (image)."
+      "request": "Still to add."
     },
     "structure": {
       "status": "confirmed",
-      "value": "Ability-gated progression through an interconnected hotel.",
-      "source": "itch.io"
+      "value": "Ability-gated progression through an interconnected hotel."
     },
     "mechanicIntroduction": {
       "status": "pending",
-      "request": "The order mechanics are introduced and how each is taught."
+      "request": "Still to add."
     },
     "challengeCurve": {
       "status": "pending",
-      "request": "How difficulty rises across the level (sketch is fine — no invented numbers)."
+      "request": "Still to add."
     },
     "greybox": {
       "status": "pending",
-      "request": "Greybox capture(s)."
+      "request": "Still to add."
     },
     "final": {
       "status": "pending",
-      "request": "Final screenshot of the same space."
+      "request": "Still to add."
     }
   },
   "playtesting": {
     "sessions": [],
     "template": {
       "status": "pending",
-      "request": "For one session: research question, objective, method, setup, observations, findings, changes."
+      "request": "Still to add."
     },
     "support": {
       "status": "confirmed",
-      "value": "Playtest builds included a debug console (noclip, ability grants, scene jumps, objective control) so testers could reach any state without the editor.",
-      "source": "crumpyofcl.github.io"
+      "value": "Playtest builds included a debug console (noclip, ability grants, scene jumps, objective control) so testers could reach any state without the editor."
     }
   },
   "iterations": [
@@ -294,76 +276,76 @@
       "label": "V1",
       "image": {
         "status": "pending",
-        "request": "V1 screenshot or level map"
+        "request": "Still to add."
       },
       "what": {
         "status": "pending",
-        "request": "What V1 was"
+        "request": "Still to add."
       },
       "why": {
         "status": "pending",
-        "request": "—"
+        "request": "Still to add."
       },
       "evidence": {
         "status": "pending",
-        "request": "—"
+        "request": "Still to add."
       }
     },
     {
       "label": "V2",
       "image": {
         "status": "pending",
-        "request": "V2 screenshot or level map"
+        "request": "Still to add."
       },
       "what": {
         "status": "pending",
-        "request": "What changed from V1"
+        "request": "Still to add."
       },
       "why": {
         "status": "pending",
-        "request": "Why it changed"
+        "request": "Still to add."
       },
       "evidence": {
         "status": "pending",
-        "request": "What evidence prompted it"
+        "request": "Still to add."
       }
     },
     {
       "label": "V3",
       "image": {
         "status": "pending",
-        "request": "V3 screenshot or level map"
+        "request": "Still to add."
       },
       "what": {
         "status": "pending",
-        "request": "What changed from V2"
+        "request": "Still to add."
       },
       "why": {
         "status": "pending",
-        "request": "Why it changed"
+        "request": "Still to add."
       },
       "evidence": {
         "status": "pending",
-        "request": "What evidence prompted it"
+        "request": "Still to add."
       }
     },
     {
       "label": "Final",
       "image": {
         "status": "pending",
-        "request": "Final screenshot"
+        "request": "Still to add."
       },
       "what": {
         "status": "pending",
-        "request": "What the current playable build contains"
+        "request": "Still to add."
       },
       "why": {
         "status": "pending",
-        "request": "Why this is the final form"
+        "request": "Still to add."
       },
       "evidence": {
         "status": "pending",
-        "request": "Result after the change"
+        "request": "Still to add."
       }
     }
   ],
@@ -373,24 +355,23 @@
       "detail": "The era system swaps collision layers, object state and physics in step. A crush check catches the moment solid geometry from the other era would occupy the player's space.",
       "why": {
         "status": "confirmed",
-        "value": "So that time closing around the player reads as a death — a rule of the world — rather than a glitch.",
-        "source": "Paraphrase of crumpyofcl.github.io ('so time closing around the player is a death rather than a glitch')"
+        "value": "So that time closing around the player reads as a death — a rule of the world — rather than a glitch."
       },
       "options": {
         "status": "pending",
-        "request": "Other options considered (e.g. block the switch, push the player out)."
+        "request": "Still to add."
       },
       "evidence": {
         "status": "pending",
-        "request": "What showed this was the right call (playtest, bug report)."
+        "request": "Still to add."
       },
       "tradeoff": {
         "status": "pending",
-        "request": "What it cost."
+        "request": "Still to add."
       },
       "result": {
         "status": "pending",
-        "request": "What happened after."
+        "request": "Still to add."
       }
     },
     {
@@ -398,24 +379,23 @@
       "detail": "The save system records objectives, so a reloaded world remembers which doors are open and which puzzles are done.",
       "why": {
         "status": "confirmed",
-        "value": "So a reloaded world remembers which doors are open and which puzzles are done, not just where the player was standing.",
-        "source": "Paraphrase of crumpyofcl.github.io"
+        "value": "So a reloaded world remembers which doors are open and which puzzles are done, not just where the player was standing."
       },
       "options": {
         "status": "pending",
-        "request": "Alternatives considered (e.g. serialising every object)."
+        "request": "Still to add."
       },
       "evidence": {
         "status": "pending",
-        "request": "—"
+        "request": "Still to add."
       },
       "tradeoff": {
         "status": "pending",
-        "request": "—"
+        "request": "Still to add."
       },
       "result": {
         "status": "pending",
-        "request": "—"
+        "request": "Still to add."
       }
     },
     {
@@ -423,24 +403,23 @@
       "detail": "Noclip, ability grants, scene jumps and objective control, available without the Unity editor.",
       "why": {
         "status": "confirmed",
-        "value": "Playtesters and teammates can reach and repeat any situation without the editor.",
-        "source": "Paraphrase of crumpyofcl.github.io ('…without an editor')"
+        "value": "Playtesters and teammates can reach and repeat any situation without the editor."
       },
       "options": {
         "status": "pending",
-        "request": "—"
+        "request": "Still to add."
       },
       "evidence": {
         "status": "pending",
-        "request": "How testers used it."
+        "request": "Still to add."
       },
       "tradeoff": {
         "status": "pending",
-        "request": "—"
+        "request": "Still to add."
       },
       "result": {
         "status": "pending",
-        "request": "—"
+        "request": "Still to add."
       }
     },
     {
@@ -448,23 +427,23 @@
       "detail": "The generator counts how many valid solutions each candidate element set allows, and picks from that.",
       "why": {
         "status": "pending",
-        "request": "Why solution-counting mattered for the design (in your words)."
+        "request": "Still to add."
       },
       "options": {
         "status": "pending",
-        "request": "—"
+        "request": "Still to add."
       },
       "evidence": {
         "status": "pending",
-        "request": "—"
+        "request": "Still to add."
       },
       "tradeoff": {
         "status": "pending",
-        "request": "—"
+        "request": "Still to add."
       },
       "result": {
         "status": "pending",
-        "request": "—"
+        "request": "Still to add."
       }
     }
   ],
@@ -473,75 +452,63 @@
       "discipline": "Team lead / production",
       "item": {
         "status": "confirmed",
-        "value": "Me",
-        "source": "Tyler (owner confirmation, 28 Sep 2026)"
+        "value": "Me"
       }
     },
     {
       "discipline": "Audio (FMOD)",
       "item": {
         "status": "confirmed",
-        "value": "Me — one of my main areas",
-        "source": "Tyler (owner confirmation, 28 Sep 2026)"
+        "value": "Me — one of my main areas"
       }
     },
     {
       "discipline": "Programming",
       "item": {
         "status": "confirmed",
-        "value": "Me, with the team",
-        "source": "Tyler (owner confirmation, 28 Sep 2026)"
+        "value": "Me, with the team"
       }
     },
     {
       "discipline": "Level design",
       "item": {
         "status": "confirmed",
-        "value": "Me — one of my main areas",
-        "source": "Tyler (owner confirmation, 28 Sep 2026)"
+        "value": "Me — one of my main areas"
       }
     },
     {
       "discipline": "Art and animation",
       "item": {
         "status": "pending",
-        "request": "Teammates (names optional, with their permission)"
+        "request": "Still to add."
       }
     },
     {
       "discipline": "QA / playtesting",
       "item": {
         "status": "pending",
-        "request": "Who ran testing, and how"
+        "request": "Still to add."
       }
     }
   ],
   "eraNote": {
     "status": "confirmed",
-    "value": "The current itch.io build has two eras, Past and Present. An earlier plan had three.",
-    "source": "itch.io page describes two eras. The previous site described three. Neither count is published here as the only one."
+    "value": "The current itch.io build has two eras, Past and Present. An earlier plan had three."
   },
   "videos": {
     "status": "pending",
-    "request": "A 30–60 s gameplay clip showing an era switch (MP4 ≤ 10 MB, or a YouTube link)."
+    "request": "Still to add."
   },
   "results": {
     "status": "pending",
-    "request": "Outcome: grade/feedback you're happy to share, player numbers only if real, or what you'd ship next."
+    "request": "Still to add."
   },
   "reflection": {
     "status": "pending",
-    "request": "What I tried / why it failed / what I learned / what I changed."
+    "request": "Still to add."
   },
   "next": {
     "status": "pending",
-    "request": "What's next for the project (e.g. the three-era version described on your current site)."
-  },
-  "_internal": {
-    "_note": "Not rendered. Facts found in public sources that Tyler must confirm before they are published.",
-    "itchCredits": "itch.io page lists a Development Team of five with Tyler Crump credited as 'Producer / Team Leader'; built for COMP3150, Session 1 2026.",
-    "eraCount": "crumpyofcl.github.io describes three eras (Past 1743 / Present / Future 2311); the released itch build describes two (Past and Present).",
-    "stage": "crumpyofcl.github.io says 'in development'; itch.io status says 'Released' (updated 8 Sep 2026).",
-    "roleConfirmed": "Owner 23:42: team lead, mainly audio, coding and level design; team of 5; in development. itch credit 'Producer / Team Leader' is consistent."
+    "request": "Still to add."
   }
 }

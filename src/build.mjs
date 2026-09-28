@@ -38,7 +38,7 @@ setRootFromCanonical('/');
 const contact = contactFrom(site);
 write('index.html', layout({
   title: 'Tyler Crump — game designer (gameplay and tools)',
-  description: 'Tyler Crump is a game design student targeting Game Designer, Level Designer, Gameplay Designer and UX/Player Experience roles. Flagship: A Course In Time.',
+  description: 'Tyler Crump is a game development student, looking for Game Designer, Level Designer, Gameplay Designer and UX/Player Experience roles. Flagship: A Course In Time.',
   body: shell(site, projects),
   page: 'home',
   canonical: '/',
