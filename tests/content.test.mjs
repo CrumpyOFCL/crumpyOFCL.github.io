@@ -52,11 +52,16 @@ assert.match(wn, /Client handover/);
 assert.doesNotMatch(wn, /shipped|released/i);
 
 const ikemen = readFileSync(join(root, 'projects/ikemen-go/index.html'), 'utf8');
+assert.match(ikemen, /IkemanGoAss/);
+assert.match(ikemen, /Ikemen GO fighting game mod/);
 assert.match(ikemen, /hand-animated/);
 assert.match(ikemen, /did not build the engine/);
 assert.match(ikemen, /open-source, MUGEN-compatible/);
-assert.match(ikemen, /Ikemen GO project/);
+assert.match(ikemen, /Notepad\+\+/);
+assert.match(ikemen, /Fighter Factory Studio/);
+assert.match(ikemen, /Full movesets, count pending/);
+assert.match(ikemen, /Supporting project/);
 assert.doesNotMatch(ikemen, /Aseprite/);
-assert.doesNotMatch(ikemen, /\bsolo\b/i);
+assert.doesNotMatch(ikemen, /Ikemen GO project/);
 
 console.log(`content ok — ${projects.length} projects, ${htmlFiles.length} pages scanned`);

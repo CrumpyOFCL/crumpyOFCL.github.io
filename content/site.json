@@ -213,13 +213,13 @@
       {
         "skill": "Hand animation and moveset design",
         "where": "ikemen-go",
-        "note": "Custom characters with their own moves; every move was hand-animated. Sprite sheets, animation GIFs, and a gameplay clip are not published.",
+        "note": "Solo. 2 custom characters, full movesets, every move hand-animated. The move count is not published. Sprite sheets, per-character animation GIFs, and a gameplay clip are not published.",
         "level": "stated"
       },
       {
         "skill": "Fighting-stage design",
         "where": "ikemen-go",
-        "note": "A custom fighting stage. No stage screenshot is published yet.",
+        "note": "Solo. A custom fighting stage. No stage screenshot is published yet.",
         "level": "stated"
       },
       {
@@ -434,6 +434,22 @@
           "sdcs-booking-app"
         ],
         "evidence": "project"
+      },
+      {
+        "skill": "Notepad++",
+        "group": "Tools",
+        "projects": [
+          "ikemen-go"
+        ],
+        "evidence": "attested"
+      },
+      {
+        "skill": "Fighter Factory Studio",
+        "group": "Tools",
+        "projects": [
+          "ikemen-go"
+        ],
+        "evidence": "attested"
       },
       {
         "skill": "Cinemachine, New Input System, controller support",

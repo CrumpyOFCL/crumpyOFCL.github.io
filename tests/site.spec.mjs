@@ -67,13 +67,19 @@ test('case study lens, all, and table of contents', async ({ page }) => {
 
 test('ikemen go page states the confirmed work and leaves the rest pending', async ({ page }) => {
   await page.goto('/projects/ikemen-go/index.html');
-  await expect(page.locator('h1')).toHaveText('Ikemen GO project');
+  await expect(page.locator('h1')).toHaveText('IkemanGoAss');
+  await expect(page.locator('.cs-head__sub')).toHaveText('Ikemen GO fighting game mod');
+  await expect(page.locator('.cs-head__tier')).toContainText('Supporting');
   await expect(page.locator('#role')).toContainText('hand-animated');
   await expect(page.locator('#role')).toContainText('did not build the engine');
-  await expect(page.locator('main')).toContainText('open-source, MUGEN-compatible');
-  await expect(page.locator('#overview')).toContainText('Ikemen GO');
-  await expect(page.locator('#overview')).toContainText('Pending');
-  await expect(page.locator('#media')).toContainText('Sprite sheets');
+  await expect(page.locator('#overview')).toContainText('Solo');
+  await expect(page.locator('#overview')).toContainText('Notepad++');
+  await expect(page.locator('#overview')).toContainText('Fighter Factory Studio');
+  await expect(page.locator('#overview')).toContainText('Full movesets, count pending');
+  await expect(page.locator('#media .media-frame--sheet')).toHaveCount(1);
+  await expect(page.locator('#media .media-frame--gif')).toHaveCount(2);
+  await expect(page.locator('#media .media-frame--stage')).toHaveCount(1);
+  await expect(page.locator('#media .media-frame--clip')).toHaveCount(1);
   await expect(page.locator('#media')).toContainText('Evidence pending');
   await expect(page.locator('#level')).toBeHidden();
   await page.locator('[data-set-era="past"]').click();
@@ -226,6 +232,10 @@ test('screenshots at review widths', async ({ page }) => {
   await page.screenshot({ path: 'docs/screenshots/travel-app-375.png', fullPage: true });
   await page.setViewportSize({ width: 1280, height: 900 });
   await page.screenshot({ path: 'docs/screenshots/travel-app-1280.png', fullPage: true });
+  await page.goto('/projects/ikemen-go/index.html');
+  await page.screenshot({ path: 'docs/screenshots/ikemen-present-1280.png', fullPage: true });
+  await page.setViewportSize({ width: 375, height: 812 });
+  await page.screenshot({ path: 'docs/screenshots/ikemen-375.png', fullPage: true });
 
   for (const concept of ['era-lens', 'evidence-ledger', 'design-constellation', 'hotel-map', 'workbench']) {
     await page.setViewportSize({ width: 1100, height: 760 });

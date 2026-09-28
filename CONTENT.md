@@ -121,15 +121,14 @@ Japan Trip Planner: the only link is `https://japantrip-oeja.onrender.com`. Do n
 
 Facts Tyler has not supplied. The site shows a dashed slot for each. Do not fill these with a guess.
 
-### Ikemen GO project
+### IkemanGoAss
 
-Added from an owner fact, 29 Sep 2026, 00:18 AEST. Confirmed, in his words: a custom map (a fighting stage), custom characters with their own moves, and every move hand-animated. Ikemen GO is the open-source, MUGEN-compatible fighting game engine. He did not build the engine. The page is an experiment (`content/projects/ikemen-go.json`). The working title on the page is "Ikemen GO project" until he names it.
+File: `content/projects/ikemen-go.json`. The visible title is his spelling, **IkemanGoAss**. The subtitle on the page, "Ikemen GO fighting game mod", is a readable label, not a quote. Supporting tier.
+
+Confirmed, 29 Sep 2026, 00:18 and 00:21 AEST: solo portfolio piece. He made the custom stage, 2 custom characters, and all their moves, and every move was hand-animated. Tools he named: Notepad++ and "fighter studio", labeled on the site as Fighter Factory Studio. Ikemen GO is the open-source, MUGEN-compatible fighting game engine. He did not build the engine. Aseprite stays on the general tools list and is not named on this project.
 
 Still to supply:
 
-- Project title
 - Date or timeframe
-- Solo or a team, and his exact role
-- Which tools were used. Aseprite is on the general tools list. Name it on this project only if he confirms he used it here
-- Number of characters, and number of moves
-- Media: sprite sheets, animation GIFs, a stage screenshot, a gameplay clip
+- Exact move count. He does not remember it. The page says "Full movesets, count pending." Do not invent a number. Count it from the character files when those files are available
+- Media, once he is happy with the site design: one sprite sheet, an animation GIF for each character, a stage screenshot, and a gameplay clip. Character names are not confirmed, so the GIF frames are Character 1 and Character 2

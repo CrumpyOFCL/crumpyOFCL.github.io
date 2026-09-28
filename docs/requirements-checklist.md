@@ -16,7 +16,7 @@ Nothing here upgrades a description into a demonstration.
 | Requirement | Status | Where it stands |
 | --- | --- | --- |
 | Playtesting: help design sessions, and analyse what players did | **Gap** | A Course In Time describes an in-build debug console (noclip, ability grants, scene jumps, objective control). That is playtest *support*. There is no research question, method, observation, or finding. The case study shows an empty Observation → Insight → Design change → Result template. |
-| Paper prototypes and greybox levels inside a set of constraints | **Pending** | Level design is one of Tyler's main areas on A Course In Time (his confirmation). Paper, greybox, flow and final-art slots are empty. No brand-constraint example. The Ikemen GO experiment describes a custom fighting stage as level design. There is no stage screenshot, greybox, or flow yet. |
+| Paper prototypes and greybox levels inside a set of constraints | **Pending** | Level design is one of Tyler's main areas on A Course In Time (his confirmation). Paper, greybox, flow and final-art slots are empty. No brand-constraint example. IkemanGoAss, a supporting piece, describes a custom fighting stage he made solo. There is no stage screenshot, greybox, or flow yet. |
 | Evidence-based feature design, including how young children play | **Gap** | No under-10 project, and no stated willingness. Do not infer either. Feature decisions that *are* written (crush-as-death, objective-ledger saves, elemental puzzles) are his descriptions, not studies of an audience. |
 | Documentation: proposals, presentations, design docs, playtest analysis | **Pending** | The home page lists those documents as pending. This site is public writing about the work. It is not a GDD, a deck, or a playtest report. |
 | Interdisciplinary collaboration and communication | **Described** | A Course In Time: team lead on a team of 5, mainly audio, coding and level design. Waking Nightmare Experience: Creative Director, programmer, and client liaison (regular meetings and email) for LiminalVR. Team-mate names are not published. |
@@ -38,7 +38,7 @@ Useful overlap with A Course In Time's systems, not a second portfolio.
 | Degree in game development, software engineering, or equivalent | **Pending** | Same as above. COMP3150 and COMP2750 are the public course anchors. |
 | C# and game-system architecture. Networking or VR welcome | **Described** | C# is the language of the Unity 6 work. Tyler describes the era switch (collision layers, object state, physics swap, crush check), procedural puzzle generators, and an objective-ledger save. Source for A Course In Time is not public. VR: Waking Nightmare Experience, Unity 2019, Meta Quest 2 and 3, programmer on the team. Networking is not claimed. |
 | Shipped credit | **Gap** | Same as the design brief. |
-| Mechanics, gameplay design, player experience | **Described** | Playable builds: A Course In Time, LIT_Flux Mechanics Showcase, GDT2, all on itch.io. Role on the two prototypes is pending. Player-experience evidence on the games is pending. The Ikemen GO experiment describes custom characters and hand-animated moves. No playable build or move list is published, and he did not build the engine. |
+| Mechanics, gameplay design, player experience | **Described** | Playable builds: A Course In Time, LIT_Flux Mechanics Showcase, GDT2, all on itch.io. Role on the two prototypes is pending. Player-experience evidence on the games is pending. IkemanGoAss describes 2 custom characters and hand-animated full movesets. The move count and a playable build are not published, and he did not build the engine. |
 | Git | **Demonstrated** | Same public repo as above. |
 | Bug fixing with QA | **Pending** | The debug console is described as a way to reach states. No bug list, no QA handoff. |
 | Iterate features with design | **Described** | Japan Trip Planner names the passes: budget-first mobile-first redesign (PR #27), full visual redesign (PR #28), design pass (PR #54), money states and honest empty states (PRs #55–60). A Course In Time's iteration viewer is a template until screenshots exist. |
@@ -63,7 +63,7 @@ Useful overlap with A Course In Time's systems, not a second portfolio.
 
 Shown with a project: Unity 6, Unity 2019, Unity prototypes, C#, gameplay architecture and editor tools on A Course In Time (described), FMOD (described), level design (described), creative direction and client communication (described), team leadership (described), mobile-first UX (described), JavaScript / Express / SQLite, React Native (Expo), Git (public repo).
 
-Tyler-attested on the Ikemen GO experiment: Ikemen GO (the open-source, MUGEN-compatible fighting game engine; he did not build it). Hand animation, character and moveset design, and stage design are Tyler-attested, evidence pending — he said he did the work, and the sprite sheets, clips, and stage screenshot are not on the site.
+Tyler-attested on IkemanGoAss: Ikemen GO (the open-source, MUGEN-compatible fighting game engine; he did not build it), Notepad++, and Fighter Factory Studio (he wrote "fighter studio"). Hand animation, character and moveset design, and stage design are Tyler-attested, evidence pending — he said he did the work, and the sprite sheet, per-character GIFs, stage screenshot, and clip are not on the site.
 
 Shown as general, no project attached: Cinemachine, New Input System, controller support (controller support is on the A Course In Time itch.io page; Cinemachine and the New Input System are not separately evidenced), Visual Studio Code, GoodNotes, Aseprite. Aseprite stays on that general list. It is not linked to the Ikemen GO project until Tyler confirms he used it there.
 
@@ -76,9 +76,9 @@ Evidence coming, no project invented: Unreal Engine, Blender.
 | A Course In Time | Flagship | In development. Playable WebGL and Windows builds on itch.io. Not a shipped credit. |
 | Waking Nightmare Experience | Supporting | Client handover of an in-progress build. Not shipped. |
 | Japan Trip Planner | Supporting | Live, invite-only, designer and developer, solo. |
+| IkemanGoAss | Supporting | Solo portfolio piece in Ikemen GO, the open-source, MUGEN-compatible engine. He did not build the engine. Custom stage, 2 characters, full movesets, every move hand-animated. Tools: Notepad++ and Fighter Factory Studio. Move count, date, and media are pending. Not a shipped credit. |
 | SDCS Booking App | Experiment | COMP2750 coursework, May 2025, solo developer. |
 | LIT_Flux Mechanics Showcase | Experiment | Browser prototype on itch.io. Role pending. |
 | GDT2 | Experiment | Browser prototype on itch.io. Role pending. |
-| Ikemen GO project | Experiment | Custom fighting stage and hand-animated character moves in Ikemen GO, the open-source, MUGEN-compatible engine. He did not build the engine. Role, date, tools, counts, and media are pending. Not a shipped credit. |
 
 Excluded on purpose: COMP2000, and any project whose repository must not be named or linked.

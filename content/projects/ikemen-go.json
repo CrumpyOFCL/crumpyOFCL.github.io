@@ -1,42 +1,51 @@
 {
   "slug": "ikemen-go",
   "visible": true,
-  "tier": "experiment",
-  "order": 8,
-  "title": "Ikemen GO project",
+  "tier": "supporting",
+  "order": 4,
+  "title": "IkemanGoAss",
+  "subtitle": {
+    "status": "confirmed",
+    "value": "Ikemen GO fighting game mod",
+    "source": "Readable subtitle added for the title Tyler spelled IkemanGoAss (29 Sep 2026, 00:21 AEST). The subtitle is not a quote."
+  },
   "_internal": {
-    "note": "Owner fact, Tyler, 29 Sep 2026, 00:18 AEST. He made a custom fighting stage and custom characters with their own moves; every move was hand-animated. Ikemen GO is the open-source, MUGEN-compatible fighting game engine; he did not build it. Do not invent a title, date, solo-or-team, role title, tool list, character count, or move count. Do not attach Aseprite, or any other general-list tool, until he confirms it was used here. Tier is experiment because role, date, and media are still open. Not a shipped credit."
+    "note": "Owner facts, Tyler, 29 Sep 2026. 00:18 AEST: custom fighting stage, custom characters with their own moves, every move hand-animated, in Ikemen GO. He did not build the engine. 00:21 AEST: title spelling IkemanGoAss; solo, he did everything; 2 characters; full movesets but he does not remember the move count; tools Notepad++ and 'fighter studio', labeled Fighter Factory Studio. Do not invent a move count, a date, character names, or media. Do not attach Aseprite. Not a shipped credit. URL slug stays ikemen-go."
   },
   "tagline": {
     "status": "confirmed",
-    "value": "Custom characters with their own moves — every move hand-animated — and a custom fighting stage. Made in Ikemen GO, the open-source, MUGEN-compatible fighting game engine. I did not build the engine.",
-    "source": "Tyler (owner confirmation, 29 Sep 2026, 00:18 AEST). The engine is described as the open-source, MUGEN-compatible fighting game engine; that description is not a claim that he built it."
-  },
-  "cover": {
-    "status": "pending",
-    "request": "A screenshot of the fighting stage."
+    "value": "Solo portfolio piece: a custom fighting stage, two custom characters, and full movesets, every move hand-animated. Made in Ikemen GO, the open-source, MUGEN-compatible fighting game engine. I did not build the engine.",
+    "source": "Tyler (owner confirmation, 29 Sep 2026, 00:18 and 00:21 AEST). The engine is the open-source, MUGEN-compatible fighting game engine; he did not build it."
   },
   "overview": {
-    "projectTitle": {
-      "status": "pending",
-      "request": "The project's title, if it has one besides this description."
-    },
     "genre": {
       "status": "confirmed",
       "value": "Fighting game",
-      "source": "Tyler (owner confirmation, 29 Sep 2026, 00:18 AEST): a fighting stage and characters with moves."
+      "source": "Tyler (owner confirmation, 29 Sep 2026): a fighting stage and characters with moves."
+    },
+    "characters": {
+      "status": "confirmed",
+      "value": "2",
+      "source": "Tyler (owner confirmation, 29 Sep 2026, 00:21 AEST)"
+    },
+    "moves": {
+      "status": "pending",
+      "request": "Full movesets, count pending."
     },
     "type": {
-      "status": "pending",
-      "request": "What kind of project this was (coursework, personal, jam, or something else)."
+      "status": "confirmed",
+      "value": "Portfolio piece",
+      "source": "Tyler (owner confirmation, 29 Sep 2026, 00:21 AEST): a solo portfolio piece."
     },
     "role": {
-      "status": "pending",
-      "request": "Tyler's exact role title."
+      "status": "confirmed",
+      "value": "Solo — the stage, both characters, their moves, and the hand animation",
+      "source": "Tyler (owner confirmation, 29 Sep 2026, 00:21 AEST): he did everything."
     },
     "team": {
-      "status": "pending",
-      "request": "Whether anyone else worked on this, and what they did."
+      "status": "confirmed",
+      "value": "Solo",
+      "source": "Tyler (owner confirmation, 29 Sep 2026, 00:21 AEST)"
     },
     "timeframe": {
       "status": "pending",
@@ -45,11 +54,15 @@
     "engine": {
       "status": "confirmed",
       "value": "Ikemen GO",
-      "source": "Tyler confirmed he used Ikemen GO (29 Sep 2026, 00:18 AEST). Ikemen GO is the open-source, MUGEN-compatible fighting game engine. He did not build the engine."
+      "source": "Tyler confirmed he used Ikemen GO (29 Sep 2026). Ikemen GO is the open-source, MUGEN-compatible fighting game engine. He did not build the engine."
     },
     "tools": {
-      "status": "pending",
-      "request": "Which tools were used for the characters, the moves, and the stage. Do not attach a tool from the general list until it is confirmed for this project."
+      "status": "confirmed",
+      "value": [
+        "Notepad++",
+        "Fighter Factory Studio"
+      ],
+      "source": "Tyler (29 Sep 2026, 00:21 AEST) named Notepad++ and wrote 'fighter studio'. Labeled here as Fighter Factory Studio, the standard MUGEN/Ikemen character editor."
     },
     "platforms": {
       "status": "pending",
@@ -57,13 +70,13 @@
     },
     "stage": {
       "status": "pending",
-      "request": "How far the project got. Do not mark it shipped."
+      "request": "A public build or page, if one exists. Do not mark it shipped."
     }
   },
   "filters": {
     "engine": "Ikemen GO",
     "year": null,
-    "type": null,
+    "type": "Portfolio piece",
     "stage": null,
     "disciplines": [
       "Animation",
@@ -85,69 +98,75 @@
   "contributions": {
     "status": "confirmed",
     "value": [
-      "A custom map: a fighting stage.",
-      "Custom characters, each with their own moves.",
+      "Solo. I made the stage, both characters, and all their moves.",
+      "2 custom characters, each with a full moveset.",
       "Every move was hand-animated.",
+      "Tools: Notepad++ and Fighter Factory Studio.",
       "Made in Ikemen GO, the open-source, MUGEN-compatible fighting game engine. I did not build the engine."
     ],
-    "source": "Tyler (owner confirmation, 29 Sep 2026, 00:18 AEST)"
+    "source": "Tyler (owner confirmation, 29 Sep 2026, 00:18 and 00:21 AEST)"
   },
   "collaboration": [
-    {
-      "discipline": "Characters and moves",
-      "item": {
-        "status": "confirmed",
-        "value": "Me — custom characters with their own moves",
-        "source": "Tyler (owner confirmation, 29 Sep 2026, 00:18 AEST)"
-      }
-    },
-    {
-      "discipline": "Hand animation",
-      "item": {
-        "status": "confirmed",
-        "value": "Me — every move was hand-animated",
-        "source": "Tyler (owner confirmation, 29 Sep 2026, 00:18 AEST)"
-      }
-    },
     {
       "discipline": "Fighting stage",
       "item": {
         "status": "confirmed",
         "value": "Me — a custom map",
-        "source": "Tyler (owner confirmation, 29 Sep 2026, 00:18 AEST)"
+        "source": "Tyler (owner confirmation, 29 Sep 2026, 00:21 AEST)"
       }
     },
     {
-      "discipline": "Anyone else",
+      "discipline": "Characters",
       "item": {
-        "status": "pending",
-        "request": "Whether anyone else worked on this, and what they did."
+        "status": "confirmed",
+        "value": "Me — 2 custom characters",
+        "source": "Tyler (owner confirmation, 29 Sep 2026, 00:21 AEST)"
       }
     },
     {
-      "discipline": "Role title",
+      "discipline": "Moves and hand animation",
       "item": {
-        "status": "pending",
-        "request": "Tyler's exact role title."
+        "status": "confirmed",
+        "value": "Me — full movesets, every move hand-animated",
+        "source": "Tyler (owner confirmation, 29 Sep 2026, 00:18 and 00:21 AEST)"
+      }
+    },
+    {
+      "discipline": "Tools",
+      "item": {
+        "status": "confirmed",
+        "value": "Me — Notepad++ and Fighter Factory Studio",
+        "source": "Tyler (29 Sep 2026, 00:21 AEST) named Notepad++ and wrote 'fighter studio'."
       }
     }
   ],
   "media": [
     {
-      "label": "Sprite sheets",
+      "kind": "sheet",
+      "label": "Sprite sheet",
       "item": {
         "status": "pending",
-        "request": "Sprite sheets for the characters."
+        "request": "Sprite sheet for both characters."
       }
     },
     {
-      "label": "Animation GIFs",
+      "kind": "gif",
+      "label": "Character 1",
       "item": {
         "status": "pending",
-        "request": "GIFs of the hand-animated moves."
+        "request": "Animation GIF of this character's moves. Name still to come."
       }
     },
     {
+      "kind": "gif",
+      "label": "Character 2",
+      "item": {
+        "status": "pending",
+        "request": "Animation GIF of this character's moves. Name still to come."
+      }
+    },
+    {
+      "kind": "stage",
       "label": "Stage screenshot",
       "item": {
         "status": "pending",
@@ -155,6 +174,7 @@
       }
     },
     {
+      "kind": "clip",
       "label": "Gameplay clip",
       "item": {
         "status": "pending",
@@ -172,11 +192,11 @@
   },
   "process": [
     {
-      "stage": "Characters and moves",
+      "stage": "Characters",
       "item": {
         "status": "confirmed",
-        "value": "Custom characters, each with their own moves.",
-        "source": "Tyler (owner confirmation, 29 Sep 2026, 00:18 AEST)"
+        "value": "2 custom characters, each with a full moveset.",
+        "source": "Tyler (owner confirmation, 29 Sep 2026, 00:21 AEST)"
       }
     },
     {
@@ -185,6 +205,13 @@
         "status": "confirmed",
         "value": "Every move was hand-animated.",
         "source": "Tyler (owner confirmation, 29 Sep 2026, 00:18 AEST)"
+      }
+    },
+    {
+      "stage": "Move count",
+      "item": {
+        "status": "pending",
+        "request": "Full movesets, count pending."
       }
     },
     {
@@ -198,23 +225,17 @@
     {
       "stage": "Tools",
       "item": {
-        "status": "pending",
-        "request": "Which tools were used. Do not attach a tool from the general list until it is confirmed for this project."
-      }
-    },
-    {
-      "stage": "How many",
-      "item": {
-        "status": "pending",
-        "request": "How many characters, and how many moves."
+        "status": "confirmed",
+        "value": "Notepad++ and Fighter Factory Studio.",
+        "source": "Tyler (29 Sep 2026, 00:21 AEST) named Notepad++ and wrote 'fighter studio'."
       }
     }
   ],
   "levelDesign": {
     "overview": {
       "status": "confirmed",
-      "value": "A custom fighting stage.",
-      "source": "Tyler (owner confirmation, 29 Sep 2026, 00:18 AEST): a custom map, a fighting stage."
+      "value": "A custom fighting stage. Solo.",
+      "source": "Tyler (owner confirmation, 29 Sep 2026, 00:18 and 00:21 AEST)"
     },
     "goals": {
       "status": "pending",

@@ -1,6 +1,6 @@
 # Reviews
 
-Reviewed against the built site on `portfolio-v2`. Lighthouse scores below were re-recorded on 28 Sep 2026 after the Ikemen GO experiment was added. They are from that build, not estimates.
+Reviewed against the built site on `portfolio-v2`. Lighthouse scores below were re-recorded on 28 Sep 2026 after IkemanGoAss moved to supporting. They are from that build, not estimates.
 
 ## 30-second recruiter test — pass
 
@@ -30,7 +30,7 @@ The flagship is framed as systems and level design, which matches what Tyler has
 
 Waking Nightmare is a client handover of an in-progress build. The travel app is a UX case study, not a game, and it is labelled that way. Two itch.io prototypes sit in Experiments with the role still pending.
 
-An Ikemen GO experiment was added from a later owner fact (29 Sep 2026, 00:18 AEST). The page states a custom fighting stage, custom characters with their own moves, and that every move was hand-animated. It names Ikemen GO as the open-source, MUGEN-compatible fighting game engine and says he did not build it. It does not invent a title, a date, solo or team, a role, a tool list, character or move counts, or media. Those stay empty slots. Aseprite stays on the general tools list and is not attached to this project.
+IkemanGoAss is a supporting piece, updated from owner facts on 29 Sep 2026 (00:18 and 00:21 AEST). The title uses his spelling. The page states a solo portfolio piece: a custom fighting stage, 2 custom characters, and full movesets, every move hand-animated, made in Ikemen GO, the open-source, MUGEN-compatible fighting game engine. He did not build the engine. Tools on the page are Notepad++ and Fighter Factory Studio (he wrote "fighter studio"). The move count, the date, and every media file stay empty. The media block is a set of frames: one sprite sheet, one animation GIF per character, a stage screenshot, and a gameplay clip. Aseprite stays on the general tools list and is not attached to this project.
 
 ## Visual and communication
 
@@ -63,7 +63,7 @@ Lighthouse 12, gzip on (the same compression GitHub Pages and Render apply). Pyt
 | A Course In Time | Mobile | 100 | 100 | 100 | 100 |
 | A Course In Time | Desktop | 95 | 100 | 100 | 100 |
 | Japan Trip Planner | Mobile | 100 | 100 | 100 | 100 |
-| Japan Trip Planner | Desktop | 97 | 100 | 100 | 100 |
+| Japan Trip Planner | Desktop | 96 | 100 | 100 | 100 |
 
 Desktop performance sits in the mid-90s because the stylesheet is render-blocking and the home page is about 1,000 DOM nodes (the matrix, the ledger and the cards). Cumulative layout shift is 0. There is no third-party script. Raw numbers are in [lighthouse-scores.json](lighthouse-scores.json).
 

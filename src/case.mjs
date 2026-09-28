@@ -111,6 +111,29 @@ function collaboration(items) {
   return `<ul class="collab" role="list">${items.map(c => `<li class="collab__item${isPending(c.item) ? ' collab__item--pending' : ''}"><span class="collab__disc">${esc(c.discipline)}</span>${field(c.item, esc, { inline: true, label: 'Pending' })}</li>`).join('')}</ul>`;
 }
 
+function mediaMark(kind) {
+  if (kind === 'sheet') return `<span class="sheet-cells">${'<i></i>'.repeat(6)}</span>`;
+  if (kind === 'clip') return '<span class="play-mark"></span>';
+  if (kind === 'gif') return '<span class="media-frame__glyph">GIF</span>';
+  if (kind === 'stage') return '<span class="media-frame__glyph">Stage</span>';
+  return '';
+}
+
+function mediaGallery(items) {
+  return `<ul class="media-grid" role="list">${items.map(m => {
+    const kind = ['sheet', 'gif', 'stage', 'clip'].includes(m.kind) ? m.kind : 'frame';
+    const pendingItem = isPending(m.item);
+    const v = pendingItem ? null : val(m.item);
+    const visual = pendingItem
+      ? `<div class="media-frame__canvas" aria-hidden="true">${mediaMark(kind)}</div>`
+      : (v && typeof v === 'object' && v.src
+        ? `<img class="media-frame__img" src="${esc(href(v.src))}" alt="${esc(v.alt || m.label)}" loading="lazy" decoding="async">`
+        : `<div class="media-frame__canvas" aria-hidden="true"></div>`);
+    const note = pendingItem ? `<span class="pending__label">Evidence pending</span> <span class="media-frame__note">${esc(m.item.request || '')}</span>` : '';
+    return `<li><figure class="media-frame media-frame--${kind}">${visual}<figcaption><span class="media-frame__name">${esc(m.label)}</span>${note ? ` ${note}` : ''}</figcaption></figure></li>`;
+  }).join('')}</ul>`;
+}
+
 export function caseStudy(p) {
   const o = p.overview || {};
   const S = [];
@@ -118,9 +141,11 @@ export function caseStudy(p) {
   const add = (id, lens, title, inner) => { S.push(section(id, lens, title, inner)); toc.push({ id, lens, title }); };
 
   // ---------------- Present: what it is
+  if (p.media && p.media.length) add('media', 'present', 'Media', `<p class="media-lead">Frames for the sprite sheet, each character's animation, the stage, and a gameplay clip.</p>${mediaGallery(p.media)}`);
   add('overview', 'present', 'Overview', dlRows([
     ...(o.projectTitle ? [['Project title', o.projectTitle]] : []),
-    ['Genre', o.genre], ['Type', o.type], ['My role', o.role], ['Team', o.team], ['Timeframe', o.timeframe],
+    ['Genre', o.genre], ...(o.characters ? [['Characters', o.characters]] : []), ...(o.moves ? [['Moves', o.moves]] : []),
+    ['Type', o.type], ['My role', o.role], ['Team', o.team], ['Timeframe', o.timeframe],
     ['Engine', o.engine], ['Tools', o.tools], ['Platforms', o.platforms], ['Stage', o.stage],
   ]));
   if (p.mechanics || p.structure) add('what', 'present', 'What it is', `
@@ -135,7 +160,6 @@ export function caseStudy(p) {
   ]));
   if (p.collaboration) add('team', 'present', 'Who did what', collaboration(p.collaboration));
   if (p.videos) add('video', 'present', 'Gameplay video', field(p.videos, v => `<p>${esc(v)}</p>`));
-  if (p.media && p.media.length) add('media', 'present', 'Media', `<ul class="collab" role="list">${p.media.map(m => `<li class="collab__item${isPending(m.item) ? ' collab__item--pending' : ''}"><span class="collab__disc">${esc(m.label)}</span>${field(m.item, esc, { inline: true })}</li>`).join('')}</ul>`);
 
   // ---------------- Past: how it was made
   if (p.problem || p.designGoal) add('goal', 'past', 'Problem and design goal', dlRows([['Problem', p.problem], ['Design goal', p.designGoal]]));
@@ -168,10 +192,10 @@ export function caseStudy(p) {
 
   return `<div class="wrap cs">
   <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="${href('/index.html#work')}">Work</a></li><li><a href="${href(`/projects/${p.slug}/index.html`)}" aria-current="page">${esc(p.title)}</a></li></ol></nav>
-  <header class="cs-head">
+  <header class="cs-head${cover ? '' : ' cs-head--solo'}">
     <div>
       <p class="cs-head__tier">${{ flagship: 'Flagship project', supporting: 'Supporting project', experiment: 'Experiment / prototype' }[p.tier]}</p>
-      <h1>${esc(p.title)}</h1>
+      <h1>${esc(p.title)}</h1>${p.subtitle ? `\n      <p class="cs-head__sub">${field(p.subtitle)}</p>` : ''}
       <p class="lede">${field(p.tagline)}</p>
       <p class="evidence-line"><strong>${n}</strong> evidence slot${n === 1 ? '' : 's'} on this page ${n === 1 ? 'is' : 'are'} still empty. Present is the short version. Past and Future hold the process and the gaps.</p>
       ${p.access ? field(p.access, v => `<p>${esc(v)}</p>`) : ''}
