@@ -19,7 +19,7 @@ for(const f of ['styles.css','app.js']) hash.update(readFileSync(join(root,'src/
 const asset=hash.digest('hex').slice(0,10);
 const pages=[['index.html',document({title:'Game developer · Gameplay programmer · Game designer',description:'Tyler Crump — final-year game development student in Sydney. Unity, C#, VR, graphics and product work, with detailed project case studies.',body:home(projects),asset,home:true})], ...projects.map(p=>[`${p.slug}.html`,document({title:p.title,description:p.summary,body:caseStudy(p,projects),asset,canonical:`${p.slug}.html`})])];
 for (const [path,html] of pages) write(path,html);
-write('404.html',document({title:'Page not found',description:'Return to Tyler Crump’s portfolio.',body:'<section class="wrap section"><p class="eyebrow">404</p><h1>Off the map.</h1><p>This page could not be found.</p><a class="button" href="https://crumpyofcl.github.io/">Back to portfolio →</a></section>',asset,canonical:'404.html'}).replaceAll('href="assets/','href="/assets/').replaceAll('src="assets/','src="/assets/'));
+write('404.html',document({title:'Page not found',description:'Return to Tyler Crump’s portfolio.',body:'<section class="wrap section"><p class="eyebrow">404</p><h1>Off the map.</h1><p>This page could not be found.</p><a class="button" href="https://crumpyofcl.github.io/">Back to portfolio →</a></section>',asset,canonical:'404.html'}).replace('<head>', '<head><base href="https://crumpyofcl.github.io/">'));
 copy(join(root,'src/assets'),join(out,'assets'));
 copy(join(root,'public'),out);
 write('robots.txt','User-agent: *\nAllow: /\nSitemap: https://crumpyofcl.github.io/sitemap.xml\n');
