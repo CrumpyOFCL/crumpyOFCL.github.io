@@ -7,7 +7,7 @@ test('Recruiter journey and system view',async({page})=>{
  await page.getByRole('link',{name:'View case study'}).click();
  await expect(page).toHaveURL(/a-course-in-time.html/);
  await expect(page.locator('#contribution')).toContainText('moving-platform');
- const toggle=page.getByRole('button',{name:'System view'});
+ const toggle=page.locator('[data-system-toggle]');
  await toggle.click();
  await expect(toggle).toHaveAttribute('aria-pressed','true');
  await toggle.click();
