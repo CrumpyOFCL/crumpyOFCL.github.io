@@ -17,6 +17,7 @@ Open http://localhost:4321. The site needs no server application, database, envi
 ## Content and templates
 
 - `content/portfolio.json`: the five published case studies, contribution scopes, evidence gaps and links.
+- `src/stage.mjs`: spatial project showcase using original project imagery and CSS geometry.
 - `src/pages.mjs`: shared page, navigation, homepage and case-study templates.
 - `src/assets/styles.css`: responsive styles and reduced-motion handling.
 - `src/assets/app.js`: optional system-view interaction.
@@ -41,3 +42,5 @@ Content checks cover local links, case-study structure, precise playtest wording
 ## Evidence and editorial gaps
 
 See `CONTENT-NEEDED.md`. Placeholders deliberately identify missing material. No substitute game screenshots or invented metrics are used. The supplied technical résumé is downloadable unchanged as DOCX.
+
+The opening scene uses perspective, layered geometry and scroll/pointer camera movement. It has explicit project buttons, a motion pause control, reduced-motion support and no continuous rendering loop. Sword Saint includes original gameplay, stage and sprite previews from the supplied project documentation.
