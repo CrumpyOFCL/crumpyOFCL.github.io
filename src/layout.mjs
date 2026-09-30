@@ -29,6 +29,7 @@ export function page({ site, title, description, path = '', body, asset, current
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preload" href="fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
+<script>document.documentElement.classList.add('js');if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('motion');</script>
 <link rel="stylesheet" href="assets/styles.css?v=${asset}">
 <script src="assets/app.js?v=${asset}" defer></script>
 </head>
@@ -44,6 +45,7 @@ export function page({ site, title, description, path = '', body, asset, current
       </ul>
     </nav>
   </div>
+  ${current === 'work' ? '<div class="progress" aria-hidden="true"></div>' : ''}
 </header>
 <main id="main">
 ${body}

@@ -37,6 +37,7 @@ Commit the source **and** the built files (`index.html`, `*.html`, `assets/`, `i
 - `decisions`: each item can have `goal`, `constraint`, `alternatives`, `decision`, `implementation` and `effect`. Leave out any you can't support.
 - `figure` (one image with caption), `table` (`head` + `rows`), `credits` (team table; mark yourself with `true`)
 - `loop` (core loop + abilities), `flow` (labelled lanes of steps), `money` (Tabi's money-state illustration), `inspector` (the era-switch model)
+- `screens`: a row of phone screenshots (`items` with `src`, `alt`, `width`, `height`, `caption`)
 
 Add `"gap": "…"` to `notes`, `production` or `timeline` to state plainly what isn't documented yet.
 
@@ -47,6 +48,17 @@ Add `"gap": "…"` to `notes`, `production` or `timeline` to state plainly what 
 **Change the headline or name.** Edit `content/site.json`, then run `npm run og` to redraw the social preview image (`public/og.png`).
 
 **Remove a project.** Move its file to `content/unpublished/` or set `"featured": false`. If people may have its old link, add the old slug to another project's `aliases` so it redirects.
+
+## Motion
+
+Motion is an enhancement layer; every page is complete without it.
+
+- **Era diorama** (homepage): each era is its own 3D plane. The active era slides forward, the other drops back. It tilts towards a mouse pointer.
+- **Scenes** (homepage): each project is a full-width scene in its cover's palette (`cover.tone`: `era`, `night`, `plum`, `paper`). As a scene scrolls in, `app.js` sets `--p` from 0 to 1; CSS uses it to flatten the tilted cover, open the circular reveal and drift the big index number. Scrolling itself is never taken over.
+- **Case studies**: blocks marked `data-reveal` fade up once, decision chains step in, the contents list follows the reader, and a progress line runs under the header.
+- **Between pages**: the cover morphs from the homepage into its case study (cross-document view transitions, where supported).
+
+`prefers-reduced-motion` turns all of it off (the inspector's controls stay). The `motion` class on `<html>` is set before first paint only when motion is allowed.
 
 ## Tests
 

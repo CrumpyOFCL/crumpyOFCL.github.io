@@ -5,7 +5,7 @@
   "group": "product",
   "title": "Tabi",
   "kicker": "Product & UX · Web app · Solo",
-  "pitch": "One place for a group trip's plan, people and money. It's phone-first and invite-only, and it never shows a guess as if it were money already spent.",
+  "pitch": "One place for a group trip's plan, people and money. It's phone-first and invite-only, with a public demo trip, and it never shows a guess as if it were money already spent.",
   "description": "Case study: Tabi, a phone-first group trip planner designed and built solo by Tyler Crump, covering money states, privacy decisions and iteration.",
   "role": "Solo designer and developer",
   "contribution": "Designed three money states (paid, committed, estimated) that always add up to the projected total, so a guess never reads as money already spent.",
@@ -32,25 +32,25 @@
     ],
     [
       "Status",
-      "Live, invite-only"
+      "Live, invite-only, with a public demo trip"
     ]
   ],
   "links": [
     {
-      "label": "Open Tabi",
+      "label": "Try the demo trip",
       "url": "https://japantrip-oeja.onrender.com",
       "kind": "live",
-      "note": "Opens the sign-in screen · invite-only"
+      "note": "Tap “See a demo trip” · no account needed"
     }
   ],
   "cover": {
-    "src": "img/tabi-signin.webp",
-    "alt": "Tabi sign-in screen: a navy app icon with a red seal showing the character 旅, above the word Tabi in a serif typeface.",
-    "width": 455,
-    "height": 220,
-    "fit": "contain",
+    "src": "img/tabi-trip.webp",
+    "alt": "Tabi's trip home screen on a phone: a dark Today card reading 19:00, Sushi at the counter, Ginza, above the projected cost with paid, committed and estimated bars.",
+    "width": 585,
+    "height": 1266,
+    "fit": "phone",
     "tone": "paper",
-    "caption": "The public sign-in screen. Trip and account data stay private."
+    "caption": "The trip home in the public demo. All names and bookings are made up."
   },
   "quick": [
     {
@@ -63,7 +63,7 @@
     },
     {
       "label": "Evidence",
-      "text": "A live app and four documented decisions with their reasons. It went through four iterations in 60 small pull requests over eight days."
+      "text": "A live app with a public demo trip, real screens below, and five documented decisions with their reasons. Built in 60 small pull requests over eight days."
     }
   ],
   "sections": [
@@ -76,10 +76,48 @@
       "note": "Illustration of the rule, not real trip data."
     },
     {
+      "type": "screens",
+      "id": "screens",
+      "kicker": "In the app",
+      "title": "The demo trip, screen by screen.",
+      "intro": "Everything here is from the public demo: a made-up trip for four friends, three days into Japan.",
+      "items": [
+        {
+          "src": "img/tabi-trip.webp",
+          "alt": "Trip home: today's next stop, tonight's hotel and money left to spend today, then the projected cost split into paid, committed and estimated.",
+          "width": 585,
+          "height": 1266,
+          "caption": "Trip home: during the trip it leads with today."
+        },
+        {
+          "src": "img/tabi-budget.webp",
+          "alt": "Budget screen: projected trip cost A$18,199 with bars for paid, committed and estimated money, and a green note saying A$950 under budget each.",
+          "width": 585,
+          "height": 1266,
+          "caption": "Budget: the three money states, per person or for the group."
+        },
+        {
+          "src": "img/tabi-costs.webp",
+          "alt": "Costs screen: flights and stays listed with Booked and Paid tags, per-person prices and buttons to add a flight or paste a confirmation.",
+          "width": 585,
+          "height": 1266,
+          "caption": "Costs: every line says whether it is booked and paid."
+        },
+        {
+          "src": "img/tabi-gate.webp",
+          "alt": "Sign-in screen: the Tabi logo over a boarding pass illustration, sign-in and invite tabs, and a See a demo trip button below.",
+          "width": 585,
+          "height": 1266,
+          "caption": "Sign-in: invite-only, with a way in for anyone to look around."
+        }
+      ],
+      "note": "Screens captured from the demo trip. The names, bookings and spends are sample data, not a real trip."
+    },
+    {
       "type": "decisions",
       "id": "decisions",
       "kicker": "Design decisions",
-      "title": "Four decisions, and the reason for each.",
+      "title": "Five decisions, and the reason for each.",
       "effectLabel": "For the group",
       "items": [
         {
@@ -108,6 +146,14 @@
           "alternatives": "Password sign-in and Apple Sign In were both tried. Apple was removed, then sign-in was made Google-only.",
           "decision": "Accounts are created only from an invite a trip owner issues.",
           "effect": "Each trip's group is closed by default, with viewer and editor roles."
+        },
+        {
+          "title": "A demo nobody has to be invited to",
+          "goal": "Let anyone see the real app, on the spot, without an invite.",
+          "constraint": "Tabi is invite-only and holds private plans and payments, so a visitor can't be let into a real trip.",
+          "decision": "“See a demo trip” on the sign-in screen gives each visitor a throwaway account with their own made-up trip, three days into Japan so the on-the-trip screens have something to show.",
+          "implementation": "The server refuses anything that would reach real people (invites, joining trips, notifications, location sharing, sign-in changes) before any route runs. Demos are deleted after two hours or as soon as the visitor leaves, and are rate-limited.",
+          "effect": "Anyone can try the whole app in one tap, and nothing they do can reach a real person."
         }
       ]
     },
@@ -135,7 +181,7 @@
           "Precise money states, honest empty states, trips on their own clock and daily backups."
         ]
       ],
-      "gap": "Before-and-after screens and tester feedback aren't published yet; the live app holds private trip data."
+      "gap": "Before-and-after screens from each redesign and tester feedback aren't published yet."
     },
     {
       "type": "list",

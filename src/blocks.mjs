@@ -11,10 +11,10 @@ function head(s) {
 
 const renderers = {
   loop(s) {
-    const steps = s.steps.map((step, i) => `<li><span class="loop__n">${pad(i + 1)}</span>${esc(step)}</li>`).join('');
+    const steps = s.steps.map((step, i) => `<li style="--i:${i}"><span class="loop__n">${pad(i + 1)}</span>${esc(step)}</li>`).join('');
     const abilities = join(s.abilities, ([name, text]) => `<div><dt>${esc(name)}</dt><dd>${esc(text)}</dd></div>`);
     return `${para(s.intro)}
-      <div class="loop"><p class="loop__label">Core loop</p><ol class="loop__steps">${steps}</ol><p class="loop__back" aria-hidden="true">↺ repeat with new tools</p></div>
+      <div class="loop" data-reveal><p class="loop__label">Core loop</p><ol class="loop__steps">${steps}</ol><p class="loop__back" aria-hidden="true">↺ repeat with new tools</p></div>
       ${abilities ? `<h3 class="sub">Abilities</h3><dl class="defs defs--grid">${abilities}</dl>` : ''}
       ${s.source ? `<p class="source">${esc(s.source)}</p>` : ''}`;
   },
@@ -28,9 +28,9 @@ const renderers = {
       ['goal', 'Goal'], ['constraint', 'Constraint'], ['alternatives', 'Tried first'], ['decision', 'Decision'],
       ['implementation', 'How it works'], ['effect', 'For the player'],
     ];
-    return `<ol class="decisions">${s.items.map((d, i) => `<li class="decision">
+    return `<ol class="decisions">${s.items.map((d, i) => `<li class="decision" data-reveal>
       <h3><span class="decision__n">${pad(i + 1)}</span>${esc(d.title)}</h3>
-      <dl class="chain">${join(rows, ([key, label]) => d[key] ? `<div class="chain__row chain__row--${key}"><dt>${esc(key === 'effect' ? d.effectLabel || s.effectLabel || label : label)}</dt><dd>${esc(d[key])}</dd></div>` : '')}</dl>
+      <dl class="chain">${join(rows.filter(([key]) => d[key]), ([key, label], n) => `<div class="chain__row chain__row--${key}" style="--i:${n}"><dt>${esc(key === 'effect' ? d.effectLabel || s.effectLabel || label : label)}</dt><dd>${esc(d[key])}</dd></div>`)}</dl>
     </li>`).join('')}</ol>`;
   },
 
@@ -55,18 +55,22 @@ const renderers = {
   },
 
   figure(s) {
-    return `${para(s.intro)}<figure class="plate${s.wide ? ' plate--wide' : ''}${s.pixel ? ' plate--pixel' : ''}">${img({ src: s.src, alt: s.alt, width: s.width, height: s.height, pixel: s.pixel })}<figcaption>${esc(s.caption)} <a href="${esc(s.src)}">Full size</a></figcaption></figure>`;
+    return `${para(s.intro)}<figure data-reveal class="plate${s.wide ? ' plate--wide' : ''}${s.pixel ? ' plate--pixel' : ''}">${img({ src: s.src, alt: s.alt, width: s.width, height: s.height, pixel: s.pixel })}<figcaption>${esc(s.caption)} <a href="${esc(s.src)}">Full size</a></figcaption></figure>`;
   },
 
   flow(s) {
-    return `${para(s.intro)}<div class="flow">${s.lanes.map((lane) => `<div class="flow__lane"><p class="flow__label">${esc(lane.label)}</p><ol class="flow__nodes">${lane.nodes.map((n) => `<li>${esc(n)}</li>`).join('')}</ol></div>`).join('')}</div>${s.note ? `<p class="source">${esc(s.note)}</p>` : ''}`;
+    return `${para(s.intro)}<div class="flow">${s.lanes.map((lane) => `<div class="flow__lane" data-reveal><p class="flow__label">${esc(lane.label)}</p><ol class="flow__nodes">${lane.nodes.map((n) => `<li>${esc(n)}</li>`).join('')}</ol></div>`).join('')}</div>${s.note ? `<p class="source">${esc(s.note)}</p>` : ''}`;
   },
 
   money(s) {
     const parts = [['paid', 'Paid', 'Money already spent', 38], ['committed', 'Committed', 'Booked, not fully paid', 34], ['estimated', 'Estimated', 'A guess, until it is booked', 28]];
-    return `${para(s.intro)}<figure class="money"><div class="money__bar" aria-hidden="true">${parts.map(([k, , , w]) => `<span class="money__seg money__seg--${k}" style="flex-basis:${w}%"></span>`).join('')}</div>
+    return `${para(s.intro)}<figure class="money" data-reveal><div class="money__bar" aria-hidden="true">${parts.map(([k, , , w]) => `<span class="money__seg money__seg--${k}" style="flex-basis:${w}%"></span>`).join('')}</div>
       <ul class="money__legend">${parts.map(([k, label, text]) => `<li><span class="key key--${k}"></span><strong>${label}</strong> ${text}</li>`).join('')}<li class="money__total"><strong>= Projected total</strong> always the sum of the three</li></ul>
       <figcaption class="source">${esc(s.note)}</figcaption></figure>`;
+  },
+
+  screens(s) {
+    return `${para(s.intro)}<div class="screens" tabindex="0" role="region" aria-labelledby="${s.id}-title">${s.items.map((x, i) => `<figure class="screen" data-reveal style="--i:${i}">${img({ src: x.src, alt: x.alt, width: x.width, height: x.height })}<figcaption>${esc(x.caption)}</figcaption></figure>`).join('')}</div>${s.note ? `<p class="source">${esc(s.note)}</p>` : ''}`;
   },
 
   timeline(s) {

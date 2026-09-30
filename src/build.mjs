@@ -41,6 +41,7 @@ for (const p of projects) {
     need(sectionTypes.includes(s.type), `${id}: unknown section type "${s.type}"`);
     need(s.id && !ids.has(s.id), `${id}: section ids must be present and unique (${s.id})`); ids.add(s.id);
     need(s.kicker && s.title, `${id}/${s.id}: sections need a kicker and title`);
+    if (s.type === 'screens') for (const x of s.items || []) need(x.alt && x.width && x.height && existsSync(join(root, 'public', x.src)), `${id}/${s.id}: screen needs alt, size and an existing image`);
     if (s.type === 'figure') need(s.alt && s.width && s.height && existsSync(join(root, 'public', s.src)), `${id}/${s.id}: figure needs alt, size and an existing image`);
   }
 }

@@ -7,8 +7,9 @@ const caseUrl = (p) => `${p.slug}.html`;
 
 function cover(p, { eager = false, caption = true } = {}) {
   const c = p.cover;
+  // The same view-transition name on the homepage and the case study lets the cover morph between them.
   return `<figure class="cover cover--${c.tone} cover--${c.fit}">
-    <div class="cover__frame">${img({ ...c, eager })}</div>
+    <div class="cover__frame" style="view-transition-name: cover-${p.slug}">${img({ ...c, eager })}</div>
     ${caption ? `<figcaption>${esc(c.caption)}</figcaption>` : ''}
   </figure>`;
 }
@@ -24,19 +25,22 @@ function actions(p, { primary = true } = {}) {
 function workEntry(p, i) {
   const variant = p.group === 'product' ? 'product' : ['lead', 'mirror', 'compact'][i] || 'compact';
   const verb = p.group === 'product' || p.slug === 'sword-saint-broken-bridge' ? 'One thing I designed' : 'One thing I built';
-  return `<article class="work work--${variant}" id="work-${p.slug}" aria-labelledby="work-${p.slug}-title">
-    <a class="work__media" href="${caseUrl(p)}" tabindex="-1" aria-hidden="true">${cover(p, { caption: false })}</a>
-    <div class="work__body">
-      <p class="work__index"><span>${pad(i + 1)}</span>${esc(p.kicker)}</p>
-      <h3 class="work__title" id="work-${p.slug}-title"><a href="${caseUrl(p)}">${esc(p.title)}</a>${p.subtitle ? ` <span class="work__alt">${esc(p.subtitle)}</span>` : ''}</h3>
-      <p class="work__pitch">${esc(p.pitch)}</p>
-      <dl class="work__facts">
-        <div><dt>My role</dt><dd>${esc(p.role)}</dd></div>
-        <div class="work__highlight"><dt>${verb}</dt><dd>${esc(p.contribution)}</dd></div>
-        <div><dt>Tools</dt><dd>${esc(fact(p, 'Tools'))}</dd></div>
-        <div><dt>Status</dt><dd>${esc(fact(p, 'Status'))}</dd></div>
-      </dl>
-      ${actions(p)}
+  return `<article class="scene scene--${p.cover.tone}" id="work-${p.slug}" data-scene aria-labelledby="work-${p.slug}-title">
+    <span class="scene__index" aria-hidden="true">${pad(i + 1)}</span>
+    <div class="wrap work work--${variant}">
+      <a class="work__media" href="${caseUrl(p)}" tabindex="-1" aria-hidden="true">${cover(p, { caption: false })}</a>
+      <div class="work__body">
+        <p class="work__index"><span>${pad(i + 1)}</span>${esc(p.kicker)}</p>
+        <h3 class="work__title" id="work-${p.slug}-title"><a href="${caseUrl(p)}">${esc(p.title)}</a>${p.subtitle ? ` <span class="work__alt">${esc(p.subtitle)}</span>` : ''}</h3>
+        <p class="work__pitch">${esc(p.pitch)}</p>
+        <dl class="work__facts">
+          <div><dt>My role</dt><dd>${esc(p.role)}</dd></div>
+          <div class="work__highlight"><dt>${verb}</dt><dd>${esc(p.contribution)}</dd></div>
+          <div><dt>Tools</dt><dd>${esc(fact(p, 'Tools'))}</dd></div>
+          <div><dt>Status</dt><dd>${esc(fact(p, 'Status'))}</dd></div>
+        </dl>
+        ${actions(p)}
+      </div>
     </div>
   </article>`;
 }
@@ -73,8 +77,8 @@ export function home(site, projects) {
       <h2 id="work-title">Three games, and one product outside games.</h2>
       <p>Each entry says what I personally did. Team credits and what's still missing are on the case-study pages.</p>
     </header>
-    ${games.map(workEntry).join('')}
   </div>
+  ${games.map(workEntry).join('')}
 </section>
 
 ${other.length ? `<section class="section section--alt" id="beyond-games" aria-labelledby="beyond-title">
@@ -84,8 +88,8 @@ ${other.length ? `<section class="section section--alt" id="beyond-games" aria-l
       <h2 id="beyond-title">The same habits in a product.</h2>
       <p>Honest states, clear feedback and small iterations, applied to a live web app.</p>
     </header>
-    ${other.map((p) => workEntry(p, games.length)).join('')}
   </div>
+  ${other.map((p) => workEntry(p, games.length)).join('')}
 </section>` : ''}
 
 <section class="section" id="evidence" aria-labelledby="evidence-title">

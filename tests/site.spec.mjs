@@ -82,15 +82,43 @@ test('without JavaScript the inspector is a static diagram with the route in tex
   await page.goto('/');
   await expect(page.locator('[data-era-controls]')).toBeHidden();
   await expect(page.locator('[data-era-status]')).toContainText('Route:');
-  await expect(page.locator('.era__svg')).toBeVisible();
+  await expect(page.locator('.era__layer--both')).toBeVisible();
+  await expect(page.locator('#work-sword-saint-broken-bridge .cover__frame img')).toBeVisible();
   await context.close();
 });
 
-test('reduced motion removes transitions', async ({ page }) => {
+test('reduced motion: no transitions, no scroll scenes, nothing hidden', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/');
   const duration = await page.locator('[data-era-player]').evaluate((el) => parseFloat(getComputedStyle(el).transitionDuration));
   expect(duration).toBeLessThan(0.01);
+  await expect(page.locator('html')).not.toHaveClass(/scenes-on/);
+  await page.goto('/a-course-in-time.html');
+  expect(await page.locator('.decision').first().evaluate((el) => getComputedStyle(el).opacity)).toBe('1');
+});
+
+test('scroll scenes: covers arrive as their scene scrolls in', async ({ page }) => {
+  await page.goto('/');
+  await expect(page.locator('html')).toHaveClass(/scenes-on/);
+  const scene = page.locator('#work-sword-saint-broken-bridge');
+  const before = Number(await scene.evaluate((el) => el.style.getPropertyValue('--p')));
+  await scene.scrollIntoViewIfNeeded();
+  await page.waitForTimeout(300);
+  const after = Number(await scene.evaluate((el) => el.style.getPropertyValue('--p')));
+  expect(before).toBeLessThan(after);
+  expect(after).toBeGreaterThan(0.5);
+});
+
+test('case study: contents highlight follows the reader; cover names are unique', async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 800 });
+  await page.goto('/tabi.html');
+  await page.locator('#screens').scrollIntoViewIfNeeded();
+  await expect(page.locator('.toc a[href="#screens"]')).toHaveAttribute('aria-current', 'location');
+  for (const path of ['/', '/tabi.html']) {
+    await page.goto(path);
+    const names = await page.locator('[style*="view-transition-name"]').evaluateAll((els) => els.map((e) => e.style.viewTransitionName));
+    expect(new Set(names).size).toBe(names.length);
+  }
 });
 
 test('layouts hold from 320px to 1920px', async ({ page }) => {

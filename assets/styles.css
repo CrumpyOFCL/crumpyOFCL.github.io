@@ -146,15 +146,31 @@ kbd { font: 600 0.72em var(--mono); border: 1.5px solid currentColor; border-rad
 .era__label { font: 700 0.78rem var(--mono); letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 10px; border-radius: 3px; color: #fff; background: #2447b8; transition: background var(--t); }
 .era[data-era="past"] .era__label { background: #97430f; }
 .era__count { font: 0.78rem var(--mono); color: var(--ink-3); }
-.era__stage { background: var(--paper-2); border-radius: 3px; padding: 6px; overflow: hidden; }
-.era__svg { width: 100%; height: auto; aspect-ratio: 160 / 70; }
-.era__svg rect { transition: fill var(--t), stroke var(--t); }
+/* The diorama: a back plate, one plane per era, and the shared plane with the player.
+   The active era's plane sits flush with the shared plane; the other era drops back. */
+.era__world { position: relative; perspective: 900px; perspective-origin: 50% 40%; padding: 14px 10px 18px; }
+.motion .era__rig { animation: rig-in 1200ms cubic-bezier(.2, .8, .2, 1) 120ms backwards; }
+@keyframes rig-in { from { transform: rotateX(62deg) rotateY(-30deg) translateY(30px); } }
+.era__rig { position: relative; transform-style: preserve-3d; transform: rotateX(var(--rx, 16deg)) rotateY(var(--ry, -12deg)); transition: transform 420ms cubic-bezier(.2, .8, .2, 1); }
+.era__plate { position: absolute; inset: -6px; border-radius: 6px; background: var(--paper-2); box-shadow: inset 0 0 0 1.5px var(--rule); transform: translateZ(-110px); }
+.era__layer { display: block; width: 100%; height: auto; aspect-ratio: 160 / 70; overflow: visible; transition: transform 420ms cubic-bezier(.2, .8, .2, 1), opacity 300ms; }
+.era__layer--past, .era__layer--present { position: absolute; inset: 0; }
+.era__layer--both { position: relative; transform: translateZ(1px); }
+.era__layer--past { transform: translateZ(-64px); opacity: 0.7; }
+.era__layer--present { transform: translateZ(0); }
+.era[data-era="past"] .era__layer--past { transform: translateZ(0); opacity: 1; }
+.era[data-era="past"] .era__layer--present { transform: translateZ(-64px); opacity: 0.7; }
+.era__layer rect { transition: fill 300ms, stroke 300ms; }
 .t-both { fill: var(--ink); }
 .t-past, .t-present { fill: transparent; stroke-width: 0.7; stroke-dasharray: 1.6 1.2; }
 .t-past { stroke: var(--past); }
 .t-present { stroke: var(--present); }
 .era[data-era="past"] .t-past { fill: var(--past); stroke: var(--past); stroke-dasharray: none; }
 .era[data-era="present"] .t-present { fill: var(--present); stroke: var(--present); stroke-dasharray: none; }
+.era[data-state="won"] .t-both { animation: hop 520ms cubic-bezier(.3, 1.6, .5, 1) calc(var(--x) * 35ms) both; transform-box: fill-box; transform-origin: 50% 100%; }
+.era[data-state="crushed"] .era__rig { animation: shake 360ms ease-out; }
+@keyframes hop { 40% { transform: translateY(-3px) scaleY(1.08); fill: var(--past); } 100% { transform: none; } }
+@keyframes shake { 20% { translate: -5px 0; } 45% { translate: 4px 0; } 70% { translate: -2px 0; } 100% { translate: 0 0; } }
 .era__exit rect { fill: var(--card); stroke: var(--ink); stroke-width: 0.8; }
 .era__exit circle { fill: var(--ink); }
 .era__player { transition: transform 180ms ease-out, opacity var(--t); }
@@ -170,7 +186,7 @@ kbd { font: 600 0.72em var(--mono); border: 1.5px solid currentColor; border-rad
 .key--both { background: var(--ink); }
 .key--past { background: var(--past); }
 .key--present { background: var(--present); }
-.key--ghost { border: 1.5px dashed var(--ink-2); }
+.key--ghost { border: 1.5px dashed var(--ink-2); opacity: .8; }
 .era__controls { display: grid; grid-template-columns: 1fr 1fr 1fr; grid-template-areas: "left right reset" "switch switch switch"; gap: 8px; margin-top: 14px; }
 .era__controls [data-era-move="-1"] { grid-area: left; }
 .era__controls [data-era-move="1"] { grid-area: right; }
@@ -200,8 +216,8 @@ kbd { font: 600 0.72em var(--mono); border: 1.5px solid currentColor; border-rad
 .section__head p:not(.kicker) { color: var(--ink-2); }
 
 /* ---------- Work entries ---------- */
-.work { display: grid; gap: 22px; padding-block: 28px; border-top: 2px solid var(--ink); }
-.work + .work { margin-top: clamp(24px, 4vw, 48px); }
+.work { position: relative; z-index: 1; display: grid; gap: 22px; padding-top: 30px; }
+.work::before { content: ""; position: absolute; top: 0; left: var(--gutter); right: var(--gutter); height: 2px; background: var(--ink); }
 .work__media { display: block; text-decoration: none; }
 .work__index { display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: baseline; font: 0.78rem var(--mono); color: var(--ink-2); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 10px; }
 .work__index span { font-weight: 700; color: var(--ink); }
@@ -241,8 +257,7 @@ kbd { font: 600 0.72em var(--mono); border: 1.5px solid currentColor; border-rad
 .cover--era .cover__frame::after { content: "PRESENT"; right: 12px; }
 .cover--night .cover__frame { background: #1f2440; aspect-ratio: 4 / 3; }
 .cover--plum .cover__frame { background: #3f2335; }
-.cover--paper .cover__frame { background: #ffffff; }
-.cover--paper img { mix-blend-mode: multiply; }
+.cover--paper .cover__frame { background: #e9e3d5; }
 .work--compact .cover__frame, .work--product .cover__frame { aspect-ratio: 4 / 3; }
 .is-pixel { image-rendering: pixelated; }
 
@@ -402,7 +417,67 @@ kbd { font: 600 0.72em var(--mono); border: 1.5px solid currentColor; border-rad
 .notice { padding-block: 72px 96px; max-width: 720px; }
 .notice h1 { font-size: clamp(2rem, 1.2rem + 3vw, 3.4rem); font-stretch: 112%; margin-bottom: 18px; }
 
+
+/* ---------- Scenes: each project gets its own full-width palette ---------- */
+.scene { --p: 1; position: relative; padding-block: clamp(40px, 7vw, 96px); overflow: clip; background: var(--scene-bg, transparent); color: var(--ink); }
+.scene__index { position: absolute; z-index: 0; left: -0.04em; top: 0.02em; font-weight: 800; font-stretch: 118%; font-size: clamp(8rem, 26vw, 22rem); line-height: 0.8; color: transparent; -webkit-text-stroke: 1.5px var(--rule); pointer-events: none; user-select: none; }
+.scene--night, .scene--plum { --scene-bg: var(--paper); padding-top: clamp(64px, 9vw, 120px);
+  /* A torn top edge, so the paper above shows through like a ripped page. */
+  clip-path: polygon(0 14px, 4% 6px, 9% 16px, 15% 4px, 21% 12px, 28% 2px, 34% 13px, 41% 7px, 47% 15px, 54% 3px, 61% 11px, 67% 5px, 74% 16px, 80% 6px, 87% 13px, 93% 3px, 100% 10px, 100% 100%, 0 100%); margin-top: -8px; }
+.scene--night { --paper: #121733; --paper-2: #1a2146; --card: #1c2449; --ink: #eef0f8; --ink-2: #c6cbe0; --ink-3: #a9b0cc; --rule: #39436f; --past: #ef4b3f; --past-ink: #ff8e82; --present: #7c9bff; --present-ink: #a9bcff; --on-accent: #10132a; --focus: #ffd166; --shadow: #000; }
+.scene--plum { --paper: #1d1019; --paper-2: #2a1724; --card: #2d1928; --ink: #f4eaf0; --ink-2: #d6c4ce; --ink-3: #bba7b3; --rule: #52364a; --past: #b77cff; --past-ink: #d3adff; --present: #ff7a9c; --present-ink: #ffa7bd; --on-accent: #1d1019; --focus: #ffd166; --shadow: #000; }
+.scene--night .work::before, .scene--plum .work::before { background: var(--rule); }
+.section--alt .scene { --scene-bg: transparent; padding-block: 0; }
+.scene:has(.work--mirror) .scene__index { left: auto; right: -0.04em; }
+@media (min-width: 900px) { .scene .work__media { position: sticky; top: 96px; } }
+
+/* Scroll-driven arrival: tilted plane → flat, a circular "moon" reveal, the big index drifting. */
+.scenes-on .scene .cover__frame {
+  transform: perspective(1100px) rotateX(calc((1 - var(--p)) * 24deg)) rotateY(calc((1 - var(--p)) * -12deg)) translateY(calc((1 - var(--p)) * 64px)) scale(calc(0.86 + var(--p) * 0.14));
+  clip-path: circle(calc(14% + var(--p) * 70%) at 50% 52%);
+  will-change: transform, clip-path;
+}
+.scenes-on .scene__index { transform: translateY(calc((1 - var(--p)) * 120px)); }
+.scenes-on .scene .work__body { transform: translateY(calc((1 - var(--p)) * 36px)); }
+.scenes-on .scene--night.is-lit .cover__frame img { animation: lightning 900ms ease-out 1; }
+@keyframes lightning { 0%, 30%, 100% { filter: none; } 8% { filter: brightness(1.7) contrast(1.1); } 20% { filter: brightness(1.4); } }
+
+/* Phone screenshots as covers and in a row */
+.cover--phone .cover__frame { align-items: start; }
+.cover--phone img { width: 42%; height: auto; max-width: none; max-height: none; margin-top: 6%; border: 5px solid #16161a; border-radius: 22px; box-shadow: 0 18px 40px rgba(22, 22, 26, 0.28); }
+.screens { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(170px, 1fr); gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 2px 12px; margin-top: 20px; }
+.screen { margin: 0; scroll-snap-align: start; }
+.screen img { width: 100%; border: 4px solid #16161a; border-radius: 18px; background: #fff; }
+.screen figcaption { font-size: 0.88rem; color: var(--ink-2); margin-top: 8px; }
+
+/* Reveal on enter (only with motion, only once) */
+.motion [data-reveal] { opacity: 0; transform: translateY(18px); transition: opacity 600ms ease, transform 600ms cubic-bezier(.2, .8, .2, 1); transition-delay: calc(var(--i, 0) * 70ms); }
+.motion [data-reveal].is-in { opacity: 1; transform: none; }
+.motion .decision .chain__row { opacity: 0; transform: translateX(-8px); transition: opacity 450ms ease, transform 450ms ease; transition-delay: calc(120ms + var(--i) * 90ms); }
+.motion .decision.is-in .chain__row { opacity: 1; transform: none; }
+.motion .loop.is-in .loop__steps li { animation: step 900ms ease calc(300ms + var(--i) * 450ms) 1 both; }
+@keyframes step { 0% { border-color: var(--rule); } 40% { border-color: var(--past); background: var(--card); transform: translateY(-3px); } 100% { border-color: var(--rule); } }
+
+/* Reading progress on case studies (browsers with scroll-driven animations) */
+.progress { position: absolute; left: 0; right: 0; bottom: -2px; height: 3px; transform: scaleX(0); transform-origin: 0 50%; background: linear-gradient(90deg, var(--past), var(--present)); }
+@supports (animation-timeline: scroll()) {
+  .motion .progress { animation: progress linear both; animation-timeline: scroll(root); }
+}
+@keyframes progress { to { transform: scaleX(1); } }
+.toc a[aria-current] { color: var(--ink); font-weight: 700; box-shadow: inset 3px 0 0 var(--past); }
+
+/* Tactile buttons: lift on hover, press on click, the arrow leans forward */
+.btn [aria-hidden="true"] { display: inline-block; transition: transform var(--t); }
+.btn:hover [aria-hidden="true"] { transform: translateX(3px); }
+.btn:active { transform: translate(1px, 1px); box-shadow: 0 0 0 var(--past); }
+.work__title a, .pager__link { transition: color var(--t), box-shadow var(--t); }
+
+/* Page-to-page: the project cover morphs between the homepage and its case study */
+@view-transition { navigation: auto; }
+::view-transition-group(*) { animation-duration: 450ms; animation-timing-function: cubic-bezier(.2, .8, .2, 1); }
+
 @media (prefers-reduced-motion: reduce) {
+  @view-transition { navigation: none; }
   *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; scroll-behavior: auto !important; }
   .btn:hover { transform: none; }
 }
