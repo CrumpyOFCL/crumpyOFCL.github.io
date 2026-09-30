@@ -1,18 +1,177 @@
-import { projectStage } from './stage.mjs';
-import { esc as e } from './lib.mjs';
-const gh='https://github.com/CrumpyOFCL';
-const email='tylercrump@outlook.com.au';
-const resume='Tyler-Crump-Resume.docx';
-const list=a=>`<ul>${a.map(x=>`<li>${e(x)}</li>`).join('')}</ul>`;
-export function document({title,description,body,asset,home=false,canonical=''}){return `<!doctype html><html lang="en-AU"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#111312"><title>${e(title)} — Tyler Crump</title><meta name="description" content="${e(description)}"><link rel="canonical" href="https://crumpyofcl.github.io/${canonical}"><meta property="og:title" content="${e(title)} — Tyler Crump"><meta property="og:description" content="${e(description)}"><meta property="og:type" content="website"><link rel="icon" href="favicon.svg"><link rel="stylesheet" href="assets/styles.css?v=${asset}"><script src="assets/app.js?v=${asset}" defer></script></head><body><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="brand" href="index.html" aria-label="Tyler Crump home"><span class="monogram">TC<span>.</span></span><span>TYLER CRUMP<small>GAME DEVELOPER</small></span></a><nav aria-label="Main navigation">${['Work','About','Contact'].map(x=>`<a href="${home?'':'index.html'}#${x.toLowerCase()}">${x}</a>`).join('')}<a class="nav-resume" href="${resume}" download>Résumé ↓</a></nav></header><main id="main">${body}</main><footer><a href="index.html">TYLER CRUMP</a><span>Game development. Thoughtful systems.</span><a href="#main">Back to top ↑</a></footer></body></html>`;}
-function media(p,large=false){return `<figure class="project-media ${p.slug} ${large?'large-media':''}">${p.image?`<img src="${e(p.image)}" alt="${e(p.alt || (p.slug==='tabi'?'Tabi public sign-in interface':'A Course In Time project logo'))}" width="800" height="450" ${large?'fetchpriority="high"':'loading="lazy"'}>`:`<div class="media-placeholder"><span class="media-index" aria-hidden="true">${p.slug==='phobiavr'?'VR':p.slug==='opengl-desert'?'GL':'SS'}</span><span>${e(p.caption)}</span></div>`}<figcaption>${e(p.image?p.caption:'Project media pending · no substitute artwork')}</figcaption></figure>`;}
-function card(p,i){return `<article class="project-card" id="${p.slug}">${media(p)}<div class="card-content"><p class="eyebrow">0${i+2} / ${e(p.kind)}</p><h3><a href="${p.slug}.html">${e(p.title)} ↗</a></h3><p>${e(p.summary)}</p><p class="tech">${e(p.tech)}</p><a class="text-link" href="${p.slug}.html">Explore case study →</a></div></article>`;}
-export function home(projects){const p=projects[0];return `<section class="hero wrap"><p class="eyebrow"><span class="status-dot"></span> SYDNEY, AUSTRALIA / FINAL-YEAR STUDENT</p><div class="hero-grid"><div><h1>Game developer.<br><span class="hero-outline">World builder</span><span class="accent">.</span></h1><p class="hero-intro">I’m Tyler. I build gameplay in Unity and C#, explore VR and graphics, and use playtesting to make better design decisions.</p><div class="actions"><a class="button" href="#work">Explore my work ↓</a><a class="button secondary" href="${gh}">GitHub ↗</a><a class="resume-link" href="${resume}" download>Download résumé <small>DOCX ↓</small></a></div></div>${projectStage(projects)}</div><div class="hero-bottom"><span>UNITY / C# / VR / OPENGL</span><span>SELECTED WORK ↙</span></div></section>
-<section class="work wrap section" id="work"><div class="section-heading"><div><p class="eyebrow">01 / SELECTED WORK</p><h2>Built. Tested.<br>Thought through.</h2></div><p>Gameplay, graphics and product work.<br>What I contributed, how it works,<br>and what I learned.</p></div><article class="flagship">${media(p,true)}<div class="flagship-copy"><p class="eyebrow">FEATURED PROJECT / UNITY · C#</p><h3>A Course<br>In Time<span class="accent">.</span></h3><p>${e(p.summary)}</p><div class="evidence-stat"><strong>36</strong><span>respondents across<br>three testing sessions</span></div><p class="small">Producer · Team leader · Lead playtester</p><div class="actions"><a class="button" href="${p.slug}.html">View case study →</a><a class="text-link" href="${p.links[0][1]}">Play on itch.io ↗</a></div></div></article><div class="project-grid">${projects.slice(1).map(card).join('')}</div></section>
-<section class="section wrap" id="capabilities"><div class="section-heading"><div><p class="eyebrow">02 / TECHNICAL CAPABILITIES</p><h2>From behaviour<br>to player experience.</h2></div><p>Tools connected to real project work.</p></div><div class="capability-grid">${[['01','Gameplay programming','C# · Unity · Input System','Movement, save/load, HUD, audio and time-based systems.','a-course-in-time','A Course In Time'],['02','VR & graphics','Meta Quest · Liminal SDK · OpenGL','Phased event systems, environmental feedback and Java graphics.','phobiavr','PhobiaVR'],['03','Design & production','Playtesting · Figma · Git/GitHub','Sprint coordination, technical documentation and iterative design.','tabi','Tabi']].map(([n,t,tools,d,url,label])=>`<article><span class="number">${n}</span><h3>${t}</h3><p class="tech">${tools}</p><p>${d}</p><a class="text-link" href="${url}.html">See ${label} →</a></article>`).join('')}</div></section>
-<section class="section wrap" id="process"><p class="eyebrow">03 / APPROACH</p><h2>Design is a loop.</h2><div class="process-grid">${[['Understand','Define the player problem and intended experience.'],['Build','Make a focused prototype, then connect the supporting systems.'],['Test','Observe players and separate assumptions from evidence.'],['Refine','Use findings to prioritise the next change and document the reasoning.']].map(([t,d],i)=>`<article><span class="number">0${i+1}</span><h3>${t}</h3><p>${d}</p></article>`).join('')}</div></section>
-<section class="section wrap about" id="about"><div><p class="eyebrow">04 / ABOUT</p><h2>Curious about<br>how things play.</h2><p class="large-copy">I’m a final-year Game Design and Development student at Macquarie University, interested in the space where programming, design and player experience meet.</p><p>My work spans Unity gameplay, VR, graphics and product development. I enjoy making systems understandable: in the way they behave, the way they feel and the way I explain them.</p><a class="text-link" href="${resume}" download>Download my technical résumé (DOCX) ↓</a></div><div class="timeline">${[['EDUCATION / EXPECTED 2026','Macquarie University','Bachelor of Game Design and Development'],['EXPERIENCE / 2023–PRESENT','Casella','Bottling line casual & weighbridge work. Reliability, quality checks, accurate measurements and clear issue reporting.'],['EXPERIENCE / 2022–2023','McDonald’s','Customer service and teamwork in a fast-paced environment.'],['COMMUNITY','NSW Rural Fire Service','Volunteer · Griffith']].map(([k,t,d])=>`<article><p class="eyebrow">${k}</p><h3>${t}</h3><p>${d}</p></article>`).join('')}</div></section>
-<section class="contact section wrap" id="contact"><p class="eyebrow">05 / NEXT CHAPTER</p><h2>Let’s build something<br>worth playing<span class="accent">.</span></h2><p>Interested in junior game development, gameplay programming and design opportunities.</p><div class="actions"><a class="button" href="mailto:${email}">Get in touch ↗</a><a class="text-link" href="${gh}">GitHub ↗</a></div><a class="email" href="mailto:${email}">${email}</a></section>`;}
-export function caseStudy(p,projects){const next=projects[(projects.indexOf(p)+1)%projects.length];return `<article class="case wrap"><a class="back-link" href="index.html#work">← All projects</a><header class="case-header"><p class="eyebrow">${e(p.kind)}</p><h1>${e(p.title)}<span class="accent">.</span></h1><p class="case-intro">${e(p.summary)}</p><div class="actions">${p.links.map(([t,u])=>`<a class="button secondary" href="${e(u)}">${e(t)} ↗</a>`).join('')}${!p.links.length?'<span class="pending">[PROJECT LINK NEEDED]</span>':''}</div></header><dl class="facts">${[['My role',p.role],['Team',p.team],['Timeframe',p.date],['Technology',p.tech],['Platform',p.platform]].map(([k,v])=>`<div><dt>${k}</dt><dd>${e(v)}</dd></div>`).join('')}</dl>${media(p,true)}${gallery(p)}<div class="case-layout"><nav class="case-nav" aria-label="Case study sections">${[['overview','01 Overview'],['contribution','02 My contribution'],['systems','03 Systems'],['process','04 Process & testing'],['reflection','05 Outcome & reflection']].map(([id,t])=>`<a href="#${id}">${t}</a>`).join('')}</nav><div class="case-body"><section id="overview"><p class="eyebrow">01 / THE GOAL</p><h2>What I set out to build.</h2><p>${e(p.goal)}</p></section><section id="contribution"><p class="eyebrow">02 / OWNERSHIP</p><h2>My contribution.</h2>${list(p.contributions)}<p class="scope-note">${p.slug==='opengl-desert'?'The responsibilities above describe my own work. Team scope is not yet documented.':p.team==='Solo'?'This is a solo project. The responsibilities above describe my own work.':'This was a team project. The responsibilities above describe my contributions, not sole ownership of the complete project.'}</p></section><section id="systems"><div class="system-heading"><div><p class="eyebrow">03 / TECHNICAL BREAKDOWN</p><h2>Under the surface.</h2></div><button type="button" class="button secondary" data-system-toggle aria-pressed="false">System view</button></div><p class="small">An interactive summary of the documented work; not a source-level architecture diagram.</p><div class="system-list">${p.systems.map(([t,d],i)=>`<article><span class="number">0${i+1}</span><h3>${e(t)}</h3><p>${e(d)}</p></article>`).join('')}</div><h3>Design decision</h3><p>${e(p.decision)}</p></section><section id="process"><p class="eyebrow">04 / DEVELOPMENT & VALIDATION</p><h2>Build, observe, refine.</h2><h3>Process</h3><p>${e(p.process)}</p><h3>Testing</h3><p>${e(p.testing)}</p></section><section id="reflection"><p class="eyebrow">05 / OUTCOME & REFLECTION</p><h2>What came out of it.</h2><p>${e(p.result)}</p><p>${e(p.reflection)}</p><details class="evidence-gaps"><summary>Evidence still to add</summary>${list(p.gaps)}</details></section></div></div><a class="next-project" href="${next.slug}.html"><span class="eyebrow">NEXT PROJECT</span><strong>${e(next.title)} →</strong></a></article>`;}
+import { esc, join, pad, img, externalLink } from './lib.mjs';
+import { inspector } from './inspector.mjs';
+import { block } from './blocks.mjs';
 
-function gallery(p) { return p.gallery?.length ? `<div class="media-gallery">${p.gallery.map(x=>`<figure><a href="${e(x.image)}"><img src="${e(x.image)}" alt="${e(x.alt)}" loading="lazy" width="800" height="450"></a><figcaption>${e(x.caption)} <span>Open full image ↗</span></figcaption></figure>`).join('')}</div>` : ''; }
+const fact = (project, label) => (project.facts.find(([k]) => k === label) || [])[1];
+const caseUrl = (p) => `${p.slug}.html`;
+
+function cover(p, { eager = false, caption = true } = {}) {
+  const c = p.cover;
+  return `<figure class="cover cover--${c.tone} cover--${c.fit}">
+    <div class="cover__frame">${img({ ...c, eager })}</div>
+    ${caption ? `<figcaption>${esc(c.caption)}</figcaption>` : ''}
+  </figure>`;
+}
+
+function actions(p, { primary = true } = {}) {
+  const read = primary ? `<a class="btn btn--solid" href="${caseUrl(p)}"><span>Read case study <span aria-hidden="true">→</span></span></a>` : '';
+  const links = join(p.links, (l) => externalLink(l.url, l.label, 'btn btn--line', l.note));
+  return `<div class="actions">${read}${links}</div>`;
+}
+
+// ---------- Home ----------
+
+function workEntry(p, i) {
+  const variant = p.group === 'product' ? 'product' : ['lead', 'mirror', 'compact'][i] || 'compact';
+  const verb = p.group === 'product' || p.slug === 'sword-saint-broken-bridge' ? 'One thing I designed' : 'One thing I built';
+  return `<article class="work work--${variant}" id="work-${p.slug}" aria-labelledby="work-${p.slug}-title">
+    <a class="work__media" href="${caseUrl(p)}" tabindex="-1" aria-hidden="true">${cover(p, { caption: false })}</a>
+    <div class="work__body">
+      <p class="work__index"><span>${pad(i + 1)}</span>${esc(p.kicker)}</p>
+      <h3 class="work__title" id="work-${p.slug}-title"><a href="${caseUrl(p)}">${esc(p.title)}</a>${p.subtitle ? ` <span class="work__alt">${esc(p.subtitle)}</span>` : ''}</h3>
+      <p class="work__pitch">${esc(p.pitch)}</p>
+      <dl class="work__facts">
+        <div><dt>My role</dt><dd>${esc(p.role)}</dd></div>
+        <div class="work__highlight"><dt>${verb}</dt><dd>${esc(p.contribution)}</dd></div>
+        <div><dt>Tools</dt><dd>${esc(fact(p, 'Tools'))}</dd></div>
+        <div><dt>Status</dt><dd>${esc(fact(p, 'Status'))}</dd></div>
+      </dl>
+      ${actions(p)}
+    </div>
+  </article>`;
+}
+
+export function home(site, projects) {
+  const start = projects.find((p) => p.slug === site.start.slug);
+  const games = projects.filter((p) => p.group === 'game');
+  const other = projects.filter((p) => p.group !== 'game');
+  const bySlug = Object.fromEntries(projects.map((p) => [p.slug, p]));
+  return `<section class="intro" id="top" aria-labelledby="intro-title">
+  <div class="wrap intro__grid">
+    <div class="intro__copy">
+      <p class="kicker">${esc(site.name)} · ${esc(site.role)} · ${esc(site.location)}</p>
+      <h1 id="intro-title">${esc(site.headline)}</h1>
+      <p class="lede">${esc(site.lede)}</p>
+      <div class="start">
+        <p class="start__label">${esc(site.start.label)}</p>
+        <p class="start__title"><a href="${caseUrl(start)}">${esc(start.title)}</a> <span>${esc(start.kicker)}</span></p>
+        <p class="start__note">${esc(site.start.note)}</p>
+        ${actions(start)}
+      </div>
+      <p class="intro__contact"><a href="mailto:${esc(site.contact.email)}">${esc(site.contact.email)}</a><a href="${esc(site.resume.file)}" download>Download résumé <span class="meta">${esc(site.resume.format)} · ${esc(site.resume.size)}</span></a></p>
+    </div>
+    <div class="intro__demo">
+      ${inspector({ id: 'era', headingLevel: 2, title: 'Try the core rule of A Course In Time', link: `<a href="${caseUrl(start)}#decisions">How I built it →</a>` })}
+    </div>
+  </div>
+</section>
+
+<section class="section" id="work" aria-labelledby="work-title">
+  <div class="wrap">
+    <header class="section__head">
+      <p class="kicker">Selected work</p>
+      <h2 id="work-title">Three games, and one product outside games.</h2>
+      <p>Each entry says what I personally did. Team credits and what's still missing are on the case-study pages.</p>
+    </header>
+    ${games.map(workEntry).join('')}
+  </div>
+</section>
+
+${other.length ? `<section class="section section--alt" id="beyond-games" aria-labelledby="beyond-title">
+  <div class="wrap">
+    <header class="section__head">
+      <p class="kicker">Outside games</p>
+      <h2 id="beyond-title">The same habits in a product.</h2>
+      <p>Honest states, clear feedback and small iterations, applied to a live web app.</p>
+    </header>
+    ${other.map((p) => workEntry(p, games.length)).join('')}
+  </div>
+</section>` : ''}
+
+<section class="section" id="evidence" aria-labelledby="evidence-title">
+  <div class="wrap">
+    <header class="section__head">
+      <p class="kicker">Capabilities</p>
+      <h2 id="evidence-title">What I can do, and where it's shown.</h2>
+    </header>
+    <div class="table-scroll" tabindex="0" role="region" aria-labelledby="evidence-title">
+    <table class="table evidence">
+      <thead><tr><th scope="col">Capability</th><th scope="col">Tools</th><th scope="col">Evidence</th><th scope="col">Where</th></tr></thead>
+      <tbody>${site.capabilities.map((c) => `<tr><th scope="row">${esc(c.name)}</th><td>${esc(c.detail)}</td><td>${esc(c.evidence)}</td><td><a href="${caseUrl(bySlug[c.slug])}">${esc(bySlug[c.slug].shortTitle || bySlug[c.slug].title)}</a></td></tr>`).join('')}</tbody>
+    </table>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt" id="about" aria-labelledby="about-title">
+  <div class="wrap about">
+    <header class="section__head">
+      <p class="kicker">About</p>
+      <h2 id="about-title">Hi, I'm Tyler.</h2>
+    </header>
+    <div class="about__text">${site.about.paragraphs.map((t) => `<p>${esc(t)}</p>`).join('')}<p class="open-to">${esc(site.openTo)}</p></div>
+    <dl class="defs about__facts">${site.about.facts.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>
+    <div class="about__other">
+      <h3>Other coursework</h3>
+      ${site.about.other.map((o) => `<p><strong>${esc(o.title)}</strong> <span class="meta">${esc(o.context)}</span><br>${esc(o.text)}</p>`).join('')}
+    </div>
+  </div>
+</section>
+
+<section class="section contact" id="contact" aria-labelledby="contact-title">
+  <div class="wrap">
+    <p class="kicker">Contact</p>
+    <h2 id="contact-title">Hiring for a junior design, gameplay or tools role? Get in touch.</h2>
+    <p class="contact__email"><a href="mailto:${esc(site.contact.email)}">${esc(site.contact.email)}</a></p>
+    <ul class="contact__links">
+      <li><a href="${esc(site.resume.file)}" download>Résumé <span class="meta">${esc(site.resume.format)} · ${esc(site.resume.size)}</span></a></li>
+      <li>${externalLink(site.contact.github, 'GitHub')}</li>
+      <li>${externalLink(site.contact.itch, 'itch.io')}</li>
+    </ul>
+  </div>
+</section>`;
+}
+
+// ---------- Case study ----------
+
+export function caseStudy(site, p, projects) {
+  const i = projects.indexOf(p);
+  const next = projects[(i + 1) % projects.length];
+  const prev = projects[(i - 1 + projects.length) % projects.length];
+  const toc = p.sections.map((s) => `<li><a href="#${s.id}">${esc(s.kicker)}</a></li>`).join('');
+  return `<article class="case" aria-labelledby="case-title">
+  <header class="wrap case__head">
+    <p class="crumb"><a href="index.html#work"><span aria-hidden="true">←</span> Selected work</a></p>
+    <p class="kicker">${esc(p.kicker)}</p>
+    <h1 id="case-title">${esc(p.title)}${p.subtitle ? ` <span class="case__alt">${esc(p.subtitle)}</span>` : ''}</h1>
+    <p class="lede">${esc(p.pitch)}</p>
+    ${p.links.length ? actions(p, { primary: false }) : '<p class="meta">No public build yet.</p>'}
+  </header>
+  <div class="wrap case__top">
+    ${cover(p, { eager: true })}
+    <dl class="facts">${p.facts.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>
+  </div>
+  <section class="wrap quick" aria-labelledby="quick-title">
+    <h2 class="quick__title" id="quick-title">In 30 seconds</h2>
+    <dl class="quick__grid">${p.quick.map((q) => `<div><dt>${esc(q.label)}</dt><dd>${esc(q.text)}</dd></div>`).join('')}</dl>
+  </section>
+  <div class="wrap case__layout">
+    <nav class="toc" aria-label="On this page"><p class="toc__title">On this page</p><ol>${toc}</ol></nav>
+    <div class="case__body">${p.sections.map(block).join('')}</div>
+  </div>
+  <nav class="wrap pager" aria-label="More projects">
+    <a class="pager__link" href="${caseUrl(prev)}"><span class="meta">Previous</span>${esc(prev.title)}</a>
+    <a class="pager__link pager__link--next" href="${caseUrl(next)}"><span class="meta">Next</span>${esc(next.title)}</a>
+  </nav>
+</article>`;
+}
+
+// ---------- Utility pages ----------
+
+export function moved({ title, target, text }) {
+  return `<section class="wrap notice"><p class="kicker">Moved</p><h1>${esc(title)}</h1><p>${esc(text)}</p><p><a class="btn btn--solid" href="${esc(target)}"><span>Continue <span aria-hidden="true">→</span></span></a></p></section>`;
+}
+
+export function notFound() {
+  return `<section class="wrap notice"><p class="kicker">404</p><h1>This room doesn't exist in this era.</h1><p>The page you were looking for isn't here.</p><p><a class="btn btn--solid" href="/"><span>Back to the portfolio <span aria-hidden="true">→</span></span></a></p></section>`;
+}

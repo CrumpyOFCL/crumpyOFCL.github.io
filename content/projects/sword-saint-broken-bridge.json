@@ -1,258 +1,91 @@
 {
   "slug": "sword-saint-broken-bridge",
-  "visible": true,
-  "tier": "supporting",
-  "order": 4,
-  "shortTitle": "Sword Saint",
+  "order": 2,
+  "featured": true,
+  "group": "game",
   "title": "Sword Saint: Broken Bridge",
-  "subtitle": {
-    "status": "confirmed",
-    "value": "Designed by Tyler Crump"
+  "shortTitle": "Sword Saint",
+  "kicker": "Fighting game · Ikemen GO · Solo",
+  "pitch": "A mirror match on a bridge in a storm. Two fighters share one seven-move kit, so the match is won on timing and meter, not character choice.",
+  "description": "Case study: Sword Saint: Broken Bridge, a solo fighting-game design project in Ikemen GO covering two fighters, a shared moveset, defensive systems and a storm stage.",
+  "role": "Solo designer",
+  "contribution": "Designed a shared seven-move kit with a timed perfect block, a stamina system and a meter-gated super, plus the six-layer Broken Bridge stage.",
+  "facts": [
+    ["Role", "Solo designer: characters, moveset, combat systems and stage"],
+    ["Team", "Solo"],
+    ["Engine", "Ikemen GO (open-source fighting game engine)"],
+    ["Tools", "Ikemen GO · Fighter Factory Studio · Notepad++"],
+    ["Status", "Design project · no public build yet"]
+  ],
+  "links": [],
+  "cover": {
+    "src": "img/sword-saint-gameplay.webp",
+    "alt": "Two identical stick-figure swordsmen with red headbands face each other on a wooden rope bridge under a dark blue sky, with health and meter bars at the top.",
+    "width": 960,
+    "height": 720,
+    "fit": "cover",
+    "tone": "night",
+    "pixel": true,
+    "caption": "Work-in-progress capture on Broken Bridge. The HUD still shows placeholder “testChar” names."
   },
-  "tagline": {
-    "status": "confirmed",
-    "value": "A solo design project built in Ikemen GO, the open-source fighting game engine. Character and moveset design for The Sword Saint and Unknown, combat systems for their shared moveset, and the Broken Bridge stage."
-  },
-  "overview": {
-    "genre": {
-      "status": "confirmed",
-      "value": "Fighting game"
-    },
-    "characters": {
-      "status": "confirmed",
-      "value": "2 - The Sword Saint and Unknown, a mirror fighter on the same moveset"
-    },
-    "moves": {
-      "status": "confirmed",
-      "value": "7 shared moves: 4 normals, a two-projectile lightning special, a meter-gated super, and a back dash. Also block and a timed perfect block."
-    },
-    "type": {
-      "status": "confirmed",
-      "value": "Design project"
-    },
-    "role": {
-      "status": "confirmed",
-      "value": "Solo designer"
-    },
-    "team": {
-      "status": "confirmed",
-      "value": "Solo"
-    },
-    "timeframe": {
-      "status": "pending",
-      "request": "Still to add."
-    },
-    "engine": {
-      "status": "confirmed",
-      "value": "Ikemen GO"
-    },
-    "tools": {
-      "status": "confirmed",
-      "value": [
-        "Ikemen GO"
+  "quick": [
+    { "label": "The game", "text": "A one-on-one fighter. The Sword Saint faces Unknown, a mirror fighter on the same moveset, on a storm-lit bridge." },
+    { "label": "My part", "text": "All of the design: both characters, the seven-move kit, block, perfect block, stamina, and the Broken Bridge stage." },
+    { "label": "Evidence", "text": "In-engine capture, stage art and the character sprite sheet below. No public build, tuning values or playtest notes yet." }
+  ],
+  "sections": [
+    {
+      "type": "table",
+      "id": "kit",
+      "kicker": "The kit",
+      "title": "Seven moves, shared by both fighters.",
+      "intro": "The Sword Saint and Unknown use the same moveset. Unknown is a mirror fighter, so every tool one player has, the other has too.",
+      "head": ["Move", "Type", "What it asks of the player"],
+      "rows": [
+        ["Four normals", "Attack", "The everyday buttons both fighters build their game from."],
+        ["Lightning special", "Special", "Two projectiles from one special move."],
+        ["Super", "Super", "Meter-gated: it has to be earned during the round before it can be spent."],
+        ["Back dash", "Movement", "A fast way out of range."]
       ]
     },
-    "platforms": {
-      "status": "pending",
-      "request": "Still to add."
+    {
+      "type": "notes",
+      "id": "defence",
+      "kicker": "Defence",
+      "title": "Blocking with a timing layer.",
+      "items": [
+        ["Block", "Holding block is the safe default."],
+        ["Timed perfect block", "A block timed to the incoming attack counts as a perfect block, separate from simply holding block. It rewards timing, not just holding the button."],
+        ["Stamina", "A stamina system sits alongside the kit."]
+      ],
+      "gap": "Tuning values, frame data and playtest notes for these systems aren't documented yet."
     },
-    "stage": {
-      "status": "pending",
-      "request": "Still to add."
+    {
+      "type": "figure",
+      "id": "stage",
+      "kicker": "Stage",
+      "title": "Broken Bridge.",
+      "intro": "A six-layer storm stage with animated lightning and rain. The fight takes place on the bridge deck, with the storm behind it.",
+      "src": "img/sword-saint-stage.webp",
+      "alt": "Pixel-art stage: a wooden rope bridge in heavy rain, with a lightning-lit sky and a pale moon behind a silhouetted building.",
+      "width": 320,
+      "height": 240,
+      "pixel": true,
+      "caption": "Broken Bridge in its lightning state."
+    },
+    {
+      "type": "figure",
+      "id": "sprites",
+      "kicker": "Characters",
+      "title": "The Sword Saint and Unknown.",
+      "intro": "Both fighters share one body plan and one moveset. The sheet covers idle, walking, attacks, the sword draw and knockdowns.",
+      "src": "img/sword-saint-sprites.webp",
+      "alt": "Sprite sheet of a black stick-figure swordsman with a red headband in dozens of poses: standing, walking, punching, kicking, drawing a sword and falling.",
+      "width": 1440,
+      "height": 928,
+      "pixel": true,
+      "wide": true,
+      "caption": "Character sprite sheet: movement, attack and sword poses."
     }
-  },
-  "filters": {
-    "engine": "Ikemen GO",
-    "year": null,
-    "type": "Design project",
-    "stage": null,
-    "disciplines": [
-      "Fighting game",
-      "Character design",
-      "Combat design",
-      "Stage design",
-      "Ikemen GO"
-    ]
-  },
-  "links": [
-    {
-      "label": "Source or playable build",
-      "item": {
-        "status": "pending",
-        "request": "Still to add."
-      }
-    }
-  ],
-  "contributions": {
-    "status": "confirmed",
-    "value": [
-      "Character and moveset design for two fighters, The Sword Saint and Unknown. Unknown is a mirror fighter who shares the same moveset.",
-      "Combat systems design: 4 normals, a two-projectile lightning special, a meter-gated super, and a back dash, plus block and a timed perfect block, and a stamina system.",
-      "Stage design: Broken Bridge, a 6-layer storm bridge stage with animated lightning and rain."
-    ]
-  },
-  "collaboration": [
-    {
-      "discipline": "Character and moveset design",
-      "item": {
-        "status": "confirmed",
-        "value": "Me - The Sword Saint and Unknown"
-      }
-    },
-    {
-      "discipline": "Combat systems design",
-      "item": {
-        "status": "confirmed",
-        "value": "Me"
-      }
-    },
-    {
-      "discipline": "Stage design",
-      "item": {
-        "status": "confirmed",
-        "value": "Me - Broken Bridge"
-      }
-    }
-  ],
-  "media": [
-    {
-      "kind": "sheet",
-      "label": "Sprite sheet",
-      "item": {
-        "status": "pending",
-        "request": "Still to add."
-      }
-    },
-    {
-      "kind": "gif",
-      "label": "The Sword Saint",
-      "item": {
-        "status": "pending",
-        "request": "Still to add."
-      }
-    },
-    {
-      "kind": "gif",
-      "label": "Unknown",
-      "item": {
-        "status": "pending",
-        "request": "Still to add."
-      }
-    },
-    {
-      "kind": "stage",
-      "label": "Broken Bridge",
-      "item": {
-        "status": "pending",
-        "request": "Still to add."
-      }
-    },
-    {
-      "kind": "clip",
-      "label": "Gameplay clip",
-      "item": {
-        "status": "pending",
-        "request": "Still to add."
-      }
-    }
-  ],
-  "mechanics": {
-    "status": "confirmed",
-    "value": [
-      {
-        "name": "Shared moveset",
-        "text": "The Sword Saint and Unknown use one moveset of 7 moves. Unknown is a mirror fighter."
-      },
-      {
-        "name": "Normals",
-        "text": "4 normals."
-      },
-      {
-        "name": "Special",
-        "text": "A two-projectile lightning special."
-      },
-      {
-        "name": "Super",
-        "text": "A meter-gated super."
-      },
-      {
-        "name": "Back dash",
-        "text": "A back dash."
-      },
-      {
-        "name": "Block",
-        "text": "Block and a timed perfect block."
-      },
-      {
-        "name": "Stamina",
-        "text": "A stamina system."
-      }
-    ]
-  },
-  "problem": {
-    "status": "pending",
-    "request": "Still to add."
-  },
-  "designGoal": {
-    "status": "pending",
-    "request": "Still to add."
-  },
-  "process": [
-    {
-      "stage": "Characters",
-      "item": {
-        "status": "confirmed",
-        "value": "The Sword Saint and Unknown, a mirror fighter who shares the same moveset."
-      }
-    },
-    {
-      "stage": "Combat systems",
-      "item": {
-        "status": "confirmed",
-        "value": "7 moves: 4 normals, a two-projectile lightning special, a meter-gated super, and a back dash, plus block, a timed perfect block, and a stamina system."
-      }
-    },
-    {
-      "stage": "Stage",
-      "item": {
-        "status": "confirmed",
-        "value": "Broken Bridge, a 6-layer storm bridge stage with animated lightning and rain."
-      }
-    }
-  ],
-  "levelDesign": {
-    "overview": {
-      "status": "confirmed",
-      "value": "Broken Bridge, a 6-layer storm bridge stage with animated lightning and rain."
-    },
-    "goals": {
-      "status": "pending",
-      "request": "Still to add."
-    },
-    "structure": {
-      "status": "confirmed",
-      "value": "6 layers."
-    },
-    "flow": {
-      "status": "pending",
-      "request": "Still to add."
-    },
-    "mechanicIntroduction": {
-      "status": "pending",
-      "request": "Still to add."
-    },
-    "challengeCurve": {
-      "status": "pending",
-      "request": "Still to add."
-    },
-    "greybox": {
-      "status": "pending",
-      "request": "Still to add."
-    },
-    "final": {
-      "status": "pending",
-      "request": "Still to add."
-    }
-  },
-  "decisions": []
+  ]
 }

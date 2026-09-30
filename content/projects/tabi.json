@@ -1,385 +1,156 @@
 {
   "slug": "tabi",
-  "visible": true,
-  "tier": "supporting",
-  "order": 3,
+  "order": 4,
+  "featured": true,
+  "group": "product",
   "title": "Tabi",
-  "tagline": {
-    "status": "confirmed",
-    "value": "A group trip planner for any trip and any group. Invite-only, phone-first, and built so a different trip, group size or budget does not turn into clutter. A Japan trip was the first real use."
-  },
-  "cover": {
-    "status": "pending",
-    "request": "Still to add."
-  },
-  "overview": {
-    "genre": {
-      "status": "confirmed",
-      "value": "Group trip planner (not a game) - multipurpose product and UX case study"
-    },
-    "type": {
-      "status": "confirmed",
-      "value": "Personal project"
-    },
-    "role": {
-      "status": "confirmed",
-      "value": "Designer and developer (solo)"
-    },
-    "team": {
-      "status": "confirmed",
-      "value": "Solo"
-    },
-    "timeframe": {
-      "status": "confirmed",
-      "value": "September 2026"
-    },
-    "engine": {
-      "status": "confirmed",
-      "value": "Node.js / Express"
-    },
-    "tools": {
-      "status": "confirmed",
-      "value": [
-        "JavaScript",
-        "Express",
-        "SQLite",
-        "Leaflet",
-        "Visual Studio Code",
-        "GoodNotes",
-        "Aseprite"
-      ]
-    },
-    "platforms": {
-      "status": "confirmed",
-      "value": "Mobile-first web app with a phone-app feel (installable to the Home Screen)"
-    },
-    "stage": {
-      "status": "confirmed",
-      "value": "Live (invite-only)"
-    }
-  },
-  "filters": {
-    "engine": "Express",
-    "year": "2026",
-    "type": "Personal",
-    "stage": "Live",
-    "disciplines": [
-      "UX",
-      "Programming",
-      "Personal"
+  "kicker": "Product & UX · Web app · Solo",
+  "pitch": "One place for a group trip's plan, people and money. It's phone-first and invite-only, and it never shows a guess as if it were money already spent.",
+  "description": "Case study: Tabi, a phone-first group trip planner designed and built solo by Tyler Crump, covering money states, privacy decisions and iteration.",
+  "role": "Solo designer and developer",
+  "contribution": "Designed three money states (paid, committed, estimated) that always add up to the projected total, so a guess never reads as money already spent.",
+  "facts": [
+    [
+      "Role",
+      "Solo designer and developer"
+    ],
+    [
+      "Team",
+      "Solo"
+    ],
+    [
+      "When",
+      "September 2026"
+    ],
+    [
+      "Tools",
+      "JavaScript · Express · SQLite · Leaflet"
+    ],
+    [
+      "Platform",
+      "Mobile-first web app, installable to the Home Screen"
+    ],
+    [
+      "Status",
+      "Live, invite-only"
     ]
-  },
-  "access": {
-    "status": "confirmed",
-    "value": "The live app is invite-only. This page links to the public sign-in screen and does not show trip data, names or invite codes."
-  },
+  ],
   "links": [
     {
       "label": "Open Tabi",
-      "item": {
-        "status": "confirmed",
-        "value": "https://japantrip-oeja.onrender.com"
-      }
-    },
-    {
-      "label": "Source",
-      "item": {
-        "status": "pending",
-        "request": "Still to add."
-      }
+      "url": "https://japantrip-oeja.onrender.com",
+      "kind": "live",
+      "note": "Opens the sign-in screen · invite-only"
     }
   ],
-  "contributions": {
-    "status": "confirmed",
-    "value": [
-      "Designed and built Tabi: more than one trip on an account, each with its own invite-only group (viewer and editor roles); a day-by-day itinerary with map pins; a budget with a whole-group / per-person toggle and a budget-ceiling warning; live currency conversion; weather; a home screen that shows Today's plan during a trip and a countdown before it; Google sign-in.",
-      "Designed and built the earlier screens too: sign-in gate, trip overview, budget, plan, stays, flights, food, trains and people.",
-      "Redesigned most of the code and the visual design in later passes, for a mobile-first, phone-app feel.",
-      "Iterated in small pull requests: 60 over eight days, 57 merged."
-    ]
+  "cover": {
+    "src": "img/tabi-signin.webp",
+    "alt": "Tabi sign-in screen: a navy app icon with a red seal showing the character 旅, above the word Tabi in a serif typeface.",
+    "width": 455,
+    "height": 220,
+    "fit": "contain",
+    "tone": "paper",
+    "caption": "The public sign-in screen. Trip and account data stay private."
   },
-  "problem": {
-    "status": "confirmed",
-    "value": "One app has to serve any trip and any group. The plan and the money need to live together, and the app has to stay clear when the trip, the group size and the budget all change. A Japan trip was the first real use, often checked on a phone."
-  },
-  "designGoal": {
-    "status": "confirmed",
-    "value": "Make one planner flexible across different trips, group sizes and budgets without clutter, and never blur money that is certain with money that is a guess."
-  },
-  "experience": {
-    "intended": {
-      "status": "confirmed",
-      "value": "Before a trip, the home screen is a countdown. During a trip, it is Today's plan. A Japan trip was the first real use of that."
+  "quick": [
+    {
+      "label": "The product",
+      "text": "A group trip planner for any trip, group size or budget. A Japan trip was its first real use."
     },
-    "tools": {
-      "status": "confirmed",
-      "value": [
-        "Mobile-first layout with a bottom bar per section and a single + that adds anything from anywhere.",
-        "Three money states on every cost - paid, committed, estimated - that always add up to the projected total.",
-        "'Still to sort' health check listing only what needs a look (nights with nowhere to stay, payments due, missing prices).",
-        "'What changed?' line after an edit, e.g. projected cost before → after."
+    {
+      "label": "My part",
+      "text": "Everything: product design, interface, and the Express/SQLite build."
+    },
+    {
+      "label": "Evidence",
+      "text": "A live app and four documented decisions with their reasons. It went through four iterations in 60 small pull requests over eight days."
+    }
+  ],
+  "sections": [
+    {
+      "type": "money",
+      "id": "money",
+      "kicker": "The core rule",
+      "title": "Certain money and guessed money never blur.",
+      "intro": "Every cost is marked paid, committed (booked but not fully paid) or estimated. The three always add up to the projected total. If no budget is set, the app says “No budget set” rather than inventing a figure.",
+      "note": "Illustration of the rule, not real trip data."
+    },
+    {
+      "type": "decisions",
+      "id": "decisions",
+      "kicker": "Design decisions",
+      "title": "Four decisions, and the reason for each.",
+      "effectLabel": "For the group",
+      "items": [
+        {
+          "title": "Never show a guess as if it were certain",
+          "goal": "Keep one planner flexible across trips, group sizes and budgets without blurring money that is certain with money that is a guess.",
+          "decision": "Three money states on every cost, always summing to the projected total, with an honest “No budget set” state.",
+          "implementation": "Added in the “precise money states” iteration and carried through the plan views.",
+          "effect": "Money a group has spent and money it might spend lead to different decisions. Mixing them hides risk."
+        },
+        {
+          "title": "Gates, honestly",
+          "constraint": "Airports assign gates a few hours before departure.",
+          "decision": "Make the gate a field filled in on the day through a deliberately small form, and record when it was set.",
+          "implementation": "A live-status link sits beside it. Flights without a number say so instead of showing a dead button.",
+          "effect": "The app doesn't pretend to know. A gate from yesterday is worse than no gate at all."
+        },
+        {
+          "title": "Hide what could be misused",
+          "constraint": "A booking reference plus a surname is often enough to change or cancel a booking.",
+          "decision": "Guests see a flight's route, times, terminal and gate, but never the fare, seat or booking reference.",
+          "effect": "Sharing a trip with the group doesn't mean sharing control of its bookings."
+        },
+        {
+          "title": "Invite-only, with Google sign-in",
+          "goal": "The app holds a private group's plans and payments, so nobody should be able to wander in.",
+          "alternatives": "Password sign-in and Apple Sign In were both tried. Apple was removed, then sign-in was made Google-only.",
+          "decision": "Accounts are created only from an invite a trip owner issues.",
+          "effect": "Each trip's group is closed by default, with viewer and editor roles."
+        }
       ]
     },
-    "evidence": {
-      "status": "pending",
-      "request": "Still to add."
+    {
+      "type": "timeline",
+      "id": "iteration",
+      "kicker": "Iteration",
+      "title": "Four iterations, in small steps.",
+      "intro": "I iterated in small pull requests: 60 over eight days, 57 of them merged.",
+      "items": [
+        [
+          "V1",
+          "Feature build-out: a budget against a group target, live currency conversion (the Japan trip used AUD and JPY), a Today view and maps."
+        ],
+        [
+          "V2",
+          "A budget-first, mobile-first redesign, then a full visual redesign."
+        ],
+        [
+          "V3",
+          "Design pass: trip pass, departure board, route strip, payments to approve."
+        ],
+        [
+          "Now",
+          "Precise money states, honest empty states, trips on their own clock and daily backups."
+        ]
+      ],
+      "gap": "Before-and-after screens and tester feedback aren't published yet; the live app holds private trip data."
+    },
+    {
+      "type": "list",
+      "id": "contribution",
+      "kicker": "What I built",
+      "title": "Features.",
+      "items": [
+        "More than one trip per account, each with its own invite-only group and viewer/editor roles.",
+        "A day-by-day itinerary with map pins.",
+        "A budget with a whole-group / per-person toggle and a budget-ceiling warning.",
+        "Live currency conversion and trip weather.",
+        "A home screen that shows a countdown before the trip and Today's plan during it.",
+        "A bottom bar per section and a single + that adds anything from anywhere.",
+        "A “Still to sort” check listing only what needs a look, and a “What changed?” line after each edit."
+      ]
     }
-  },
-  "decisions": [
-    {
-      "decision": "Never show a guess as if it were certain",
-      "detail": "Every cost is marked paid, committed (booked, not fully paid) or estimated, and the three always add up to the projected cost. With no budget set, the app says 'No budget set' rather than inventing a figure.",
-      "why": {
-        "status": "confirmed",
-        "value": "Money a group has actually spent and money it might spend lead to different decisions; mixing them hides risk."
-      },
-      "options": {
-        "status": "pending",
-        "request": "Still to add."
-      },
-      "evidence": {
-        "status": "pending",
-        "request": "Still to add."
-      },
-      "tradeoff": {
-        "status": "pending",
-        "request": "Still to add."
-      },
-      "result": {
-        "status": "confirmed",
-        "value": "Added in the 'precise money states' iteration and carried onto the plan."
-      }
-    },
-    {
-      "decision": "Gates, honestly",
-      "detail": "A gate is a field filled in on the day through a deliberately small form, and the app records when it was set. A live-status link sits beside it; flights without a number say so instead of showing a dead button.",
-      "why": {
-        "status": "confirmed",
-        "value": "Airports assign gates a few hours before departure, so the app doesn't pretend to know - and a gate from yesterday is worse than no gate at all."
-      },
-      "options": {
-        "status": "pending",
-        "request": "Still to add."
-      },
-      "evidence": {
-        "status": "pending",
-        "request": "Still to add."
-      },
-      "tradeoff": {
-        "status": "pending",
-        "request": "Still to add."
-      },
-      "result": {
-        "status": "pending",
-        "request": "Still to add."
-      }
-    },
-    {
-      "decision": "Invite-only, Google sign-in only",
-      "detail": "Accounts are created only from an invite that a trip owner issues; sign-in is through Google.",
-      "why": {
-        "status": "confirmed",
-        "value": "The app holds a private group's plans and payments; nobody should be able to wander in."
-      },
-      "options": {
-        "status": "confirmed",
-        "value": "Password sign-in and Apple Sign In were tried; Apple was removed, then sign-in was made Google-only."
-      },
-      "evidence": {
-        "status": "pending",
-        "request": "Still to add."
-      },
-      "tradeoff": {
-        "status": "pending",
-        "request": "Still to add."
-      },
-      "result": {
-        "status": "pending",
-        "request": "Still to add."
-      }
-    },
-    {
-      "decision": "Hide what could be misused",
-      "detail": "Guests see a flight's route, times, terminal and gate, but never the fare, seat or booking reference.",
-      "why": {
-        "status": "confirmed",
-        "value": "A booking reference plus a surname is often enough to change or cancel a booking."
-      },
-      "options": {
-        "status": "pending",
-        "request": "Still to add."
-      },
-      "evidence": {
-        "status": "pending",
-        "request": "Still to add."
-      },
-      "tradeoff": {
-        "status": "pending",
-        "request": "Still to add."
-      },
-      "result": {
-        "status": "pending",
-        "request": "Still to add."
-      }
-    },
-    {
-      "decision": "Location sharing is opt-in",
-      "detail": "Off by default, with a timer and a blur setting, and only visible to people on the same trip.",
-      "why": {
-        "status": "pending",
-        "request": "Still to add."
-      },
-      "options": {
-        "status": "pending",
-        "request": "Still to add."
-      },
-      "evidence": {
-        "status": "pending",
-        "request": "Still to add."
-      },
-      "tradeoff": {
-        "status": "pending",
-        "request": "Still to add."
-      },
-      "result": {
-        "status": "pending",
-        "request": "Still to add."
-      }
-    }
-  ],
-  "iterations": [
-    {
-      "label": "V1",
-      "image": {
-        "status": "pending",
-        "request": "Still to add."
-      },
-      "what": {
-        "status": "confirmed",
-        "value": "Feature build-out: a budget against a group target, live currency conversion (the first trip, a Japan trip, used AUD and JPY), a Today view, and maps."
-      },
-      "why": {
-        "status": "pending",
-        "request": "Still to add."
-      },
-      "evidence": {
-        "status": "pending",
-        "request": "Still to add."
-      }
-    },
-    {
-      "label": "V2",
-      "image": {
-        "status": "pending",
-        "request": "Still to add."
-      },
-      "what": {
-        "status": "confirmed",
-        "value": "'Budget-first, mobile-first redesign', then 'a full visual redesign'."
-      },
-      "why": {
-        "status": "pending",
-        "request": "Still to add."
-      },
-      "evidence": {
-        "status": "pending",
-        "request": "Still to add."
-      }
-    },
-    {
-      "label": "V3",
-      "image": {
-        "status": "pending",
-        "request": "Still to add."
-      },
-      "what": {
-        "status": "confirmed",
-        "value": "Design pass: trip pass, departure board, route strip, payments to approve."
-      },
-      "why": {
-        "status": "pending",
-        "request": "Still to add."
-      },
-      "evidence": {
-        "status": "pending",
-        "request": "Still to add."
-      }
-    },
-    {
-      "label": "Final",
-      "image": {
-        "status": "pending",
-        "request": "Still to add."
-      },
-      "what": {
-        "status": "confirmed",
-        "value": "Precise money states, honest empty states, trips on their own clock, daily backups."
-      },
-      "why": {
-        "status": "pending",
-        "request": "Still to add."
-      },
-      "evidence": {
-        "status": "pending",
-        "request": "Still to add."
-      }
-    }
-  ],
-  "collaboration": [
-    {
-      "discipline": "Design and development",
-      "item": {
-        "status": "confirmed",
-        "value": "Me (solo)"
-      }
-    },
-    {
-      "discipline": "Testers",
-      "item": {
-        "status": "pending",
-        "request": "Still to add."
-      }
-    }
-  ],
-  "results": {
-    "status": "pending",
-    "request": "Still to add."
-  },
-  "reflection": {
-    "status": "confirmed",
-    "value": "The design challenge is one app that stays flexible across different trips, group sizes and budgets without clutter. Tabi keeps each trip in its own invite-only group, breaks the plan into days with map pins, and lets the same budget be read for the whole group or per person, with a warning at the ceiling. The home screen changes job: a countdown before the trip, Today's plan during it. A Japan trip was the first real use. It was the test case, not a limit on who the app is for."
-  },
-  "mechanics": {
-    "status": "confirmed",
-    "value": [
-      {
-        "name": "Trips",
-        "text": "More than one trip on an account. Each trip has its own invite-only group, with viewer and editor roles."
-      },
-      {
-        "name": "Itinerary",
-        "text": "A day-by-day plan with map pins."
-      },
-      {
-        "name": "Budget",
-        "text": "A whole-group / per-person toggle, and a warning when spending crosses a budget ceiling. Costs stay marked paid, committed or estimated. With no budget set, the app says \"No budget set\"."
-      },
-      {
-        "name": "Currency",
-        "text": "Live currency conversion."
-      },
-      {
-        "name": "Weather",
-        "text": "Weather for the trip."
-      },
-      {
-        "name": "Home",
-        "text": "Today's plan while a trip is on. A countdown before it starts."
-      },
-      {
-        "name": "Sign-in",
-        "text": "Google sign-in. The app is mobile-first and meant to feel like a phone app."
-      }
-    ]
-  }
+  ]
 }

@@ -10,6 +10,8 @@ export default defineConfig({
   use: {
     baseURL: 'http://127.0.0.1:4321',
     headless: true,
+    // Set PW_CHROMIUM to use a preinstalled Chromium instead of Playwright's download.
+    launchOptions: process.env.PW_CHROMIUM ? { executablePath: process.env.PW_CHROMIUM } : {},
   },
   webServer: {
     command: 'python3 -m http.server 4321',
