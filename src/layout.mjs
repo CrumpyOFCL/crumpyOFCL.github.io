@@ -29,7 +29,9 @@ export function page({ site, title, description, path = '', body, asset, current
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preload" href="fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
-<script>document.documentElement.classList.add('js');if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('motion');</script>
+<script>document.documentElement.classList.add('js');if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('motion');
+// A page transition the browser skips (say, another navigation starts first) rejects its promises; handle them so it isn't an error.
+['pageswap','pagereveal'].forEach(function(t){addEventListener(t,function(e){var v=e.viewTransition;if(v){v.ready.catch(function(){});v.finished.catch(function(){});v.updateCallbackDone.catch(function(){});}});});</script>
 <link rel="stylesheet" href="assets/styles.css?v=${asset}">
 <script src="assets/app.js?v=${asset}" defer></script>
 </head>

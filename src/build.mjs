@@ -86,7 +86,9 @@ const redirects = [
 ];
 for (const [from, target, title] of redirects) {
   const html = page({ site, title, description: `${title} has moved.`, path: `${from}.html`, body: moved({ title, target, text: `This page now lives at a new address.` }), asset })
-    .replace('<meta name="viewport"', `<meta http-equiv="refresh" content="0; url=${target}">\n<meta name="robots" content="noindex">\n<meta name="viewport"`);
+    .replace('<meta name="viewport"', `<meta http-equiv="refresh" content="0; url=${target}">\n<meta name="robots" content="noindex">\n<meta name="viewport"`)
+    // An instant redirect shouldn't animate: browsers abort a page transition the refresh starts.
+    .replace('</head>', '<style>@view-transition { navigation: none; }</style>\n</head>');
   write(`${from}.html`, html);
 }
 
