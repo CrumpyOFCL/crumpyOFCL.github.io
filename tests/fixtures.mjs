@@ -11,6 +11,7 @@ export const test = base.extend({
       if (response.status() >= 400) problems.push(`${response.status()} ${response.url()}`);
     });
     const checkImages = async () => {
+      await page.waitForLoadState('load');
       const broken = await page.evaluate(() => [...document.images].filter((img) => {
         const panel = img.closest('.panel');
         if (panel && getComputedStyle(panel).display === 'none') return false;
@@ -21,7 +22,13 @@ export const test = base.extend({
     const goto = page.goto.bind(page);
     page.goto = async (...args) => {
       const result = await goto(...args);
-      await checkImages();
+      try {
+        await checkImages();
+      } catch (error) {
+        // A meta-refresh redirect can replace the page mid-check; check the page it lands on.
+        if (!/context was destroyed/.test(error.message)) throw error;
+        await checkImages();
+      }
       return result;
     };
     await use(page);

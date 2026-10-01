@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Waking Nightmare · Tyler Crump</title>
+<meta name="description" content="Case study: Waking Nightmare (PhobiaVR), a Meta Quest horror experience made with LiminalVR. Tyler Crump was creative director, programmer and client contact.">
+<link rel="canonical" href="https://crumpyofcl.github.io/waking-nightmare.html">
+<meta name="theme-color" content="#f3efe6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121318" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tyler Crump">
+<meta property="og:title" content="Waking Nightmare · Tyler Crump">
+<meta property="og:description" content="Case study: Waking Nightmare (PhobiaVR), a Meta Quest horror experience made with LiminalVR. Tyler Crump was creative director, programmer and client contact.">
+<meta property="og:url" content="https://crumpyofcl.github.io/waking-nightmare.html">
+<meta property="og:image" content="https://crumpyofcl.github.io/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Tyler Crump, Game designer &amp; developer">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
+<script>document.documentElement.classList.add('js');if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('motion');</script>
+<link rel="stylesheet" href="assets/styles.css?v=5fc9fc1f95">
+<script src="assets/app.js?v=5fc9fc1f95" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="masthead">
+  <div class="masthead__inner">
+    <a class="brand" href="index.html"><span class="brand__mark" aria-hidden="true"></span><span class="brand__name">Tyler Crump</span><span class="brand__role">Game designer &amp; developer</span></a>
+    <nav class="nav" aria-label="Main">
+      <ul>
+        <li><a href="index.html#work" aria-current="page">Work</a></li><li><a href="index.html#about">About</a></li><li><a href="index.html#contact">Contact</a></li>
+        <li><a class="nav__resume" href="Tyler-Crump-Resume.docx" download>Résumé <span class="nav__meta">DOCX</span></a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="progress" aria-hidden="true"></div>
+</header>
+<main id="main">
+<article class="case" aria-labelledby="case-title">
+  <header class="wrap case__head">
+    <p class="crumb"><a href="index.html#work"><span aria-hidden="true">←</span> Selected work</a></p>
+    <p class="kicker">VR horror · Meta Quest · Client project</p>
+    <h1 id="case-title">Waking Nightmare <span class="case__alt">PhobiaVR</span></h1>
+    <p class="lede">Awaken in a dark room and fight off the monsters that await. A horror experience for Meta Quest, made for a real client.</p>
+    <div class="actions"><a class="btn btn--line" href="https://crumpyofcl.itch.io/waking-nightmare" rel="noopener"><span>Get the Quest APK <span aria-hidden="true">↗</span></span><small>itch.io · sideload to Meta Quest</small></a></div>
+  </header>
+  <div class="wrap case__top">
+    <figure class="cover cover--plum cover--contain">
+    <div class="cover__frame" style="view-transition-name: cover-waking-nightmare"><img src="img/phobiavr-mark.webp" alt="PhobiaVR logo: a grey VR headset wrapped in dark red chains over a purple circular emblem." width="620" height="620" fetchpriority="high"></div>
+    <figcaption>Project logo from the itch.io page.</figcaption>
+  </figure>
+    <dl class="facts"><div><dt>Role</dt><dd>Creative director, programmer, client contact</dd></div><div><dt>Team</dt><dd>Team 28, 5 people; published with Moin Uddin Sami, Xin Hu Dobbie and RePerson</dd></div><div><dt>Client</dt><dd>LiminalVR, for their experience app</dd></div><div><dt>When</dt><dd>2025 · Macquarie University</dd></div><div><dt>Tools</dt><dd>Unity 2019 · C# · Liminal SDK · Volumetric Light Beam</dd></div><div><dt>Platform</dt><dd>Meta Quest 2 and 3</dd></div><div><dt>Status</dt><dd>Prototype handed over to the client</dd></div></dl>
+  </div>
+  <section class="wrap quick" aria-labelledby="quick-title">
+    <h2 class="quick__title" id="quick-title">In 30 seconds</h2>
+    <dl class="quick__grid"><div><dt>The game</dt><dd>A short horror experience for Meta Quest, built with a client for LiminalVR&#39;s experience app.</dd></div><div><dt>My part</dt><dd>Set the creative direction and was the team&#39;s contact with the client. Built the event pacing, flashlight, monster exposure, lighting and audio systems.</dd></div><div><dt>Evidence</dt><dd>A Quest APK on itch.io and the software requirements sections I wrote. No headset footage yet.</dd></div></dl>
+  </section>
+  <div class="wrap case__layout">
+    <nav class="toc" aria-label="On this page"><p class="toc__title">On this page</p><ol><li><a href="#systems">Systems</a></li><li><a href="#contribution">My contribution</a></li><li><a href="#client">Direction &amp; client work</a></li></ol></nav>
+    <div class="case__body"><section class="block block--flow" id="systems" aria-labelledby="systems-title"><header class="block__head"><p class="kicker">Systems</p><h2 id="systems-title">Pacing fear in phases.</h2></header><div class="block__body"><p>The experience runs in phases, each made of waves. Events belong to a wave or a phase and fire by priority.</p><div class="flow"><div class="flow__lane" data-reveal><p class="flow__label">Pacing · EventManager</p><ol class="flow__nodes"><li>Phase</li><li>Wave</li><li>Events scoped to the wave or phase</li><li>Fired by priority</li></ol></div><div class="flow__lane" data-reveal><p class="flow__label">Player tool · Flashlight</p><ol class="flow__nodes"><li>Flashlight beam (VLB)</li><li>Monster exposed</li><li>Monster fades</li></ol></div><div class="flow__lane" data-reveal><p class="flow__label">Room · Environment</p><ol class="flow__nodes"><li>Automated ceiling lights</li><li>Audio on a refactored architecture</li></ol></div></div><p class="source">Diagram of the systems I built, drawn from their descriptions. It isn&#39;t a code architecture diagram.</p></div></section><section class="block block--list" id="contribution" aria-labelledby="contribution-title"><header class="block__head"><p class="kicker">My contribution</p><h2 id="contribution-title">What I built and wrote.</h2></header><div class="block__body"><ul class="ticks"><li>An EventManager that handles wave- and phase-scoped priority events.</li><li>The flashlight mechanic for Meta Quest, built on the Liminal SDK with the Volumetric Light Beam package.</li><li>A monster fade/exposure system, and automated ceiling lighting.</li><li>A refactor of the project&#39;s audio architecture for maintainability.</li><li>Sections of the IEEE 830 software requirements specification: quality management, the schedule (Gantt chart), team organisation and team values.</li></ul></div></section><section class="block block--production" id="client" aria-labelledby="client-title"><header class="block__head"><p class="kicker">Direction &amp; client work</p><h2 id="client-title">Working with a real client.</h2></header><div class="block__body"><dl class="defs"><div><dt>Direction</dt><dd>Set the creative direction for the project as creative director.</dd></div><div><dt>Liaison</dt><dd>Met and emailed LiminalVR regularly on behalf of the team.</dd></div><div><dt>Handover</dt><dd>Delivered to the client as an in-progress build for them to finish.</dd></div></dl><p class="gap"><span class="gap__tag">Not yet documented</span> Headset footage, comfort and performance testing notes, and the client&#39;s feedback aren&#39;t documented here yet.</p></div></section></div>
+  </div>
+  <nav class="wrap pager" aria-label="More projects">
+    <a class="pager__link" href="sword-saint-broken-bridge.html"><span class="meta">Previous</span>Sword Saint: Broken Bridge</a>
+    <a class="pager__link pager__link--next" href="tabi.html"><span class="meta">Next</span>Tabi</a>
+  </nav>
+</article>
+</main>
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <p><strong>Tyler Crump</strong> · Game designer &amp; developer · Sydney, Australia</p>
+    <p><a href="mailto:tylercrump@outlook.com.au">tylercrump@outlook.com.au</a> · <a href="https://github.com/CrumpyOFCL">GitHub</a> · <a href="https://crumpyofcl.itch.io">itch.io</a></p>
+    <p class="footer__note">Project art and logos belong to their teams, as credited on each page.</p>
+  </div>
+</footer>
+</body>
+</html>

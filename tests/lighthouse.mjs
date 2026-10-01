@@ -10,7 +10,7 @@ import { chromium } from 'playwright';
 import lighthouse from 'lighthouse';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
-const outDir = join(root, 'docs');
+const outDir = join(root, 'test-results');
 const port = 4322;
 const origin = `http://127.0.0.1:${port}`;
 
@@ -55,7 +55,7 @@ if (!robotsResponse.ok || !robotsText.includes('User-agent: *') || !robotsText.i
   throw new Error('Local robots.txt is missing or invalid');
 }
 
-const pages = [['home', '/']];
+const pages = [['home', '/'], ['a-course-in-time', '/a-course-in-time.html']];
 
 const flags = {
   logLevel: 'error',
@@ -67,6 +67,7 @@ const flags = {
 };
 
 const browser = await chromium.launch({
+  ...(process.env.PW_CHROMIUM ? { executablePath: process.env.PW_CHROMIUM } : {}),
   args: ['--remote-debugging-port=9222', '--headless=new', '--no-sandbox', '--disable-gpu'],
 });
 
@@ -90,6 +91,7 @@ try {
         scores[key] = Math.round(cat.score * 100);
       }
       summary[name][form] = scores;
+      if (process.env.LH_DEBUG) for (const id of ['first-contentful-paint', 'largest-contentful-paint', 'total-blocking-time', 'cumulative-layout-shift', 'speed-index', 'largest-contentful-paint-element']) console.log('  ', id, result.lhr.audits[id].displayValue || JSON.stringify(result.lhr.audits[id].details?.items?.[0]?.items?.[0]?.node?.snippet || ''));
       console.log(`${name} ${form}:`, scores);
       for (const audit of Object.values(result.lhr.audits)) {
         if (audit.score !== null && audit.score < 1 && audit.id && result.lhr.categories.seo.auditRefs.some((ref) => ref.id === audit.id)) {

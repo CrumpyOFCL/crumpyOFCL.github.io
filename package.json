@@ -1,17 +1,21 @@
 {
   "name": "crumpyofcl-portfolio",
   "private": true,
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "Tyler Crump's portfolio: content in content/*.json, built to static HTML by a zero-dependency Node script.",
   "type": "module",
-  "engines": { "node": ">=18" },
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "build": "node src/build.mjs",
     "serve": "python3 -m http.server 4321",
+    "og": "node scripts/og.mjs",
     "test:content": "node tests/content.test.mjs",
+    "test:banned": "node tests/banned.test.mjs",
     "test:browser": "playwright test",
     "test:lighthouse": "node tests/lighthouse.mjs",
-    "test": "npm run build && npm run test:content && node tests/banned.test.mjs && npm run test:browser && npm run test:lighthouse"
+    "test": "npm run build && npm run test:content && npm run test:banned && npm run test:browser && npm run test:lighthouse"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.10.2",
