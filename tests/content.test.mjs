@@ -41,7 +41,9 @@ for (const p of projects) {
 
 // Old addresses keep working.
 for (const [from, to] of [['phobiavr.html', 'waking-nightmare.html'], ['opengl-desert.html', 'index.html#about']]) {
-  assert.ok(readFileSync(from, 'utf8').includes(`url=${to}`), `${from} redirects to ${to}`);
+  const html = readFileSync(from, 'utf8');
+  assert.ok(html.includes(`url=${to}`), `${from} redirects to ${to}`);
+  assert.ok(html.includes('@view-transition { navigation: none; }'), `${from} opts out of page transitions`);
 }
 // Tabi's demo is reachable from its case study.
 assert.ok(readFileSync('tabi.html', 'utf8').includes('Try the demo trip'), 'Tabi links the demo');
